@@ -829,7 +829,7 @@
                 console.log("Form data ", formData)
 
         try {
-            const response = await fetch("https://localhost:32769/api/MedicalEnquiry", {  // ← Change to your actual endpoint
+            const response = await fetch("/api/MedicalEnquiry", {  // ← Change to your actual endpoint
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
