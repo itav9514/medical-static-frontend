@@ -559,7 +559,7 @@
 }
 .terms .table{border:1px solid #ddd;}
 .terms .table th {
-    background: #c5662b;
+    background: #1B2C51;
     font-size: 15px;
     color:#fff;
 }
@@ -568,3 +568,7 @@
     font-size: 14px;
     color:#333;
 }
+
+.terms  .accordion-button{color:#000;}
+.terms .accordion-body{color:#000;}
+.terms strong{color:#000;}
