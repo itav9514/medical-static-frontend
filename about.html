@@ -32,6 +32,29 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/mobile-responsive.css" rel="stylesheet" />
+    <style>
+        .page-header {
+            background: url(img/about-banner.png) top center no-repeat;
+        }
+
+        .display-3 {
+            font-size: 2rem;
+            color: #00154c !important;
+            text-align: center;
+        }
+
+        .size-14 {
+
+            color: #333;
+        }
+
+        @media (max-width:767px) {
+            .display-3 {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -44,65 +67,40 @@
     </div>
     <!-- Spinner End -->
 
-
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-light p-0 wow fadeIn" data-wow-delay="0.1s">
-        <div class="row gx-0 d-none d-lg-flex">
-            <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
-                    <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                    <small>Unit 16A, 16B / 17A Ground Floor, Tower B3, Spaze Itech Park, Sector 49, Gurugram, Haryana
-                        122018, India </small>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center py-3">
-                    <small class="far fa-clock text-primary me-2"></small>
-                    <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
-                </div>
-            </div>
-            <div class="col-lg-5 px-5 text-end">
-                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
-                    <small class="fa fa-phone-alt text-primary me-2"></small>
-                    <small>+1 855 888 0114</small>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center">
-                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href=""><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href=""><i
-                            class="fab fa-twitter"></i></a>
-                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href=""><i
-                            class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-0" href=""><i
-                            class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
-
-
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <img src="img/logo.png" style="width:150px;"> </a>
+            <img src="img/logo.png" style="width:150px;">
+        </a>
+        <div class="phone-header-mobile">
+            <a href="tel:1-855-888-0114"><i class="fa fa-phone"></i></a>
+        </div>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="about.html" class="nav-item nav-link active">About</a>
-                <a href="medical-treatment.html" class="nav-item nav-link">Medical Treatment Cost</a>
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About Us</a>
+                <a href="service.html" class="nav-item nav-link">Services</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Treatments</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
                         <a href="cardiac-surgery.html" class="dropdown-item">Cardiac Surgery</a>
-
+                        <!-- <a href="team.html" class="dropdown-item">Our Doctor</a>
+                        <a href="appointment.html" class="dropdown-item">Appointment</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        <a href="404.html" class="dropdown-item">404 Page</a> -->
                     </div>
                 </div>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Appointment<i
-                    class="fa fa-arrow-right ms-3"></i></a>
+            <div class="d-none d-lg-block call-top">
+                <span>Request a call back</span>
+                <a href="tel:+1-855-888-0114">
+                    +1-855-888-0114
+                </a>
+            </div>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -112,13 +110,7 @@
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb text-uppercase mb-0">
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page">About</li>
-                </ol>
-            </nav>
+
         </div>
     </div>
     <!-- Page Header End -->
@@ -136,20 +128,22 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <p class="d-inline-block border rounded-pill py-1 px-4">About Us</p>
-                    <h1 class="mb-4">Who We Are</h1>
-                    <p>Adam Vacations Medical is a trusted, patient-first medical tourism facilitator based in India,
+                    <p class="d-inline-block border rounded-pill py-1 px-4 size-18">About Us</p>
+                    <h1 class="mb-4 size-18">Who We Are</h1>
+                    <p class="size-14">Adam Vacations Medical is a trusted, patient-first medical tourism facilitator
+                        based in India,
                         committed to connecting international patients with world-class healthcare services across top
                         cities like Delhi, Mumbai, Bangalore, Indore, and Gurgaon. We are a division of Adam Vacations
                         Pvt. Ltd., a global travel and wellness solutions company, and we specialize in offering
                         holistic support for patients traveling to India for medical treatment.</p>
-                    <p class="mb-4">Our mission is to simplify the journey to better health—by offering not just
+                    <p class="mb-4 size-14">Our mission is to simplify the journey to better health—by offering not just
                         world-class treatment options, but a seamless experience including visa support, flight
                         bookings, hotel accommodations, and even post-treatment care.
 
                     </p>
-                    <h2>Our Vision</h2>
-                    <p>To become a leading global partner in medical tourism by making high-quality, affordable, and
+                    <h2 class="size-18">Our Vision</h2>
+                    <p class="size-14">To become a leading global partner in medical tourism by making high-quality,
+                        affordable, and
                         ethical healthcare accessible to international patients, especially from the USA, UK, Europe,
                         Africa, the Middle East, and Asia-Pacific regions.</p>
 
@@ -166,14 +160,18 @@
 
                 <div class="col-lg-12 wow fadeIn" data-wow-delay="0.5s">
 
-                    <h2>Our Mission</h2>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>To ensure safe, timely, and effective
+                    <h2 class="size-18">Our Mission</h2>
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>To ensure safe, timely, and
+                        effective
                         treatment options in India for global patients.</p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>To collaborate only with NABH- and
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>To collaborate only with
+                        NABH- and
                         JCI-accredited hospitals and globally renowned specialists</p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>To provide personalized care coordinators
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>To provide personalized care
+                        coordinators
                         for end-to-end support throughout the medical journey.</p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>To ensure transparency in costs, procedures,
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>To ensure transparency in
+                        costs, procedures,
                         hospital choices, and travel planning.
                     </p>
 
@@ -188,89 +186,96 @@
 
                 <div class="col-lg-12 wow fadeIn" data-wow-delay="0.5s">
 
-                    <h2>Why Choose Adam Vacations Medical?</h2>
-                    <strong>Top-Tier Hospitals</strong>
-                    <p>We work exclusively with India’s most
+                    <h2 class="size-18">Why Choose Adam Vacations Medical?</h2>
+                    <strong class="size-14">Top-Tier Hospitals</strong>
+                    <p class="size-14">We work exclusively with India’s most
                         reputed multi-specialty hospitals such as Fortis, Apollo, Medanta, Max
                         Healthcare, and more—ensuring the highest standards of treatment.</p>
-                    <strong>Highly Qualified Doctors</strong>
+                    <strong class="size-14">Highly Qualified Doctors</strong>
 
-                    <p>Our partner hospitals house world-renowned
+                    <p class="size-14">Our partner hospitals house world-renowned
                         surgeons and specialists in cardiology, oncology, orthopedics, fertility, cosmetic surgery,
                         neurology, and more.
                     </p>
-                    <strong>Global Patient Services</strong>
-                    <p>From the USA to Africa to Europe, we support
+                    <strong class="size-14">Global Patient Services</strong>
+                    <p class="size-14">From the USA to Africa to Europe, we support
                         international patients with multilingual staff, video consultations, medical record evaluations,
                         second opinions, and complete logistical support.
                     </p>
-                    <strong>End-to-End Travel Support</strong>
-                    <p>From visa letters to airport pickups, hotel
+                    <strong class="size-14">End-to-End Travel Support</strong>
+                    <p class="size-14">From visa letters to airport pickups, hotel
                         stays, and translator services, we manage it all so that patients and their families can focus
                         entirely on recovery.
 
                     </p>
-                    <strong>Affordable Healthcare</strong>
-                    <p>India offers 60–80% cost savings
+                    <strong class="size-14">Affordable Healthcare</strong>
+                    <p class="size-14">India offers 60–80% cost savings
                         compared to countries like the USA, without compromising on quality. We ensure transparent
                         pricing and no hidden fees.
 
 
                     </p>
                     <!-- <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Read More</a> -->
-                    <h2>Our Services at a Glance</h2>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Medical Consultations & Second Opinions
+                    <h2 class="size-14">Our Services at a Glance</h2>
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Medical Consultations &
+                        Second Opinions
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Surgical & Non-Surgical Treatment Planning
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Surgical & Non-Surgical
+                        Treatment Planning
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Visa Invitation Letters
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Visa Invitation Letters
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Flight Booking & Airport Transfers
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Flight Booking & Airport
+                        Transfers
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Accommodation Near Hospitals
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Accommodation Near Hospitals
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Post-treatment Recovery Packages
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Post-treatment Recovery
+                        Packages
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Wellness & Rejuvenation Add-ons
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Wellness & Rejuvenation
+                        Add-ons
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Interpreter & Attendant Assistance
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Interpreter & Attendant
+                        Assistance
                     </p>
-                    <h2>Specialties We Handle</h2>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Cardiac Surgery
+                    <h2 class="size-14">Specialties We Handle</h2>
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Cardiac Surgery
 
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Orthopedic Surgery
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Orthopedic Surgery
 
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>IVF & Fertility
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>IVF & Fertility
 
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Cosmetic & Plastic Surgery
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Cosmetic & Plastic Surgery
 
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Spine & Neuro Surgeries
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Spine & Neuro Surgeries
 
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i> Liver & Kidney Transplants
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i> Liver & Kidney Transplants
 
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Bariatric (Weight Loss) Surgery
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Bariatric (Weight Loss)
+                        Surgery
 
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Cancer Treatment
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Cancer Treatment
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Dental Implants
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Dental Implants
 
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Eye Surgeries
-
-
-                    </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i>Stem Cell Therapy
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Eye Surgeries
 
 
                     </p>
-                    <p><i class="far fa-check-circle text-primary me-3"></i> Hair Transplants
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i>Stem Cell Therapy
+
+
+                    </p>
+                    <p class="size-14"><i class="far fa-check-circle text-primary me-3"></i> Hair Transplants
 
 
                     </p>
@@ -280,64 +285,64 @@
     </div>
 
     <!-- Feature Start -->
-    <div class="container-fluid bg-primary overflow-hidden my-5 px-lg-0">
+    <div class="container-fluid bg-primary-1 overflow-hidden my-5 px-lg-0">
         <div class="container feature px-lg-0">
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.1s">
                     <div class="p-lg-5 ps-lg-0">
-                        <p class="d-inline-block border rounded-pill text-light py-1 px-4">Features</p>
-                        <h1 class="text-white mb-4">Trusted by Patients from Around the World</h1>
-                        <p class="text-white mb-4 pb-2">We’ve proudly served hundreds of international patients from
+                        <h1 class="text-white-1 mb-4 size-18">Trusted by Patients from Around the World</h1>
+                        <p class="text-white-1 mb-4 pb-2 size-14">We’ve proudly served hundreds of international
+                            patients from
                             the USA, Canada, UK, Nigeria, UAE, Oman, Bangladesh, and Kenya—many of whom share their
                             **success stories** on our platform. Their journeys inspire us to keep raising the bar for
                             compassionate and competent medical care.
                         </p>
                         <div class="row g-4">
-                            <div class="col-6">
+                            <div class="col-sm-6 col-xs-12">
                                 <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light-1"
                                         style="width: 55px; height: 55px;">
-                                        <i class="fa fa-user-md text-primary"></i>
+                                        01
                                     </div>
                                     <div class="ms-4">
-                                        <p class="text-white mb-2">Experience</p>
-                                        <h5 class="text-white mb-0">Doctors</h5>
+                                        <p class="text-white-1 mb-2 size-14">Experience</p>
+                                        <h5 class="text-white-1 mb-0 size-18">Doctors</h5>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-sm-6 col-xs-12">
                                 <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light-1"
                                         style="width: 55px; height: 55px;">
-                                        <i class="fa fa-check text-primary"></i>
+                                        02
                                     </div>
                                     <div class="ms-4">
-                                        <p class="text-white mb-2">Quality</p>
-                                        <h5 class="text-white mb-0">Services</h5>
+                                        <p class="text-white-1 mb-2">Quality</p>
+                                        <h5 class="text-white-1 mb-0">Services</h5>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-sm-6 col-xs-12">
                                 <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light-1"
                                         style="width: 55px; height: 55px;">
-                                        <i class="fa fa-comment-medical text-primary"></i>
+                                        03
                                     </div>
                                     <div class="ms-4">
-                                        <p class="text-white mb-2">Positive</p>
-                                        <h5 class="text-white mb-0">Consultation</h5>
+                                        <p class="text-white-1 mb-2">Positive</p>
+                                        <h5 class="text-white-1 mb-0">Consultation</h5>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-sm-6 col-xs-12">
                                 <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light-1"
                                         style="width: 55px; height: 55px;">
-                                        <i class="fa fa-headphones text-primary"></i>
+                                        04
                                     </div>
                                     <div class="ms-4">
-                                        <p class="text-white mb-2">24 Hours</p>
-                                        <h5 class="text-white mb-0">Support</h5>
+                                        <p class="text-white-1 mb-2">24 Hours</p>
+                                        <h5 class="text-white-1 mb-0">Support</h5>
                                     </div>
                                 </div>
                             </div>
@@ -346,7 +351,7 @@
                 </div>
                 <div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="img/feature.jpg"
+                        <img class="position-absolute img-fluid w-100 h-100" src="img/banner-home-big.png"
                             style="object-fit: cover;" alt="">
                     </div>
                 </div>
@@ -356,94 +361,54 @@
     <!-- Feature End -->
 
 
-    <!-- Team Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block border rounded-pill py-1 px-4">Doctors</p>
-                <h1>Our Experience Doctors</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item position-relative rounded overflow-hidden">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-1.jpg" alt="">
-                        </div>
-                        <div class="team-text bg-light text-center p-4">
-                            <h5>Doctor Name</h5>
-                            <p class="text-primary">Department</p>
-                            <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item position-relative rounded overflow-hidden">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-2.jpg" alt="">
-                        </div>
-                        <div class="team-text bg-light text-center p-4">
-                            <h5>Doctor Name</h5>
-                            <p class="text-primary">Department</p>
-                            <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item position-relative rounded overflow-hidden">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-3.jpg" alt="">
-                        </div>
-                        <div class="team-text bg-light text-center p-4">
-                            <h5>Doctor Name</h5>
-                            <p class="text-primary">Department</p>
-                            <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item position-relative rounded overflow-hidden">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-4.jpg" alt="">
-                        </div>
-                        <div class="team-text bg-light text-center p-4">
-                            <h5>Doctor Name</h5>
-                            <p class="text-primary">Department</p>
-                            <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Team End -->
-
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Address</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i> 7901 4TH ST N STE 300, ST PETERSBURG, FL
-                        33702 </p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+1 855 888 0114</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>medical@adamvacations.com</p>
+                    <h5 class="text-light mb-4">About Us <br>
+                        <hr>
+                    </h5>
+
+                    <p class="size-txt">Adam Vacations is a fully accredited & certified medical tourism company based
+                        in
+                        India. We offer
+                        tailored options for patients looking for competitive & quality medical treatment.</p>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Services <br>
+                        <hr>
+                    </h5>
+                    <a class="btn btn-link" href="cardiac-surgery.html">Cardiac Surgery</a>
+                    <a class="btn btn-link size-txt-1" href="medical-treatment.html">Medical Treatment Cost</a>
+                    <a class="btn btn-link size-txt-1" href="refund-policy.html">Refund & Cancellation Policy</a>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Quick Links <br>
+                        <hr>
+                    </h5>
+                    <a class="btn btn-link size-txt-1" href="about.html">About Us</a>
+                    <a class="btn btn-link size-txt-1" href="contact.html">Contact Us</a>
+                    <a class="btn btn-link size-txt-1" href="privacy-policy.html">Privacy Policy</a>
+                    <a class="btn btn-link size-txt-1" href="termsandconditions.html">Terms & Condition</a>
+
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Address <br>
+                        <hr>
+                    </h5>
+                    <p class="mb-2 adgest size-txt-1"><i class="fa fa-map-marker-alt me-3"></i>Unit 16A, 16B / 17A
+                        Ground Floor,
+                        Tower B3,
+                        Spaze Itech Park, Sector 49, Gurugram, Haryana 122018, India
+                    </p>
+                    <p class="mb-2 adgest size-txt-1"><i class="fa fa-phone-alt me-3"></i>+1-855-888-0114</p>
+                    <p class="mb-2 adgest size-txt-1"><i class="fa fa-envelope me-3"></i>medical@adamvacations.com</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social rounded-circle" href=""><i
                                 class="fab fa-twitter"></i></a>
@@ -455,37 +420,12 @@
                                 class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Services</h5>
-                    <a class="btn btn-link" href="">Cardiology</a>
-                    <a class="btn btn-link" href="">Pulmonary</a>
-                    <a class="btn btn-link" href="">Neurology</a>
-                    <a class="btn btn-link" href="">Orthopedics</a>
-                    <a class="btn btn-link" href="">Laboratory</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="privacy-policy.html">Privacy Policy</a>
-                    <a class="btn btn-link" href="termsandconditions.html">Terms & Condition</a>
-                    <a class="btn btn-link" href="refund-policy.html">Refund & Cancellation Policy</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Newsletter</h5>
-                    <p>Caring for Your Health, Every Day</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button"
-                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="container">
             <div class="copyright">
                 <div class="row">
-                    <div class="col-md-12 text-center text-md-start mb-3 mb-md-0">
+                    <div class="col-md-12 text-center text-md-start mb-3 mb-md-0 size-txt-1">
                         &copy; medical@adamvacations.com, All Right Reserved.
                     </div>
                 </div>

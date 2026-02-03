@@ -118,6 +118,29 @@
             768:{
                 items:3
             }
+            
+        }
+    });
+     // Testimonials carousel
+    $(".media-carousel").owlCarousel({
+        autoplay: false,
+        smartSpeed: 1000,
+        margin: 20,
+        center: true,
+        dots: true,
+        loop: true,
+        nav : false,
+        navText : [
+            '<i class="bi bi-chevron-left"></i>',
+            '<i class="bi bi-chevron-right"></i>'
+        ],
+        responsive: {
+            0:{
+                items:1
+            },
+            768:{
+                items:3
+            }
         }
     });
 
