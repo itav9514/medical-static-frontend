@@ -132,12 +132,12 @@
                                 <select class="form-select" id="nationality" name="nationality" style="height: 55px;"
                                     required>
                                     <option value="">Select your nationality</option>
-                                    <option value="American">American</option>
-                                    <option value="British">British</option>
-                                    <option value="Canadian">Canadian</option>
-                                    <option value="Emirati">Emirati</option>
-                                    <option value="Indian">Indian</option>
-                                    <option value="Spanish">Spanish</option>
+                                    <option value="America">America</option>
+                                    <option value="Britain">Britain</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="Dubai">Dubai</option>
+                                    <option value="India">India</option>
+                                    <option value="Spain">Spain</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Please select your nationality
@@ -166,7 +166,7 @@
                             <div class="col-12 col-sm-6">
                                 <div class="date" id="datePicker" data-target-input="nearest">
                                     <input type="text" class="form-control datetimepicker-input" id="appointmentDate"
-                                        name="appointmentDate" placeholder="Choose Date" data-target="#datePicker"
+                                        name="appointmentDate" placeholder="Callback Date" data-target="#datePicker"
                                         data-toggle="datetimepicker" style="height: 55px;" required>
                                 </div>
                                 <div class="invalid-feedback">
@@ -178,7 +178,7 @@
                             <div class="col-12 col-sm-6">
                                 <div class="time" id="timePicker" data-target-input="nearest">
                                     <input type="text" class="form-control datetimepicker-input" id="appointmentTime"
-                                        name="appointmentTime" placeholder="Choose Time" data-target="#timePicker"
+                                        name="appointmentTime" placeholder="Callback Time" data-target="#timePicker"
                                         data-toggle="datetimepicker" style="height: 55px;" required>
                                 </div>
                                 <div class="invalid-feedback">
@@ -806,7 +806,7 @@
 
                 try {
                     const response = await fetch(
-                        "https://localhost:32769/api/MedicalEnquiry",
+                        "/api/MedicalEnquiry",
                         {
                             // ← Change to your actual endpoint
                             method: "POST",
