@@ -557,21 +557,404 @@
     font-size: 14px;
     color: #333;
 }
-.terms .table{border:1px solid #ddd;}
+
+.terms .table {
+    border: 1px solid #ddd;
+}
+
 .terms .table th {
     background: #1B2C51;
     font-size: 15px;
-    color:#fff;
+    color: #fff;
 }
+
 .terms .table td {
     background: #fff;
     font-size: 14px;
-    color:#333;
+    color: #333;
 }
 
-.terms  .accordion-button{color:#000;}
-.terms .accordion-body{color:#000;}
-.terms strong{color:#000;}
-    .display-3 {
-        font-size: 2rem;
-    }
+.terms .accordion-button {
+    color: #000;
+}
+
+.terms .accordion-body {
+    color: #000;
+}
+
+.terms strong {
+    color: #000;
+}
+
+.display-3 {
+    font-size: 2rem;
+}
+
+.adgest {
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+}
+
+.size-txt {
+    font-size: 14px;
+    text-align: left;
+    line-height: 24px;
+}
+
+.size-txt-1 {
+    font-size: 14px;
+}
+
+.text-light hr {
+    width: 100px;
+    border-top: 2px solid #91abff;
+}
+
+.bg-dark {
+    background: url(../img/background-banner.png) no-repeat;
+    background-color: #0c1c4a !important;
+}
+
+.top-form {
+    position: absolute;
+    top: 0;
+    z-index: 999;
+}
+
+.iti {
+    width: 100%;
+}
+
+#appointmentForm .form-control {
+    border: 1px solid #93c2e3;
+    background: transparent;
+    border-radius: 15px;
+}
+
+#appointmentForm .form-select {
+    border: 1px solid #93c2e3;
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+.form-submit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-submit .sub-1 {
+    width: 45%;
+}
+
+.form-submit .sub-1 button {
+    background: #00154c;
+    width: 100%;
+    color: #fff;
+    font-size: 21px;
+    padding: 14px;
+    font-weight: 600;
+    border-radius: 32px 0;
+}
+
+.form-submit .sub-2 {
+    width: 45%;
+}
+
+.form-submit .sub-2 a {
+    width: 100%;
+    display: inline-block;
+    border: 1px solid #414f77;
+    border-radius: 22px;
+    padding: 8px 10px 8px;
+    font-size: 28px;
+    color: #00154c;
+    font-weight: 600;
+}
+
+.call-top {
+    background: #00154c;
+    padding: 8px 32px 8px;
+    margin: 5px 0 3px;
+    border-radius: 32px 0;
+}
+
+.call-top span {
+    display: block;
+    color: #fff;
+    font-size: 15px;
+}
+
+.call-top a {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.hide-part {
+    display: none;
+}
+
+.show-part {
+    display: block;
+}
+
+.btn-gray {
+    color: #00154c;
+    background-color: #e2eaf5;
+    border-color: #e2eaf5;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 13px 36px;
+    border-radius: 0 32px 0;
+}
+
+
+/*********Treatments Start slider*****************/
+.treatments-carousel .owl-carousel-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 3rem;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 30px rgba(0, 0, 0, .1);
+}
+
+.treatments-carousel .owl-nav {
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.treatments-carousel .owl-nav .owl-prev,
+.treatments-carousel .owl-nav .owl-next {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 45px;
+    font-size: 22px;
+    transition: .5s;
+}
+
+.treatments-carousel .owl-nav .owl-prev:hover,
+.treatments-carousel .owl-nav .owl-next:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.treatments-carousel .owl-dots {
+    position: absolute;
+    height: 45px;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.treatments-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 15px;
+    transition: .5s;
+}
+
+.treatments-carousel .owl-dot::after {
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 5px;
+    top: 4px;
+    left: 4px;
+    background: #000;
+    border-radius: 5px;
+}
+
+.treatments-carousel .owl-dot.active {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+/*********Treatments End slider*****************/
+.thanks-top {
+    background: url(../img/thanks-banner-1.png) no-repeat;
+    text-align: center;
+    padding: 38px 24px;
+    margin: 23px 0 0;
+    height: 300px;
+    background-position: bottom;
+}
+
+.thanks-top h1 {
+    font-size: 35px;
+    color: #001c76;
+    font-weight: 700;
+    margin: 29px 0 13px;
+}
+
+.thanks-top p {
+    font-size: 18px;
+    color: #171717;
+    font-weight: 500;
+    margin: 0 0 13px;
+}
+
+.get-touch {
+    width: 100%;
+    float: left;
+}
+
+.get-touch h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.get-touch h2 hr {
+    background-color: rgb(133 133 133);
+    border: 2px solid;
+    opacity: .25;
+    width: 100px;
+    margin: 7px auto 0;
+}
+
+.get-touch ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.get-touch ul li {
+    background: #f1f0f6;
+    width: 32%;
+    list-style-type: none;
+    text-align: center;
+    border: 1px solid #e7e7e7;
+    box-shadow: 0px 3px 4px 0px rgb(12 6 14 / 14%);
+    -webkit-box-shadow: 0px 3px 4px 0px rgb(12 6 14 / 14%);
+    padding: 26px 13px 8px;
+    border-radius: 15px;
+}
+
+.get-touch ul li img {
+    height: 54px;
+}
+
+.get-touch ul li h3 {
+    font-size: 22px;
+    margin: 10px 0 12px;
+}
+
+.get-touch ul li p {
+    font-size: 15px;
+    color: #171717;
+    font-weight: 500;
+}
+
+.get-treatment h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.get-treatment h2 hr {
+    background-color: rgb(133 133 133);
+    border: 2px solid;
+    opacity: .25;
+    width: 100px;
+    margin: 7px auto 0;
+}
+
+.get-treatment p {
+    font-size: 15px;
+    color: #171717;
+    font-weight: 500;
+    text-align: center;
+    line-height: 24px;
+}
+
+.banner-treatment {
+    background: #f1f0f6;
+    float: left;
+    width: 100%;
+    margin: 30px 0 30px;
+    padding: 31px;
+}
+
+.banner-treatment .thanks-misson-main {
+    display: flex;
+}
+
+.banner-treatment .thanks-misson-main h2 {
+    color: #fff;
+}
+
+.banner-treatment .thanks-misson-main p {
+    color: #fff;
+}
+
+.banner-treatment .thanks-misson-main .misson-1 {
+    background: url(../img/banner-thanks-page-1.png) no-repeat;
+    max-width: 100%;
+    height: 265px;
+    background-position: bottom;
+    margin-right: 38px;
+    border-radius: 20px;
+    background-size: cover;
+    padding: 30px;
+}
+
+.banner-treatment .thanks-misson-main .misson-2 {
+    background: url(../img/banner-thanks-page-2.png) no-repeat;
+    max-width: 100%;
+    height: 265px;
+    background-position: top;
+    border-radius: 20px;
+    background-size: cover;
+    padding: 30px;
+}
+.sergari {
+    background: #e2eaf5;
+    float: left;
+    width: 100%;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.owl-carousel .owl-item img {
+    width: auto;
+}
+
+.sergari img {
+    width: auto;
+    background: #fa272a;
+}
+
+
+
+
