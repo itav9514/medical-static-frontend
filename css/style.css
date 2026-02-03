@@ -414,7 +414,7 @@
 }
 
 .testimonial-carousel .owl-item.center .testimonial-text {
-    background: var(--primary);
+    background: #00154c;
     transform: scale(1);
 }
 
@@ -428,7 +428,7 @@
 }
 
 .testimonial-carousel .owl-item.center .testimonial-item img {
-    background: var(--primary) !important;
+    background: #00154c !important;
 }
 
 .testimonial-carousel .owl-nav {
@@ -651,7 +651,7 @@
     background: #00154c;
     width: 100%;
     color: #fff;
-    font-size: 21px;
+    font-size: 18px;
     padding: 14px;
     font-weight: 600;
     border-radius: 32px 0;
@@ -667,7 +667,7 @@
     border: 1px solid #414f77;
     border-radius: 22px;
     padding: 8px 10px 8px;
-    font-size: 28px;
+    font-size: 22px;
     color: #00154c;
     font-weight: 600;
 }
@@ -962,19 +962,16 @@
     background: #e2eaf5;
     float: left;
     width: 100%;
+    height: 23vh;
     border-radius: 20px;
     padding: 20px;
 }
 
-.owl-carousel .owl-item img {
-    width: auto;
+.sergari img {
+    width: auto !important;
+    background: #fa272a;
     border-radius: 50%;
     padding: 12px 13px;
-}
-
-.sergari img {
-    width: auto;
-    background: #fa272a;
 }
 
 .sergari h2 {
@@ -987,22 +984,27 @@
     font-size: 14px;
     color: #22292f;
 }
-.bg-light {
+
+.bg-light-1 {
     background-color: #fa272a !important;
-        color: #fff;
+    color: #fff;
     font-size: 19px;
     font-weight: 600;
 }
-.bg-primary {
+
+.bg-primary-1 {
     background-color: #f7fafc !important;
 }
-.text-white {
+
+.text-white-1 {
     color: #000000 !important;
-  
+
 }
-h5.text-white{
+
+h5.text-white {
     font-size: 19px;
 }
+
 .top-head {
     margin-top: -95px;
     background: #fff;
@@ -1073,4 +1075,130 @@ h5.text-white{
     font-weight: 800;
     font-size: 23px;
     margin: 0 0 0;
+}
+
+.media-carousel .owl-carousel-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 3rem;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 30px rgba(0, 0, 0, .1);
+}
+
+.media-carousel .owl-nav {
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.media-carousel .owl-nav .owl-prev,
+.media-carousel .owl-nav .owl-next {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    border-radius: 45px;
+    font-size: 22px;
+    transition: .5s;
+}
+
+.media-carousel .owl-nav .owl-prev:hover,
+.media-carousel .owl-nav .owl-next:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.media-carousel .owl-dots {
+    position: absolute;
+    height: 45px;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border: 1px solid #b4c0cf;
+    border-radius: 15px;
+    transition: .5s;
+}
+
+.media-carousel .owl-dot::after {
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 5px;
+    top: 4px;
+    left: 4px;
+    background: #FFFFFF;
+    border-radius: 5px;
+}
+
+.media-carousel .owl-dot.active {
+    background: #fd1001;
+    border-color: #fd1001;
+}
+
+.blue-back {
+    width: 100%;
+    float: left;
+    background: #00154c;
+    color: #fff;
+    padding: 15px;
+    height: 28vh;
+}
+
+.blue-back h2 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.blue-back ul {
+    margin: 0;
+    padding: 0;
+}
+
+.blue-back ul li {
+    list-style-type: none;
+    display: flex;
+    padding: 8px 0;
+    align-items: anchor-center;
+    font-size: 14px;
+}
+
+.blue-back ul li img {
+    width: auto !important;
+    margin-right: 10px;
+}
+
+.moblie-hide {
+    display: block;
+}
+
+.phone-header-mobile {
+    display: none;
+
 }
