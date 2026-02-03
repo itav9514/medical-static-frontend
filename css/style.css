@@ -625,19 +625,6 @@
 .iti {
     width: 100%;
 }
-
-#appointmentForm .form-control {
-    border: 1px solid #93c2e3;
-    background: transparent;
-    border-radius: 15px;
-}
-
-#appointmentForm .form-select {
-    border: 1px solid #93c2e3;
-    background-color: transparent;
-    border-radius: 15px;
-}
-
 .form-submit {
     display: flex;
     justify-content: space-between;
@@ -962,7 +949,6 @@
     background: #e2eaf5;
     float: left;
     width: 100%;
-    height: 23vh;
     border-radius: 20px;
     padding: 20px;
 }
@@ -1167,7 +1153,6 @@ h5.text-white {
     background: #00154c;
     color: #fff;
     padding: 15px;
-    height: 28vh;
 }
 
 .blue-back h2 {
