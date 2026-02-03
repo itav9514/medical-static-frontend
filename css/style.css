@@ -725,29 +725,48 @@
 }
 
 .treatments-carousel .owl-nav {
-    position: absolute;
-    width: 200px;
+    position: relative;
+    width: 100%;
     height: 45px;
-    bottom: 30px;
+    bottom: 132px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     justify-content: space-between;
 }
 
-.treatments-carousel .owl-nav .owl-prev,
+.treatments-carousel .owl-nav .owl-prev {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: #00154c;
+    border: 1px solid #00154c;
+    border-radius: 45px;
+    font-size: 22px;
+    transition: .5s;
+    left: -28px;
+    ;
+    position: absolute;
+}
+
 .treatments-carousel .owl-nav .owl-next {
     width: 45px;
     height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #000;
-    background: transparent;
-    border: 1px solid #000;
+    color: #fff;
+    background: #00154c;
+    border: 1px solid #00154c;
     border-radius: 45px;
     font-size: 22px;
     transition: .5s;
+    right: -28px;
+    ;
+    position: absolute;
 }
 
 .treatments-carousel .owl-nav .owl-prev:hover,
@@ -938,6 +957,7 @@
     background-size: cover;
     padding: 30px;
 }
+
 .sergari {
     background: #e2eaf5;
     float: left;
@@ -948,6 +968,8 @@
 
 .owl-carousel .owl-item img {
     width: auto;
+    border-radius: 50%;
+    padding: 12px 13px;
 }
 
 .sergari img {
@@ -955,10 +977,32 @@
     background: #fa272a;
 }
 
+.sergari h2 {
+    font-size: 22px;
+    color: #00154c;
+    margin: 14px 0 8px;
+}
 
-
-
-
+.sergari p {
+    font-size: 14px;
+    color: #22292f;
+}
+.bg-light {
+    background-color: #fa272a !important;
+        color: #fff;
+    font-size: 19px;
+    font-weight: 600;
+}
+.bg-primary {
+    background-color: #f7fafc !important;
+}
+.text-white {
+    color: #000000 !important;
+  
+}
+h5.text-white{
+    font-size: 19px;
+}
 .top-head {
     margin-top: -95px;
     background: #fff;
