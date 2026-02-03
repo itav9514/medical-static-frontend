@@ -55,7 +55,13 @@
         format: 'LT'
     });
 
-
+	// Effect of Show more button
+	$(".show-more").click(function(event) {
+		var txt = $(".hide-part").is(':visible') ? 'Read More' : 'Read Less';
+		$(".hide-part").toggleClass("show-part");
+		$(this).html(txt);
+		event.preventDefault();
+	});
     // Header carousel
     $(".header-carousel").owlCarousel({
         autoplay: false,
@@ -89,6 +95,28 @@
             },
             768:{
                 items:2
+            }
+        }
+    });
+     // Testimonials carousel
+    $(".treatments-carousel").owlCarousel({
+        autoplay: false,
+        smartSpeed: 1000,
+        margin: 20,
+        center: true,
+        dots: false,
+        loop: true,
+        nav : true,
+        navText : [
+            '<i class="bi bi-arrow-left"></i>',
+            '<i class="bi bi-arrow-right"></i>'
+        ],
+        responsive: {
+            0:{
+                items:1
+            },
+            768:{
+                items:3
             }
         }
     });
