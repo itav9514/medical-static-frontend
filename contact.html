@@ -282,9 +282,13 @@
                         id="phone"
                         name="phone"
                         placeholder="Your Phone"
-                        required
+                        required 
+                        style="    
+                        height: calc(3.5rem + 2px);
+                        padding-top: 1rem;
+                        padding-bottom: 1rem;
+                        "
                       />
-                      <label for="phone">Your Phone</label>
                       <div class="invalid-feedback">
                         Please enter a valid phone number
                       </div>
@@ -627,7 +631,7 @@
                 JSON.stringify(data),
               );
 
-            setTimeout(() => (window.location.href = "/thank-you"), 2000);
+            setTimeout(() => (window.location.href = "/thankyou.html"), 2000);
 
 
             } else {

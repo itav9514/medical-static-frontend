@@ -205,7 +205,7 @@
                                 <textarea class="form-control" id="description" name="description" rows="5"
                                     placeholder="Describe your problem" required minlength="10"></textarea>
                                 <div class="invalid-feedback">
-                                    Please describe your problem (minimum 10 characters)
+                                    Please describe your problem (minimum 10 & maximum 1000 characters)
                                 </div>
                             </div>
 
@@ -907,7 +907,7 @@
             "phone",
             "appointmentDate",
             "appointmentTime",
-            "description",
+            //"description",
           ].forEach((id) => {
             const field = document.getElementById(id);
             if (!field) return;
@@ -1020,7 +1020,7 @@
               );
 
               // Optional: redirect
-              setTimeout(() => (window.location.href = "/thank-you"), 2000);
+              setTimeout(() => (window.location.href = "/thankyou.html"), 2000);
             } else {
               messageDiv.innerHTML = `<div class="alert alert-danger">${data.message || "Failed to book appointment"}</div>`;
             }
