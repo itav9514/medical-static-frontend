@@ -7,11 +7,6 @@
         background: #00154c;
     }
 
-    #appointmentForm .form-control,
-    #appointmentForm .form-select {
-        background: #fff;
-    }
-
     .moblie-hide {
         display: none;
     }
