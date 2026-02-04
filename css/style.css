@@ -1201,3 +1201,6 @@ h5.text-white {
     color: #fd1001;
 }
 .header-carousel.owl-carousel .owl-item img{height:550px !important;}
+.accordion{
+    margin:15px 0 15px;
+}
