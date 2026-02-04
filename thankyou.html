@@ -1,523 +1,503 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Thank You</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="keywords" />
-    <meta content="" name="description" />
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon" />
+<head>
+  <meta charset="utf-8" />
+  <title>Thank You</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="" name="keywords" />
+  <meta content="" name="description" />
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon" />
 
-    <!-- Icon Font Stylesheet -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+    rel="stylesheet" />
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet" />
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link
-      href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
-      rel="stylesheet"
-    />
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
 
-    <!-- Include intl-tel-input CSS & JS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/19.2.15/css/intlTelInput.css"
-    />
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet" />
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+  <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Include intl-tel-input CSS & JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/19.2.15/css/intlTelInput.css" />
 
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet" />
-            <link href="css/mobile-responsive.css" rel="stylesheet" />
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
 
-   
-    <style>
-      .bg-breadcrumb {
-        background:
-          linear-gradient(rgba(31, 46, 78, 1), rgba(0, 12, 33, 0.1)),
-          url(images/thanks-banner.png);
-        padding: 83px 0 100px 0;
-      }
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/mobile-responsive.css" rel="stylesheet" />
 
-      .appointment-only  { display: none; }
-      .message-only      { display: none; }
 
-      body[data-enquiry-type="appointment"] .appointment-only {
-        display: list-item;
-        list-style-type: none;
-      }
-      body[data-enquiry-type="message"] .message-only {
-        display: list-item;
-        list-style-type: none;
-      }
-    </style>
+  <style>
+    .bg-breadcrumb {
+      background:
+        linear-gradient(rgba(31, 46, 78, 1), rgba(0, 12, 33, 0.1)),
+        url(images/thanks-banner.png);
+      padding: 83px 0 100px 0;
+    }
 
-  </head>
+    .appointment-only {
+      display: none;
+    }
 
-  <body>
-    <!-- Spinner Start -->
-    <div
-      id="spinner"
-      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-    >
-      <div
-        class="spinner-grow text-primary"
-        style="width: 3rem; height: 3rem"
-        role="status"
-      >
-        <span class="sr-only">Loading...</span>
-      </div>
+    .message-only {
+      display: none;
+    }
+
+    body[data-enquiry-type="appointment"] .appointment-only {
+      display: list-item;
+      list-style-type: none;
+    }
+
+    body[data-enquiry-type="message"] .message-only {
+      display: list-item;
+      list-style-type: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- Spinner Start -->
+  <div id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem" role="status">
+      <span class="sr-only">Loading...</span>
     </div>
-    <!-- Spinner End -->
-    <!-- Navbar Start -->
-     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <img src="img/logo.png" style="width:150px;">
-        </a>
-        <div class="phone-header-mobile">
-            <a href="tel:1-855-888-0114"><i class="fa fa-phone"></i></a>
-        </div>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About Us</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
-                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <a href="air-ambulance-service.html" class="dropdown-item">Air Ambulance Service</a>
-                        <!-- <a href="#" class="dropdown-item">online Doctor Consultation</a>
-                        <a href="#" class="dropdown-item">Medicine Service</a>
-                        <a href="#" class="dropdown-item">Accommodation Service</a>
-                        <a href="#" class="dropdown-item">Pre Post Arrival Services</a>
-                        <a href="#" class="dropdown-item">Flight Booking</a>
-                        <a href="#" class="dropdown-item">Hotel Booking</a> -->
+  </div>
+  <!-- Spinner End -->
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
+    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+      <img src="img/logo.png" style="width:150px;">
+    </a>
+    <div class="phone-header-mobile">
+      <a href="tel:1-855-888-0114"><i class="fa fa-phone"></i></a>
+    </div>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto p-4 p-lg-0">
+        <a href="index.html" class="nav-item nav-link active">Home</a>
+        <a href="about.html" class="nav-item nav-link">About Us</a>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+          <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+            <a href="air-ambulance-service.html" class="dropdown-item">Air Ambulance Service</a>
+            <a href="online-doctor-consultation.html" class="dropdown-item">Online Doctor Consultation</a>
+            <a href="accommodation-service.html" class="dropdown-item">Accommodation Service</a>
+            <a href="pre-post-arrival-services.html" class="dropdown-item">Pre Post Arrival Services</a>
+            <a href="flight-booking.html" class="dropdown-item">Flight Booking</a>
+            <a href="hotel-booking.html" class="dropdown-item">Hotel Booking</a>
 
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Treatments</a>
-                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <a href="cardiac-surgery.html" class="dropdown-item">Cardiac Surgery</a>
-                        <!-- <a href="team.html" class="dropdown-item">Our Doctor</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Treatments</a>
+          <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+            <a href="cardiac-surgery.html" class="dropdown-item">Cardiac Surgery</a>
+            <!-- <a href="team.html" class="dropdown-item">Our Doctor</a>
                         <a href="appointment.html" class="dropdown-item">Appointment</a>
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         <a href="404.html" class="dropdown-item">404 Page</a> -->
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
-            </div>
-            <div class="d-none d-lg-block call-top">
-                <span>Request a call back</span>
-                <a href="tel:+1-855-888-0114">
-                    +1-855-888-0114
-                </a>
-            </div>
-        </div>
-    </nav>
-    <!-- Navbar End -->
-    <div class="thanks-top">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Thank You For Reaching Out!</h1>
-            <p>
-              Your request has been successfully submitted, and our team is
-              already reviewing the details. One of our representatives will get
-              back to you shortly to discuss your requirements and provide the
-              best solution.
-            </p>
           </div>
+        </div>
+        <a href="contact.html" class="nav-item nav-link">Contact</a>
+      </div>
+      <div class="d-none d-lg-block call-top">
+        <span>Request a call back</span>
+        <a href="tel:+1-855-888-0114">
+          +1-855-888-0114
+        </a>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+  <div class="thanks-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>Thank You For Reaching Out!</h1>
+          <p>
+            Your request has been successfully submitted, and our team is
+            already reviewing the details. One of our representatives will get
+            back to you shortly to discuss your requirements and provide the
+            best solution.
+          </p>
         </div>
       </div>
     </div>
+  </div>
 
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="top-head">
-            <h2>Enquiry Summary</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-head">
+          <h2>Enquiry Summary</h2>
 
-            <div class="booking-summary">
-              <ul id="enquiry-summary-list">
-                <!--
+          <div class="booking-summary">
+            <ul id="enquiry-summary-list">
+              <!--
                 <li>
                   <strong>Reference No</strong>
                   <p id="booking-ref">Loading...</p>
                 </li>
                 -->
-                <li>
-                  <strong>Name</strong>
-                  <p id="customer-name">Loading...</p>
-                </li>
-                <li>
-                  <strong>Email</strong>
-                  <p id="customer-email">Loading...</p>
-                </li>
-                <li>
-                  <strong>Phone</strong>
-                  <p id="customer-phone">Loading...</p>
-                </li>
+              <li>
+                <strong>Name</strong>
+                <p id="customer-name">Loading...</p>
+              </li>
+              <li>
+                <strong>Email</strong>
+                <p id="customer-email">Loading...</p>
+              </li>
+              <li>
+                <strong>Phone</strong>
+                <p id="customer-phone">Loading...</p>
+              </li>
 
-                <!-- Appointment-specific -->
-                <li class="appointment-only">
-                  <strong>Nationality</strong>
-                  <p id="nationality">Loading...</p>
-                </li>
-                <li class="appointment-only">
-                  <strong>Preferred Appointment</strong>
-                  <p id="appointment-datetime">Loading...</p>
-                </li>
-                <li class="appointment-only">
-                  <strong>Message / Condition</strong>
-                  <p id="appointment-description">Loading...</p>
-                </li>
+              <!-- Appointment-specific -->
+              <li class="appointment-only">
+                <strong>Nationality</strong>
+                <p id="nationality">Loading...</p>
+              </li>
+              <li class="appointment-only">
+                <strong>Preferred Appointment</strong>
+                <p id="appointment-datetime">Loading...</p>
+              </li>
+              <li class="appointment-only">
+                <strong>Message / Condition</strong>
+                <p id="appointment-description">Loading...</p>
+              </li>
 
-                <!-- Message-specific -->
-                <li class="message-only">
-                  <strong>Preferred Callback Time</strong>
-                  <p id="preferred-time">Loading...</p>
-                </li>
-                <li class="message-only">
-                  <strong>Your Message</strong>
-                  <p id="user-message">Loading...</p>
-                </li>
+              <!-- Message-specific -->
+              <li class="message-only">
+                <strong>Preferred Callback Time</strong>
+                <p id="preferred-time">Loading...</p>
+              </li>
+              <li class="message-only">
+                <strong>Your Message</strong>
+                <p id="user-message">Loading...</p>
+              </li>
 
-                <!--<li>
+              <!--<li>
                   <strong>Submitted On</strong>
                   <p id="submitted-date">Loading...</p>
                 </li>-->
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container mt-5">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="get-touch">
-            <h2>
-              Get In Touch
-              <br />
-              <hr />
-            </h2>
-            <ul>
-              <li>
-                <img src="img/office-icon-1.png" />
-                <h3>Office Address</h3>
-                <p>
-                  Unit 16A,16B / 17A Ground Floor, Tower B3Spaze Itech Park,
-                  Sector 49,Gurugram Haryana 122018
-                </p>
-              </li>
-              <li>
-                <img src="img/office-icon-2.png" />
-                <h3>Call Us</h3>
-                <p>+1-855-888-0114</p>
-              </li>
-              <li>
-                <img src="img/office-icon-3.png" />
-                <h3>Email</h3>
-                <p>medical@adamvacations.com</p>
-              </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="container mt-5">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="get-touch">
+          <h2>
+            Get In Touch
+            <br />
+            <hr />
+          </h2>
+          <ul>
+            <li>
+              <img src="img/office-icon-1.png" />
+              <h3>Office Address</h3>
+              <p>
+                Unit 16A,16B / 17A Ground Floor, Tower B3Spaze Itech Park,
+                Sector 49,Gurugram Haryana 122018
+              </p>
+            </li>
+            <li>
+              <img src="img/office-icon-2.png" />
+              <h3>Call Us</h3>
+              <p>+1-855-888-0114</p>
+            </li>
+            <li>
+              <img src="img/office-icon-3.png" />
+              <h3>Email</h3>
+              <p>medical@adamvacations.com</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="get-treatment">
+          <h2>
+            Get treatment from trusted & certified Medical Tourism
+            <br />
+            <hr />
+          </h2>
+          <p>
+            <strong>Adam Vacations</strong> is a fully accredited & certified
+            medical tourism company based in India. We offer tailored options
+            for patients looking for competitive & quality medical treatment
+            at the Best Hospital in India. Over the past few years, India has
+            emerged as a promising destination for medical tourism, attracting
+            patients from several parts of the world. <br />
+            <br />
+            The usage of innovative technologies, a recognized team of medical
+            practitioners, state-of-the-art infrastructure, top-notch stay
+            facilities, and affordable medical treatment in India makes the
+            country a highly sought-after destination.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="banner-treatment">
+    <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div class="get-treatment">
-            <h2>
-              Get treatment from trusted & certified Medical Tourism
-              <br />
-              <hr />
-            </h2>
-            <p>
-              <strong>Adam Vacations</strong> is a fully accredited & certified
-              medical tourism company based in India. We offer tailored options
-              for patients looking for competitive & quality medical treatment
-              at the Best Hospital in India. Over the past few years, India has
-              emerged as a promising destination for medical tourism, attracting
-              patients from several parts of the world. <br />
-              <br />
-              The usage of innovative technologies, a recognized team of medical
-              practitioners, state-of-the-art infrastructure, top-notch stay
-              facilities, and affordable medical treatment in India makes the
-              country a highly sought-after destination.
-            </p>
+          <div class="thanks-misson-main">
+            <div class="misson-1">
+              <h2>Our Mission</h2>
+              <p>
+                To facilitate access to world-class medical treatment in India
+                for individuals around the globe, ensuring affordability,
+                transparency, and exceptional patient care. We are committed
+                to offering personalized healthcare solutions, promoting
+                wellness, and enhancing the overall medical tourism experience
+                for our clients.
+              </p>
+            </div>
+            <div class="misson-2">
+              <h2>Our Vision</h2>
+              <p>
+                Our vision is to become the premier medical tourism
+                destination facilitator in India, recognized for our
+                unwavering commitment to excellence, integrity, and
+                innovation. We aim to be the trusted partner for individuals
+                seeking high-quality, affordable healthcare solutions, while
+                contributing to the growth and advancement of medical tourism
+                in India.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="Clearfix"></div>
 
-    <div class="banner-treatment">
-      <div class="container">
+  <!-- Footer Start -->
+  <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+      <div class="row g-5">
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-light mb-4">About Us <br>
+            <hr>
+          </h5>
+
+          <p class="size-txt">Adam Vacations is a fully accredited & certified medical tourism company based
+            in
+            India. We offer
+            tailored options for patients looking for competitive & quality medical treatment.</p>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-light mb-4">Services <br>
+            <hr>
+          </h5>
+          <a class="btn btn-link size-txt-1" href="service.html">Services</a>
+          <a class="btn btn-link size-txt-1" href="medical-treatment.html">Medical Treatment Cost</a>
+          <a class="btn btn-link size-txt-1" href="refund-policy.html">Refund & Cancellation Policy</a>
+
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-light mb-4">Quick Links <br>
+            <hr>
+          </h5>
+          <a class="btn btn-link size-txt-1" href="about.html">About Us</a>
+          <a class="btn btn-link size-txt-1" href="contact.html">Contact Us</a>
+          <a class="btn btn-link size-txt-1" href="privacy-policy.html">Privacy Policy</a>
+          <a class="btn btn-link size-txt-1" href="termsandconditions.html">Terms & Condition</a>
+
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-light mb-4">Address <br>
+            <hr>
+          </h5>
+          <p class="mb-2 adgest size-txt-1"><i class="fa fa-map-marker-alt me-3"></i>Unit 16A, 16B / 17A
+            Ground Floor,
+            Tower B3,
+            Spaze Itech Park, Sector 49, Gurugram, Haryana 122018, India
+          </p>
+          <p class="mb-2 adgest size-txt-1"><i class="fa fa-phone-alt me-3"></i>+1-855-888-0114</p>
+          <p class="mb-2 adgest size-txt-1"><i class="fa fa-envelope me-3"></i>medical@adamvacations.com</p>
+          <div class="d-flex pt-2">
+            <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-youtube"></i></a>
+            <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copyright">
         <div class="row">
-          <div class="col-lg-12">
-            <div class="thanks-misson-main">
-              <div class="misson-1">
-                <h2>Our Mission</h2>
-                <p>
-                  To facilitate access to world-class medical treatment in India
-                  for individuals around the globe, ensuring affordability,
-                  transparency, and exceptional patient care. We are committed
-                  to offering personalized healthcare solutions, promoting
-                  wellness, and enhancing the overall medical tourism experience
-                  for our clients.
-                </p>
-              </div>
-              <div class="misson-2">
-                <h2>Our Vision</h2>
-                <p>
-                  Our vision is to become the premier medical tourism
-                  destination facilitator in India, recognized for our
-                  unwavering commitment to excellence, integrity, and
-                  innovation. We aim to be the trusted partner for individuals
-                  seeking high-quality, affordable healthcare solutions, while
-                  contributing to the growth and advancement of medical tourism
-                  in India.
-                </p>
-              </div>
-            </div>
+          <div class="col-md-12 text-center text-md-start mb-3 mb-md-0 size-txt-1">
+            &copy; medical@adamvacations.com, All Right Reserved.
           </div>
         </div>
       </div>
     </div>
-    <div class="Clearfix"></div>
+  </div>
+  <!-- Footer End -->
 
-<!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">About Us <br>
-                        <hr>
-                    </h5>
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-                    <p class="size-txt">Adam Vacations is a fully accredited & certified medical tourism company based
-                        in
-                        India. We offer
-                        tailored options for patients looking for competitive & quality medical treatment.</p>
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/tempusdominus/js/moment.min.js"></script>
+  <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+  <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/19.2.15/js/intlTelInput.min.js"></script>
 
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Services <br>
-                        <hr>
-                    </h5>
-                    <a class="btn btn-link size-txt-1" href="service.html">Services</a>
-                    <a class="btn btn-link size-txt-1" href="medical-treatment.html">Medical Treatment Cost</a>
-                    <a class="btn btn-link size-txt-1" href="refund-policy.html">Refund & Cancellation Policy</a>
-
-
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Quick Links <br>
-                        <hr>
-                    </h5>
-                    <a class="btn btn-link size-txt-1" href="about.html">About Us</a>
-                    <a class="btn btn-link size-txt-1" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link size-txt-1" href="privacy-policy.html">Privacy Policy</a>
-                    <a class="btn btn-link size-txt-1" href="termsandconditions.html">Terms & Condition</a>
-
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Address <br>
-                        <hr>
-                    </h5>
-                    <p class="mb-2 adgest size-txt-1"><i class="fa fa-map-marker-alt me-3"></i>Unit 16A, 16B / 17A
-                        Ground Floor,
-                        Tower B3,
-                        Spaze Itech Park, Sector 49, Gurugram, Haryana 122018, India
-                    </p>
-                    <p class="mb-2 adgest size-txt-1"><i class="fa fa-phone-alt me-3"></i>+1-855-888-0114</p>
-                    <p class="mb-2 adgest size-txt-1"><i class="fa fa-envelope me-3"></i>medical@adamvacations.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social rounded-circle" href=""><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href=""><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href=""><i
-                                class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href=""><i
-                                class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-12 text-center text-md-start mb-3 mb-md-0 size-txt-1">
-                        &copy; medical@adamvacations.com, All Right Reserved.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-    <!-- Back to Top -->
-    <a
-      href="#"
-      class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"
-      ><i class="bi bi-arrow-up"></i
-    ></a>
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/19.2.15/js/intlTelInput.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+  <!-- Template Javascript -->
+  <script src="js/main.js"></script>
 
 
 
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const listEl = document.getElementById("enquiry-summary-list");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const listEl = document.getElementById("enquiry-summary-list");
 
-        if (!listEl) {
-          console.warn("Summary list not found");
-          return;
-        }
+      if (!listEl) {
+        console.warn("Summary list not found");
+        return;
+      }
 
-        // Load from sessionStorage
-        const appointmentJson = sessionStorage.getItem("medicalEnquiryResponse");
-        const messageJson    = sessionStorage.getItem("medicalMessageResponse");
+      // Load from sessionStorage
+      const appointmentJson = sessionStorage.getItem("medicalEnquiryResponse");
+      const messageJson = sessionStorage.getItem("medicalMessageResponse");
 
-        let data = null;
-        let enquiryType = "none";
+      let data = null;
+      let enquiryType = "none";
 
-        if (appointmentJson) {
-          try {
-            data = JSON.parse(appointmentJson);
-            enquiryType = "appointment";
-          } catch (e) {
-            console.error("Failed to parse appointment response", e);
-          }
-        }
-
-        if (!data && messageJson) {
-          try {
-            data = JSON.parse(messageJson);
-            enquiryType = "message";
-          } catch (e) {
-            console.error("Failed to parse message response", e);
-          }
-        }
-
-        if (!data) {
-          listEl.innerHTML = '<li class="text-danger"><strong>Error:</strong> No enquiry details found.</li>';
-          return;
-        }
-
-        // Let CSS show/hide correct fields
-        document.body.dataset.enquiryType = enquiryType;
-
+      if (appointmentJson) {
         try {
-          // Reference number
-          const prefix = enquiryType === "appointment" ? "MEA" : "MEM";
-          const refId = data.id ? `${prefix}-${String(data.id).padStart(6, "0")}` : "—";
-          //document.getElementById("booking-ref").textContent = refId;
+          data = JSON.parse(appointmentJson);
+          enquiryType = "appointment";
+        } catch (e) {
+          console.error("Failed to parse appointment response", e);
+        }
+      }
 
-          // Common fields
-          document.getElementById("customer-name").textContent  = data.fullName || data.name || "—";
-          document.getElementById("customer-email").textContent = data.email || "—";
-          document.getElementById("customer-phone").textContent = data.phone || "—";
+      if (!data && messageJson) {
+        try {
+          data = JSON.parse(messageJson);
+          enquiryType = "message";
+        } catch (e) {
+          console.error("Failed to parse message response", e);
+        }
+      }
 
-          // Submitted date
-          let submittedDate = "—";
-          const submitted = data.submittedAt;
-          if (submitted) {
-            const dateObj = new Date(submitted);
-            if (!isNaN(dateObj)) {
-              submittedDate = dateObj.toLocaleString("en-US", {
-                year: "numeric", month: "long", day: "numeric",
+      if (!data) {
+        listEl.innerHTML = '<li class="text-danger"><strong>Error:</strong> No enquiry details found.</li>';
+        return;
+      }
+
+      // Let CSS show/hide correct fields
+      document.body.dataset.enquiryType = enquiryType;
+
+      try {
+        // Reference number
+        const prefix = enquiryType === "appointment" ? "MEA" : "MEM";
+        const refId = data.id ? `${prefix}-${String(data.id).padStart(6, "0")}` : "—";
+        //document.getElementById("booking-ref").textContent = refId;
+
+        // Common fields
+        document.getElementById("customer-name").textContent = data.fullName || data.name || "—";
+        document.getElementById("customer-email").textContent = data.email || "—";
+        document.getElementById("customer-phone").textContent = data.phone || "—";
+
+        // Submitted date
+        let submittedDate = "—";
+        const submitted = data.submittedAt;
+        if (submitted) {
+          const dateObj = new Date(submitted);
+          if (!isNaN(dateObj)) {
+            submittedDate = dateObj.toLocaleString("en-US", {
+              year: "numeric", month: "long", day: "numeric",
+              hour: "numeric", minute: "2-digit", hour12: true
+            });
+          }
+        }
+        //document.getElementById("submitted-date").textContent = submittedDate;
+
+        // ── Appointment type ───────────────────────────────────
+        if (enquiryType === "appointment") {
+          document.getElementById("nationality").textContent = data.nationality || "—";
+
+          let apptDisplay = "—";
+          /*if (data.appointmentDate && data.appointmentTime) {
+            const dt = new Date(`${data.appointmentDate}T${data.appointmentTime}`);
+            if (!isNaN(dt)) {
+              apptDisplay = dt.toLocaleString("en-US", {
+                weekday: "long", month: "long", day: "numeric", year: "numeric",
                 hour: "numeric", minute: "2-digit", hour12: true
               });
-            }
-          }
-          //document.getElementById("submitted-date").textContent = submittedDate;
-
-          // ── Appointment type ───────────────────────────────────
-          if (enquiryType === "appointment") {
-            document.getElementById("nationality").textContent = data.nationality || "—";
-
-            let apptDisplay = "—";
-            /*if (data.appointmentDate && data.appointmentTime) {
-              const dt = new Date(`${data.appointmentDate}T${data.appointmentTime}`);
-              if (!isNaN(dt)) {
-                apptDisplay = dt.toLocaleString("en-US", {
-                  weekday: "long", month: "long", day: "numeric", year: "numeric",
-                  hour: "numeric", minute: "2-digit", hour12: true
-                });
-                if (data.appointmentLocalWithTimezone) {
-                  apptDisplay = `${data.appointmentLocalWithTimezone}`;
-                }
+              if (data.appointmentLocalWithTimezone) {
+                apptDisplay = `${data.appointmentLocalWithTimezone}`;
               }
-            }*/
-            if (data.appointmentLocalWithTimezone) {
-                  apptDisplay = `${data.appointmentLocalWithTimezone}`;
-                }
-            document.getElementById("appointment-datetime").textContent = apptDisplay;
-
-            document.getElementById("appointment-description").textContent = data.description || "—";
+            }
+          }*/
+          if (data.appointmentLocalWithTimezone) {
+            apptDisplay = `${data.appointmentLocalWithTimezone}`;
           }
+          document.getElementById("appointment-datetime").textContent = apptDisplay;
 
-          // ── Message type ───────────────────────────────────────
-          else if (enquiryType === "message") {
-            document.getElementById("preferred-time").textContent = data.preferredTime || "—";
-            document.getElementById("user-message").textContent     = data.userMessage || "—";
-          }
-
-          // Optional: clean up
-          sessionStorage.removeItem("medicalEnquiryResponse");
-          sessionStorage.removeItem("medicalMessageResponse");
-        } catch (error) {
-          console.error("Error displaying enquiry:", error);
-          listEl.innerHTML = '<li class="text-danger"><strong>Error:</strong> Unable to load details.</li>';
+          document.getElementById("appointment-description").textContent = data.description || "—";
         }
-      });
-    </script>
 
-  </body>
+        // ── Message type ───────────────────────────────────────
+        else if (enquiryType === "message") {
+          document.getElementById("preferred-time").textContent = data.preferredTime || "—";
+          document.getElementById("user-message").textContent = data.userMessage || "—";
+        }
+
+        // Optional: clean up
+        sessionStorage.removeItem("medicalEnquiryResponse");
+        sessionStorage.removeItem("medicalMessageResponse");
+      } catch (error) {
+        console.error("Error displaying enquiry:", error);
+        listEl.innerHTML = '<li class="text-danger"><strong>Error:</strong> Unable to load details.</li>';
+      }
+    });
+  </script>
+
+</body>
+
 </html>
