@@ -10,8 +10,8 @@
         }, 1);
     };
     spinner();
-    
-    
+
+
     // Initiate the wowjs
     new WOW().init();
 
@@ -24,8 +24,8 @@
             $('.sticky-top').removeClass('shadow-sm').css('top', '-100px');
         }
     });
-    
-    
+
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
@@ -35,7 +35,7 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
 
@@ -55,13 +55,13 @@
         format: 'LT'
     });
 
-	// Effect of Show more button
-	$(".show-more").click(function(event) {
-		var txt = $(".hide-part").is(':visible') ? 'Read More' : 'Read Less';
-		$(".hide-part").toggleClass("show-part");
-		$(this).html(txt);
-		event.preventDefault();
-	});
+    // Effect of Show more button
+    $(".show-more").click(function (event) {
+        var txt = $(".hide-part").is(':visible') ? 'Read More' : 'Read Less';
+        $(".hide-part").toggleClass("show-part");
+        $(this).html(txt);
+        event.preventDefault();
+    });
     // Header carousel
     $(".header-carousel").owlCarousel({
         autoplay: false,
@@ -69,8 +69,8 @@
         items: 1,
         dots: true,
         loop: true,
-        nav : true,
-        navText : [
+        nav: true,
+        navText: [
             '<i class="bi bi-chevron-left"></i>',
             '<i class="bi bi-chevron-right"></i>'
         ]
@@ -84,66 +84,90 @@
         center: true,
         dots: false,
         loop: true,
-        nav : true,
-        navText : [
+        nav: true,
+        navText: [
             '<i class="bi bi-arrow-left"></i>',
             '<i class="bi bi-arrow-right"></i>'
         ],
         responsive: {
-            0:{
-                items:1
+            0: {
+                items: 1
             },
-            768:{
-                items:2
+            768: {
+                items: 2
             }
         }
     });
-     // Testimonials carousel
-    $(".treatments-carousel").owlCarousel({
-        autoplay: false,
-        smartSpeed: 1000,
-        margin: 20,
-        center: true,
+    // Testimonials carousel
+    $('.treatments-carousel').owlCarousel({
+        loop: false,
+        margin: 10,
+        nav: true,
+        autoplay: true,
+        smartSpeed: 2000,
         dots: false,
-        loop: true,
-        nav : true,
-        navText : [
+        navText: [
             '<i class="bi bi-chevron-left"></i>',
             '<i class="bi bi-chevron-right"></i>'
         ],
         responsive: {
-            0:{
-                items:1
+            0: {
+                items: 1
             },
-            768:{
-                items:3
+            768: {
+                items: 2
+            },
+            1000: {
+                items: 3
             }
-            
         }
     });
-     // Testimonials carousel
-    $(".media-carousel").owlCarousel({
-        autoplay: false,
-        smartSpeed: 1000,
-        margin: 20,
-        center: true,
+     $('.media-carousel').owlCarousel({
+        loop: false,
+        margin: 10,
+        nav: false,
         dots: true,
-        loop: true,
-        nav : false,
-        navText : [
+        autoplay: true,
+        smartSpeed: 2000,
+        navText: [
             '<i class="bi bi-chevron-left"></i>',
             '<i class="bi bi-chevron-right"></i>'
         ],
         responsive: {
-            0:{
-                items:1
+            0: {
+                items: 1
             },
-            768:{
-                items:3
+            768: {
+                items: 2
+            },
+            1000: {
+                items: 3
             }
         }
     });
-
     
+    // $(".media-carousel").owlCarousel({
+    //     autoplay: false,
+    //     smartSpeed: 1000,
+    //     margin: 20,
+    //     center: true,
+    //     dots: true,
+    //     loop: true,
+    //     nav: false,
+    //     navText: [
+    //         '<i class="bi bi-chevron-left"></i>',
+    //         '<i class="bi bi-chevron-right"></i>'
+    //     ],
+    //     responsive: {
+    //         0: {
+    //             items: 1
+    //         },
+    //         768: {
+    //             items: 3
+    //         }
+    //     }
+    // });
+
+
 })(jQuery);
 

@@ -116,11 +116,29 @@
         color: #fff;
     }
 
+    .space-1 {
+        padding-top: 0;
+        padding-bottom: 1rem;
+    }
 
+    .bg-light-1 {
+        font-size: 15px;
+    }
 
+    .treatments-carousel .owl-nav .owl-next {
+        right: -15px;
+    }
 
+    .treatments-carousel .owl-nav .owl-prev {
+        left: -21px;
+    }
 
-
+    .treatments-carousel .owl-nav .owl-next,
+    .treatments-carousel .owl-nav .owl-prev {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
 
 
 }

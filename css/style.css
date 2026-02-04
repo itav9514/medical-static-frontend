@@ -530,15 +530,15 @@
 }
 
 .terms h2 {
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .terms h3 {
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .terms p {
-    font-size: 14px;
+    font-size: 15px;
     color: #333;
 }
 
@@ -548,13 +548,13 @@
 }
 
 .terms ul li {
-    font-size: 14px;
+    font-size: 15px;
     color: #333;
     padding: 4px 0;
 }
 
 .terms address {
-    font-size: 14px;
+    font-size: 15px;
     color: #333;
 }
 
@@ -625,6 +625,7 @@
 .iti {
     width: 100%;
 }
+
 .form-submit {
     display: flex;
     justify-content: space-between;
@@ -949,6 +950,7 @@
     background: #e2eaf5;
     float: left;
     width: 100%;
+    height: 216px;
     border-radius: 20px;
     padding: 20px;
 }
@@ -969,6 +971,7 @@
 .sergari p {
     font-size: 14px;
     color: #22292f;
+    margin-bottom:0;
 }
 
 .bg-light-1 {
@@ -1149,6 +1152,7 @@ h5.text-white {
 
 .blue-back {
     width: 100%;
+    height:268px;
     float: left;
     background: #00154c;
     color: #fff;
@@ -1187,3 +1191,12 @@ h5.text-white {
     display: none;
 
 }
+
+.space-1 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.text-primary-new {
+    color: #fd1001;
+}
+.header-carousel.owl-carousel .owl-item img{height:550px !important;}
