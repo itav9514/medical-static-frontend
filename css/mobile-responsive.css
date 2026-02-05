@@ -135,5 +135,92 @@
         font-size: 20px;
     }
 
+    .thanks-top h1 {
+        font-size: 18px;
+        margin: 0 0 6px;
+    }
+
+    .thanks-top p {
+        font-size: 12px;
+        margin: 0 0 0;
+    }
+
+    .top-head h2 {
+        font-size: 16px;
+        margin: 0 0 13px;
+    }
+
+    .get-touch h2 {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 19px;
+    }
+
+    .get-touch ul {
+        display: block;
+    }
+
+    .get-touch ul li {
+        width: 100%;
+        margin-bottom: 26px;
+    }
+
+    .get-touch ul li h3 {
+        font-size: 18px;
+        margin: 10px 0 7px;
+    }
+
+    .get-touch ul li p {
+        font-size: 13px;
+    }
+
+    .get-touch ul li img {
+        height: 32px;
+    }
+
+    .get-treatment h2 {
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+
+    .get-treatment p {
+        font-size: 13px;
+    }
+
+    .banner-treatment .thanks-misson-main {
+        display: block;
+    }
+
+    .banner-treatment .thanks-misson-main .misson-1 {
+        max-width: 100%;
+        height: auto;
+        background-position: bottom;
+        margin-right: 0;
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 20px;
+    }
+
+    .banner-treatment .thanks-misson-main .misson-2 {
+        max-width: 100%;
+        height: auto;
+        background-position: bottom;
+        margin-right: 0;
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 20px;
+    }
+
+    .banner-treatment .thanks-misson-main h2 {
+        color: #fff;
+        font-size: 18px;
+    }
+
+    .banner-treatment .thanks-misson-main p {
+        color: #fff;
+        font-size: 13px;
+        margin-bottom: 0;
+    }
+
 
 }
