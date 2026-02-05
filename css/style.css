@@ -182,8 +182,8 @@
     align-items: center;
     justify-content: center;
     color: #FFFFFF;
-    background: transparent;
-    border: 1px solid #FFFFFF;
+    background: #fd1001;
+    border: 1px solid #fd1001;
     border-radius: 45px;
     font-size: 22px;
     transition: .5s;
@@ -213,7 +213,7 @@
     width: 15px;
     height: 15px;
     background: transparent;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #b4c0cf;
     border-radius: 15px;
     transition: .5s;
 }
@@ -230,8 +230,8 @@
 }
 
 .header-carousel .owl-dot.active {
-    background: var(--primary);
-    border-color: var(--primary);
+    background: #fd1001;
+    border-color: #fd1001;
 }
 
 .page-header {
@@ -584,7 +584,7 @@
 
 .terms strong {
     color: #000;
-    font-size:14px;
+    font-size: 14px;
 }
 
 .display-3 {
@@ -972,7 +972,7 @@
 .sergari p {
     font-size: 14px;
     color: #22292f;
-    margin-bottom:0;
+    margin-bottom: 0;
 }
 
 .bg-light-1 {
@@ -1153,7 +1153,7 @@ h5.text-white {
 
 .blue-back {
     width: 100%;
-    height:268px;
+    height: 268px;
     float: left;
     background: #00154c;
     color: #fff;
@@ -1197,10 +1197,15 @@ h5.text-white {
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
+
 .text-primary-new {
     color: #fd1001;
 }
-.header-carousel.owl-carousel .owl-item img{height:550px !important;}
-.accordion{
-    margin:15px 0 15px;
+
+.header-carousel.owl-carousel .owl-item img {
+    height: 550px !important;
+}
+
+.accordion {
+    margin: 15px 0 15px;
 }
