@@ -94,7 +94,6 @@
 
     .phone-header-mobile {
         display: block;
-        position: absolute;
         bottom: 23px;
         right: 102px;
         width: 30px;
@@ -240,6 +239,12 @@
         font-size: 12px;
         margin: 0 0 3px;
     }
-
-
+.navbar-nav .dropdown-menu {
+   position: absolute!important;
+}
+.treattopheder {
+    width: 100%;
+    float: left;
+}
+.treattopheder ul li{width:100%;}
 }

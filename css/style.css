@@ -527,14 +527,17 @@
 
 .terms h1 {
     font-size: 22px;
+    font-weight: 700;
 }
 
 .terms h2 {
-    font-size: 17px;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .terms h3 {
-    font-size: 17px;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .terms p {
@@ -656,11 +659,12 @@
     border: 1px solid #414f77;
     border-radius: 22px;
     padding: 8px 10px 8px;
-    font-size: 22px;
+    font-size: 20px;
     color: #00154c;
     font-weight: 600;
+    text-align: center;
 }
-
+.form-submit .sub-2 a img{height:41px;}
 .call-top {
     background: #00154c;
     padding: 8px 32px 8px;
@@ -1209,13 +1213,32 @@ h5.text-white {
 .accordion {
     margin: 15px 0 15px;
 }
-/* 
-.top-form .form-control {
-    border: 4px solid #C7DCFB;
-    background-color: transparent;
+
+.page-set {}
+
+.page-set p {
+    font-size: 14px;
 }
 
-.top-form .form-select {
-    border: 4px solid #C7DCFB;
-    background-color: transparent;
-} */
+.page-set h5 {
+    font-size: 17px;
+}
+
+.treattopheder {
+    width:500px;
+    float: left;
+}
+
+.treattopheder ul {
+    margin: 0;
+    padding: 0;
+}
+
+.treattopheder ul li {
+    width: 50%;
+    float: left;
+    list-style-type: none;
+    padding:4px 0;
+}
+.treattopheder ul li a{font-size:14px;}
+.dropdown-item{font-size:14px;}
