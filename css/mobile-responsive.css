@@ -222,5 +222,24 @@
         margin-bottom: 0;
     }
 
+    .top-head ul li {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 2%;
+    }
+
+    .top-head ul li strong {
+        color: #000;
+        font-weight: 600;
+        font-size: 13px;
+        margin: 0 0 24px;
+    }
+
+    .top-head ul li p {
+        font-size: 12px;
+        margin: 0 0 3px;
+    }
+
 
 }
