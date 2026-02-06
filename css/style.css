@@ -428,7 +428,7 @@
 }
 
 .testimonial-carousel .owl-item.center .testimonial-item img {
-    background: #00154c !important;
+    background: #ddd !important;
 }
 
 .testimonial-carousel .owl-nav {
@@ -468,7 +468,7 @@
     margin-right: 5px;
     width: 35px;
     height: 35px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     color: var(--light);
@@ -1243,3 +1243,13 @@ h5.text-white {
 }
 .treattopheder ul li a{font-size:14px;}
 .dropdown-item{font-size:14px;}
+
+
+
+
+
+
+
+
+
+
