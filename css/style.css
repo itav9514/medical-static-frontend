@@ -199,7 +199,7 @@
     position: absolute;
     height: 45px;
     bottom: 30px;
-    left: 50%;
+    left: 52%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
@@ -583,6 +583,7 @@
 
 .terms .accordion-body {
     color: #000;
+    font-size: 14px;
 }
 
 .terms strong {
@@ -1252,11 +1253,8 @@ h5.text-white {
     height: 450px;
     background-position: top;
     background-size: cover;
- s
 }
 .back-home{background:rgba(255,255,255,0.5); padding:20px;}
-
-
 
 
 
