@@ -988,10 +988,12 @@
 
 .bg-primary-1 {
     background-color: #f7fafc !important;
+    height:450px;
 }
 
 .text-white-1 {
     color: #000000 !important;
+    font-size:36px;
 
 }
 
@@ -1218,7 +1220,7 @@ h5.text-white {
 .page-set {}
 
 .page-set p {
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .page-set h5 {
@@ -1244,7 +1246,15 @@ h5.text-white {
 .treattopheder ul li a{font-size:14px;}
 .dropdown-item{font-size:14px;}
 
-
+.why-chose-head{
+     background: url(../img/banner-2-new.png) no-repeat;
+    max-width: 100%;
+    height: 450px;
+    background-position: top;
+    background-size: cover;
+ s
+}
+.back-home{background:rgba(255,255,255,0.5); padding:20px;}
 
 
 
