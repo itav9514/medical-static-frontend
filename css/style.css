@@ -665,7 +665,11 @@
     font-weight: 600;
     text-align: center;
 }
-.form-submit .sub-2 a img{height:41px;}
+
+.form-submit .sub-2 a img {
+    height: 41px;
+}
+
 .call-top {
     background: #00154c;
     padding: 8px 32px 8px;
@@ -989,12 +993,12 @@
 
 .bg-primary-1 {
     background-color: #f7fafc !important;
-    height:450px;
+    height: 450px;
 }
 
 .text-white-1 {
     color: #000000 !important;
-    font-size:36px;
+    font-size: 36px;
 
 }
 
@@ -1229,7 +1233,7 @@ h5.text-white {
 }
 
 .treattopheder {
-    width:500px;
+    width: 500px;
     float: left;
 }
 
@@ -1242,22 +1246,27 @@ h5.text-white {
     width: 50%;
     float: left;
     list-style-type: none;
-    padding:4px 0;
+    padding: 4px 0;
 }
-.treattopheder ul li a{font-size:14px;}
-.dropdown-item{font-size:14px;}
 
-.why-chose-head{
-     background: url(../img/banner-2-new.png) no-repeat;
+.treattopheder ul li a {
+    font-size: 14px;
+}
+.dropdown-item {
+    font-size: 14px;
+    padding: 0.45rem 1rem;
+}
+.why-chose-head {
+    background: url(../img/banner-2-new.png) no-repeat;
     max-width: 100%;
     height: 450px;
     background-position: top;
     background-size: cover;
 }
-.back-home{background:rgba(255,255,255,0.5); padding:20px;}
-.accordion-button{padding: 0.9rem 0.25rem;}
-
-
-
-
-
+.back-home {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+}
+.accordion-button {
+    padding: 0.9rem 0.25rem;
+}
