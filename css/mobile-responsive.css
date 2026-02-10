@@ -247,4 +247,19 @@
     float: left;
 }
 .treattopheder ul li{width:100%;}
+.why-chose-head{height:auto;}
+.bg-primary-1 {
+    height: auto;
+    padding: 14px;
+}
+.testimonial-carousel .owl-item.center .testimonial-text p{font-size:14px;}
+.testimonial-carousel .owl-item.center .testimonial-text h5{font-size:18px;}
+.testimonial-carousel .owl-item.center .testimonial-text span{font-size:14px;}
+.display-3 {
+    font-size: 22px;
+}
+
+
+
+
 }

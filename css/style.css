@@ -199,7 +199,7 @@
     position: absolute;
     height: 45px;
     bottom: 30px;
-    left: 50%;
+    left: 52%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
@@ -583,6 +583,7 @@
 
 .terms .accordion-body {
     color: #000;
+    font-size: 14px;
 }
 
 .terms strong {
@@ -991,10 +992,12 @@
 
 .bg-primary-1 {
     background-color: #f7fafc !important;
+    height:450px;
 }
 
 .text-white-1 {
     color: #000000 !important;
+    font-size:36px;
 
 }
 
@@ -1221,7 +1224,7 @@ h5.text-white {
 .page-set {}
 
 .page-set p {
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .page-set h5 {
@@ -1247,6 +1250,15 @@ h5.text-white {
 .treattopheder ul li a{font-size:14px;}
 .dropdown-item{font-size:14px;}
 
+.why-chose-head{
+     background: url(../img/banner-2-new.png) no-repeat;
+    max-width: 100%;
+    height: 450px;
+    background-position: top;
+    background-size: cover;
+}
+.back-home{background:rgba(255,255,255,0.5); padding:20px;}
+.accordion-button{padding: 0.9rem 0.25rem;}
 button:disabled {
     background-color: #ccc;   /* gray */
     cursor: not-allowed;      /* disable pointer */
