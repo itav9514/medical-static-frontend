@@ -142,7 +142,7 @@
                                 <div class="date" id="datePicker" data-target-input="nearest">
                                     <input type="text" class="form-control datetimepicker-input" id="appointmentDate"
                                         name="appointmentDate" placeholder="Callback Date" data-target="#datePicker"
-                                        data-toggle="datetimepicker" style="height: 55px;" required>
+                                        data-toggle="datetimepicker" style="height: 55px;" autocomplete="off" required>
                                 </div>
                                 <div class="invalid-feedback">
                                     Please select a date
@@ -154,7 +154,7 @@
                                 <div class="time" id="timePicker" data-target-input="nearest">
                                     <input type="text" class="form-control datetimepicker-input" id="appointmentTime"
                                         name="appointmentTime" placeholder="Callback Time" data-target="#timePicker"
-                                        data-toggle="datetimepicker" style="height: 55px;" required>
+                                        data-toggle="datetimepicker" style="height: 55px;" autocomplete="off" required>
                                 </div>
                                 <div class="invalid-feedback">
                                     Please select a time
@@ -173,14 +173,17 @@
                             <!-- Submit Button -->
                             <div class="col-12">
                                 <div class="form-submit">
+
                                     <div class="sub-1">
                                         <button type="submit" id="submitBtn" disabled>
                                             Book Consultation
                                         </button>
                                     </div>
-                                    <div class="sub-2">
+
+                                                                                                            <div class="sub-2 text-center">
                                         <a href="tel:+1-855-888-0114"><img src="img/phone-icon.png"> +1-855-888-0114</a>
                                     </div>
+
                                 </div>
                                 <div id="form-message" class="mt-3"></div>
                             </div>
@@ -735,7 +738,7 @@
                             allValid = false;
                         }
                     } else {
-                        allValid = false; // Not interacted yet → disable
+                        allValid = false; 
                     }
                 });
 
