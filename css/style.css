@@ -1279,8 +1279,10 @@ button:disabled {
     cursor: not-allowed;      /* disable pointer */
     opacity: 0.7;             /* optional */
 }
+.size-all{}
+.size-all h5{font-size:16px; line-height:22px;}
 
-
+.bg-light h1{font-size:29px; line-height:22px;}
 
 
 
