@@ -638,7 +638,7 @@
 
 .form-submit .sub-1 {
     width: 45%;
-    
+
 
 }
 
@@ -1254,10 +1254,12 @@ h5.text-white {
 .treattopheder ul li a {
     font-size: 14px;
 }
+
 .dropdown-item {
     font-size: 14px;
     padding: 0.45rem 1rem;
 }
+
 .why-chose-head {
     background: url(../img/banner-2-new.png) no-repeat;
     max-width: 100%;
@@ -1265,25 +1267,280 @@ h5.text-white {
     background-position: top;
     background-size: cover;
 }
+
 .back-home {
     background: rgba(255, 255, 255, 0.5);
     padding: 20px;
 }
+
 .accordion-button {
     padding: 0.9rem 0.25rem;
 }
-.back-home{background:rgba(255,255,255,0.5); padding:20px;}
-.accordion-button{padding: 0.9rem 0.25rem;}
-button:disabled {
-    background-color: #ccc;   /* gray */
-    cursor: not-allowed;      /* disable pointer */
-    opacity: 0.7;             /* optional */
+
+.back-home {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
 }
-.size-all{}
-.size-all h5{font-size:16px; line-height:22px;}
 
-.bg-light h1{font-size:29px; line-height:22px;}
+.accordion-button {
+    padding: 0.9rem 0.25rem;
+}
 
+button:disabled {
+    background-color: #ccc;
+    /* gray */
+    cursor: not-allowed;
+    /* disable pointer */
+    opacity: 0.7;
+    /* optional */
+}
 
+.size-all {}
 
+.size-all h5 {
+    font-size: 16px;
+    line-height: 22px;
+}
 
+.bg-light h1 {
+    font-size: 29px;
+    line-height: 22px;
+}
+
+.page-header-1 {
+    background: url(../img/call-banner-head.png);
+    background-size: cover;
+    height: 350px;
+    text-shadow: 0 0 30px rgba(0, 0, 0, .1);
+    background-position: right;
+
+}
+
+.services-care-call {
+    width: 100%;
+    float: left;
+}
+
+.services-care-call h2 {
+    font-size: 30px;
+    text-align: center;
+    color: #000;
+    font-weight: 500;
+    margin: 0 0 33px;
+}
+
+.services-care-call ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.services-care-call ul li {
+    width: 20%;
+    list-style: none;
+}
+
+.services-care-call ul li img {
+    height: 200px;
+    display: block;
+    margin: 0 auto 18px;
+}
+
+.services-care-call ul li h3 {
+    font-size: 21px;
+    text-align: center;
+    color: #000;
+    font-weight: 500;
+    margin: 0 0 13px;
+}
+
+.services-care-call ul li p {
+    color: #898888;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.services-care-call ul li a {
+    background: #00154c;
+    width: 100%;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+    padding: 8px 0;
+}
+
+.reassurance {
+    background: url(../img/thanks-banner-1.png);
+    margin-top: 35px;
+}
+
+.reassurance h2 {
+    font-size: 30px;
+    color: #000;
+    font-weight: 600;
+    margin: 0 0 13px;
+}
+
+.reassurance p {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.reassurance a {
+    background: #008daf;
+    width: 100%;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    display: inline;
+    text-align: center;
+    padding: 5px 13px;
+}
+.monitored {
+    background: url(../img/banner-new-4.png);
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.monitored h2 {
+    font-size: 30px;
+    color: #000;
+    font-weight: 600;
+    margin: 0 0 13px;
+}
+
+.monitored p {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.monitored a {
+    background: #008daf;
+    width: 100%;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    display: inline;
+    text-align: center;
+    padding: 5px 13px;
+}
+
+.Plans {
+    background: #fafafa;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.Plans h2 {
+    font-size: 30px;
+    color: #000;
+    font-weight: 600;
+    margin: 0 0 13px;
+}
+
+.Plans p {
+    color: #6f6f6f;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.Plans a {
+    background: #008daf;
+    width: 100%;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    display: inline;
+    text-align: center;
+    padding: 5px 13px;
+}
+
+.Plans .nav-pills .nav-link.active,
+.Plans .nav-pills .show>.nav-link {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #465093;
+}
+
+.Plans .nav-link {
+    display: block;
+    padding: .5rem 1rem;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.why-chose-head-1 {
+    background: url(../img/TaeAugust11.png) no-repeat;
+    max-width: 100%;
+    height: 450px;
+    background-position: top;
+    background-size: cover;
+}
+
+.animation-window {
+    position: relative;
+    height: 1.6em;
+}
+
+.text-slider p {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    animation: fade-in-out 10s infinite;
+    text-align: center;
+}
+
+/* Stagger the start time for each <p> tag */
+.text-slider p:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.text-slider p:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.text-slider p:nth-child(3) {
+    animation-delay: 4s;
+}
+
+.text-slider p:nth-child(4) {
+    animation-delay: 6s;
+}
+
+.text-slider p:nth-child(5) {
+    animation-delay: 8s;
+}
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+    }
+
+    5%,
+    20% {
+        opacity: 1;
+    }
+
+    /* stays visible for 15% of the time */
+    25% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
