@@ -756,6 +756,7 @@
      font-family: var(--ff-head);
      font-size: 1.8rem;
      margin-bottom: 8px;
+     color:#fff;
  }
 
  .split-visual p {
