@@ -131,6 +131,7 @@
 
  .btn-outline:hover {
      background: var(--sky);
+     color: #00154c !important;;
  }
 
  .btn-white {
