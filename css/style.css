@@ -1403,9 +1403,9 @@ button:disabled {
     padding: 5px 13px;
 }
 .monitored {
-    background: url(../img/banner-new-4.png);
-    margin-top: 35px;
-    margin-bottom: 35px;
+    /* background: url(../img/banner-new-4.png); */
+    /* margin-top: 35px;
+    margin-bottom: 35px; */
 }
 
 .monitored h2 {
