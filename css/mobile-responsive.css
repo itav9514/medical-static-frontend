@@ -239,95 +239,170 @@
         font-size: 12px;
         margin: 0 0 3px;
     }
-.navbar-nav .dropdown-menu {
-   position: absolute!important;
-}
-.treattopheder {
-    width: 100%;
-    float: left;
-}
-.treattopheder ul li{width:100%;}
-.why-chose-head{height:auto;}
-.bg-primary-1 {
-    height: auto;
-    padding: 14px;
-}
-.testimonial-carousel .owl-item.center .testimonial-text p{font-size:14px;}
-.testimonial-carousel .owl-item.center .testimonial-text h5{font-size:18px;}
-.testimonial-carousel .owl-item.center .testimonial-text span{font-size:14px;}
-.display-3 {
-    font-size: 22px;
-}
-.page-header-1{height: auto;}
-.services-care-call ul {
-    display: block;
 
+    .navbar-nav .dropdown-menu {
+        position: absolute !important;
+    }
+
+    .treattopheder {
+        width: 100%;
+        float: left;
+    }
+
+    .treattopheder ul li {
+        width: 100%;
+    }
+
+    .why-chose-head {
+        height: auto;
+    }
+
+    .bg-primary-1 {
+        height: auto;
+        padding: 14px;
+    }
+
+    .testimonial-carousel .owl-item.center .testimonial-text p {
+        font-size: 14px;
+    }
+
+    .testimonial-carousel .owl-item.center .testimonial-text h5 {
+        font-size: 18px;
+    }
+
+    .testimonial-carousel .owl-item.center .testimonial-text span {
+        font-size: 14px;
+    }
+
+    .display-3 {
+        font-size: 22px;
+    }
+
+    .page-header-1 {
+        height: auto;
+    }
+
+    .services-care-call ul {
+        display: block;
+
+    }
+
+    .services-care-call ul li {
+        width: 100%;
+        list-style: none;
+        margin-bottom: 30px;
+    }
+
+    .reassurance h2 {
+        font-size: 19px;
+    }
+
+    .monitored h2 {
+        font-size: 20px;
+    }
+
+    .why-chose-head-1 {
+        height: auto;
+    }
+
+    .reassurance p {
+        color: #333;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 21px;
+    }
+
+    .reassurance {
+        background-size: cover;
+    }
+
+    .Plans .nav-link {
+        padding: .5rem 0.4rem;
+        color: #333;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .Plans .nav-pills .nav-link.active,
+    .Plans .nav-pills .show>.nav-link {
+        color: #fff;
+        font-size: 13px;
+        font-weight: 500;
+        background-color: #465093;
+    }
+
+    .Plans p {
+        color: #6f6f6f;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 19px;
+    }
+
+    .Plans h2 {
+        font-size: 20px;
+    }
+
+    .Plans .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .services-care-call h2 {
+        font-size: 22px;
+        text-align: center;
+        color: #000;
+        font-weight: 500;
+        margin: 0 0 12px;
+    }
+
+    .page-header-1 {
+        background-position: inherit;
+    }
+
+    .services-care-call ul li h3 {
+        font-size: 16px;
+    }
+
+    .hero-card h3 {
+        font-size: 20px;
+    }
+
+    .hero-card p,
+    .section-sub,
+    .service-card p,
+    .content-item p {
+        font-size: 13px;
+    }
+
+    .hero-desc {
+        font-size: 14px;
+    }
+
+    .strip {
+        padding: 14px 9px;
+    }
+
+    h2.section-title {
+        font-size: 20px;
+    }
+
+    .split-grid {
+        display: block;
+    }
+
+    .plan-price .amount {
+        font-size: 2rem;
+    }
+    .why-stat-card .num {
+    font-size: 1.4rem;
 }
-.services-care-call ul li {
-    width: 100%;
-    list-style: none;
-            margin-bottom: 30px;
-}
-.reassurance h2 {
-    font-size: 19px;
-}
-.monitored h2 {
+.footer-cta h2 {
+    font-family: var(--ff-head);
     font-size: 20px;
+    color: white;
 }
-.why-chose-head-1{height: auto;}
-.reassurance p {
-    color: #333;
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 21px;
-}
-.reassurance {
-    background-size: cover;
-}
-.Plans .nav-link {
-    padding: .5rem 0.4rem;
-    color: #333;
-    font-size: 13px;
-    font-weight: 500;
-}
-.Plans .nav-pills .nav-link.active, .Plans .nav-pills .show>.nav-link {
-    color: #fff;
-    font-size: 13px;
-    font-weight: 500;
-    background-color: #465093;
-}
-.Plans p {
-    color: #6f6f6f;
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 19px;
-}
-
-.Plans h2 {
-    font-size: 20px;
-}
-.Plans .nav{
-    display: flex;
-    flex-wrap: nowrap; 
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-}
-.services-care-call h2 {
-    font-size: 22px;
-    text-align: center;
-    color: #000;
-    font-weight: 500;
-    margin: 0 0 12px;
-}
-.page-header-1 {
-    background-position: inherit;
-}
-.services-care-call ul li h3{font-size:16px;}
-
-
-
-
-
-
+.faq-q{font-size:15px;}
 }
