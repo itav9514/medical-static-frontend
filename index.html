@@ -3,9 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>
-        Medical Adam Vacations
-    </title>
+    <title>Medical Adam Vacations</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
@@ -28,8 +26,6 @@
     <link href="lib/animate/animate.min.css" rel="stylesheet" />
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Include intl-tel-input CSS & JS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/19.2.15/css/intlTelInput.css" />
 
     <!-- Customized Bootstrap Stylesheet -->
@@ -38,11 +34,666 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/mobile-responsive.css" rel="stylesheet" />
+
     <style>
-        @media (max-width: 767px) {
-            .space-1 {
-                padding-top: 0;
-                padding-bottom: 0;
+        :root {
+            --navy: #0b2e6f;
+            --blue: #1a56c4;
+            --red: #e8262d;
+            --bg: #f4f8fd;
+            --txt: #4b5a73
+        }
+
+        .mh-wrap {
+            max-width: 1320px;
+            margin: auto;
+            padding: 0 20px
+        }
+
+        .mh-sec {
+            padding: 26px 0
+        }
+
+        .mh-sec:nth-of-type(even) {
+            background: var(--bg)
+        }
+
+        .mh-hd {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 14px
+        }
+
+        .mh-hd h2 {
+            font: 700 30px Roboto, sans-serif;
+            color: var(--navy);
+            margin: 0 0 4px
+        }
+
+        .mh-hd p,
+        .mh-txt {
+            color: var(--txt);
+            font-size: 14px;
+            margin: 0
+        }
+
+        .mh-hd a {
+            color: var(--red);
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none
+        }
+
+        .mh-g {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(var(--c, 4), 1fr)
+        }
+
+        .mh-card {
+            background: #fff;
+            border: 1px solid #e3ebf6;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(11, 46, 111, .05)
+        }
+
+        .mh-card img {
+            max-width: 100%;
+            height: auto
+        }
+
+        .mh-card small {
+            display: block;
+            color: var(--txt);
+            font-weight: 400;
+            font-size: 12px;
+            margin-top: 3px
+        }
+
+        .mh-btn {
+            display: inline-block;
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--blue);
+            color: var(--blue);
+            background: #fff
+        }
+
+        .mh-btn.red {
+            background: var(--red);
+            border-color: var(--red);
+            color: #fff
+        }
+
+        /* ---- image size fix (sab cards ki images same size) ---- */
+        #blog .mh-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block
+        }
+
+        #treatments .mh-card img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 6px
+        }
+
+        .mh-scroll img {
+            height: 200px;
+            object-fit: cover
+        }
+
+        #doctors .mh-card img {
+            height: 120px;
+            width: auto;
+            object-fit: contain
+        }
+
+        #why .mh-card img,
+        #services .mh-card img,
+        #trust .mh-card img {
+            height: 64px;
+            width: auto;
+            object-fit: contain
+        }
+
+        #blog .mh-card {
+            display: flex;
+            flex-direction: column
+        }
+
+        /* hero */
+        .mh-hero {
+            padding: 30px 0
+        }
+
+        .mh-hero .mh-wrap {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 30px;
+            align-items: center
+        }
+
+        .mh-eyebrow {
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px
+        }
+
+        .mh-hero h1 {
+            font: 700 40px/1.4 Roboto, sans-serif;
+            color: var(--navy);
+            margin: 10px 0
+        }
+
+        .mh-hero h1 span {
+            color: var(--red)
+        }
+
+        .mh-hero img.hero {
+            width: 100%;
+            border-radius: 12px
+        }
+
+        .mh-feat {
+            display: grid;
+            grid-template-columns: repeat(2, max-content);
+            gap: 18px 50px;
+            margin-top: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--navy)
+        }
+
+        @media(max-width:575px) {
+            .mh-feat {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .mh-feat div {
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .mh-feat img {
+            width: 34px
+        }
+
+        /* form widget */
+        .mh-form {
+            display: flex;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 6px 24px rgba(11, 46, 111, .12);
+            overflow: hidden
+        }
+
+        .mh-fl {
+            background: var(--navy);
+            color: #fff;
+            padding: 28px;
+            flex: 0 0 300px
+        }
+
+        .mh-fl h3 {
+            font: 700 24px Roboto, sans-serif;
+            color: #fff
+        }
+
+        .mh-fl p {
+            font-size: 12px;
+            margin: 0
+        }
+
+        .mh-fr {
+            flex: 1;
+            padding: 22px 26px
+        }
+
+        .mh-steps {
+            list-style: none;
+            margin: 0 0 18px;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            position: relative
+        }
+
+        .mh-steps:before {
+            content: "";
+            position: absolute;
+            top: 14px;
+            left: 5%;
+            right: 5%;
+            height: 2px;
+            background: #d6e0f0
+        }
+
+        .mh-steps li {
+            position: relative;
+            text-align: center;
+            font-size: 12px;
+            color: var(--txt);
+            flex: 1
+        }
+
+        .mh-steps li b {
+            display: flex;
+            width: 28px;
+            height: 28px;
+            margin: 0 auto 4px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid #d6e0f0;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px
+        }
+
+        .mh-steps li.on b,
+        .mh-steps li.done b {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: #fff
+        }
+
+        .mh-fg {
+            display: grid;
+            gap: 12px;
+            grid-template-columns: repeat(3, 1fr)
+        }
+
+        .mh-fg.s1 {
+            grid-template-columns: 1fr 1fr 1fr auto
+        }
+
+        .mh-fg .full {
+            grid-column: 1/-1
+        }
+
+        .mh-fg .form-control,
+        .mh-fg .form-select {
+            height: 55px;
+            font-size: 14px
+        }
+
+        .mh-fg textarea.form-control {
+            resize: none;
+            padding-top: 15px
+        }
+
+        .mh-fg .iti {
+            width: 100%
+        }
+
+        .mh-up {
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            height: 55px;
+            padding: 6px 12px;
+            font-size: 13px;
+            color: var(--navy);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
+            overflow: hidden;
+            background: #fff
+        }
+
+        .mh-up small {
+            color: #8a97ad;
+            font-size: 10px
+        }
+
+        .mh-up input {
+            display: none
+        }
+
+        .mh-sub {
+            background: var(--red);
+            color: #fff;
+            border: 0;
+            border-radius: 30px;
+            padding: 0 28px;
+            height: 55px;
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .mh-sub:disabled {
+            opacity: .55
+        }
+
+        .mh-back {
+            background: none;
+            border: 0;
+            color: var(--blue);
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 16px
+        }
+
+        #stage2,
+        #submitBtn,
+        .mh-back {
+            display: none
+        }
+
+        /* hospital scroller */
+        .mh-scroll {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            scroll-behavior: smooth
+        }
+
+        .mh-scroll::-webkit-scrollbar {
+            display: none
+        }
+
+        .mh-scroll>div {
+            flex: 0 0 calc(25% - 12px);
+            scroll-snap-align: start;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(11, 46, 111, .08)
+        }
+
+        .mh-scroll img {
+            width: 100%;
+            display: block
+        }
+
+        .mh-scroll p {
+            margin: 0;
+            padding: 8px 12px 2px;
+            font-weight: 700;
+            color: var(--navy)
+        }
+
+        .mh-scroll small {
+            display: block;
+            padding: 0 12px 10px;
+            color: var(--txt);
+            font-size: 12px
+        }
+
+        .mh-arr {
+            position: absolute;
+            top: 45%;
+            background: #fff;
+            border: 0;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            box-shadow: 0 2px 8px #0003;
+            font-size: 20px;
+            z-index: 2
+        }
+
+        /* steps / stories / misc */
+        .mh-step .c {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: #fff;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px
+        }
+
+        .mh-step {
+            text-align: center;
+            font-size: 12px;
+            color: var(--txt)
+        }
+
+        .mh-step b {
+            display: block;
+            color: var(--navy);
+            font-size: 14px
+        }
+
+        .mh-story {
+            display: flex;
+            gap: 12px;
+            text-align: left;
+            align-items: center
+        }
+
+        .mh-story img {
+            width: 70px
+        }
+
+        .mh-story p {
+            margin: 0;
+            font-size: 12px;
+            color: var(--txt)
+        }
+
+        .mh-price {
+            color: #0a9d6b;
+            font: 700 26px Roboto, sans-serif;
+            margin: 4px 0
+        }
+
+        .mh-trust {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 20px;
+            align-items: center
+        }
+
+        .mh-trust>img {
+            width: 100%;
+            border-radius: 10px
+        }
+
+        details.mh-faq {
+            background: #fff;
+            border: 1px solid #e3ebf6;
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy)
+        }
+
+        details.mh-faq summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between
+        }
+
+        details.mh-faq summary:after {
+            content: "+";
+            color: var(--blue)
+        }
+
+        details.mh-faq[open] summary:after {
+            content: "–"
+        }
+
+        details.mh-faq p {
+            font-weight: 400;
+            color: var(--txt);
+            margin: 8px 0 0
+        }
+
+        .mh-cta {
+            background: #0b2e6f center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 20px
+        }
+
+        .mh-cta h2 {
+            font: 700 32px Roboto, sans-serif;
+            color: #fff
+        }
+
+        @media(max-width:991px) {
+            .mh-g {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .mh-hero .mh-wrap,
+            .mh-trust {
+                grid-template-columns: 1fr
+            }
+
+            .mh-form {
+                flex-direction: column
+            }
+
+            .mh-fl {
+                flex: auto
+            }
+
+            .mh-scroll>div {
+                flex-basis: 80%
+            }
+        }
+
+        @media(max-width:767px) {
+
+            .mh-fg,
+            .mh-fg.s1 {
+                grid-template-columns: 1fr
+            }
+
+            .mh-steps li span {
+                display: none
+            }
+
+            .mh-hero h1 {
+                font-size: 28px
+            }
+        }
+
+        /* ================= MOBILE RESPONSIVE FIX ================= */
+        .mh-story>div {
+            min-width: 0;
+            flex: 1
+        }
+
+        .mh-story img {
+            flex: 0 0 60px;
+            width: 60px
+        }
+
+        @media(max-width:991px) {
+
+            #stories .mh-g,
+            #faq .mh-g {
+                grid-template-columns: 1fr
+            }
+
+            .mh-hd h2 {
+                font-size: 26px
+            }
+        }
+
+        @media(max-width:767px) {
+            .mh-sec {
+                padding: 20px 0
+            }
+
+            .mh-wrap {
+                padding: 0 14px
+            }
+
+            .mh-hd {
+                flex-direction: column;
+                gap: 6px
+            }
+
+            /* View All link ab title ke neeche */
+            .mh-hd a {
+                white-space: nowrap;
+                order: 2
+            }
+
+            .mh-hd h2 {
+                font-size: 24px
+            }
+
+            .mh-hero {
+                padding: 18px 0
+            }
+
+            .mh-fl {
+                padding: 20px
+            }
+
+            .mh-fr {
+                padding: 16px
+            }
+
+            .mh-cta {
+                padding: 40px 16px
+            }
+
+            .mh-cta h2 {
+                font-size: 22px
+            }
+
+            .mh-arr {
+                width: 34px;
+                height: 34px;
+                left: 4px !important
+            }
+
+            .mh-arr:last-of-type {
+                left: auto !important;
+                right: 4px !important
+            }
+
+            #blog .mh-card img {
+                height: 140px
+            }
+
+            #doctors .mh-card img {
+                height: 100px
+            }
+        }
+
+        @media(max-width:480px) {
+
+            #treatments .mh-g,
+            #journey .mh-g {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .mh-price {
+                font-size: 22px
+            }
+
+            .mh-card {
+                padding: 10px;
+                font-size: 13px
             }
         }
     </style>
@@ -57,583 +708,128 @@
         </div>
     </div>
     <!-- Spinner End -->
-     
+
     <!-- Navbar Start -->
-  <div id="header"></div>
+    <div id="header"></div>
     <!-- Navbar End -->
 
-    <!-- Header Start -->
-    <div class="container-fluid header p-0 mb-5">
-        <div class="row g-0 align-items-center flex-column-reverse flex-lg-row" style="position: relative;">
-
-            <div class="col-lg-12 wow fadeIn moblie-hide" data-wow-delay="0.5s">
-                <div class="owl-carousel header-carousel">
-                    <div class="owl-carousel-item position-relative">
-                        <img class="img-fluid" src="img/banner-new.png" alt="">
-                        <!-- <div class="owl-carousel-text">
-                            <h1 class="display-1 text-white mb-0">Cardiology</h1>
-                        </div> -->
-                    </div>
-                    <div class="owl-carousel-item position-relative">
-                        <img class="img-fluid" src="img/banner-new-3.png" alt="">
-                        <!-- <div class="owl-carousel-text">
-                            <h1 class="display-1 text-white mb-0">Neurology</h1>
-                        </div> -->
-                    </div>
-                    <div class="owl-carousel-item position-relative">
-                        <img class="img-fluid" src="img/banner-new-4.png" alt="">
-                        <!-- <div class="owl-carousel-text">
-                            <h1 class="display-1 text-white mb-0">Pulmonary</h1>
-                        </div> -->
-                    </div>
+    <!-- Hero Start -->
+    <section class="mh-hero">
+        <div class="mh-wrap">
+            <div>
+                <div class="mh-eyebrow">YOUR HEALTH, OUR SUPPORT IN INDIA</div>
+                <h1>Medical Treatment in India,<br>Made Simple for<br><span>International Patients</span></h1>
+                <p class="mh-txt">Trusted hospitals. Experienced doctors. Affordable treatment. Complete travel support
+                    — all in one place.</p>
+                <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+                    <a href="#queryForm" class="mh-btn red">Get a Free Medical Opinion →</a>
+                    <a href="#treatments" class="mh-btn">Explore Treatments</a>
                 </div>
+                <div class="mh-feat" id="heroFeat"></div>
             </div>
-            <div class="col-lg-6 wow fadeInUp top-form" data-wow-delay="0.5s">
-                <div class="rounded h-100 d-flex align-items-center p-5">
+            <img class="hero" id="heroImg" alt="Doctor">
+        </div>
+    </section>
+    <!-- Hero End -->
 
-                    <form id="appointmentForm" class="needs-validation" novalidate>
-                        <div class="row g-3">
-                            <!-- Name -->
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name"
-                                    style="height: 55px;" required minlength="2" maxlength="100">
-                                <div class="invalid-feedback">
-                                    Please enter your name (minimum 2 characters)
-                                </div>
-                            </div>
+    <!-- Query Form Start -->
+    <section id="queryForm" class="mh-wrap" style="padding-bottom:10px">
+        <div class="mh-form">
+            <div class="mh-fl">
+                <h3>Get Your Free<br>Medical Opinion</h3>
+                <p>Upload your medical reports and get treatment options from top hospitals in India.</p>
+            </div>
+            <div class="mh-fr">
+                <ol class="mh-steps" id="steps"></ol>
 
-                            <!-- Nationality -->
-                            <div class="col-12 col-sm-6">
-                                <select class="form-select" id="nationality" name="nationality" style="height: 55px;"
-                                    required>
-                                    <option value="">Select your nationality</option>
-                                    <option value="USA">USA</option>
-                                    <option value="UK">UK</option>
-                                    <option value="UAE">UAE</option>
-                                    <option value="Canada">Canada</option>
-                                    <option value="Australia">Australia</option>
-                                    <option value="India">India</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Please select your nationality
-                                </div>
-                            </div>
+                <form id="appointmentForm" class="needs-validation" novalidate>
+                    <!-- Stage 1: treatment, country, reports -->
+                    <div class="mh-fg s1" id="stage1">
+                        <div>
+                            <select class="form-select" id="treatment" name="treatment" required>
+                                <option value="">Choose Treatment</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select class="form-select" id="nationality" name="nationality" required>
+                                <option value="">Select Country</option>
+                                <option value="USA">USA</option>
+                                <option value="UK">UK</option>
+                                <option value="UAE">UAE</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Australia">Australia</option>
+                                <option value="India">India</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <label class="mh-up">
+                            <span id="upName">Upload Reports</span>
+                            <small>PDF, JPG, PNG (Max 10MB)</small>
+                            <input type="file" id="reportFile" accept=".pdf,.jpg,.jpeg,.png">
+                        </label>
+                        <button type="button" class="mh-sub" id="nextBtn">Get My Options →</button>
+                    </div>
 
-                            <!-- Email -->
-                            <div class="col-12 col-sm-6">
-                                <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="Your Email" style="height: 55px;" required>
-                                <div class="invalid-feedback">
-                                    Please enter a valid email address
-                                </div>
-                            </div>
-
-                            <!-- Mobile with Country Code -->
-                            <div class="col-12 col-sm-6">
-                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Mobile"
-                                    style="height: 55px;" required>
-                                <div class="invalid-feedback">
-                                    Please enter a valid phone number
-                                </div>
-                            </div>
-
-                            <!-- Date -->
-                            <div class="col-12 col-sm-6">
-                                <div class="date" id="datePicker" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" id="appointmentDate"
-                                        name="appointmentDate" placeholder="Callback Date" data-target="#datePicker"
-                                        data-toggle="datetimepicker" style="height: 55px;" autocomplete="off" required>
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please select a date
-                                </div>
-                            </div>
-
-                            <!-- Time -->
-                            <div class="col-12 col-sm-6">
-                                <div class="time" id="timePicker" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" id="appointmentTime"
-                                        name="appointmentTime" placeholder="Callback Time" data-target="#timePicker"
-                                        data-toggle="datetimepicker" style="height: 55px;" autocomplete="off" required>
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please select a time
-                                </div>
-                            </div>
-
-                            <!-- Problem Description -->
-                            <div class="col-12">
-                                <textarea class="form-control" id="description" name="description" rows="3"
-                                    placeholder="Describe your problem" required minlength="10"></textarea>
-                                <div class="invalid-feedback">
-                                    Please describe your problem (minimum 10 & maximum 1000 characters)
-                                </div>
-                            </div>
-
-                            <!-- Submit Button -->
-                            <div class="col-12">
-                                <div class="form-submit">
-
-                                    <div class="sub-1">
-                                        <button type="submit" id="submitBtn" disabled>
-                                            Book Consultation
-                                        </button>
-                                    </div>
-
-                                                                                                            <div class="sub-2 text-center">
-                                        <a href="tel:+1-855-888-0114"><img src="img/phone-icon.png"> +1-855-888-0114</a>
-                                    </div>
-
-                                </div>
-                                <div id="form-message" class="mt-3"></div>
+                    <!-- Stage 2: contact details (old form without country) -->
+                    <div class="mh-fg" id="stage2">
+                        <div>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name"
+                                required minlength="2" maxlength="100">
+                            <div class="invalid-feedback">Please enter your name (minimum 2 characters)</div>
+                        </div>
+                        <div>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email"
+                                required>
+                            <div class="invalid-feedback">Please enter a valid email address</div>
+                        </div>
+                        <div>
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Mobile"
+                                required>
+                            <div class="invalid-feedback">Please enter a valid phone number</div>
+                        </div>
+                        <div>
+                            <div class="date" id="datePicker" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" id="appointmentDate"
+                                    name="appointmentDate" placeholder="Callback Date" data-target="#datePicker"
+                                    data-toggle="datetimepicker" autocomplete="off" required>
                             </div>
                         </div>
-                    </form>
+                        <div>
+                            <div class="time" id="timePicker" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" id="appointmentTime"
+                                    name="appointmentTime" placeholder="Callback Time" data-target="#timePicker"
+                                    data-toggle="datetimepicker" autocomplete="off" required>
+                            </div>
+                        </div>
+                        <div>
+                            <textarea class="form-control" id="description" name="description" rows="1"
+                                placeholder="Describe your problem" required minlength="10"></textarea>
+                            <div class="invalid-feedback">Please describe your problem (minimum 10 & maximum 1000
+                                characters)</div>
+                        </div>
+                    </div>
 
-                </div>
+                    <div class="mt-3 text-end">
+                        <button type="button" class="mh-back" id="backBtn">← Back</button>
+                        <button type="submit" class="mh-sub" id="submitBtn" disabled>Submit</button>
+                    </div>
+                    <div id="form-message" class="mt-3"></div>
+                </form>
             </div>
         </div>
-    </div>
-    <!-- Header End -->
+    </section>
+    <!-- Query Form End -->
 
-    <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="d-flex flex-column">
-                        <img class="img-fluid rounded w-75 align-self-end" src="img/about-1.png" alt="">
-                        <img class="img-fluid rounded w-50 bg-white pt-3 pe-3" src="img/about-2.png" alt=""
-                            style="margin-top: -25%;">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <p class="d-inline-block border rounded-pill py-1 px-4">About Us</p>
-                    <h1 class="mb-4 size-18">Why You Should Trust Us? Get Know About Us!</h1>
-                    <p class="size-14">At www.medical.adamvacations.com, we understand that seeking medical care abroad
-                        can feel
-                        overwhelming. That’s why we are dedicated to providing a completely seamless experience for
-                        international patients. From the moment you reach out to us, our team works closely with you to
-                        understand your medical needs, connect you with the best specialists, and coordinate every
-                        aspect of your treatment journey.</p>
-                    <p class="mb-4 size-14">Our network of top-tier hospitals and highly skilled doctors ensures that
-                        you
-                        receive world-class medical care using the latest technology and procedures, comparable to the
-                        best facilities in the United States — but at a significantly lower cost. Beyond providing
-                        access to advanced treatment options, we focus on personalized care and patient comfort, guiding
-                        you through each step of your journey so you can concentrate solely on your recovery.
+    <!-- Dynamic sections (rendered by JS below) -->
+    <div id="app"></div>
 
-                    </p>
-                    <div class="hide-part">
-                        <p class="mb-4 size-14">We also take pride in managing all the logistics that come with
-                            international
-                            medical travel. From treatment planning and hospital coordination to travel arrangements,
-                            accommodation, and post-treatment follow-up, we ensure that your experience is smooth, safe,
-                            and
-                            stress-free. Our goal is not only to provide affordable, high-quality healthcare, but also
-                            to
-                            make your journey convenient, transparent, and reassuring, giving you confidence and peace
-                            of
-                            mind throughout the process.
-                        </p>
-                        <p class="mb-4 size-14">At www.medical.adamvacations.com, we believe that healing should be your
-                            only
-                            focus,
-                            and we take care of everything else — making world-class healthcare in India accessible,
-                            safe,
-                            and reliable for patients from the U.S. and across the globe.
-                        </p>
-                        <p><i class="far fa-check-circle text-primary me-3"></i>Quality health care</p>
-                        <p><i class="far fa-check-circle text-primary me-3"></i>Only Qualified Doctors</p>
-                        <p><i class="far fa-check-circle text-primary me-3"></i>Medical Research Professionals</p>
-                    </div>
-                    <a class="btn btn-gray show-more">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-    <!-- Service Start -->
-    <div class="container-xxl space-1">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block border rounded-pill py-1 px-4">Services</p>
-                <h1 class="size-18">Our Top Treatments</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-12">
-                    <div class="owl-carousel treatments-carousel">
-                        <div class="owl-carousel-item">
-                            <div class="sergari">
-                                <img src="img/home-icon-1.png">
-                                <h2 class="size-18">Cosmetic Surgery Treatment
-                                    In India</h2>
-                                <p class="size-14">
-                                    India has many advanced private hospitals and clinics offering cosmetic surgery,
-                                    especially in major cities
-                                </p>
-                            </div>
-                        </div>
-                        <div class="owl-carousel-item">
-                            <div class="sergari">
-                                <img src="img/home-icon-2.png">
-
-                                <h2 class="size-18">Dental Implants</h2>
-                                <p class="size-14">
-
-                                    india has become a trusted destination for high-quality dental implant treatment due
-                                    to advanced technology, skilled dental professionals, and cost-effective care.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="owl-carousel-item">
-
-                            <div class="sergari">
-                                <img src="img/home-icon-3.png">
-
-                                <h2 class="size-18">Liver/Kidney Transplant</h2>
-                                <p>
-                                    India has emerged as a leading destination for liver and kidney transplantation,
-                                    offering advanced medical care at affordable costs.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="owl-carousel-item">
-
-                            <div class="sergari">
-                                <img src="img/home-icon-3.png">
-
-                                <h2 class="size-18">Neuro Surgeries</h2>
-                                <p>
-                                    Adam Vacations Medical facilitates top-tier brain and spine surgeries in India for
-                                    international patients seeking expert care at an affordable cost. </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
-
-    <!-- Feature Start -->
-    <div class="container-fluid why-chose-head overflow-hidden px-lg-0">
-        <div class="container feature px-lg-0">
-            <div class="row g-0 mx-lg-0 page-set">
-                <div class="col-lg-6 bg-primary-1 feature-text wow fadeIn" data-wow-delay="0.1s">
-                    <div class="ps-lg-0">
-
-                        <h1 class="text-white-1 mb-2 mt-4">WHY CHOOSE<br>
-                            Our Medical Treatment ?</h1>
-                        <p class="text-white-1 mb-2 pb-2 size-14">
-                            24/7 Service- Round the clock services & complete surveillance &
-                            patient care makes us stands out from the rest.
-                        </p>
-                        <div class="row g-4">
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light-1"
-                                        style="width: 55px; height: 55px">
-                                        01
-                                    </div>
-                                    <div class="ms-4">
-                                        <h5 class="text-white-1 mb-2">Affordability</h5>
-                                        <p class="text-white-1 mb-0 size-14">With affordable packages offering proven
-                                            solutions
-                                            we
-                                            ensure that each & every patient receive the best health care</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light-1"
-                                        style="width: 55px; height: 55px">
-                                        02
-                                    </div>
-                                    <div class="ms-4">
-                                        <h5 class="text-white-1 mb-2">Specialist Consultation</h5>
-                                        <p class="text-white-1 mb-0 size-14">Proper consultation with doctors &
-                                            pathologists for
-                                            the best possible medical facilities allows patient to get an overview about
-                                            the complete medical condition.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light-1"
-                                        style="width: 55px; height: 55px">
-                                        03
-                                    </div>
-                                    <div class="ms-4">
-                                        <h5 class="text-white-1 mb-2">State-Of-Art-Medical </h5>
-                                        <p class="text-white-1 mb-0 size-14">With quality infrastructure & best
-                                            technologies, we
-                                            offer the patients zone of maximum comfort.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light-1"
-                                        style="width: 55px; height: 55px">
-                                        04
-                                    </div>
-                                    <div class="ms-4">
-                                        <h5 class="text-white-1 mb-2">Reputed Health Care </h5>
-                                        <p class="text-white-1 mb-0 size-14">With experienced healthcare professionals
-                                            with you
-                                            to access your condition, you can consider to be under positive
-                                            surveillance.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s" >
-                   
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Feature End -->
-
-    <!-- Team Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px">
-                <p class="d-inline-block border rounded-pill py-1 px-4">Doctors</p>
-                <h1 class="size-18">Our Medical Assistance Other Services</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-12">
-                    <div class="owl-carousel media-carousel">
-                        <div class="owl-carousel-item">
-
-
-                            <img src="img/air-banner-1.png">
-                            <div class="blue-back">
-                                <h2>Air Ambulance</h2>
-                                <ul>
-                                    <li><span><img src="img/tick.png"></span> <span>Emergency medical
-                                            evacuation</span></li>
-                                    <li><span><img src="img/tick.png"></span> <span>Responsive medical treatment
-                                            while travelling</span>
-                                    </li>
-                                    <li><span><img src="img/tick.png"></span> <span>NICU services</span></li>
-                                    <li>
-                                        <span><img src="img/tick.png"></i></span> <span>Better medical escort</span>
-                                    </li>
-                                    <li>
-                                        <span><img src="img/tick.png"></span> <span>Professional medical team to
-                                            steady the
-                                            patient’s critical situation</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                        <div class="owl-carousel-item">
-                            <img src="img/air-banner-2.png">
-                            <div class="blue-back">
-                                <h2>Online Doctor Consultation</h2>
-                                <ul>
-                                    <li><span><img src="img/tick.png"></span> <span>Experienced doctors available for
-                                            24x7</span>
-                                    </li>
-                                    <li><span><img src="img/tick.png"></span> <span>Online consultations in just n 15
-                                            minutes</span>
-                                    </li>
-                                    <li><span><img src="img/tick.png"></span> <span>Reasonably priced rates and
-                                            personalised
-                                            solutions</span></li>
-                                    <li>
-                                        <span><img src="img/tick.png"></span> <span>Better medical escort</span>
-                                    </li>
-                                    <li>
-                                        <span><img src="img/tick.png"></span> <span>BInstant online consultations
-                                            anytime,
-                                            anywhere</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="owl-carousel-item">
-                            <img src="img/air-banner-3.png">
-                            <div class="blue-back">
-                                <h2>Medicine</h2>
-                                <ul>
-                                    <li><span><img src="img/tick.png"></span> <span>Available 24x7</span>
-                                    </li>
-                                    <li><span><img src="img/tick.png"></span> <span>100% Genuine Medicine</span>
-                                    </li>
-                                    <li><span><img src="img/tick.png"></span> <span>Fastest Home Delivery</span></li>
-                                    <li>
-                                        <span><img src="img/tick.png"></span> <span>Extra Benefits of Online Medicine
-                                            Orders</span>
-                                    </li>
-                                    <li>
-                                        <span><img src="img/tick.png"></span> <span>All medicines are available</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="owl-carousel-item">
-                            <img src="img/air-banner-4.jpg">
-                            <div class="blue-back">
-                                <h2>Accommodation Service</h2>
-                                <ul>
-                                    <li><span><img src="img/tick.png"></span> <span>Available 24x7</span></li>
-                                    <li><span><img src="img/tick.png"></span> <span>Long-Term Rentals for Rehab &
-                                            Recovery Patients</span>
-                                    </li>
-                                    <li><span><img src="img/tick.png"></span> <span>NICU services</span></li>
-                                    <li>
-                                        <span><img src="img/tick.png"></i></span> <span>Better medical escort</span>
-                                    </li>
-                                    <li>
-                                        <span><img src="img/tick.png"></span> <span>Professional medical team to
-                                            steady the
-                                            patient’s critical situation</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Team End -->
-    <!-- Testimonial Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px">
-                <p class="d-inline-block border rounded-pill py-1 px-4">
-                    Testimonial
-                </p>
-                <h1 class="size-18">What Say Our Patients!</h1>
-            </div>
-          <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial.png"
-                        style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p> “The treatment was done by a leading Delhi hospital, but the real magic was how Adam
-                            Vacations simplified everything. They scheduled, followed up, even checked on me after I
-                            returned home.”</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">James M. – Los Angeles, CA</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial.png"
-                        style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>“My IVF journey was handled by an incredible clinic in India. Adam Vacations arranged the
-                            whole process and stayed in touch through every step. I felt supported the entire time.”</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">Linda R. – Buffalo, NY</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial.png"
-                        style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>“I had my knee replaced by experts in India — the results were amazing. Adam Vacations helped
-                            me prepare, book, and recover with no confusion. It was smooth from start to finish.”</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">Carlos G. – Austin, TX</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial.png"
-                        style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>“From my first email to my flight home, Adam Vacations ensured I had the right team treating
-                            my cancer. They didn’t provide the care directly, but they made it all happen without
-                            stress.”</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">Karen T. – Chicago, IL</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial.png"
-                        style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>“Cardiac surgery is serious business. The hospital in India was top-class. Adam Vacations
-                            handled every logistic, document, and follow-up so I could focus on healing.”</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">David B. – Miami, FL</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial.png"
-                        style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>“Dental care abroad felt risky, but with Adam Vacations, I was guided to a top clinic. They
-                            checked in before and after, ensuring everything went smoothly. I couldn’t be happier with
-                            the outcome.”</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">Jessica W. – Phoenix, AZ</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial.png"
-                        style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>“My spine surgery was performed by skilled doctors in India. Adam Vacations handled
-                            everything else — travel, coordination, paperwork, follow-ups. It felt like I had a support
-                            team the whole time.”</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">Rachel S. – Seattle, WA</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial.png"
-                        style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>“We both had cataract procedures scheduled at a premier hospital. Adam Vacations ensured a
-                            coordinated experience that felt personal and professional.”</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">Thomas & Elaine H. – Denver, CO</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial.png"
-                        style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>“I chose India for cosmetic surgery because of the quality and cost. Adam Vacations didn’t do
-                            the surgery, but they made sure it happened safely and efficiently.”</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">Olivia P. – Atlanta, GA</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial.png"
-                        style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>“A top Indian hospital gave me new hope for my liver condition. Adam Vacations organized the
-                            logistics and supported me at every turn. They truly care.”</p>
-                        <h5 class="mb-1">Patient Name</h5>
-                        <span class="fst-italic">Mark L. – Newark, NJ</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
+    <!-- CTA Banner -->
+    <section class="mh-cta" id="ctaBanner">
+        <h2>Ready to Explore Your Treatment Options?</h2>
+        <p>Upload your medical reports and get a free opinion from our partner hospitals.</p>
+        <a href="#queryForm" class="mh-btn red">Get a Free Medical Opinion →</a>
+    </section>
 
     <!-- Footer Start -->
     <div id="footer"></div>
@@ -656,211 +852,320 @@
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/19.2.15/js/intlTelInput.min.js"></script>
 
-    <!-- Template Javascript -->
+    <!-- Template Javascript (header/footer fetch, pickers) -->
     <script src="js/main.js"></script>
 
     <script>
-        // Wait for DOM to load
-        document.addEventListener("DOMContentLoaded", function () {
-            // Initialize international phone input
-            const phoneInputField = document.getElementById("phone");
-            const phoneInput = window.intlTelInput(phoneInputField, {
-                initialCountry: "us", // Default to India
-                preferredCountries: ["in", "us", "gb", "ae", "sg"],
-                utilsScript:
-                    "https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.15/build/js/utils.js",
-                separateDialCode: true,
-                autoPlaceholder: "aggressive",
-                nationalMode: false,
-                formatOnDisplay: true,
-            });
+        /* ---------- Content (images folder: change IMG if your folder name differs) ---------- */
+        /* =====================================================================
+           IMAGES — YAHAN SIRF APNI IMAGE KA NAAM (extension ke saath) LIKHO
+           Folder: index.html ke bagal wala "all-img" folder
+           Left side (key) mat badlo, sirf right side ka "file-name.ext" badlo.
+           ===================================================================== */
+        const IMG = "all-img/";
+        const IMAGE_NAMES = {
+            // ---- Top banner (hero) ----
+            "hero-doctor": "Adam-medical-banner.png",
+            "f-hospital": "1-icon",
+            "f-doctor": "2-icon",
+            "f-afford": "treatment",
+            "f-travel": "flight-2",
 
+            // ---- Why India for Treatment (5 icons) ----
+            "w-1": "world class",
+            "w-2": "doctors",
+            "w-3": "technology",
+            "w-4": "treatment",
+            "w-5": "travel",
+
+            // ---- Popular Treatments (8 cards) ----
+            "cancer": "1",
+            "cardiac": "2",
+            "knee": "3",
+            "hip": "4",
+            "kidney": "5",
+            "liver": "6",
+            "ivf": "7",
+            "dental": "8",
+
+            // ---- Top Hospitals (4 images) ----
+            "h-apollo": "9",
+            "h-medanta": "10",
+            "h-fortis": "11",
+            "h-max": "12",
+
+            // ---- Top Doctors (sab 6 cards me same image) ----
+            "doctor": "13",
+
+            // ---- International Patient Services (7 icons) ----
+            "visa": "medical-1",
+            "flight": "flight-2",
+            "pickup": "airport-3",
+            "hotel": "booking-4",
+            "interpreter": "services-5",
+            "coordination": "treatment-6",
+            "ambulance": "ambulance-7",
+
+            // ---- Real Patient Stories (avatar) ----
+            "patient": "patients",
+
+            // ---- Why Patients Trust (6 icons + side image) ----
+            "t-hospital": "14",
+            "t-doctor": "15",
+            "t-secure": "16",
+            "t-support": "17",
+            "t-info": "18",
+            "t-coord": "19",
+            "trust-doctor": "20",
+
+            // ---- Blog (4 images) ----
+            "blog-1": "21",
+            "blog-2": "22",
+            "blog-3": "12",
+            "blog-4": "24",
+
+            // ---- Last CTA banner background ----
+            "cta-bg": "banner-footer"
+        };
+        /* ===================== config end — niche kuch mat badlo ===================== */
+
+        // Extension likhi ho (a.png) to wahi use hoga; na likhi ho to png/jpg/jpeg/webp/svg auto try hoga.
+        const EXT = ["png", "jpg", "jpeg", "webp", "svg"];
+        const hasExt = (n) => /\.(png|jpe?g|webp|svg|gif)$/i.test(n);
+        const src = (k, i = 0) => {
+            const n = IMAGE_NAMES[k] || k;
+            return (n.includes("/") ? "" : IMG) + encodeURI(hasExt(n) ? n : n + "." + EXT[i]);
+        };
+        const imgFail = (el) => {
+            const k = el.dataset.k, i = (+el.dataset.i || 0) + 1;
+            if (k && !hasExt(IMAGE_NAMES[k] || k) && i < EXT.length) { el.dataset.i = i; el.src = src(k, i); return; }
+            console.warn("Image nahi mili:", el.src); el.onerror = null; el.style.visibility = "hidden";
+        };
+        const loadBg = (el, k, grad, i = 0) => {
+            if (i >= EXT.length) return;
+            const t = new Image();
+            t.onload = () => (el.style.backgroundImage = `${grad},url('${t.src}')`);
+            t.onerror = () => loadBg(el, k, grad, i + 1);
+            t.src = src(k, i);
+        };
+        const im = (k, a = "") => `<img src="${src(k)}" data-k="${k}" data-i="0" alt="${a}" loading="lazy" onerror="imgFail(this)">`;
+        const card = (slug, t, sub = "") => `<div class="mh-card">${im(slug, t)}<div>${t}</div>${sub ? `<small>${sub}</small>` : ""}</div>`;
+        const grid = (c, a) => `<div class="mh-g" style="--c:${c}">${a.join("")}</div>`;
+        const sec = (id, t, s, l, b) => `<section class="mh-sec" id="${id}"><div class="mh-wrap"><div class="mh-hd"><div><h2>${t}</h2>${s ? `<p>${s}</p>` : ""}</div>${l ? `<a href="#">${l} →</a>` : ""}</div>${b}</div></section>`;
+
+        const TREAT = [["Cancer Treatment", "cancer"], ["Cardiac Surgery", "cardiac"], ["Knee Replacement", "knee"], ["Hip Replacement", "hip"], ["Kidney Transplant", "kidney"], ["Liver Transplant", "liver"], ["IVF Treatment", "ivf"], ["Dental Implants", "dental"]];
+        const COST = [["Knee Replacement", "$4,000", "4-5 days", "2-3 weeks"], ["Hip Replacement", "$4,500", "4-5 days", "2-3 weeks"], ["Heart Bypass", "$5,000", "6-7 days", "3-4 weeks"], ["Liver Transplant", "$35,000", "2-3 weeks", "8-12 weeks"], ["Kidney Transplant", "$16,000", "1-2 weeks", "4-6 weeks"], ["Dental Implant", "$800", "1-2 days", "1-2 days"]];
+        const HOSP = [["Apollo Hospitals", "Chennai", "NABH & JCI Accredited"], ["Medanta – The Medicity", "Gurgaon", "NABH Accredited"], ["Fortis Healthcare", "Multiple Locations", "NABH Accredited"], ["Max Healthcare", "Delhi", "NABH Accredited"]];
+        const DOCS = [["Dr. Rajesh Sharma", "Cardiologist", "20+ Years", "Max Hospital, Delhi"], ["Dr. Priya Mehta", "Oncologist", "16+ Years", "Apollo Hospital, Chennai"], ["Dr. Amit Verma", "Orthopaedic Surgeon", "15+ Years", "Medanta, Gurgaon"], ["Dr. Neha Kapoor", "IVF Specialist", "16+ Years", "Fortis Hospital, Delhi"], ["Dr. S. Iyer", "Neurologist", "20+ Years", "Manipal Hospital, Bengaluru"], ["Dr. Rohan Desai", "Dental Specialist", "10+ Years", "Global Hospital, Hyderabad"]];
+        const JOURNEY = [["Share Medical Reports", "Upload your reports and explain your requirement.", "#1a56c4"], ["Get Medical Opinion", "We coordinate with top hospitals and specialists.", "#e8262d"], ["Treatment Options & Estimate", "Receive treatment options and indicative costs.", "#f08a1c"], ["Plan Your Medical Trip", "Visa, flights, hotel and airport transfer.", "#6b3fc4"], ["Treatment + Local Support", "Appointments, hospital visits and local assistance.", "#0f9d78"], ["Return & Follow-Up", "Support after treatment and remote follow-up.", "#e0338f"]];
+        const SERV = [["Medical Visa Assistance", "visa"], ["Flights & Travel Support", "flight"], ["Airport Pickup & Transfers", "pickup"], ["Accommodation Bookings", "hotel"], ["Interpreter Services", "interpreter"], ["Treatment Coordination", "coordination"], ["Air Ambulance & Emergency Support", "ambulance"]];
+        const STORY = [["Nigeria", "Knee Replacement · Apollo Hospital, Chennai", "Excellent support from the Adam team. My treatment went smoothly."], ["UK", "Cancer Treatment · Medanta, Gurgaon", "The doctors and staff were amazing. I felt well taken care of."], ["UAE", "Dental Implants · Global Hospital, Hyderabad", "High-quality treatment at an affordable cost. Very helpful team."]];
+        const TRUST = [["Verified Hospital Information", "t-hospital"], ["Doctor Verification", "t-doctor"], ["Secure Report Handling", "t-secure"], ["Personalized Patient Support", "t-support"], ["Transparent Information", "t-info"], ["End-to-End Coordination", "t-coord"]];
+        const BLOG = [["Knee Replacement Cost in India 2026", "Sep 16, 2026", "blog-1"], ["Medical Visa for India: A Complete Guide", "Sep 10, 2026", "blog-2"], ["Best Cancer Hospitals in India", "Sep 05, 2026", "blog-3"], ["How Long Should International Patients Stay in India?", "Aug 28, 2026", "blog-4"]];
+        const FAQ = [["How do I get a medical opinion?", "Fill the form above with your treatment, country and reports. Our team will share options from partner hospitals."], ["Do you help with medical visa?", "Yes, we guide you through the medical visa documents and process."], ["What documents do I need?", "Passport copy, medical reports, prescriptions and any previous scans."], ["How long should I stay in India?", "It depends on the treatment. Typical stays are shown in the cost section."], ["How much does treatment cost?", "Costs vary by condition, doctor and hospital. You will receive an estimate with your opinion."], ["Will you assist during treatment?", "Yes, our coordinators assist with hospital visits, stay and local support."]];
+
+        /* ---------- Render ---------- */
+        const heroEl = document.getElementById("heroImg");
+        heroEl.dataset.k = "hero-doctor"; heroEl.dataset.i = 0;
+        heroEl.onerror = () => imgFail(heroEl);
+        heroEl.src = src("hero-doctor");
+        document.getElementById("heroFeat").innerHTML = [["Top Hospitals", "f-hospital"], ["Experienced Doctors", "f-doctor"], ["Affordable Treatment", "f-afford"], ["Complete Travel Support", "f-travel"]].map(f => `<div>${im(f[1])}${f[0]}</div>`).join("");
+        loadBg(document.getElementById("ctaBanner"), "cta-bg", "linear-gradient(#0b2e6fcc,#0b2e6fcc)");
+        document.getElementById("steps").innerHTML = ["Select Treatment", "Your Country", "Upload Reports", "Contact Details", "Submit"].map((s, i) => `<li${i < 3 ? ' class="on"' : ""}><b>${i + 1}</b><span>${s}</span></li>`).join("");
+        document.getElementById("treatment").insertAdjacentHTML("beforeend", TREAT.map(t => `<option>${t[0]}</option>`).join(""));
+
+        document.getElementById("app").innerHTML =
+            sec("why", "Why India for Treatment?", "India offers world-class medical care, modern technology, experienced doctors and affordable treatment costs for international patients.", "", grid(5, [["World-Class Healthcare", "w-1"], ["Highly Experienced Doctors", "w-2"], ["Advanced Technology", "w-3"], ["Cost-Effective Treatment", "w-4"], ["Easy Travel & Visa Process", "w-5"]].map(w => card(w[1], w[0])))) +
+            sec("treatments", "Popular Treatments", "Find the right treatment with top hospitals and experienced specialists in India.", "View All Treatments", grid(8, TREAT.map(t => card(t[1], t[0])))) +
+            sec("costs", "Treatment Costs in India", "Indicative costs for popular treatments. Final cost depends on your medical condition, doctor and hospital.", "View Detailed Cost Guide", grid(6, COST.map(c => `<div class="mh-card" style="text-align:left">${c[0]}<small>From</small><div class="mh-price">${c[1]}</div><small>Hospital Stay: ${c[2]}</small><small>India Stay: ${c[3]}</small></div>`))) +
+            sec("hospitals", "Top Hospitals in India", "Partnering with leading multi-speciality hospitals across India.", "View All Hospitals", `<div style="position:relative"><button class="mh-arr" style="left:-12px" onclick="scrollH(-1)">‹</button><div class="mh-scroll" id="hs">${HOSP.map(h => `<div>${im("h-" + h[0].split(" ")[0].toLowerCase(), h[0])}<p>${h[0]}</p><small>${h[1]}<br>${h[2]}</small></div>`).join("")}</div><button class="mh-arr" style="right:-12px" onclick="scrollH(1)">›</button></div>`) +
+            sec("doctors", "Top Doctors", "Consult with experienced specialists for your treatment.", "View All Doctors", grid(6, DOCS.map(d => `<div class="mh-card">${im("doctor", d[0])}<div>${d[0]}</div><small style="color:var(--blue)">${d[1]}</small><small>${d[2]} Experience</small><small>${d[3]}</small></div>`))) +
+            sec("journey", "How Your Medical Journey Works", "A simple and transparent process from consultation to recovery.", "", grid(6, JOURNEY.map((j, i) => `<div class="mh-step"><div class="c" style="background:${j[2]}">0${i + 1}</div><b>${j[0]}</b>${j[1]}</div>`))) +
+            sec("services", "International Patient Services", "End-to-end support for a smooth and comfortable medical journey.", "", grid(7, SERV.map(s => card(s[1], s[0])))) +
+            sec("stories", "Real Patient Stories", "Stories of hope and better health. Real experiences from our international patients.", "View All Stories", grid(3, STORY.map(s => `<div class="mh-card mh-story">${im("patient")}<div><b>Patient from ${s[0]}</b><p style="color:var(--blue)">${s[1]}</p><p>“${s[2]}”</p></div></div>`))) +
+            sec("trust", "Why Patients Trust Adam Vacations", "We are committed to transparent, ethical and patient-focused support.", "", `<div class="mh-trust">${grid(3, TRUST.map(t => card(t[1], t[0])))}${im("trust-doctor")}</div>`) +
+            sec("blog", "Medical Travel Guides & Blog", "Helpful articles to plan your medical journey to India.", "View All Articles", grid(4, BLOG.map(b => `<div class="mh-card" style="padding:0;overflow:hidden;text-align:left">${im(b[2], b[0])}<div style="padding:10px 12px">${b[0]}<small>${b[1]}</small></div></div>`))) +
+            sec("faq", "Frequently Asked Questions", "", "", `<div class="mh-g" style="--c:2">${FAQ.map(f => `<details class="mh-faq"><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join("")}</div>`);
+
+        function scrollH(d) { const e = document.getElementById("hs"); e.scrollBy({ left: d * e.clientWidth * 0.5 }); }
+
+        /* ---------- Form logic ---------- */
+        document.addEventListener("DOMContentLoaded", function () {
+            let phoneInput = null; // created when stage 2 opens (so flag/dial code width is measured correctly)
+            const phoneInputField = document.getElementById("phone");
             const form = document.getElementById("appointmentForm");
             const submitBtn = document.getElementById("submitBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            const backBtn = document.getElementById("backBtn");
             const messageDiv = document.getElementById("form-message");
-
-            // Track interacted fields
+            const stage1 = document.getElementById("stage1");
+            const stage2 = document.getElementById("stage2");
+            const reportFile = document.getElementById("reportFile");
+            const stepItems = document.querySelectorAll("#steps li");
             const interactedFields = new Set();
 
-            // Validation function
+            reportFile.addEventListener("change", () => {
+                document.getElementById("upName").textContent = reportFile.files[0] ? reportFile.files[0].name : "Upload Reports";
+            });
+
+            function setSteps(n) { // n = current step (1-5)
+                stepItems.forEach((li, i) => {
+                    li.className = i + 1 < n ? "done" : i + 1 === n ? "on" : "";
+                });
+            }
+
+            // Stage 1 -> Stage 2 (same card, no page change)
+            nextBtn.addEventListener("click", () => {
+                const t = document.getElementById("treatment");
+                const c = document.getElementById("nationality");
+                [t, c].forEach(f => f.classList.toggle("is-invalid", !f.value));
+                if (!t.value || !c.value) return;
+                const f = reportFile.files[0];
+                if (f && f.size > 10 * 1024 * 1024) { alert("File too large (max 10MB)"); return; }
+
+                stage1.style.display = "none";
+                stage2.style.display = "grid";
+                nextBtn.style.display = "none";
+                submitBtn.style.display = "inline-block";
+                backBtn.style.display = "inline-block";
+                setSteps(4);
+
+                if (!phoneInput) {
+                    phoneInput = window.intlTelInput(phoneInputField, {
+                        initialCountry: "us",
+                        preferredCountries: ["in", "us", "gb", "ae", "sg"],
+                        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.15/build/js/utils.js",
+                        separateDialCode: true,
+                        autoPlaceholder: "aggressive",
+                        nationalMode: false,
+                        formatOnDisplay: true,
+                    });
+                    phoneInputField.addEventListener("countrychange", () => {
+                        interactedFields.add("phone");
+                        validateField(phoneInputField);
+                    });
+                }
+            });
+
+            backBtn.addEventListener("click", () => {
+                stage2.style.display = "none";
+                stage1.style.display = "grid";
+                nextBtn.style.display = "";
+                submitBtn.style.display = "none";
+                backBtn.style.display = "none";
+                setSteps(3);
+            });
+
+            // Validation function (same as before)
             function validateField(field) {
                 let isValid = false;
-
                 switch (field.id) {
-                    case "name":
-                        isValid = field.value.trim().length >= 2;
-                        break;
-                    case "email":
-                        isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim());
-                        break;
-                    case "phone":
-                        isValid = phoneInput.isValidNumber();
-                        break;
+                    case "name": isValid = field.value.trim().length >= 2; break;
+                    case "email": isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim()); break;
+                    case "phone": isValid = phoneInput ? phoneInput.isValidNumber() : false; break;
                     case "appointmentDate":
-                    case "appointmentTime":
-                    case "nationality":
-                        isValid = field.value.trim() !== "";
-                        break;
+                    case "appointmentTime": isValid = field.value.trim() !== ""; break;
                     case "description":
-                        isValid =
-                            field.value.trim().length >= 10 &&
-                            field.value.trim().length <= 1000;
+                        isValid = field.value.trim().length >= 10 && field.value.trim().length <= 1000;
                         break;
                 }
-
-                // Show validation only after interaction
                 if (interactedFields.has(field.id)) {
                     field.classList.toggle("is-valid", isValid);
                     field.classList.toggle("is-invalid", !isValid);
                 }
-
                 updateSubmitButton();
             }
 
-            // Enable/disable submit button
             function updateSubmitButton() {
                 let allValid = true;
-
-                [
-                    "name",
-                    "nationality",
-                    "email",
-                    "phone",
-                    "appointmentDate",
-                    "appointmentTime",
-                    //"description",
-                ].forEach((id) => {
+                ["name", "email", "phone", "appointmentDate", "appointmentTime"].forEach((id) => {
                     const field = document.getElementById(id);
                     if (!field) return;
-
-                    if (interactedFields.has(id)) {
-                        if (!field.classList.contains("is-valid")) {
-                            allValid = false;
-                        }
-                    } else {
-                        allValid = false; 
-                    }
+                    if (!interactedFields.has(id) || !field.classList.contains("is-valid")) allValid = false;
                 });
-
                 submitBtn.disabled = !allValid;
             }
 
-            // Attach listeners to all fields
-            const fields = [
-                "name",
-                "nationality",
-                "email",
-                "phone",
-                "appointmentDate",
-                "appointmentTime",
-                "description",
-            ];
-            fields.forEach((id) => {
+            ["name", "email", "phone", "appointmentDate", "appointmentTime", "description"].forEach((id) => {
                 const el = document.getElementById(id);
                 if (el) {
                     el.addEventListener("focus", () => interactedFields.add(id));
-                    el.addEventListener("input", () => {
-                        interactedFields.add(id);
-                        validateField(el);
-                    });
-                    el.addEventListener("blur", () => {
-                        interactedFields.add(id);
-                        validateField(el);
-                    });
+                    el.addEventListener("input", () => { interactedFields.add(id); validateField(el); });
+                    el.addEventListener("blur", () => { interactedFields.add(id); validateField(el); });
                 }
             });
 
-            // Special listener for phone country change
-            phoneInputField.addEventListener("countrychange", () => {
-                interactedFields.add("phone");
-                validateField(phoneInputField);
+            const toBase64 = (file) => new Promise((res, rej) => {
+                const r = new FileReader();
+                r.onload = () => res(r.result.split(",")[1]);
+                r.onerror = rej;
+                r.readAsDataURL(file);
             });
 
-            // Form submission
+            // Form submission (same API / flow as before)
             form.addEventListener("submit", async function (e) {
                 e.preventDefault();
-
                 if (submitBtn.disabled) return;
 
-                // Show loading
                 submitBtn.disabled = true;
-                submitBtn.innerHTML =
-                    '<span class="spinner-border spinner-border-sm me-2"></span> Sending...';
+                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Sending...';
+                setSteps(5);
 
-                // Collect sanitized data
                 const formData = {
                     fullName: document.getElementById("name").value.trim(),
                     nationality: document.getElementById("nationality").value.trim(),
+                    treatment: document.getElementById("treatment").value.trim(),
                     email: document.getElementById("email").value.trim().toLowerCase(),
-                    phone: phoneInput.getNumber(), // Full international number e.g. +919876543210
-                    appointmentDate: document
-                        .getElementById("appointmentDate")
-                        .value.trim(),
-                    appointmentTime: document
-                        .getElementById("appointmentTime")
-                        .value.trim(),
+                    phone: phoneInput.getNumber(),
+                    appointmentDate: document.getElementById("appointmentDate").value.trim(),
+                    appointmentTime: document.getElementById("appointmentTime").value.trim(),
                     description: document.getElementById("description").value.trim(),
                 };
 
-                console.log("Form data ", formData);
-
                 try {
-                    const response = await fetch(
-                        "/api/MedicalEnquiry",
-                        {
-                            // ← Change to your actual endpoint
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify(formData),
-                        },
-                    );
+                    const f = reportFile.files[0];
+                    if (f) { // optional: remove these 2 lines if backend doesn't accept the report
+                        formData.reportFileName = f.name;
+                        formData.reportFile = await toBase64(f);
+                    }
+
+                    console.log("Form data ", formData);
+
+                    const response = await fetch("/api/MedicalEnquiry", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(formData),
+                    });
 
                     const responseText = await response.text();
-
                     console.log("Server HTTP status:", response.status);
                     console.log("Server raw response:", responseText);
 
                     let data;
-                    try {
-                        data = JSON.parse(responseText);
-                    } catch (e) {
-                        data = { raw: responseText };
-                    }
+                    try { data = JSON.parse(responseText); } catch (e) { data = { raw: responseText }; }
 
                     if (response.ok) {
-                        messageDiv.innerHTML =
-                            '<div class="alert alert-success">Appointment booked successfully! Redirecting...</div>';
+                        messageDiv.innerHTML = '<div class="alert alert-success">Appointment booked successfully! Redirecting...</div>';
                         form.reset();
                         submitBtn.disabled = true;
-
-                        sessionStorage.setItem(
-                            "medicalEnquiryResponse",
-                            JSON.stringify(data),
-                        );
-
-                        // Optional: redirect
+                        sessionStorage.setItem("medicalEnquiryResponse", JSON.stringify(data));
                         setTimeout(() => (window.location.href = "/thankyou.html"), 2000);
                     } else {
                         messageDiv.innerHTML = `<div class="alert alert-danger">${data.message || "Failed to book appointment"}</div>`;
+                        setSteps(4);
                     }
                 } catch (err) {
-                    messageDiv.innerHTML =
-                        '<div class="alert alert-danger">Error connecting to server. Please try again.</div>';
+                    messageDiv.innerHTML = '<div class="alert alert-danger">Error connecting to server. Please try again.</div>';
+                    setSteps(4);
                 } finally {
-                    submitBtn.innerHTML = "Book Appointment";
+                    submitBtn.innerHTML = "Submit";
                     submitBtn.disabled = false;
                 }
             });
 
-            // Initial state
             submitBtn.disabled = true;
         });
     </script>
-
-   
-
 </body>
 
 </html>
