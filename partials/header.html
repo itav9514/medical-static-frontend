@@ -51,112 +51,166 @@
         <a href="../index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <img src="../img/logo.png" style="width:150px;">
         </a>
-        <div class="phone-header-mobile">
-            <a href="tel:1-855-888-0114"><i class="fa fa-phone"></i></a>
+
+        <!-- Mobile & Tablet Call Button (Opens popup with both numbers) -->
+        <div class="d-lg-none phone-header-mobile">
+            <button type="button" class="mobile-call-btn" data-bs-toggle="modal" data-bs-target="#callModal"
+                title="Call Us" aria-label="Call Us">
+                <i class="fa fa-phone"></i>
+            </button>
         </div>
+
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="../index.html" class="nav-item nav-link active">Home</a>
                 <a href="../about.html" class="nav-item nav-link">About Us</a>
-                      <div class="nav-item dropdown">
+                <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Treatments</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
                         <div class="treattopheder">
                             <ul>
-                            <li>
-                                <a href="../cardiac-surgery.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Cardiac Surgery</a>
-
-                            </li>
-                            <li>
-                                <a href="../orthopedic-surgery.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Orthopedic Surgery</a>
-
-                            </li>
-                            <li>
-                                <a href="../ivf-fertility.html" class="dropdown-item"><i class="fa fa-angle-right"></i> IVF & Fertility</a>
-
-                            </li>
-                            <li>
-                                <a href="../cosmetic-surgery.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Cosmetic Surgery </a>
-
-                            </li>
-                            <li>
-                                <a href="../knee-hipreplacement.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Knee & Hip Replacement</a>
-
-                            </li>
-                            <li>
-                                <a href="../spine-surgery.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Spine Surgery</a>
-
-                            </li>
-
-                            <li>
-                                <a href="../cancer-treatment.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Cancer Treatment</a>
-
-                            </li>
-                            <li>
-                                <a href="../dental-implants.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Dental Implants</a>
-
-                            </li>
-                            <li>
-                                <a href="../bariatric-surgery.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Bariatric Surgery </a>
-
-                            </li>
-                            <li>
-                                <a href="../liver-kidney-transplant.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Liver Kidney Transplant</a>
-
-                            </li>
-                             <li>
-                                <a href="../neuro-surgeries.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Neuro Surgeries</a>
-
-                            </li>
-                             <li>
-                                <a href="../eye-surgery.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Eye Surgery</a>
-
-                            </li>
-                             <li>
-                                <a href="../orthopedic-trauma-surgery.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Orthopedic Trauma Surgery</a>
-
-                            </li>
-                             <li>
-                                <a href="../hair-transplant.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Hair Transplant</a>
-
-                            </li>
-                              <li>
-                                <a href="../stem-cell-therapy.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Stem Cell Therapy</a>
-
-                            </li>
-                        </ul>
+                                <li><a href="../cardiac-surgery.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> Cardiac Surgery</a></li>
+                                <li><a href="../orthopedic-surgery.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> Orthopedic Surgery</a></li>
+                                <li><a href="../ivf-fertility.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> IVF & Fertility</a></li>
+                                <li><a href="../cosmetic-surgery.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> Cosmetic Surgery</a></li>
+                                <li><a href="../knee-hipreplacement.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> Knee & Hip Replacement</a></li>
+                                <li><a href="../spine-surgery.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> Spine Surgery</a></li>
+                                <li><a href="../cancer-treatment.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> Cancer Treatment</a></li>
+                                <li><a href="../dental-implants.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> Dental Implants</a></li>
+                                <li><a href="../bariatric-surgery.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> Bariatric Surgery</a></li>
+                                <li><a href="../liver-kidney-transplant.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> Liver Kidney Transplant</a></li>
+                                <li><a href="../neuro-surgeries.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> Neuro Surgeries</a></li>
+                                <li><a href="../eye-surgery.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> Eye Surgery</a></li>
+                                <li><a href="../orthopedic-trauma-surgery.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> Orthopedic Trauma Surgery</a></li>
+                                <li><a href="../hair-transplant.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> Hair Transplant</a></li>
+                                <li><a href="../stem-cell-therapy.html" class="dropdown-item"><i
+                                            class="fa fa-angle-right"></i> Stem Cell Therapy</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <a href="../air-ambulance-service.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Air Ambulance Service</a>
-                        <a href="../online-doctor-consultation.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Online Doctor
-                            Consultation</a>
-                        <a href="../accommodation-service.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Accommodation Service</a>
-                        <a href="../pre-post-arrival-services.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Pre Post Arrival Services</a>
-                        <a href="../flight-booking.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Flight Booking</a>
-                        <a href="../hotel-booking.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Hotel Booking</a>
-
+                        <a href="../air-ambulance-service.html" class="dropdown-item"><i class="fa fa-angle-right"></i>
+                            Air Ambulance Service</a>
+                        <a href="../online-doctor-consultation.html" class="dropdown-item"><i
+                                class="fa fa-angle-right"></i> Online Doctor Consultation</a>
+                        <a href="../accommodation-service.html" class="dropdown-item"><i class="fa fa-angle-right"></i>
+                            Accommodation Service</a>
+                        <a href="../pre-post-arrival-services.html" class="dropdown-item"><i
+                                class="fa fa-angle-right"></i> Pre Post Arrival Services</a>
+                        <a href="../flight-booking.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Flight
+                            Booking</a>
+                        <a href="../hotel-booking.html" class="dropdown-item"><i class="fa fa-angle-right"></i> Hotel
+                            Booking</a>
                     </div>
                 </div>
-                          <a href="../companion-services.html" class="nav-item nav-link">companion services</a>
-
                 <a href="../contact.html" class="nav-item nav-link">Contact</a>
             </div>
-            <div class="d-none d-lg-block call-top">
-                <span>Request a call back</span>
-                <a href="tel:+1-855-888-0114">
-                    +1-855-888-0114
-                </a>
+
+            <!-- Phone Section (Both Icon & Mobile trigger the choice popup) -->
+            <div class="d-none d-lg-flex align-items-center call-top">
+                <svg class="call-top-bg" viewBox="0 0 350 75" preserveAspectRatio="none" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="navNavyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#02295a" />
+                            <stop offset="60%" stop-color="#063673" />
+                            <stop offset="100%" stop-color="#0a4488" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M 0,0 C 6,20 22,46 45,60 C 66,70 92,75 125,75 L 350,75 L 350,0 Z" fill="#dce8f5" />
+                    <path
+                        d="M 16,0 C 21,20 37,44 60,58 C 78,68 100,73 125,75 L 142,75 C 118,73 95,67 76,56 C 54,42 40,20 33,0 Z"
+                        fill="#e52128" />
+                    <path d="M 33,0 C 40,20 54,42 76,56 C 95,67 118,73 142,75 L 350,75 L 350,0 Z"
+                        fill="url(#navNavyGrad)" />
+                </svg>
+
+                <!-- Red Phone Icon Button (Opens popup showing BOTH numbers) -->
+                <button type="button" class="call-btn-circle" data-bs-toggle="modal" data-bs-target="#callModal"
+                    title="Choose Number to Call" aria-label="Call Us">
+                    <i class="fa fa-phone"></i>
+                </button>
+
+                <!-- Thin Divider -->
+                <span class="call-divider"></span>
+
+                <!-- Stacked Direct Phone Numbers -->
+                <div class="call-numbers">
+                    <a href="tel:+1-855-888-0114">+1-855-888-0114</a>
+                    <a href="tel:+917428364477">+91 74283 64477</a>
+                </div>
             </div>
         </div>
     </nav>
     <!-- Navbar End -->
+
+    <!-- CALL NUMBERS POPUP MODAL (For iPhone, iPad, and Android) -->
+    <div class="modal fade" id="callModal" tabindex="-1" aria-labelledby="callModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
+            <div class="modal-content call-popup-card">
+                <div class="modal-header call-popup-header">
+                    <div>
+                        <h5 class="modal-title fw-bold text-white mb-1" id="callModalLabel">Choose Number to Call</h5>
+                        <p class="small text-white-50 mb-0">Select your preferred medical helpline</p>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-3 p-md-4">
+                    <!-- Number 1: USA / Canada -->
+                    <a href="tel:+1-855-888-0114" class="call-option-btn">
+                        <div class="call-option-icon us">
+                            <i class="fa fa-phone-alt"></i>
+                        </div>
+                        <div class="call-option-text">
+                            <span class="call-option-region">US & Canada (Toll Free)</span>
+                            <span class="call-option-number">+1-855-888-0114</span>
+                        </div>
+                        <span class="call-action-badge"><i class="fa fa-phone"></i> Call</span>
+                    </a>
+
+                    <!-- Number 2: India / International & WhatsApp -->
+                    <a href="tel:+917428364477" class="call-option-btn">
+                        <div class="call-option-icon india">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="call-option-text">
+                            <span class="call-option-region">India & International</span>
+                            <span class="call-option-number">+91 74283 64477</span>
+                        </div>
+                        <span class="call-action-badge"><i class="fa fa-phone"></i> Call</span>
+                    </a>
+
+                    <button type="button" class="btn btn-sm btn-light text-muted w-100 py-2 rounded-pill mt-2"
+                        data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

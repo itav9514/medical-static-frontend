@@ -42,6 +42,29 @@
                 padding-bottom: 0;
             }
         }
+
+        /* Follow us fix: text + icons ek line me, jagah kam ho to icons neeche aa jayen */
+        .follow-us {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            padding-top: 8px;
+        }
+
+        .follow-us .follow-text {
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .follow-us .follow-icons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .follow-us .follow-icons .btn-social {
+            margin: 0;
+        }
     </style>
 </head>
 
@@ -96,16 +119,13 @@
                         Tower B3,
                         Spaze Itech Park, Sector 49, Gurugram, Haryana 122018, India
                     </p>
-                    <p class="mb-2 adgest size-txt-1"><i class="fa fa-phone-alt me-3"></i>+1-855-888-0114</p>
+                    <p class="mb-2 adgest size-txt-1"><i
+                            class="fa fa-phone-alt me-3"></i>+1-855-888-0114<br>+91-7428364477</p>
                     <p class="mb-2 adgest size-txt-1"><i class="fa fa-envelope me-3"></i>medical@adamvacations.com</p>
-                    <div class="d-flex pt-2">
-                        <div>
-                            <p>
-                                Follow us on
-                            </p>
 
-                        </div>
-                        <div style="margin-left:10px;">
+                    <div class="follow-us">
+                        <p class="follow-text">Follow us on</p>
+                        <div class="follow-icons">
                             <a class="btn btn-outline-light btn-social rounded-circle"
                                 href="https://www.facebook.com/people/Adamvacation/100065127787909/"><i
                                     class="fab fa-facebook-f"></i></a>
@@ -114,6 +134,9 @@
                             <a class="btn btn-outline-light btn-social rounded-circle"
                                 href="https://in.linkedin.com/company/adam-vacations"><i
                                     class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social rounded-circle" href="https://wa.me/917428364477"
+                                target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
                         </div>
                     </div>
                 </div>
