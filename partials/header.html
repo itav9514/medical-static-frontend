@@ -39,6 +39,9 @@
     <!-- ==========================================
          COMPLETE EMBEDDED CSS (SOLVES ALL 4 ISSUES)
          ========================================== -->
+    <!-- ==========================================
+         COMPLETE EMBEDDED CSS (HEADER & DROPDOWN FIX)
+         ========================================== -->
     <style>
         @media (max-width: 767px) {
             .space-1 {
@@ -324,8 +327,6 @@
             overflow-x: clip;
         }
 
-        /* side me extra white space nahi banega, sticky header bhi chalega */
-
         @media (min-width: 992px) and (max-width: 1199.98px) {
             .navbar {
                 max-width: 100%;
@@ -348,7 +349,6 @@
 
             .call-top {
                 padding-left: 70px !important;
-                /* 95px se kam */
                 padding-right: 10px !important;
                 min-width: 0;
             }
@@ -364,6 +364,73 @@
 
             .call-numbers a {
                 font-size: 12px !important;
+            }
+        }
+
+        /* =====================================================================
+           6. TREATMENTS DROPDOWN BOX FIX (Fixes Box Collapse on iPad & Mobile)
+           ===================================================================== */
+        .dropdown-menu {
+            height: auto !important;
+            overflow: visible !important;
+        }
+
+        /* display: flow-root prevents the parent box from collapsing to 0 height */
+        .treattopheder {
+            display: flow-root !important;
+            width: 500px;
+            float: none !important;
+        }
+
+        .treattopheder::after,
+        .treattopheder ul::after {
+            content: "" !important;
+            display: table !important;
+            clear: both !important;
+        }
+
+        .treattopheder ul {
+            margin: 0 !important;
+            padding: 4px 0 !important;
+            list-style: none !important;
+        }
+
+        .treattopheder ul li {
+            width: 50% !important;
+            float: left !important;
+            list-style-type: none !important;
+            padding: 4px 0 !important;
+        }
+
+        /* iPad Mini & Mobile Screens (<= 991.98px) */
+        @media (max-width: 991.98px) {
+            .treattopheder {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .navbar-nav .dropdown-menu {
+                position: static !important;
+                border: 1px solid #e2e8f0 !important;
+                border-radius: 12px !important;
+                background: #ffffff !important;
+                box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08) !important;
+                padding: 12px 14px !important;
+                margin-top: 8px !important;
+                margin-bottom: 12px !important;
+            }
+
+            .treattopheder ul li {
+                width: 50% !important;
+                /* iPad par 2 neat columns */
+            }
+        }
+
+        /* Small Phones (<= 767px) */
+        @media (max-width: 767px) {
+            .treattopheder ul li {
+                width: 100% !important;
+                /* Mobile par 1 single column */
             }
         }
     </style>

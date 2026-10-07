@@ -1,0 +1,1056 @@
+/* ==========================================================================
+   ADAM VACATIONS MEDICAL - MASTER TREATMENT PAGES STYLESHEET
+   File: css/treatment-pages.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Root Variables & Typography
+   -------------------------------------------------------------------------- */
+:root {
+    --brand-navy: #001f54;
+    --brand-navy-deep: #07234a;
+    --brand-blue: #0b5ed7;
+    --brand-red: #E8262D;
+    --brand-red-hover: #c9181f;
+    --brand-light-bg: #f4f8fc;
+    --brand-border: #e2eaf4;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+}
+
+body {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: var(--text-dark);
+    background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    color: var(--brand-navy);
+}
+
+/* --------------------------------------------------------------------------
+   2. Buttons
+   -------------------------------------------------------------------------- */
+.btn-brand-red,
+a.btn-brand-red,
+.btn.btn-brand-red {
+    background: #ffffff !important;
+    border: 2px solid var(--brand-red) !important;
+    color: var(--brand-red) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    min-height: 48px !important;
+    padding: 12px 30px !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-brand-red:hover,
+a.btn-brand-red:hover,
+.btn.btn-brand-red:hover {
+    background: var(--brand-red) !important;
+    border-color: var(--brand-red) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 24px rgba(232, 38, 45, 0.45) !important;
+}
+
+.btn-outline-navy,
+a.btn-outline-navy,
+.btn.btn-outline-navy {
+    background: #ffffff !important;
+    border: 2px solid #e2eaf4 !important;
+    color: var(--brand-navy-deep) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    min-height: 48px !important;
+    padding: 12px 30px !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-outline-navy:hover,
+a.btn-outline-navy:hover,
+.btn.btn-outline-navy:hover {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: var(--brand-red) !important;
+    color: var(--brand-red) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Breadcrumb Bar
+   -------------------------------------------------------------------------- */
+.page-breadcrumb {
+    background-color: #f8fafc;
+    border-bottom: 1px solid #eef2f6;
+    padding: 10px 0;
+    font-size: 0.85rem;
+}
+
+.page-breadcrumb a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.page-breadcrumb a:hover {
+    color: var(--brand-red);
+}
+
+.page-breadcrumb span {
+    color: var(--brand-navy-deep);
+    font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   4. Hero Sections
+   -------------------------------------------------------------------------- */
+.treatment-hero,
+.cardiac-hero {
+    padding: 60px 0 70px;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Knee: Dark Navy Theme */
+.treatment-hero {
+    background: linear-gradient(rgba(4, 25, 65, 0.78), rgba(4, 25, 65, 0.78)),
+        url('../treatment-page/banner-3.png') center/cover no-repeat !important;
+    color: #ffffff;
+}
+.treatment-hero .hero-title {
+    color: #ffffff !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+}
+.treatment-hero .hero-title span,
+.treatment-hero .hero-title span.red-text {
+    color: var(--brand-red) !important;
+}
+.treatment-hero .hero-subtitle {
+    color: #dbeafe !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* Cardiac: Clean Light Medical Blue Theme */
+.cardiac-hero {
+    background: url('../cardiac-surgery-page/banner.png') center right / cover no-repeat !important;
+    color: var(--brand-navy);
+}
+.cardiac-hero .hero-title {
+    color: var(--brand-navy) !important;
+    text-shadow: none !important;
+}
+.cardiac-hero .hero-title span,
+.cardiac-hero .hero-title span.red-text {
+    color: var(--brand-red) !important;
+}
+.cardiac-hero .hero-subtitle {
+    color: #475569 !important; /* Crisp Slate Gray */
+    text-shadow: none !important;
+    font-weight: 600;
+}
+
+.hero-title {
+    font-size: 2.7rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    margin-bottom: 28px;
+}
+
+/* Hero Badges (Desktop) */
+.hero-badge-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 0 auto 30px auto;
+    max-width: 620px;
+}
+
+.hero-badge-item,
+.hero-badge-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px 10px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.25s, box-shadow 0.25s;
+    height: 100%;
+}
+
+.hero-badge-item:hover,
+.hero-badge-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.hero-badge-item img,
+.hero-badge-card img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.hero-badge-item span,
+.hero-badge-card h6 {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--brand-navy-deep);
+    text-transform: uppercase;
+    line-height: 1.25;
+    letter-spacing: 0.3px;
+    margin: 0;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   5. Metric Pills / Stats Strip
+   -------------------------------------------------------------------------- */
+.metric-pills-bar,
+.stats-strip {
+    margin-top: -35px;
+    position: relative;
+    z-index: 10;
+}
+
+.metric-pill-item,
+.stats-strip-card {
+    background: #fff;
+    border: 1px solid var(--brand-border);
+    border-radius: 50px;
+    padding: 12px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.metric-pill-item:hover,
+.stats-strip-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.metric-pill-icon,
+.stat-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #eef4ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.metric-pill-icon img,
+.stat-icon-wrap img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.stat-icon-wrap svg {
+    width: 24px;
+    height: 24px;
+    color: var(--brand-red);
+}
+
+.metric-pill-val,
+.stat-meta .stat-val {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--brand-navy);
+    line-height: 1.2;
+}
+
+.metric-pill-label,
+.stat-meta .stat-label {
+    font-size: 0.8rem;
+    color: #666;
+    margin: 0;
+}
+
+.stats-strip-card {
+    padding: 16px 36px;
+    justify-content: space-between;
+}
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   6. Headings & Titles
+   -------------------------------------------------------------------------- */
+.section-heading-dark,
+.sec-title {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--brand-navy);
+    line-height: 1.3;
+}
+
+.section-desc-muted,
+.sec-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.sec-header {
+    margin-bottom: 30px;
+}
+
+.sec-view-link,
+.view-all-link {
+    color: var(--brand-navy);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+}
+
+.sec-view-link:hover,
+.view-all-link:hover {
+    color: var(--brand-red);
+}
+
+/* --------------------------------------------------------------------------
+   7. "What is" & "When required"
+   -------------------------------------------------------------------------- */
+.what-is-card,
+.what-cardiac-box,
+.when-required-card,
+.checklist-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid var(--brand-border);
+    height: 100%;
+}
+
+.what-is-card img,
+.what-cardiac-img {
+    border-radius: 12px;
+    max-height: 250px;
+    object-fit: cover;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.when-required-card h5,
+.checklist-card h4 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--brand-navy);
+    margin-bottom: 18px;
+}
+
+.when-required-list,
+.check-list-item {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--brand-border);
+    font-size: 0.92rem;
+    color: #444;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.when-required-list li:last-child,
+.check-list-item:last-child {
+    border-bottom: none;
+}
+
+.when-required-list li i,
+.check-list-item i {
+    color: var(--brand-red);
+    font-size: 1rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. "Types of Treatment" Cards & Images (Uniform 120px Fit)
+   -------------------------------------------------------------------------- */
+.type-treatment-card,
+.type-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px 16px;
+    border: 1px solid var(--brand-border);
+    transition: transform 0.25s, box-shadow 0.25s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.type-treatment-card:hover,
+.type-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.type-card-img-wrap {
+    width: 100% !important;
+    height: 120px !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    margin-bottom: 12px !important;
+    background: #f8fafc !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1px solid #edf2f7 !important;
+}
+
+.type-card-img-wrap img,
+.type-card img,
+.type-treatment-card img {
+    width: 100% !important;
+    height: 120px !important;
+    object-fit: cover !important;
+    border-radius: 10px !important;
+    display: block !important;
+    margin-bottom: 12px !important;
+}
+
+.type-treatment-card h5,
+.type-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--brand-navy);
+    margin-bottom: 8px;
+}
+
+.type-treatment-card p,
+.type-card p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   9. Treatment Options
+   -------------------------------------------------------------------------- */
+.treatment-options-wrapper {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid var(--brand-border);
+}
+
+.treatment-option-item,
+.option-pill-card {
+    background: #fff;
+    border: 1px solid var(--brand-border);
+    border-radius: 12px;
+    padding: 20px 15px;
+    text-align: center;
+    position: relative;
+    height: 100%;
+}
+
+.treatment-option-icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #eef4ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+}
+
+.treatment-option-icon-box img,
+.option-pill-card img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+
+.treatment-option-item h6,
+.option-pill-card h6 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--brand-navy);
+    margin-bottom: 6px;
+}
+
+.treatment-option-item p {
+    font-size: 0.78rem;
+    color: #666;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   10. Hospital Cards
+   -------------------------------------------------------------------------- */
+.hospital-card {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid var(--brand-border);
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.hospital-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.hospital-card > img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.hospital-info,
+.hospital-body {
+    padding: 14px 12px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hospital-card h6,
+.hospital-body h6 {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--brand-navy);
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.hospital-card p,
+.hospital-city {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.hospital-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(7, 35, 74, 0.85);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   11. Doctor Cards (Round Avatar Fix)
+   -------------------------------------------------------------------------- */
+.doctor-card {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid var(--brand-border);
+    padding: 20px 14px 16px;
+    text-align: center;
+    transition: transform 0.25s, box-shadow 0.25s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.doctor-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.doctor-avatar,
+.doctor-avatar-box img,
+.owl-carousel .owl-item .doctor-avatar,
+.owl-carousel .owl-item .doctor-avatar-box img {
+    width: 82px !important;
+    max-width: 82px !important;
+    height: 82px !important;
+    max-height: 82px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 3px solid #eef4ff !important;
+    margin: 0 auto 10px !important;
+    display: block !important;
+}
+
+.doctor-card h6 {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--brand-navy);
+    margin-bottom: 4px;
+}
+
+.doctor-card p {
+    font-size: 0.78rem;
+    color: var(--brand-red);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.doctor-hospital {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   12. Sliders & Floating Side Navigation Arrows
+   -------------------------------------------------------------------------- */
+.slider-box,
+.carousel-wrap {
+    position: relative;
+    padding: 0 25px;
+}
+
+.medical-slider .item {
+    padding: 8px 4px 14px;
+}
+
+.custom-carousel-nav,
+.slider-arrow {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    border: 1.5px solid var(--brand-border) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--brand-navy) !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+    z-index: 25 !important;
+    box-shadow: 0 4px 14px rgba(7, 35, 74, 0.14) !important;
+    transition: all 0.25s ease !important;
+    padding: 0 !important;
+}
+
+.custom-carousel-nav:hover,
+.slider-arrow:hover {
+    background: var(--brand-red) !important;
+    color: #ffffff !important;
+    border-color: var(--brand-red) !important;
+    box-shadow: 0 6px 18px rgba(232, 38, 45, 0.35) !important;
+    transform: translateY(-50%) scale(1.08) !important;
+}
+
+.custom-carousel-nav.prev-btn,
+.slider-arrow.prev,
+.prev-btn {
+    left: 0px !important;
+}
+
+.custom-carousel-nav.next-btn,
+.slider-arrow.next,
+.next-btn {
+    right: 0px !important;
+}
+
+/* --------------------------------------------------------------------------
+   13. Cost, Duration & Logistics Cards
+   -------------------------------------------------------------------------- */
+.info-grid-card,
+.cost-stay-card,
+.req-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--brand-border);
+    height: 100%;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.info-grid-card:hover,
+.cost-stay-card:hover,
+.req-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.info-card-header,
+.req-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--brand-border);
+}
+
+.info-card-header img,
+.req-header img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.info-card-header h6,
+.req-header h6 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--brand-navy);
+    margin: 0;
+}
+
+.info-highlight-val,
+.cost-body .cost-val {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--brand-red);
+    margin-bottom: 12px;
+}
+
+.info-card-list,
+.req-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-card-list li,
+.req-list li {
+    font-size: 0.88rem;
+    color: #444;
+    padding: 6px 0;
+    position: relative;
+    padding-left: 18px;
+}
+
+.info-card-list li::before,
+.req-list li::before {
+    content: "•";
+    color: var(--brand-red);
+    font-size: 1.3rem;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   14. FAQ Accordion
+   -------------------------------------------------------------------------- */
+.faq-accordion .accordion-item {
+    border: 1px solid var(--brand-border);
+    border-radius: 12px !important;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.faq-accordion .accordion-button {
+    font-weight: 700;
+    color: var(--brand-navy);
+    font-size: 0.98rem;
+    padding: 16px 20px;
+    background: #fff;
+    box-shadow: none;
+}
+
+.faq-accordion .accordion-button:not(.collapsed) {
+    color: var(--brand-red);
+    background: #f8fafc;
+}
+
+.faq-accordion .accordion-button:focus {
+    box-shadow: none;
+    border-color: var(--brand-border);
+}
+
+.faq-accordion .accordion-body {
+    font-size: 0.9rem;
+    color: #4b5563;
+    line-height: 1.6;
+    padding: 16px 20px 20px;
+    background: #f8fafc;
+}
+
+/* --------------------------------------------------------------------------
+   15. Patient Stories / Testimonials
+   -------------------------------------------------------------------------- */
+.story-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--brand-border);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.story-card p {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 18px;
+}
+
+.story-patient-avatar,
+.story-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+}
+
+.story-author h6 {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: var(--brand-navy);
+    margin-bottom: 2px;
+}
+
+.story-author span {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.story-badge {
+    display: inline-block;
+    background: #eef4ff;
+    color: var(--brand-blue);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+.story-stars {
+    color: #f59e0b;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   16. Bottom CTA Banner
+   -------------------------------------------------------------------------- */
+.explore-cta-section,
+.bottom-cta-banner {
+    background: linear-gradient(90deg, rgba(220, 240, 255, 0.95) 0%, rgba(237, 247, 255, 0.95) 50%, rgba(255, 255, 255, 0.92) 100%),
+        url('../cardiac-surgery-page/footer-banner.png') center right no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    padding: 50px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.explore-cta-section h2,
+.bottom-cta-banner h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--brand-navy);
+    margin-bottom: 12px;
+}
+
+.explore-cta-section p,
+.bottom-cta-banner p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 620px;
+    margin-bottom: 24px;
+}
+
+/* --------------------------------------------------------------------------
+   17. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+    .treatment-hero {
+        background: linear-gradient(rgba(4, 25, 65, 0.82), rgba(4, 25, 65, 0.82)),
+            url('../treatment-page/banner-3.png') center/cover no-repeat !important;
+        padding: 45px 0 55px;
+    }
+
+    .cardiac-hero {
+        background: linear-gradient(rgba(240, 247, 255, 0.85), rgba(240, 247, 255, 0.85)),
+            url('../cardiac-surgery-page/banner.png') center/cover no-repeat !important;
+        padding: 45px 0 55px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-badge-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-strip-card {
+        border-radius: 24px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        padding: 20px 24px;
+    }
+
+    .stats-strip {
+        margin-top: -20px;
+    }
+
+    .stat-item {
+        border-bottom: 1px dashed #e2eaf4;
+        padding-bottom: 10px;
+    }
+
+    .stat-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .explore-cta-section,
+    .bottom-cta-banner {
+        padding: 36px 24px;
+        text-align: center;
+    }
+
+    .explore-cta-section p,
+    .bottom-cta-banner p {
+        margin: 0 auto 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .section-heading-dark,
+    .sec-title {
+        font-size: 1.5rem;
+    }
+
+    .metric-pills-bar {
+        margin-top: 15px;
+    }
+
+    .metric-pill-item {
+        border-radius: 16px;
+    }
+
+    .bottom-cta-banner h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile iPhone / Android Screen (< 576px) */
+@media (max-width: 575px) {
+    .treatment-hero {
+        padding: 35px 15px 45px !important;
+    }
+
+    /* Cardiac Mobile: Light medical background */
+    .cardiac-hero {
+        background: linear-gradient(rgba(240, 247, 255, 0.88), rgba(240, 247, 255, 0.88)),
+            url('../cardiac-surgery-page/banner.png') center / cover no-repeat !important;
+        padding: 35px 15px 45px !important;
+    }
+
+    .hero-title {
+        font-size: 1.65rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 8px !important;
+    }
+
+    .hero-subtitle {
+        font-size: 0.85rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* 2x2 Grid Layout for Badges */
+    .hero-badge-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        margin: 0 auto 22px auto !important;
+        max-width: 340px !important;
+    }
+
+    .hero-badge-item,
+    .hero-badge-card {
+        padding: 12px 6px !important;
+        border-radius: 10px !important;
+        gap: 6px !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .hero-badge-item img,
+    .hero-badge-card img {
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    .hero-badge-item span,
+    .hero-badge-card h6 {
+        font-size: 0.65rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .hero-actions .btn-brand-red {
+        width: 100% !important;
+        max-width: 280px !important;
+        min-height: 44px !important;
+        padding: 10px 20px !important;
+        font-size: 0.88rem !important;
+    }
+
+    /* Types of Treatment Images on iPhone: Clean 120px height, no stretch */
+    .type-card-img-wrap,
+    .type-card-img-wrap img,
+    .type-card img,
+    .type-treatment-card img {
+        height: 120px !important;
+        object-fit: cover !important;
+    }
+}

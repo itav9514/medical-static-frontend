@@ -61,6 +61,64 @@
                 font-size: 18px;
             }
         }
+
+        /* ========================================================
+   FIX: "WHY CHOOSE US" SECTION CUTOFF ON IPAD PRO & TABLETS
+   ======================================================== */
+
+        /* 1. Remove fixed height and let the container grow dynamically */
+        .why-chose-head {
+            height: auto !important;
+            min-height: auto !important;
+            max-height: none !important;
+            overflow: visible !important;
+        }
+
+        .feature,
+        .page-set {
+            height: auto !important;
+            min-height: auto !important;
+            align-items: stretch !important;
+            /* Both columns always match height */
+        }
+
+        /* 2. Optimize padding on iPad Pro and tablets (1024px - 1199px) */
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .feature-text {
+                padding: 35px 25px !important;
+                /* Reduces excessive vertical empty space */
+            }
+
+            .feature-text h1 {
+                font-size: 1.85rem !important;
+                line-height: 1.25 !important;
+            }
+
+            /* Slightly more compact numbered circles */
+            .feature-text .rounded-circle {
+                width: 46px !important;
+                height: 46px !important;
+                min-width: 46px !important;
+                font-size: 1rem !important;
+            }
+
+            .feature-text h5 {
+                font-size: 0.98rem !important;
+                margin-bottom: 4px !important;
+            }
+
+            .feature-text p.size-14 {
+                font-size: 0.8rem !important;
+                line-height: 1.45 !important;
+            }
+        }
+
+        /* 3. Ensure the right-side background image expands to 100% full height */
+        .page-set>.col-lg-6:last-child {
+            min-height: 400px !important;
+            background-size: cover !important;
+            background-position: center center !important;
+        }
     </style>
 </head>
 
@@ -275,87 +333,86 @@
     </div>
 
     <!-- Feature Start -->
-    <div class="container-fluid why-chose-head overflow-hidden px-lg-0 mb-5">
+    <div class="container-fluid why-chose-head px-lg-0 mb-5">
         <div class="container feature px-lg-0">
             <div class="row g-0 mx-lg-0 page-set">
                 <div class="col-lg-6 bg-primary-1 feature-text wow fadeIn" data-wow-delay="0.1s">
                     <div class="ps-lg-0">
-
-                        <h1 class="text-white-1 mb-2 mt-4">WHY CHOOSE<br>
+                        <h1 class="text-white-1 mb-2 mt-2">WHY CHOOSE<br>
                             Our Medical Treatment ?</h1>
-                        <p class="text-white-1 mb-2 pb-2 size-14">
-                            24/7 Service- Round the clock services & complete surveillance &
-                            patient care makes us stands out from the rest.
+                        <p class="text-white-1 mb-3 pb-2 size-14">
+                            24/7 Service - Round the clock services & complete surveillance &
+                            patient care makes us stand out from the rest.
                         </p>
-                        <div class="row g-4">
+
+                        <div class="row g-3 g-md-4">
+                            <!-- 01 -->
                             <div class="col-sm-6 col-xs-12">
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-start">
                                     <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light-1"
-                                        style="width: 55px; height: 55px">
+                                        style="width: 50px; height: 50px;">
                                         01
                                     </div>
-                                    <div class="ms-4">
-                                        <h5 class="text-white-1 mb-2">Affordability</h5>
+                                    <div class="ms-3">
+                                        <h5 class="text-white-1 mb-1">Affordability</h5>
                                         <p class="text-white-1 mb-0 size-14">With affordable packages offering proven
-                                            solutions
-                                            we
-                                            ensure that each & every patient receive the best health care</p>
-
+                                            solutions we ensure that each & every patient receives the best health care.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- 02 -->
                             <div class="col-sm-6 col-xs-12">
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-start">
                                     <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light-1"
-                                        style="width: 55px; height: 55px">
+                                        style="width: 50px; height: 50px;">
                                         02
                                     </div>
-                                    <div class="ms-4">
-                                        <h5 class="text-white-1 mb-2">Specialist Consultation</h5>
+                                    <div class="ms-3">
+                                        <h5 class="text-white-1 mb-1">Specialist Consultation</h5>
                                         <p class="text-white-1 mb-0 size-14">Proper consultation with doctors &
-                                            pathologists for
-                                            the best possible medical facilities allows patient to get an overview about
-                                            the complete medical condition.</p>
-
+                                            pathologists allows patients to get a comprehensive overview of their
+                                            condition.</p>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- 03 -->
                             <div class="col-sm-6 col-xs-12">
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-start">
                                     <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light-1"
-                                        style="width: 55px; height: 55px">
+                                        style="width: 50px; height: 50px;">
                                         03
                                     </div>
-                                    <div class="ms-4">
-                                        <h5 class="text-white-1 mb-2">State-Of-Art-Medical </h5>
+                                    <div class="ms-3">
+                                        <h5 class="text-white-1 mb-1">State-Of-Art Medical</h5>
                                         <p class="text-white-1 mb-0 size-14">With quality infrastructure & best
-                                            technologies, we
-                                            offer the patients zone of maximum comfort.</p>
-
+                                            technologies, we offer patients a zone of maximum comfort.</p>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- 04 -->
                             <div class="col-sm-6 col-xs-12">
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-start">
                                     <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light-1"
-                                        style="width: 55px; height: 55px">
+                                        style="width: 50px; height: 50px;">
                                         04
                                     </div>
-                                    <div class="ms-4">
-                                        <h5 class="text-white-1 mb-2">Reputed Health Care </h5>
+                                    <div class="ms-3">
+                                        <h5 class="text-white-1 mb-1">Reputed Health Care</h5>
                                         <p class="text-white-1 mb-0 size-14">With experienced healthcare professionals
-                                            with you
-                                            to access your condition, you can consider to be under positive
-                                            surveillance.</p>
-
+                                            assessing your condition, you are under continuous positive care.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s">
 
+                <!-- Right Image Column (Stretches to 100% height) -->
+                <div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s">
                 </div>
             </div>
         </div>

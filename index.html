@@ -724,6 +724,117 @@
                 flex-basis: calc(50% - 8px);
             }
         }
+
+        /* ===== Hospital arrows: card ke andar, saaf-suthre ===== */
+        .mh-wrap .mh-arr,
+        .hs-arrow {
+            top: 100px !important;
+            /* image ke beech me */
+            transform: translateY(-50%) !important;
+            width: 42px !important;
+            height: 42px !important;
+            border-radius: 50% !important;
+            background: #fff !important;
+            color: #0b2e6f !important;
+            border: 1px solid #e3ebf6 !important;
+            box-shadow: 0 4px 14px rgba(11, 46, 111, .22) !important;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px !important;
+            line-height: 1;
+            padding: 0 !important;
+            cursor: pointer;
+            transition: background .2s, color .2s, transform .2s
+        }
+
+        .mh-wrap .mh-arr[onclick*="-1"],
+        .hs-arrow.prev {
+            left: 12px !important;
+            right: auto !important
+        }
+
+        .mh-wrap .mh-arr[onclick*="(1)"],
+        .hs-arrow.next {
+            right: 12px !important;
+            left: auto !important
+        }
+
+        .mh-wrap .mh-arr:hover,
+        .hs-arrow:hover {
+            background: #1a56c4 !important;
+            color: #fff !important;
+            transform: translateY(-50%) scale(1.08) !important
+        }
+
+        @media(max-width:575px) {
+
+            .mh-wrap .mh-arr,
+            .hs-arrow {
+                width: 36px !important;
+                height: 36px !important;
+                font-size: 20px !important
+            }
+
+            .mh-wrap .mh-arr[onclick*="-1"],
+            .hs-arrow.prev {
+                left: 8px !important
+            }
+
+            .mh-wrap .mh-arr[onclick*="(1)"],
+            .hs-arrow.next {
+                right: 8px !important
+            }
+        }
+
+        #hs {
+            margin: 0 58px
+        }
+
+        .mh-wrap .mh-arr[onclick*="-1"],
+        .hs-arrow.prev {
+            left: 0 !important;
+            right: auto !important
+        }
+
+        .mh-wrap .mh-arr[onclick*="(1)"],
+        .hs-arrow.next {
+            right: 0 !important;
+            left: auto !important
+        }
+
+        @media(max-width:575px) {
+            #hs {
+                margin: 0 42px
+            }
+        }
+
+        #hs>div {
+            padding: 0 !important;
+            overflow: hidden
+        }
+
+        #hs>div>img {
+            display: block !important;
+            width: 100% !important;
+            min-width: 100% !important;
+            max-width: 100% !important;
+            height: 200px !important;
+            margin: 0 !important;
+            object-fit: cover !important
+        }
+
+        @media(max-width:991px) {
+            #hs>div>img {
+                height: 190px !important
+            }
+        }
+
+        @media(max-width:575px) {
+            #hs>div>img {
+                height: 170px !important
+            }
+        }
     </style>
 </head>
 
