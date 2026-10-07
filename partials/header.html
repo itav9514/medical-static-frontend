@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@500;700;900&display=swap"
         rel="stylesheet" />
 
     <!-- Icon Font Stylesheet -->
@@ -35,11 +35,335 @@
     <!-- Template Stylesheet -->
     <link href="../css/style.css" rel="stylesheet" />
     <link href="../css/mobile-responsive.css" rel="stylesheet" />
+
+    <!-- ==========================================
+         COMPLETE EMBEDDED CSS (SOLVES ALL 4 ISSUES)
+         ========================================== -->
     <style>
         @media (max-width: 767px) {
             .space-1 {
                 padding-top: 0;
                 padding-bottom: 0;
+            }
+        }
+
+        /* 1. Prevent "ABOUT US" from breaking into 2 lines */
+        .navbar-nav .nav-link {
+            white-space: nowrap !important;
+        }
+
+        /* 2. Desktop Phone Badge Section */
+        .call-top {
+            position: relative;
+            display: flex;
+            align-items: center;
+            align-self: stretch;
+            height: 100%;
+            min-height: 70px;
+            padding-left: 125px;
+            padding-right: 25px;
+            margin-left: auto;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            background: transparent !important;
+            border-radius: 0 !important;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .call-top-bg {
+            position: absolute;
+            top: 0;
+            left: -30px;
+            width: calc(100% + 30px);
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Red Circular Call Icon (Desktop) */
+        .call-btn-circle {
+            width: 50px;
+            height: 50px;
+            background: #e52128 !important;
+            border: 3px solid #ffffff !important;
+            border-radius: 50% !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #ffffff !important;
+            font-size: 21px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+            cursor: pointer;
+            outline: none !important;
+            padding: 0 !important;
+            transition: transform 0.2s ease;
+        }
+
+        .call-btn-circle:hover {
+            transform: scale(1.06);
+            color: #ffffff !important;
+        }
+
+        .call-divider {
+            width: 1px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.35);
+            margin: 0 12px;
+            flex-shrink: 0;
+        }
+
+        .call-numbers {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2px;
+            white-space: nowrap;
+        }
+
+        .call-numbers a {
+            color: #ffffff !important;
+            font-family: 'Open Sans', 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+            text-decoration: none !important;
+            line-height: 1.25;
+            white-space: nowrap !important;
+        }
+
+        .call-numbers a:hover {
+            opacity: 0.85;
+        }
+
+        /* 3. iPad & Tablet Viewport Fix (992px to 1199px) */
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .navbar-brand {
+                padding: 0 1rem !important;
+            }
+
+            .navbar-brand img {
+                width: 125px !important;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 1.2rem 0.5rem !important;
+                font-size: 13px !important;
+            }
+
+            .call-top {
+                padding-left: 95px !important;
+                padding-right: 14px !important;
+                min-height: 64px !important;
+            }
+
+            .call-btn-circle {
+                width: 38px !important;
+                height: 38px !important;
+                font-size: 14px !important;
+                border-width: 2.5px !important;
+            }
+
+            .call-divider {
+                margin: 0 8px !important;
+                height: 28px !important;
+            }
+
+            .call-numbers a {
+                font-size: 12.5px !important;
+                white-space: nowrap !important;
+            }
+        }
+
+        /* 4. Mobile Call Button Handling */
+        @media (min-width: 992px) {
+            .phone-header-mobile {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .phone-header-mobile {
+                display: flex !important;
+                align-items: center !important;
+                margin-left: auto !important;
+                margin-right: 12px !important;
+                position: static !important;
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+            }
+
+            .phone-header-mobile .mobile-call-btn {
+                width: 40px !important;
+                height: 40px !important;
+                min-width: 40px !important;
+                background: #e52128 !important;
+                border: 2px solid #ffffff !important;
+                border-radius: 50% !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: #ffffff !important;
+                font-size: 16px !important;
+                box-shadow: 0 2px 8px rgba(229, 33, 40, 0.35) !important;
+                cursor: pointer !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                outline: none !important;
+            }
+
+            .navbar-toggler {
+                position: static !important;
+                margin-right: 15px !important;
+            }
+        }
+
+        /* 5. Call Modal Popup Styles */
+        .call-popup-card {
+            border-radius: 20px !important;
+            border: none !important;
+            overflow: hidden !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .call-popup-header {
+            background: linear-gradient(135deg, #02295a, #063673) !important;
+            color: #ffffff !important;
+            padding: 18px 22px !important;
+            border-bottom: none !important;
+        }
+
+        .call-option-btn {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            background: #f8fafc !important;
+            border: 1.5px solid #e2e8f0 !important;
+            border-radius: 14px !important;
+            padding: 14px 16px !important;
+            text-decoration: none !important;
+            margin-bottom: 12px !important;
+            transition: all 0.25s ease !important;
+        }
+
+        .call-option-btn:hover {
+            background: #ffffff !important;
+            border-color: #0b5ed7 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(11, 94, 215, 0.15) !important;
+        }
+
+        .call-option-icon {
+            width: 42px !important;
+            height: 42px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 18px !important;
+            flex-shrink: 0 !important;
+        }
+
+        .call-option-icon.us {
+            background: #fee2e2 !important;
+            color: #dc2626 !important;
+        }
+
+        .call-option-icon.india {
+            background: #dcfce7 !important;
+            color: #16a34a !important;
+        }
+
+        .call-option-text {
+            flex-grow: 1 !important;
+            margin-left: 14px !important;
+            text-align: left !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .call-option-region {
+            font-size: 0.72rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            color: #64748b !important;
+            margin-bottom: 2px !important;
+        }
+
+        .call-option-number {
+            font-size: 1.05rem !important;
+            font-weight: 800 !important;
+            color: #0f172a !important;
+            line-height: 1.2 !important;
+        }
+
+        .call-action-badge {
+            background: #02295a !important;
+            color: #ffffff !important;
+            padding: 6px 14px !important;
+            border-radius: 50px !important;
+            font-size: 0.8rem !important;
+            font-weight: 700 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 5px !important;
+        }
+
+        .call-option-btn:hover .call-action-badge {
+            background: #e52128 !important;
+        }
+
+        /* ===== iPad / tablet width fix ===== */
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: clip;
+        }
+
+        /* side me extra white space nahi banega, sticky header bhi chalega */
+
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .navbar {
+                max-width: 100%;
+                flex-wrap: nowrap;
+            }
+
+            .navbar-brand {
+                padding: 0 .75rem !important;
+                margin-right: 0 !important;
+            }
+
+            .navbar-brand img {
+                width: 110px !important;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 1.2rem .45rem !important;
+                font-size: 12.5px !important;
+            }
+
+            .call-top {
+                padding-left: 70px !important;
+                /* 95px se kam */
+                padding-right: 10px !important;
+                min-width: 0;
+            }
+
+            .call-top-bg {
+                left: -40px;
+                width: calc(100% + 40px);
+            }
+
+            .call-divider {
+                margin: 0 8px !important;
+            }
+
+            .call-numbers a {
+                font-size: 12px !important;
             }
         }
     </style>
@@ -52,7 +376,7 @@
             <img src="../img/logo.png" style="width:150px;">
         </a>
 
-        <!-- Mobile & Tablet Call Button (Opens popup with both numbers) -->
+        <!-- Mobile Call Button (Opens Popup Modal) -->
         <div class="d-lg-none phone-header-mobile">
             <button type="button" class="mobile-call-btn" data-bs-toggle="modal" data-bs-target="#callModal"
                 title="Call Us" aria-label="Call Us">
@@ -127,7 +451,7 @@
                 <a href="../contact.html" class="nav-item nav-link">Contact</a>
             </div>
 
-            <!-- Phone Section (Both Icon & Mobile trigger the choice popup) -->
+            <!-- Desktop & Tablet Phone Section -->
             <div class="d-none d-lg-flex align-items-center call-top">
                 <svg class="call-top-bg" viewBox="0 0 350 75" preserveAspectRatio="none" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -138,7 +462,7 @@
                             <stop offset="100%" stop-color="#0a4488" />
                         </linearGradient>
                     </defs>
-                    <path d="M 0,0 C 6,20 22,46 45,60 C 66,70 92,75 125,75 L 350,75 L 350,0 Z" fill="#dce8f5" />
+                    <path d="M 0,0 C 6,20 22,46 45,60 C 66,70 92,75 125,75 L 350,75 L 350,0 Z" fill="#eaf2fb" />
                     <path
                         d="M 16,0 C 21,20 37,44 60,58 C 78,68 100,73 125,75 L 142,75 C 118,73 95,67 76,56 C 54,42 40,20 33,0 Z"
                         fill="#e52128" />
@@ -146,16 +470,16 @@
                         fill="url(#navNavyGrad)" />
                 </svg>
 
-                <!-- Red Phone Icon Button (Opens popup showing BOTH numbers) -->
+                <!-- Red Phone Button (Clicking opens Modal with Both Numbers) -->
                 <button type="button" class="call-btn-circle" data-bs-toggle="modal" data-bs-target="#callModal"
                     title="Choose Number to Call" aria-label="Call Us">
-                    <i class="fa fa-phone"></i>
+                    <i class="fa fa-phone-alt"></i>
                 </button>
 
                 <!-- Thin Divider -->
                 <span class="call-divider"></span>
 
-                <!-- Stacked Direct Phone Numbers -->
+                <!-- Stacked Numbers (Clicking directly dials that country) -->
                 <div class="call-numbers">
                     <a href="tel:+1-855-888-0114">+1-855-888-0114</a>
                     <a href="tel:+917428364477">+91 74283 64477</a>
@@ -165,7 +489,7 @@
     </nav>
     <!-- Navbar End -->
 
-    <!-- CALL NUMBERS POPUP MODAL (For iPhone, iPad, and Android) -->
+    <!-- CALL NUMBERS POPUP MODAL (For iPhone, iPad, and Desktop) -->
     <div class="modal fade" id="callModal" tabindex="-1" aria-labelledby="callModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
             <div class="modal-content call-popup-card">
@@ -179,7 +503,7 @@
                 </div>
 
                 <div class="modal-body p-3 p-md-4">
-                    <!-- Number 1: USA / Canada -->
+                    <!-- Option 1: USA / Canada -->
                     <a href="tel:+1-855-888-0114" class="call-option-btn">
                         <div class="call-option-icon us">
                             <i class="fa fa-phone-alt"></i>
@@ -191,7 +515,7 @@
                         <span class="call-action-badge"><i class="fa fa-phone"></i> Call</span>
                     </a>
 
-                    <!-- Number 2: India / International & WhatsApp -->
+                    <!-- Option 2: India / International & WhatsApp -->
                     <a href="tel:+917428364477" class="call-option-btn">
                         <div class="call-option-icon india">
                             <i class="fab fa-whatsapp"></i>
@@ -211,8 +535,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
