@@ -90,46 +90,47 @@
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-4">
-          <div class="h-100 bg-light rounded d-flex align-items-center p-5">
-            <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white"
-              style="width: 55px; height: 55px">
-              <i class="fa fa-map-marker-alt text-primary"></i>
+          <div class="contact-info-card">
+            <div class="contact-info-icon">
+              <i class="fa fa-map-marker-alt"></i>
             </div>
-            <div class="ms-4">
-              <p class="mb-2">Address</p>
-              <h5 class="mb-0">
+            <div class="contact-info-body">
+              <div class="contact-info-label">Address</div>
+              <p class="contact-info-address">
                 Unit 16A, 16B / 17A Ground Floor, Tower B3, Spaze Itech Park,
                 Sector 49, Gurugram, Haryana 122018, India
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="contact-info-card">
+            <div class="contact-info-icon">
+              <i class="fa fa-phone-alt"></i>
+            </div>
+            <div class="contact-info-body">
+              <div class="contact-info-label">Call Us Now</div>
+              <h5 class="contact-info-val">
+                <a href="tel:+18558880114">+1 855 888 0114</a>
               </h5>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="h-100 bg-light rounded d-flex align-items-center p-5">
-            <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white"
-              style="width: 55px; height: 55px">
-              <i class="fa fa-phone-alt text-primary"></i>
+          <div class="contact-info-card">
+            <div class="contact-info-icon">
+              <i class="fa fa-envelope-open"></i>
             </div>
-            <div class="ms-4">
-              <p class="mb-2">Call Us Now</p>
-              <h5 class="mb-0">+1 855 888 0114</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="h-100 bg-light rounded d-flex align-items-center p-5">
-            <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white"
-              style="width: 55px; height: 55px">
-              <i class="fa fa-envelope-open text-primary"></i>
-            </div>
-            <div class="ms-4">
-              <p class="mb-2">Mail Us Now</p>
-              <h5 class="mb-0">medical@adamvacations.com</h5>
+            <div class="contact-info-body">
+              <div class="contact-info-label">Mail Us Now</div>
+              <h5 class="contact-info-val">
+                <a href="mailto:medical@adamvacations.com">medical@adamvacations.com</a>
+              </h5>
             </div>
           </div>
         </div>
         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-          <div class="bg-light rounded p-5">
+          <div class="bg-light rounded p-4 p-md-5 contact-form-card">
             <p class="d-inline-block border rounded-pill py-1 px-4">
               Contact Us
             </p>
@@ -180,19 +181,27 @@
 
                 <!-- Preferred Callback Time -->
                 <div class="col-12">
-                  <div class="form-floating">
-                    <select class="form-select" id="preferredTime" name="preferredTime" required>
-                      <option value="" selected disabled>
-                        When would you like us to call you?
-                      </option>
-                      <option value="">Select Callback Time*</option>
+                  <div class="form-floating position-relative custom-callback-wrap">
+                    <select class="form-select d-none" id="preferredTime" name="preferredTime" required>
+                      <option value="" selected disabled>When would you like us to call you?</option>
                       <option value="Immediately">Immediately</option>
                       <option value="Within 15 minutes">Within 15 minutes</option>
                       <option value="Within 1 hour">Within 1 hour</option>
-
                     </select>
-                    <label for="preferredTime">Preferred Callback Time</label>
-                    <div class="invalid-feedback">
+
+                    <div class="form-control custom-select-btn" id="preferredTimeBtn" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false">
+                      <span class="custom-select-label text-muted" id="preferredTimeSelected">When would you like us to call you?</span>
+                      <i class="fa fa-chevron-down custom-select-chevron"></i>
+                    </div>
+                    <label for="preferredTimeBtn">Preferred Callback Time</label>
+
+                    <div class="custom-select-menu" id="preferredTimeMenu" role="listbox">
+                      <div class="custom-select-option" data-value="Immediately" role="option">Immediately</div>
+                      <div class="custom-select-option" data-value="Within 15 minutes" role="option">Within 15 minutes</div>
+                      <div class="custom-select-option" data-value="Within 1 hour" role="option">Within 1 hour</div>
+                    </div>
+
+                    <div class="invalid-feedback" id="preferredTimeError" style="display: none;">
                       Please select when you would like to be contacted
                     </div>
                   </div>
@@ -225,7 +234,7 @@
           <div class="h-100" style="min-height: 400px">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.201111337185!2d77.04059372613159!3d28.413187894006487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23e91e0f9f45%3A0xdcc6076502ec3458!2sAdam%20Vacations!5e0!3m2!1sen!2sin!4v1769684689969!5m2!1sen!2sin"
-              width="100%" height="640px" style="border: 0" allowfullscreen="" loading="lazy"
+              width="100%" height="640px" style="border: 0; border-radius: 16px;" allowfullscreen="" loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
@@ -305,6 +314,18 @@
           field.classList.toggle("is-invalid", !isValid);
         }
 
+        if (field.id === "preferredTime") {
+          const triggerBtn = document.getElementById("preferredTimeBtn");
+          const errorMsg = document.getElementById("preferredTimeError");
+          if (triggerBtn && interactedFields.has("preferredTime")) {
+            triggerBtn.classList.toggle("is-valid", isValid);
+            triggerBtn.classList.toggle("is-invalid", !isValid);
+          }
+          if (errorMsg) {
+            errorMsg.style.display = (!isValid && interactedFields.has("preferredTime")) ? "block" : "none";
+          }
+        }
+
         updateSubmitButton();
       }
 
@@ -325,6 +346,53 @@
           },
         );
         submitBtn.disabled = !allValid;
+      }
+
+      // Custom Callback Select handler (100% width, never overflows)
+      const selectEl = document.getElementById("preferredTime");
+      const triggerBtn = document.getElementById("preferredTimeBtn");
+      const selectedLabel = document.getElementById("preferredTimeSelected");
+      const dropdownMenu = document.getElementById("preferredTimeMenu");
+
+      if (triggerBtn && dropdownMenu) {
+        triggerBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          const isOpen = dropdownMenu.classList.contains("show");
+          dropdownMenu.classList.toggle("show", !isOpen);
+          triggerBtn.classList.toggle("active", !isOpen);
+          triggerBtn.setAttribute("aria-expanded", !isOpen ? "true" : "false");
+        });
+
+        dropdownMenu.querySelectorAll(".custom-select-option").forEach(function (opt) {
+          opt.addEventListener("click", function (e) {
+            e.stopPropagation();
+            const val = this.getAttribute("data-value");
+            selectEl.value = val;
+            selectedLabel.textContent = val;
+            selectedLabel.classList.remove("text-muted");
+            selectedLabel.classList.add("text-dark");
+
+            dropdownMenu.querySelectorAll(".custom-select-option").forEach(function (o) {
+              o.classList.remove("selected");
+            });
+            this.classList.add("selected");
+
+            dropdownMenu.classList.remove("show");
+            triggerBtn.classList.remove("active");
+            triggerBtn.setAttribute("aria-expanded", "false");
+
+            interactedFields.add("preferredTime");
+            validateField(selectEl);
+          });
+        });
+
+        document.addEventListener("click", function (e) {
+          if (!triggerBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove("show");
+            triggerBtn.classList.remove("active");
+            triggerBtn.setAttribute("aria-expanded", "false");
+          }
+        });
       }
 
       // Attach listeners
@@ -395,6 +463,14 @@
             messageDiv.innerHTML =
               '<div class="alert alert-success">Message sent successfully! Redirecting...</div>';
             form.reset();
+            if (selectedLabel) {
+              selectedLabel.textContent = "When would you like us to call you?";
+              selectedLabel.classList.add("text-muted");
+              selectedLabel.classList.remove("text-dark");
+            }
+            if (triggerBtn) {
+              triggerBtn.classList.remove("is-valid", "is-invalid");
+            }
             phoneInput.setCountry("us"); // reset to default
             submitBtn.disabled = true;
 

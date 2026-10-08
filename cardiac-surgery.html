@@ -23,7 +23,7 @@
 
     <!-- Icon Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheets -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -102,77 +102,46 @@
     </section>
 
     <!-- 2. Quick Stats Strip (EXACT Hospital Bed Sign from Screenshot Included) -->
-    <section class="stats-strip">
-        <div class="container">
-            <div class="stats-strip-card">
-                <!-- Stat 1: Clock -->
-                <div class="stat-item">
-                    <div class="stat-icon-wrap">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b5ed7" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                    </div>
-                    <div class="stat-meta">
-                        <span class="stat-label">Treatment Time</span>
-                        <p class="stat-val">2 – 6 Hours</p>
+    <div class="container metric-pills-bar">
+        <div class="row g-3">
+            <div class="col-sm-6 col-lg-3">
+                <div class="metric-pill-item">
+                    <div class="metric-pill-icon"><i class="bi bi-clock-history"></i></div>
+                    <div>
+                        <div class="metric-pill-label">Treatment Time</div>
+                        <div class="metric-pill-val">2 – 6 Hours</div>
                     </div>
                 </div>
-
-                <!-- Stat 2: Hospital Stay (Exact Hospital Bed Icon) -->
-                <div class="stat-item">
-                    <div class="stat-icon-wrap">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b5ed7" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 18h18"></path>
-                            <path d="M3 13h18v5H3z"></path>
-                            <path d="M6 13V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"></path>
-                            <path d="M4 18v2"></path>
-                            <path d="M20 18v2"></path>
-                        </svg>
-                    </div>
-                    <div class="stat-meta">
-                        <span class="stat-label">Hospital Stay</span>
-                        <p class="stat-val">5 – 10 Days</p>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="metric-pill-item">
+                    <div class="metric-pill-icon"><i class="bi bi-hospital"></i></div>
+                    <div>
+                        <div class="metric-pill-label">Hospital Stay</div>
+                        <div class="metric-pill-val">5 – 10 Days</div>
                     </div>
                 </div>
-
-                <!-- Stat 3: Calendar -->
-                <div class="stat-item">
-                    <div class="stat-icon-wrap">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b5ed7" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
-                    </div>
-                    <div class="stat-meta">
-                        <span class="stat-label">Total Stay in India</span>
-                        <p class="stat-val">2 – 4 Weeks</p>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="metric-pill-item">
+                    <div class="metric-pill-icon"><i class="bi bi-calendar3"></i></div>
+                    <div>
+                        <div class="metric-pill-label">Total Stay in India</div>
+                        <div class="metric-pill-val">2 – 4 Weeks</div>
                     </div>
                 </div>
-
-                <!-- Stat 4: Tag/Cost -->
-                <div class="stat-item">
-                    <div class="stat-icon-wrap">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b5ed7" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
-                            </path>
-                            <line x1="7" y1="7" x2="7.01" y2="7"></line>
-                        </svg>
-                    </div>
-                    <div class="stat-meta">
-                        <span class="stat-label">Starting Cost</span>
-                        <p class="stat-val">From $5,000</p>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="metric-pill-item">
+                    <div class="metric-pill-icon"><i class="bi bi-currency-dollar"></i></div>
+                    <div>
+                        <div class="metric-pill-label">Starting Cost</div>
+                        <div class="metric-pill-val">From $5,000</div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- 3. What is Cardiac Surgery & When Required (1.png placed here) -->
     <section class="py-5 mt-4">
@@ -814,24 +783,17 @@
     </section>
 
     <!-- 12. Bottom CTA Banner (footer-banner.png) -->
-    <section class="container pb-5">
-        <div class="bottom-cta-banner">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <h3>Ready to Explore Your Treatment Options?</h3>
-                    <p>Share your medical reports and let our team help you find the best doctors, hospitals and
-                        treatment options in India.</p>
-                    <div class="d-flex align-items-center gap-3 flex-wrap">
-                        <a href="contact.html" class="btn-brand-red">Get a Free Medical Opinion <i
-                                class="fa fa-arrow-right"></i></a>
-                        <a href="contact.html" class="btn-outline-navy">Upload Medical Reports <i
-                                class="fa fa-upload"></i></a>
-                    </div>
-                </div>
+    <section class="cta-band cta-cardiac">
+        <div class="container">
+            <h3>Take the first Step Towards a<br><span>Healthier Heart</span></h3>
+            <p>Upload Your medical reports &amp; get personalized treatment options from our experienced specialists in
+                India.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn-brand-red">Get a Free Medical Opinion <i
+                        class="fa fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
-
     <!-- Dynamic Footer -->
     <div id="footer"></div>
 
