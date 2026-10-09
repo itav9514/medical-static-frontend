@@ -969,6 +969,32 @@ a.btn-outline-navy:hover,
     color: #4b5e7e;
 }
 
+/* Bariatric: light hospital/airplane banner, dark navy text */
+.cta-bariatric {
+    background-image:
+        radial-gradient(ellipse at center, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.72) 42%, rgba(255, 255, 255, 0.25) 75%),
+        url('../Bariatric-Surgery/banner-3.png');
+}
+.cta-bariatric h3 {
+    color: #0b224e;
+}
+.cta-bariatric p {
+    color: #334155;
+}
+
+/* Neuro: light hospital/airplane banner, dark navy text */
+.cta-neuro {
+    background-image:
+        radial-gradient(ellipse at center, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.72) 42%, rgba(255, 255, 255, 0.25) 75%),
+        url('../Neuro-Surgeries/banner-2.png');
+}
+.cta-neuro h3 {
+    color: #0b224e;
+}
+.cta-neuro p {
+    color: #334155;
+}
+
 @media (max-width: 767px) {
     .cta-band {
         padding: 40px 0;
@@ -1624,7 +1650,7 @@ a.btn-outline-navy:hover,
     width: 100%;
     text-align: left;
     padding: 16px 20px;
-    background: #ffffff;
+    background: #EFF5FF;
     border: none;
     font-weight: 700;
     font-size: 0.94rem;
@@ -2058,5 +2084,771 @@ a.btn-outline-navy:hover,
     .cancer-bottom-banner-img {
         height: 200px;
         margin-top: 15px;
+    }
+}
+
+/* ==========================================================================
+   BARIATRIC SURGERY PAGE STYLES
+   ========================================================================== */
+
+/* 1. Hero Section */
+.bariatric-hero {
+    background: url('../Bariatric-Surgery/banner.png') center right / cover no-repeat !important;
+    padding: 70px 0 80px;
+    position: relative;
+    color: #0b224e;
+}
+
+.bariatric-hero .hero-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a56c4;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(11, 46, 111, 0.08);
+}
+
+.bariatric-hero .hero-title {
+    font-size: 2.85rem;
+    font-weight: 900;
+    color: #0b224e !important;
+    line-height: 1.2;
+}
+
+.bariatric-hero .hero-title span,
+.bariatric-hero .hero-title span.red-text {
+    color: #e8262d !important;
+}
+
+.bariatric-hero .hero-subtitle {
+    font-size: 1.15rem;
+    color: #475569 !important;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
+
+.bariatric-badge-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto 30px;
+    max-width: 760px;
+}
+
+.bariatric-badge-grid .hero-badge-item {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 14px 16px;
+    text-align: center;
+    flex: 1 1 calc(25% - 16px);
+    min-width: 130px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.06);
+    backdrop-filter: blur(4px);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bariatric-badge-grid .hero-badge-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(11, 46, 111, 0.12);
+}
+
+.bariatric-badge-grid .hero-badge-item img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.bariatric-badge-grid .hero-badge-item span {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.3;
+}
+
+.btn-outline-blue {
+    background: #ffffff;
+    color: #1a56c4 !important;
+    border: 1.5px solid #1a56c4;
+    border-radius: 50px;
+    padding: 12px 26px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none !important;
+    transition: all 0.25s ease;
+}
+
+.btn-outline-blue:hover {
+    background: #1a56c4;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(26, 86, 196, 0.25);
+}
+
+/* 2. Sub-Bar Feature Pills */
+.bariatric-feature-pill {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 10px rgba(11, 46, 111, 0.03);
+    height: 100%;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.bariatric-feature-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(11, 46, 111, 0.08);
+}
+
+.feature-pill-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.bariatric-feature-pill span {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.35;
+}
+
+/* 3. Overview Cards */
+.bariatric-overview-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 18px rgba(11, 46, 111, 0.04);
+}
+
+.bariatric-overview-img {
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.bariatric-checklist-card {
+    background: #f0f7ff;
+    border: 1px solid rgba(26, 86, 196, 0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+}
+
+/* 4. Types of Bariatric Surgery */
+.bariatric-type-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 22px 16px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.bariatric-type-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(11, 46, 111, 0.08);
+}
+
+.bariatric-type-img-box {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.bariatric-type-img {
+    max-height: 110px;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.bariatric-type-card h5 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 8px;
+}
+
+.bariatric-type-card p {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* 5. Stat Cards (Cost, Duration, Logistics) */
+.bariatric-stat-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px 22px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    transition: transform 0.25s, box-shadow 0.25s;
+    height: 100%;
+}
+
+.bariatric-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.08);
+}
+
+.bariatric-stat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.bariatric-stat-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.bariatric-stat-label {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #0b224e;
+}
+
+.bariatric-stat-value {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 8px;
+}
+
+.bariatric-stat-desc {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin-bottom: 0;
+}
+
+.bariatric-bullet-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    font-size: 0.85rem;
+    color: #334155;
+    line-height: 1.6;
+}
+
+.bariatric-bullet-list li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 6px;
+}
+
+.bariatric-bullet-list li:last-child {
+    margin-bottom: 0;
+}
+
+.bariatric-bullet-list li::before {
+    content: "•";
+    color: #1a56c4;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* 6. Patient Stories */
+.bariatric-story-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    height: 100%;
+}
+
+.bariatric-story-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e2e8f0;
+}
+
+.bariatric-story-quote {
+    font-size: 0.88rem;
+    color: #475569;
+    font-style: italic;
+    line-height: 1.55;
+    margin-bottom: 0;
+}
+
+/* 7. Bottom CTA Banner */
+.cta-bariatric {
+    width: 100% !important;
+    padding: 65px 0 !important;
+    background-image:
+        radial-gradient(ellipse at center, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.72) 42%, rgba(255, 255, 255, 0.25) 75%),
+        url('../Bariatric-Surgery/banner-3.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    margin: 40px 0 0 0 !important;
+}
+
+.cta-bariatric h3 {
+    color: #0b224e !important;
+    font-size: 2.15rem !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 10px !important;
+}
+
+.cta-bariatric p {
+    color: #334155 !important;
+    font-size: 1rem !important;
+    max-width: 680px !important;
+    margin: 0 auto 24px !important;
+    line-height: 1.6 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .bariatric-hero {
+        background: linear-gradient(rgba(240, 247, 255, 0.85), rgba(240, 247, 255, 0.85)),
+            url('../Bariatric-Surgery/banner.png') center / cover no-repeat !important;
+        padding: 50px 0 55px !important;
+    }
+    .bariatric-hero .hero-title {
+        font-size: 2.2rem !important;
+    }
+    .bariatric-badge-grid {
+        max-width: 520px;
+        flex-wrap: wrap;
+    }
+    .bariatric-badge-grid .hero-badge-item {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
+@media (max-width: 575px) {
+    .bariatric-hero {
+        background: linear-gradient(rgba(240, 247, 255, 0.92), rgba(240, 247, 255, 0.92)),
+            url('../Bariatric-Surgery/banner.png') center / cover no-repeat !important;
+        padding: 35px 15px 45px !important;
+    }
+    .bariatric-hero .hero-title {
+        font-size: 1.75rem !important;
+    }
+    .bariatric-badge-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .bariatric-badge-grid .hero-badge-item {
+        min-width: 0;
+        padding: 10px;
+    }
+    .cta-bariatric {
+        padding: 45px 15px !important;
+    }
+    .cta-bariatric h3 {
+        font-size: 1.55rem !important;
+    }
+}
+
+/* ==========================================================================
+   NEURO SURGERIES PAGE STYLES
+   ========================================================================== */
+
+/* 1. Hero Section - Full Width Edge-to-Edge */
+.neuro-hero {
+    background: url('../Neuro-Surgeries/banner.png') center right / cover no-repeat !important;
+    padding: 70px 0 80px;
+    position: relative;
+    color: #0b224e;
+    width: 100%;
+}
+
+.neuro-hero .hero-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a56c4;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(11, 46, 111, 0.08);
+}
+
+.neuro-hero .hero-title {
+    font-size: 2.85rem;
+    font-weight: 900;
+    color: #0b224e !important;
+    line-height: 1.2;
+}
+
+.neuro-hero .hero-title span,
+.neuro-hero .hero-title span.red-text {
+    color: #e8262d !important;
+}
+
+.neuro-hero .hero-subtitle {
+    font-size: 1.15rem;
+    color: #475569 !important;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
+
+.neuro-badge-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto 30px;
+    max-width: 760px;
+}
+
+.neuro-badge-grid .hero-badge-item {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 14px 16px;
+    text-align: center;
+    flex: 1 1 calc(25% - 16px);
+    min-width: 130px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.06);
+    backdrop-filter: blur(4px);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.neuro-badge-grid .hero-badge-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(11, 46, 111, 0.12);
+}
+
+.neuro-badge-grid .hero-badge-item img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.neuro-badge-grid .hero-badge-item span {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.3;
+}
+
+/* 2. Sub-Bar Feature Pills */
+.neuro-feature-pill {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 10px rgba(11, 46, 111, 0.03);
+    height: 100%;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.neuro-feature-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(11, 46, 111, 0.08);
+}
+
+.neuro-feature-pill .feature-pill-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.neuro-feature-pill span {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.35;
+}
+
+/* 3. Overview Cards */
+.neuro-overview-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 18px rgba(11, 46, 111, 0.04);
+}
+
+.neuro-overview-img {
+    max-height: 220px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.neuro-checklist-card {
+    background: #f0f7ff;
+    border: 1px solid rgba(26, 86, 196, 0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+}
+
+/* 4. Types of Neuro Surgeries (5 Cards) */
+.neuro-type-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.neuro-type-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(11, 46, 111, 0.08);
+}
+
+.neuro-type-img-box {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.neuro-type-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.neuro-type-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 8px;
+}
+
+.neuro-type-card p {
+    font-size: 0.80rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin-bottom: 0;
+}
+
+/* 5. Stat Cards (Cost, Duration, Stay) */
+.neuro-stat-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px 22px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    transition: transform 0.25s, box-shadow 0.25s;
+    height: 100%;
+}
+
+.neuro-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.08);
+}
+
+.neuro-stat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.neuro-stat-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.neuro-stat-label {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #0b224e;
+}
+
+.neuro-stat-value {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #e8262d;
+    margin-bottom: 8px;
+}
+
+.neuro-stat-value.navy-value {
+    color: #0b224e;
+}
+
+.neuro-stat-desc {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin-bottom: 0;
+}
+
+.neuro-bullet-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    font-size: 0.85rem;
+    color: #334155;
+    line-height: 1.6;
+}
+
+.neuro-bullet-list li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 6px;
+}
+
+.neuro-bullet-list li:last-child {
+    margin-bottom: 0;
+}
+
+.neuro-bullet-list li::before {
+    content: "•";
+    color: #1a56c4;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* 6. Patient Stories */
+.neuro-story-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    height: 100%;
+}
+
+.neuro-story-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e2e8f0;
+}
+
+.neuro-story-quote {
+    font-size: 0.88rem;
+    color: #475569;
+    font-style: italic;
+    line-height: 1.55;
+    margin-bottom: 0;
+}
+
+/* 7. Bottom CTA Banner - Full Width Edge-to-Edge */
+.cta-neuro {
+    width: 100% !important;
+    padding: 65px 0 !important;
+    background-image:
+        radial-gradient(ellipse at center, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.72) 42%, rgba(255, 255, 255, 0.25) 75%),
+        url('../Neuro-Surgeries/banner-2.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    margin: 40px 0 0 0 !important;
+}
+
+.cta-neuro h3 {
+    color: #0b224e !important;
+    font-size: 2.15rem !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 10px !important;
+}
+
+.cta-neuro p {
+    color: #334155 !important;
+    font-size: 1rem !important;
+    max-width: 680px !important;
+    margin: 0 auto 24px !important;
+    line-height: 1.6 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .neuro-hero {
+        background: linear-gradient(rgba(240, 247, 255, 0.88), rgba(240, 247, 255, 0.88)),
+            url('../Neuro-Surgeries/banner.png') center / cover no-repeat !important;
+        padding: 50px 0 55px !important;
+    }
+    .neuro-hero .hero-title {
+        font-size: 2.2rem !important;
+    }
+    .neuro-badge-grid {
+        max-width: 520px;
+        flex-wrap: wrap;
+    }
+    .neuro-badge-grid .hero-badge-item {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
+@media (max-width: 575px) {
+    .neuro-hero {
+        background: linear-gradient(rgba(240, 247, 255, 0.92), rgba(240, 247, 255, 0.92)),
+            url('../Neuro-Surgeries/banner.png') center / cover no-repeat !important;
+        padding: 35px 15px 45px !important;
+    }
+    .neuro-hero .hero-title {
+        font-size: 1.75rem !important;
+    }
+    .neuro-badge-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .neuro-badge-grid .hero-badge-item {
+        min-width: 0;
+        padding: 10px;
+    }
+    .cta-neuro {
+        padding: 45px 15px !important;
+    }
+    .cta-neuro h3 {
+        font-size: 1.55rem !important;
     }
 }

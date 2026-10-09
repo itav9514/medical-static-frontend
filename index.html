@@ -150,10 +150,6 @@
             border-radius: 6px
         }
 
-        .mh-scroll img {
-            height: 200px;
-            object-fit: cover
-        }
 
         #doctors .mh-card img {
             height: 120px;
@@ -395,60 +391,6 @@
             display: none
         }
 
-        /* hospital scroller */
-        .mh-scroll {
-            display: flex;
-            gap: 16px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            scroll-behavior: smooth
-        }
-
-        .mh-scroll::-webkit-scrollbar {
-            display: none
-        }
-
-        .mh-scroll>div {
-            flex: 0 0 calc(25% - 12px);
-            scroll-snap-align: start;
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(11, 46, 111, .08)
-        }
-
-        .mh-scroll img {
-            width: 100%;
-            display: block
-        }
-
-        .mh-scroll p {
-            margin: 0;
-            padding: 8px 12px 2px;
-            font-weight: 700;
-            color: var(--navy)
-        }
-
-        .mh-scroll small {
-            display: block;
-            padding: 0 12px 10px;
-            color: var(--txt);
-            font-size: 12px
-        }
-
-        .mh-arr {
-            position: absolute;
-            top: 45%;
-            background: #fff;
-            border: 0;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            box-shadow: 0 2px 8px #0003;
-            font-size: 20px;
-            z-index: 2
-        }
 
         /* steps / stories / misc */
         .mh-step .c {
@@ -466,13 +408,89 @@
         .mh-step {
             text-align: center;
             font-size: 12px;
-            color: var(--txt)
+            color: var(--txt);
+            line-height: 1.4;
         }
 
         .mh-step b {
             display: block;
             color: var(--navy);
-            font-size: 14px
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        /* Journey Process Flow with Connecting Arrows */
+        .journey-flow-wrapper {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .journey-node {
+            text-align: center;
+            flex: 1;
+            min-width: 0;
+            padding: 0 4px;
+        }
+
+        .journey-arrow {
+            color: #e8262d;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            flex-shrink: 0;
+            padding: 0 6px;
+        }
+
+        /* Tablet & iPad (576px to 991px): 3 nodes per row (Row 1: 1->2->3, Row 2: 4->5->6) */
+        @media (min-width: 576px) and (max-width: 991px) {
+            .journey-flow-wrapper {
+                flex-wrap: wrap !important;
+                row-gap: 24px !important;
+            }
+            .journey-node {
+                flex: 0 0 26% !important;
+                max-width: 26% !important;
+            }
+            .journey-arrow {
+                height: 50px !important;
+                padding: 0 !important;
+            }
+            /* Hide Arrow 3 (6th child) between row 1 and row 2 */
+            .journey-flow-wrapper > :nth-child(6) {
+                display: none !important;
+            }
+        }
+
+        /* Mobile & iPhone (< 576px): 2 nodes per row (Row 1: 1->2, Row 2: 3->4, Row 3: 5->6) */
+        @media (max-width: 575px) {
+            .journey-flow-wrapper {
+                flex-wrap: wrap !important;
+                row-gap: 20px !important;
+            }
+            .journey-node {
+                flex: 0 0 42% !important;
+                max-width: 42% !important;
+            }
+            .journey-arrow {
+                height: 50px !important;
+                font-size: 1rem !important;
+                padding: 0 !important;
+            }
+            /* Hide break-arrows: Arrow 2 (4th child) and Arrow 4 (8th child) */
+            .journey-flow-wrapper > :nth-child(4),
+            .journey-flow-wrapper > :nth-child(8) {
+                display: none !important;
+            }
+            /* Keep in-row connecting arrows visible: Arrow 1, 3, 5 */
+            .journey-flow-wrapper > :nth-child(2),
+            .journey-flow-wrapper > :nth-child(6),
+            .journey-flow-wrapper > :nth-child(10) {
+                display: flex !important;
+            }
         }
 
         .mh-story {
@@ -573,9 +591,6 @@
                 flex: auto
             }
 
-            .mh-scroll>div {
-                flex-basis: 80%
-            }
         }
 
         @media(max-width:767px) {
@@ -711,128 +726,169 @@
                 border-radius: 6px;
             }
 
-            /* Top Hospitals */
-            #hospitals .mh-scroll img {
-                width: 100%;
-                height: 150px;
-                object-fit: contain;
-                object-position: center;
-                background: #fff;
-            }
-
-            #hospitals .mh-scroll>div {
-                flex-basis: calc(50% - 8px);
-            }
         }
 
-        /* ===== Hospital arrows: card ke andar, saaf-suthre ===== */
-        .mh-wrap .mh-arr,
-        .hs-arrow {
-            top: 100px !important;
-            /* image ke beech me */
+        /* ==========================================================================
+           Top Hospitals Owl Carousel Slider (Matching Cancer & IVF Pages)
+           ========================================================================== */
+        .slider-box,
+        .ivf-slider-box {
+            position: relative;
+            padding: 0 25px;
+        }
+
+        .slider-arrow {
+            position: absolute !important;
+            top: calc(50% - 14px) !important;
             transform: translateY(-50%) !important;
             width: 42px !important;
             height: 42px !important;
             border-radius: 50% !important;
-            background: #fff !important;
-            color: #0b2e6f !important;
-            border: 1px solid #e3ebf6 !important;
-            box-shadow: 0 4px 14px rgba(11, 46, 111, .22) !important;
+            background: #ffffff !important;
+            border: 1.5px solid #e2e8f0 !important;
             display: flex !important;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px !important;
-            line-height: 1;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #0b224e !important;
+            font-size: 15px !important;
+            cursor: pointer !important;
+            z-index: 25 !important;
+            box-shadow: 0 4px 14px rgba(7, 35, 74, 0.14) !important;
+            transition: all 0.25s ease !important;
             padding: 0 !important;
-            cursor: pointer;
-            transition: background .2s, color .2s, transform .2s
         }
 
-        .mh-wrap .mh-arr[onclick*="-1"],
-        .hs-arrow.prev {
-            left: 12px !important;
-            right: auto !important
+        .slider-arrow:hover {
+            background: #e8262d !important;
+            color: #ffffff !important;
+            border-color: #e8262d !important;
+            box-shadow: 0 6px 18px rgba(232, 38, 45, 0.35) !important;
+            transform: translateY(-50%) scale(1.08) !important;
         }
 
-        .mh-wrap .mh-arr[onclick*="(1)"],
-        .hs-arrow.next {
-            right: 12px !important;
-            left: auto !important
+        .slider-arrow.prev {
+            left: 0px !important;
         }
 
-        .mh-wrap .mh-arr:hover,
-        .hs-arrow:hover {
-            background: #1a56c4 !important;
-            color: #fff !important;
-            transform: translateY(-50%) scale(1.08) !important
+        .slider-arrow.next {
+            right: 0px !important;
         }
 
-        @media(max-width:575px) {
+        .ivf-slider .owl-stage,
+        .ivf-slider .owl-item {
+            display: flex;
+        }
 
-            .mh-wrap .mh-arr,
-            .hs-arrow {
+        .ivf-slider .item {
+            width: 100%;
+            display: flex;
+            padding: 4px 2px 12px;
+        }
+
+        .ivf-hosp-card {
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 8px rgba(11, 46, 111, .06);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .ivf-hosp-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .ivf-hosp-img {
+            width: 100% !important;
+            height: 155px !important;
+            object-fit: cover !important;
+            display: block;
+        }
+
+        .ivf-hosp-body {
+            padding: 14px 12px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .ivf-hosp-body h5 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #0b2e6f;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .ivf-hosp-body p {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
+
+        .ivf-hosp-badge {
+            color: #0f9d78;
+            font-weight: 600;
+            font-size: 0.76rem;
+            display: block;
+            margin-top: 3px;
+        }
+
+        /* Dots styling */
+        .ivf-slider .owl-nav {
+            display: none !important;
+        }
+
+        .ivf-slider .owl-dots {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .ivf-slider .owl-dot span {
+            display: block !important;
+            width: 8px;
+            height: 8px;
+            margin: 0 !important;
+            border-radius: 50%;
+            background: #cbd5e1 !important;
+            transition: all 0.25s ease;
+        }
+
+        .ivf-slider .owl-dot.active span {
+            width: 26px;
+            border-radius: 10px;
+            background: #e8262d !important;
+        }
+
+        @media (max-width: 575px) {
+            .slider-box,
+            .ivf-slider-box {
+                padding: 0 18px !important;
+            }
+            .slider-arrow {
                 width: 36px !important;
                 height: 36px !important;
-                font-size: 20px !important
+                font-size: 13px !important;
             }
-
-            .mh-wrap .mh-arr[onclick*="-1"],
-            .hs-arrow.prev {
-                left: 8px !important
+            .slider-arrow.prev {
+                left: -2px !important;
             }
-
-            .mh-wrap .mh-arr[onclick*="(1)"],
-            .hs-arrow.next {
-                right: 8px !important
+            .slider-arrow.next {
+                right: -2px !important;
             }
-        }
-
-        #hs {
-            margin: 0 58px
-        }
-
-        .mh-wrap .mh-arr[onclick*="-1"],
-        .hs-arrow.prev {
-            left: 0 !important;
-            right: auto !important
-        }
-
-        .mh-wrap .mh-arr[onclick*="(1)"],
-        .hs-arrow.next {
-            right: 0 !important;
-            left: auto !important
-        }
-
-        @media(max-width:575px) {
-            #hs {
-                margin: 0 42px
-            }
-        }
-
-        #hs>div {
-            padding: 0 !important;
-            overflow: hidden
-        }
-
-        #hs>div>img {
-            display: block !important;
-            width: 100% !important;
-            min-width: 100% !important;
-            max-width: 100% !important;
-            height: 200px !important;
-            margin: 0 !important;
-            object-fit: cover !important
-        }
-
-        @media(max-width:991px) {
-            #hs>div>img {
-                height: 190px !important
-            }
-        }
-
-        @media(max-width:575px) {
-            #hs>div>img {
-                height: 170px !important
+            .ivf-hosp-img {
+                height: 165px !important;
             }
         }
     </style>
@@ -1027,11 +1083,13 @@
             "ivf": "7",
             "dental": "8",
 
-            // ---- Top Hospitals (4 images) ----
+            // ---- Top Hospitals (Slider) ----
             "h-apollo": "9",
             "h-medanta": "10",
             "h-fortis": "11",
             "h-max": "12",
+            "h-tata": "Cancer-Care-Treatment/10-1.png",
+            "h-manipal": "Ivf-fertility/10-1.png",
 
             // ---- Top Doctors (sab 6 cards me same image) ----
             "doctor": "13",
@@ -1094,7 +1152,12 @@
 
         const TREAT = [["Cancer Treatment", "cancer"], ["Cardiac Surgery", "cardiac"], ["Knee Replacement", "knee"], ["Hip Replacement", "hip"], ["Kidney Transplant", "kidney"], ["Liver Transplant", "liver"], ["IVF Treatment", "ivf"], ["Dental Implants", "dental"]];
         const COST = [["Knee Replacement", "$4,000", "4-5 days", "2-3 weeks"], ["Hip Replacement", "$4,500", "4-5 days", "2-3 weeks"], ["Heart Bypass", "$5,000", "6-7 days", "3-4 weeks"], ["Liver Transplant", "$35,000", "2-3 weeks", "8-12 weeks"], ["Kidney Transplant", "$16,000", "1-2 weeks", "4-6 weeks"], ["Dental Implant", "$800", "1-2 days", "1-2 days"]];
-        const HOSP = [["Apollo Hospitals", "Chennai", "NABH & JCI Accredited"], ["Medanta – The Medicity", "Gurgaon", "NABH Accredited"], ["Fortis Healthcare", "Multiple Locations", "NABH Accredited"], ["Max Healthcare", "Delhi", "NABH Accredited"]];
+        const HOSP = [
+            ["Apollo Hospitals", "Chennai", "NABH & JCI Accredited"],
+            ["Medanta – The Medicity", "Gurgaon", "NABH Accredited"],
+            ["Fortis Healthcare", "Multiple Locations", "NABH Accredited"],
+            ["Max Healthcare", "Delhi", "NABH Accredited"],
+        ];
         const DOCS = [["Dr. Rajesh Sharma", "Cardiologist", "20+ Years", "Max Hospital, Delhi"], ["Dr. Priya Mehta", "Oncologist", "16+ Years", "Apollo Hospital, Chennai"], ["Dr. Amit Verma", "Orthopaedic Surgeon", "15+ Years", "Medanta, Gurgaon"], ["Dr. Neha Kapoor", "IVF Specialist", "16+ Years", "Fortis Hospital, Delhi"], ["Dr. S. Iyer", "Neurologist", "20+ Years", "Manipal Hospital, Bengaluru"], ["Dr. Rohan Desai", "Dental Specialist", "10+ Years", "Global Hospital, Hyderabad"]];
         const JOURNEY = [["Share Medical Reports", "Upload your reports and explain your requirement.", "#1a56c4"], ["Get Medical Opinion", "We coordinate with top hospitals and specialists.", "#e8262d"], ["Treatment Options & Estimate", "Receive treatment options and indicative costs.", "#f08a1c"], ["Plan Your Medical Trip", "Visa, flights, hotel and airport transfer.", "#6b3fc4"], ["Treatment + Local Support", "Appointments, hospital visits and local assistance.", "#0f9d78"], ["Return & Follow-Up", "Support after treatment and remote follow-up.", "#e0338f"]];
         const SERV = [["Medical Visa Assistance", "visa"], ["Flights & Travel Support", "flight"], ["Airport Pickup & Transfers", "pickup"], ["Accommodation Bookings", "hotel"], ["Interpreter Services", "interpreter"], ["Treatment Coordination", "coordination"], ["Air Ambulance & Emergency Support", "ambulance"]];
@@ -1117,16 +1180,60 @@
             sec("why", "Why India for Treatment?", "India offers world-class medical care, modern technology, experienced doctors and affordable treatment costs for international patients.", "", grid(5, [["World-Class Healthcare", "w-1"], ["Highly Experienced Doctors", "w-2"], ["Advanced Technology", "w-3"], ["Cost-Effective Treatment", "w-4"], ["Easy Travel & Visa Process", "w-5"]].map(w => card(w[1], w[0])))) +
             sec("treatments", "Popular Treatments", "Find the right treatment with top hospitals and experienced specialists in India.", "View All Treatments", grid(8, TREAT.map(t => card(t[1], t[0])))) +
             sec("costs", "Treatment Costs in India", "Indicative costs for popular treatments. Final cost depends on your medical condition, doctor and hospital.", "View Detailed Cost Guide", grid(6, COST.map(c => `<div class="mh-card" style="text-align:left">${c[0]}<small>From</small><div class="mh-price">${c[1]}</div><small>Hospital Stay: ${c[2]}</small><small>India Stay: ${c[3]}</small></div>`))) +
-            sec("hospitals", "Top Hospitals in India", "Partnering with leading multi-speciality hospitals across India.", "View All Hospitals", `<div style="position:relative"><button class="mh-arr" style="left:-12px" onclick="scrollH(-1)">‹</button><div class="mh-scroll" id="hs">${HOSP.map(h => `<div>${im("h-" + h[0].split(" ")[0].toLowerCase(), h[0])}<p>${h[0]}</p><small>${h[1]}<br>${h[2]}</small></div>`).join("")}</div><button class="mh-arr" style="right:-12px" onclick="scrollH(1)">›</button></div>`) +
+            sec("hospitals", "Top Hospitals in India", "Partnering with leading multi-speciality hospitals across India.", "View All Hospitals", `
+            <div class="slider-box ivf-slider-box">
+                <button type="button" class="slider-arrow prev" data-target=".home-hospital-slider" aria-label="Previous">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
+                <button type="button" class="slider-arrow next" data-target=".home-hospital-slider" aria-label="Next">
+                    <i class="fa fa-chevron-right"></i>
+                </button>
+                <div class="owl-carousel ivf-slider home-hospital-slider">
+                    ${HOSP.map(h => `
+                        <div class="item">
+                            <div class="ivf-hosp-card">
+                                <img src="${src('h-' + h[0].split(' ')[0].toLowerCase())}" alt="${h[0]}" class="ivf-hosp-img" loading="lazy" onerror="imgFail(this)" data-k="${'h-' + h[0].split(' ')[0].toLowerCase()}" data-i="0">
+                                <div class="ivf-hosp-body">
+                                    <h5>${h[0]}</h5>
+                                    <p>${h[1]}<br><small class="ivf-hosp-badge">${h[2]}</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    `).join("")}
+                </div>
+            </div>
+            `) +
             sec("doctors", "Top Doctors", "Consult with experienced specialists for your treatment.", "View All Doctors", grid(6, DOCS.map(d => `<div class="mh-card">${im("doctor", d[0])}<div>${d[0]}</div><small style="color:var(--blue)">${d[1]}</small><small>${d[2]} Experience</small><small>${d[3]}</small></div>`))) +
-            sec("journey", "How Your Medical Journey Works", "A simple and transparent process from consultation to recovery.", "", grid(6, JOURNEY.map((j, i) => `<div class="mh-step"><div class="c" style="background:${j[2]}">0${i + 1}</div><b>${j[0]}</b>${j[1]}</div>`))) +
+            sec("journey", "How Your Medical Journey Works", "A simple and transparent process from consultation to recovery.", "", `<div class="journey-flow-wrapper">${JOURNEY.map((j, i) => `<div class="journey-node mh-step"><div class="c" style="background:${j[2]}">0${i + 1}</div><b>${j[0]}</b><span>${j[1]}</span></div>` + (i < JOURNEY.length - 1 ? `<div class="journey-arrow"><i class="fa fa-arrow-right"></i></div>` : "")).join("")}</div>`) +
             sec("services", "International Patient Services", "End-to-end support for a smooth and comfortable medical journey.", "", grid(7, SERV.map(s => card(s[1], s[0])))) +
             sec("stories", "Real Patient Stories", "Stories of hope and better health. Real experiences from our international patients.", "View All Stories", grid(3, STORY.map(s => `<div class="mh-card mh-story">${im("patient")}<div><b>Patient from ${s[0]}</b><p style="color:var(--blue)">${s[1]}</p><p>“${s[2]}”</p></div></div>`))) +
             sec("trust", "Why Patients Trust Adam Vacations", "We are committed to transparent, ethical and patient-focused support.", "", `<div class="mh-trust">${grid(3, TRUST.map(t => card(t[1], t[0])))}${im("trust-doctor")}</div>`) +
             sec("blog", "Medical Travel Guides & Blog", "Helpful articles to plan your medical journey to India.", "View All Articles", grid(4, BLOG.map(b => `<div class="mh-card" style="padding:0;overflow:hidden;text-align:left">${im(b[2], b[0])}<div style="padding:10px 12px">${b[0]}<small>${b[1]}</small></div></div>`))) +
             sec("faq", "Frequently Asked Questions", "", "", `<div class="mh-g" style="--c:2">${FAQ.map(f => `<details class="mh-faq"><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join("")}</div>`);
 
-        function scrollH(d) { const e = document.getElementById("hs"); e.scrollBy({ left: d * e.clientWidth * 0.5 }); }
+        // Initialize Top Hospitals Owl Carousel Slider
+        $(function () {
+            $('.home-hospital-slider').owlCarousel({
+                loop: true,
+                nav: false,
+                dots: true,
+                margin: 16,
+                smartSpeed: 600,
+                autoplay: true,
+                autoplayHoverPause: true,
+                autoplayTimeout: 3500,
+                responsive: {
+                    0: { items: 1 },
+                    576: { items: 2 },
+                    768: { items: 3 },
+                    1200: { items: 4 }
+                }
+            });
+
+            $(document).on('click', '.slider-arrow', function () {
+                $($(this).data('target')).trigger($(this).hasClass('prev') ? 'prev.owl.carousel' : 'next.owl.carousel', [400]);
+            });
+        });
 
         /* ---------- Form logic ---------- */
         document.addEventListener("DOMContentLoaded", function () {
