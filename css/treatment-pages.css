@@ -418,7 +418,7 @@ a.btn-outline-navy:hover,
    -------------------------------------------------------------------------- */
 .type-treatment-card,
 .type-card {
-    background: #fff;
+    background: #EFF5FF;
     border-radius: 16px;
     padding: 20px 16px;
     border: 1px solid var(--brand-border);
@@ -486,7 +486,7 @@ a.btn-outline-navy:hover,
 
 .treatment-option-item,
 .option-pill-card {
-    background: #fff;
+    background: #EFF5FF;
     border: 1px solid var(--brand-border);
     border-radius: 12px;
     padding: 20px 15px;
@@ -548,12 +548,13 @@ a.btn-outline-navy:hover,
 
 .hospital-card > img {
     width: 100%;
-    height: 150px;
+    /* height: 150px; */
     object-fit: cover;
 }
 
 .hospital-info,
 .hospital-body {
+    background: #EFF5FF;
     padding: 14px 12px;
     text-align: center;
     flex-grow: 1;
@@ -594,13 +595,14 @@ a.btn-outline-navy:hover,
    11. Doctor Cards (Round Avatar Fix)
    -------------------------------------------------------------------------- */
 .doctor-card {
-    background: #fff;
+    background: #EFF5FF;
     border-radius: 14px;
     border: 1px solid var(--brand-border);
     padding: 20px 14px 16px;
     text-align: center;
     transition: transform 0.25s, box-shadow 0.25s;
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -708,7 +710,7 @@ a.btn-outline-navy:hover,
 .info-grid-card,
 .cost-stay-card,
 .req-box {
-    background: #fff;
+    background: #EFF5FF;
     border-radius: 16px;
     padding: 24px;
     border: 1px solid var(--brand-border);
@@ -798,7 +800,7 @@ a.btn-outline-navy:hover,
     color: var(--brand-navy);
     font-size: 0.98rem;
     padding: 16px 20px;
-    background: #fff;
+    background: #EFF5FF;
     box-shadow: none;
 }
 
@@ -824,7 +826,7 @@ a.btn-outline-navy:hover,
    15. Patient Stories / Testimonials
    -------------------------------------------------------------------------- */
 .story-card {
-    background: #fff;
+    background: #EFF5FF;
     border-radius: 16px;
     padding: 24px;
     border: 1px solid var(--brand-border);
@@ -992,6 +994,19 @@ a.btn-outline-navy:hover,
     color: #0b224e;
 }
 .cta-neuro p {
+    color: #334155;
+}
+
+/* Orthopedic Trauma: modern hospital campus with airplane banner, dark navy text */
+.cta-ortho {
+    background-image:
+        radial-gradient(ellipse at center, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.72) 42%, rgba(255, 255, 255, 0.25) 75%),
+        url('../Orthopedic-Trauma-Surgery/Modern Hospital Campus with Airplane.png');
+}
+.cta-ortho h3 {
+    color: #0b224e;
+}
+.cta-ortho p {
     color: #334155;
 }
 
@@ -1418,22 +1433,31 @@ a.btn-outline-navy:hover,
 
 /* 7. Hospital & Doctor Cards */
 .ivf-hosp-card {
-    background: #ffffff;
+    background: #EFF5FF !important;
     border: 1px solid #e2e8f0;
     border-radius: 14px;
     overflow: hidden;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .ivf-hosp-img {
     width: 100% !important;
-    /* height: 125px !important; */
+    height: 145px !important;
     object-fit: cover;
+    display: block !important;
+    flex-shrink: 0;
 }
 
 .ivf-hosp-body {
-    padding: 14px;
+    background: #EFF5FF !important;
+    padding: 14px 12px;
     text-align: center;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .ivf-hosp-body h5 {
@@ -1450,7 +1474,7 @@ a.btn-outline-navy:hover,
 }
 
 .ivf-doc-card {
-    background: #ffffff;
+    background: #EFF5FF;
     border: 1px solid #e2e8f0;
     border-radius: 14px;
     padding: 24px 16px;
@@ -1523,7 +1547,7 @@ a.btn-outline-navy:hover,
 
 /* 9. Expected Duration Cards */
 .duration-card {
-    background: #ffffff;
+    background: #EFF5FF;
     border-radius: 16px;
     border: 1px solid #e2e8f0;
     padding: 30px 20px;
@@ -1623,7 +1647,7 @@ a.btn-outline-navy:hover,
 
 /* 11. Patient Story Card */
 .patient-story-box {
-    background: #ffffff;
+    background: #EFF5FF;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
     padding: 24px;
@@ -1748,9 +1772,10 @@ a.btn-outline-navy:hover,
 /* (2) Hospitals & Specialists sliders */
 .ivf-slider .owl-stage,
 .ivf-slider .owl-item { display: flex; }
-.ivf-slider .item { width: 100%; display: flex; padding: 4px 2px 10px; }
+.ivf-slider .item { width: 100%; display: flex; justify-content: center; padding: 4px 2px 10px; }
 .ivf-slider .ivf-hosp-card,
-.ivf-slider .ivf-doc-card { width: 100%; }
+.ivf-slider .ivf-doc-card,
+.ivf-slider .doctor-card { width: 100% !important; }
 .ivf-slider .owl-nav { display: none !important; }
 .ivf-slider .owl-dots { display: flex !important; justify-content: center; gap: 8px; margin-top: 14px; }
 .ivf-slider .owl-dot span {
@@ -1780,14 +1805,21 @@ a.btn-outline-navy:hover,
 
 /* (4) Hero badges: chhote boxes, 2-2 format */
 @media (max-width: 991px) {
-    .hero-badges-wrapper {
+    .cardiac-hero {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 55%, rgba(255, 255, 255, 0.35) 100%),
+            url('../cardiac-surgery-page/banner.png') center right / cover no-repeat !important;
+        padding: 50px 0 55px !important;
+    }
+    .hero-badges-wrapper,
+    .cardiac-hero .hero-badge-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         max-width: 360px;
         margin: 0 auto 24px;
     }
-    .hero-badges-wrapper .hero-badge-card {
+    .hero-badges-wrapper .hero-badge-card,
+    .cardiac-hero .hero-badge-item {
         min-width: 0;
         padding: 12px 8px;
         border-radius: 10px;
@@ -1799,6 +1831,17 @@ a.btn-outline-navy:hover,
         width: 20px; height: 20px;
     }
     .hero-badges-wrapper .hero-badge-card h6 { font-size: 0.74rem; }
+}
+
+@media (max-width: 575px) {
+    .cardiac-hero {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0.35) 100%),
+            url('../cardiac-surgery-page/banner.png') top right / cover no-repeat !important;
+        padding: 35px 15px 45px !important;
+    }
+    .cardiac-hero .hero-title {
+        font-size: 1.75rem !important;
+    }
 }
 
 
@@ -1922,7 +1965,7 @@ a.btn-outline-navy:hover,
 
 /* 4. Types of Cancer Treatment (6 Cards) */
 .cancer-type-card {
-    background: #ffffff;
+    background: #EFF5FF;
     border: 1px solid #e2e8f0;
     border-radius: 14px;
     padding: 14px;
@@ -1960,7 +2003,7 @@ a.btn-outline-navy:hover,
 
 /* 5. Cancer Options (4 Cards) */
 .cancer-option-card {
-    background: #ffffff;
+    background: #EFF5FF;
     border: 1px solid #e2e8f0;
     border-radius: 14px;
     padding: 22px 18px;
@@ -2379,7 +2422,7 @@ a.btn-outline-navy:hover,
 
 /* 6. Patient Stories */
 .bariatric-story-card {
-    background: #ffffff;
+    background: #EFF5FF;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
     padding: 24px;
@@ -2435,8 +2478,8 @@ a.btn-outline-navy:hover,
 /* Responsive adjustments */
 @media (max-width: 991px) {
     .bariatric-hero {
-        background: linear-gradient(rgba(240, 247, 255, 0.85), rgba(240, 247, 255, 0.85)),
-            url('../Bariatric-Surgery/banner.png') center / cover no-repeat !important;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 55%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Bariatric-Surgery/banner.png') center right / cover no-repeat !important;
         padding: 50px 0 55px !important;
     }
     .bariatric-hero .hero-title {
@@ -2453,8 +2496,8 @@ a.btn-outline-navy:hover,
 
 @media (max-width: 575px) {
     .bariatric-hero {
-        background: linear-gradient(rgba(240, 247, 255, 0.92), rgba(240, 247, 255, 0.92)),
-            url('../Bariatric-Surgery/banner.png') center / cover no-repeat !important;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Bariatric-Surgery/banner.png') top right / cover no-repeat !important;
         padding: 35px 15px 45px !important;
     }
     .bariatric-hero .hero-title {
@@ -2568,7 +2611,7 @@ a.btn-outline-navy:hover,
 
 /* 2. Sub-Bar Feature Pills */
 .neuro-feature-pill {
-    background: #ffffff;
+    background: #EFF5FF;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
     padding: 14px 16px;
@@ -2624,7 +2667,7 @@ a.btn-outline-navy:hover,
 
 /* 4. Types of Neuro Surgeries (5 Cards) */
 .neuro-type-card {
-    background: #ffffff;
+    background: #EFF5FF;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
     padding: 18px 14px;
@@ -2755,7 +2798,7 @@ a.btn-outline-navy:hover,
 
 /* 6. Patient Stories */
 .neuro-story-card {
-    background: #ffffff;
+    background: #EFF5FF;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
     padding: 24px;
@@ -2811,8 +2854,8 @@ a.btn-outline-navy:hover,
 /* Responsive adjustments */
 @media (max-width: 991px) {
     .neuro-hero {
-        background: linear-gradient(rgba(240, 247, 255, 0.88), rgba(240, 247, 255, 0.88)),
-            url('../Neuro-Surgeries/banner.png') center / cover no-repeat !important;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 55%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Neuro-Surgeries/banner.png') center right / cover no-repeat !important;
         padding: 50px 0 55px !important;
     }
     .neuro-hero .hero-title {
@@ -2829,8 +2872,8 @@ a.btn-outline-navy:hover,
 
 @media (max-width: 575px) {
     .neuro-hero {
-        background: linear-gradient(rgba(240, 247, 255, 0.92), rgba(240, 247, 255, 0.92)),
-            url('../Neuro-Surgeries/banner.png') center / cover no-repeat !important;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Neuro-Surgeries/banner.png') top right / cover no-repeat !important;
         padding: 35px 15px 45px !important;
     }
     .neuro-hero .hero-title {
@@ -2849,6 +2892,1140 @@ a.btn-outline-navy:hover,
         padding: 45px 15px !important;
     }
     .cta-neuro h3 {
+        font-size: 1.55rem !important;
+    }
+}
+
+/* ==========================================================================
+   ORTHOPEDIC TRAUMA SURGERY PAGE STYLES
+   ========================================================================== */
+
+/* 1. Hero Section - Full Width Edge-to-Edge */
+.ortho-hero {
+    background: url('../Orthopedic-Trauma-Surgery/banner.png') center right / cover no-repeat !important;
+    padding: 70px 0 80px;
+    position: relative;
+    color: #0b224e;
+    width: 100%;
+}
+
+.ortho-hero .hero-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a56c4;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(11, 46, 111, 0.08);
+}
+
+.ortho-hero .hero-title {
+    font-size: 2.85rem;
+    font-weight: 900;
+    color: #0b224e !important;
+    line-height: 1.2;
+}
+
+.ortho-hero .hero-title span,
+.ortho-hero .hero-title span.red-text {
+    color: #e8262d !important;
+}
+
+.ortho-hero .hero-subtitle {
+    font-size: 1.15rem;
+    color: #475569 !important;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
+
+.ortho-badge-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto 30px;
+    max-width: 760px;
+}
+
+.ortho-badge-grid .hero-badge-item {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 14px 16px;
+    text-align: center;
+    flex: 1 1 calc(25% - 16px);
+    min-width: 130px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.06);
+    backdrop-filter: blur(4px);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ortho-badge-grid .hero-badge-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(11, 46, 111, 0.12);
+}
+
+.ortho-badge-grid .hero-badge-item img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.ortho-badge-grid .hero-badge-item span {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.3;
+}
+
+/* 2. Sub-Bar Feature Pills */
+.ortho-feature-pill {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 10px rgba(11, 46, 111, 0.03);
+    height: 100%;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.ortho-feature-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(11, 46, 111, 0.08);
+}
+
+.ortho-feature-pill .feature-pill-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.ortho-feature-pill span {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.35;
+}
+
+/* 3. Overview Cards */
+.ortho-overview-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 18px rgba(11, 46, 111, 0.04);
+}
+
+.ortho-overview-img {
+    max-height: 220px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.ortho-checklist-card {
+    background: #f0f7ff;
+    border: 1px solid rgba(26, 86, 196, 0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+}
+
+/* 4. Types of Orthopedic Trauma Surgery (6 Cards) */
+.ortho-type-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px 12px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.ortho-type-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(11, 46, 111, 0.08);
+}
+
+.ortho-type-img-box {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.ortho-type-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.ortho-type-card h5 {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 0;
+    line-height: 1.35;
+}
+
+/* 5. Stat Cards (Cost, Duration, Stay) */
+.ortho-stat-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px 22px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    transition: transform 0.25s, box-shadow 0.25s;
+    height: 100%;
+}
+
+.ortho-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.08);
+}
+
+.ortho-stat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.ortho-stat-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.ortho-stat-label {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #0b224e;
+}
+
+.ortho-stat-value {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #e8262d;
+    margin-bottom: 8px;
+}
+
+.ortho-stat-desc {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin-bottom: 0;
+}
+
+/* Checklists for Section 9 */
+.ortho-checklist-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.ortho-checklist-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+    color: #334155;
+    line-height: 1.5;
+}
+
+.ortho-checklist-list li:last-child {
+    margin-bottom: 0;
+}
+
+.ortho-checklist-list li i {
+    color: #1a56c4;
+    font-size: 1.05rem;
+    margin-top: 1px;
+    flex-shrink: 0;
+}
+
+/* Wide Travel Card */
+.ortho-travel-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(11, 46, 111, 0.04);
+}
+
+.ortho-travel-img {
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+    object-fit: cover;
+}
+
+/* 6. Patient Stories */
+.ortho-story-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    height: 100%;
+}
+
+.ortho-story-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e2e8f0;
+}
+
+.ortho-stars {
+    color: #f59e0b;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+.ortho-story-quote {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.55;
+    margin-bottom: 0;
+}
+
+/* 7. Bottom CTA Banner - Full Width Edge-to-Edge */
+.cta-ortho {
+    width: 100% !important;
+    padding: 70px 0 !important;
+    background-image:
+        radial-gradient(ellipse at center, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.72) 42%, rgba(255, 255, 255, 0.25) 75%),
+        url('../Orthopedic-Trauma-Surgery/Modern Hospital Campus with Airplane.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    margin: 40px 0 0 0 !important;
+}
+
+.cta-ortho h3 {
+    color: #0b224e !important;
+    font-size: 2.15rem !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 10px !important;
+}
+
+.cta-ortho p {
+    color: #334155 !important;
+    font-size: 1rem !important;
+    max-width: 680px !important;
+    margin: 0 auto 24px !important;
+    line-height: 1.6 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .ortho-hero {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 55%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Orthopedic-Trauma-Surgery/banner.png') center right / cover no-repeat !important;
+        padding: 50px 0 55px !important;
+    }
+    .ortho-hero .hero-title {
+        font-size: 2.2rem !important;
+    }
+    .ortho-badge-grid {
+        max-width: 520px;
+        flex-wrap: wrap;
+    }
+    .ortho-badge-grid .hero-badge-item {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
+@media (max-width: 575px) {
+    .ortho-hero {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Orthopedic-Trauma-Surgery/banner.png') top right / cover no-repeat !important;
+        padding: 35px 15px 45px !important;
+    }
+    .ortho-hero .hero-title {
+        font-size: 1.75rem !important;
+    }
+    .ortho-badge-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .ortho-badge-grid .hero-badge-item {
+        min-width: 0;
+        padding: 10px;
+    }
+    .cta-ortho {
+        padding: 45px 15px !important;
+    }
+    .cta-ortho h3 {
+        font-size: 1.55rem !important;
+    }
+}
+
+/* ==========================================================================
+   ORTHOPEDIC SURGERY PAGE STYLES (orthopedic-surgery.html)
+   ========================================================================== */
+
+/* 1. Hero Section - Full Width Edge-to-Edge */
+.ortho-surg-hero {
+    background: url('../Orthopedic-Surgery/banner.png') center right / cover no-repeat !important;
+    padding: 75px 0 85px;
+    position: relative;
+    color: #0b224e;
+    width: 100%;
+}
+
+.ortho-surg-hero .hero-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a56c4;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(11, 46, 111, 0.08);
+}
+
+.ortho-surg-hero .hero-title {
+    font-size: 2.85rem;
+    font-weight: 900;
+    color: #0b224e !important;
+    line-height: 1.2;
+}
+
+.ortho-surg-hero .hero-title span,
+.ortho-surg-hero .hero-title span.red-text {
+    color: #e8262d !important;
+}
+
+.ortho-surg-hero .hero-subtitle {
+    font-size: 1.15rem;
+    color: #475569 !important;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
+
+.ortho-surg-badge-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto 30px;
+    max-width: 760px;
+}
+
+.ortho-surg-badge-grid .hero-badge-item {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 14px 16px;
+    text-align: center;
+    flex: 1 1 calc(25% - 16px);
+    min-width: 130px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.06);
+    backdrop-filter: blur(4px);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ortho-surg-badge-grid .hero-badge-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(11, 46, 111, 0.12);
+}
+
+.ortho-surg-badge-grid .hero-badge-item img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.ortho-surg-badge-grid .hero-badge-item span {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.3;
+}
+
+/* 2. Sub-Bar Feature Pills */
+.ortho-surg-feature-pill {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 10px rgba(11, 46, 111, 0.03);
+    height: 100%;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.ortho-surg-feature-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(11, 46, 111, 0.08);
+}
+
+.ortho-surg-feature-pill .feature-pill-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.ortho-surg-feature-pill span {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.35;
+}
+
+/* 3. Overview Cards */
+.ortho-surg-overview-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 18px rgba(11, 46, 111, 0.04);
+}
+
+.ortho-surg-overview-img {
+    max-height: 220px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.ortho-surg-checklist-card {
+    background: #f0f7ff;
+    border: 1px solid rgba(26, 86, 196, 0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+}
+
+/* 4. Types of Orthopedic Surgery (5 Cards) */
+.ortho-surg-type-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px 12px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.ortho-surg-type-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(11, 46, 111, 0.08);
+}
+
+.ortho-surg-type-img-box {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.ortho-surg-type-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.ortho-surg-type-card h5 {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.ortho-surg-type-card p {
+    font-size: 0.76rem;
+    color: #64748b;
+    margin-bottom: 0;
+    line-height: 1.35;
+}
+
+/* 5. Stat Cards (Cost, Duration, Stay) */
+.ortho-surg-stat-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px 22px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    transition: transform 0.25s, box-shadow 0.25s;
+    height: 100%;
+}
+
+.ortho-surg-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.08);
+}
+
+.ortho-surg-stat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.ortho-surg-stat-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.ortho-surg-stat-label {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #0b224e;
+}
+
+.ortho-surg-stat-desc {
+    font-size: 0.84rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin-bottom: 0;
+}
+
+/* Checklists for Section 9 */
+.ortho-surg-checklist-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.ortho-surg-checklist-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+    color: #334155;
+    line-height: 1.5;
+}
+
+.ortho-surg-checklist-list li:last-child {
+    margin-bottom: 0;
+}
+
+.ortho-surg-checklist-list li i {
+    color: #1a56c4;
+    font-size: 1.05rem;
+    margin-top: 1px;
+    flex-shrink: 0;
+}
+
+/* 6. Patient Stories for Ortho Surgery */
+.ortho-surg-story-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ortho-surg-story-quote {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.55;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.ortho-surg-story-quote::before {
+    content: "“";
+    position: absolute;
+    left: 0;
+    top: -5px;
+    font-size: 2rem;
+    line-height: 1;
+    color: #e8262d;
+    font-family: Georgia, serif;
+    font-weight: 700;
+}
+
+.ortho-surg-story-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ortho-surg-story-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ortho-surg-flag {
+    width: 20px;
+    height: 14px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* 7. Bottom CTA Banner - Full Width Edge-to-Edge */
+.cta-ortho-surg {
+    width: 100% !important;
+    padding: 70px 0 !important;
+    background-image:
+        radial-gradient(ellipse at center, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.72) 42%, rgba(255, 255, 255, 0.25) 75%),
+        url('../Orthopedic-Surgery/banner-3.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    margin: 40px 0 0 0 !important;
+}
+
+.cta-ortho-surg h3 {
+    color: #0b224e !important;
+    font-size: 2.15rem !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 10px !important;
+}
+
+.cta-ortho-surg p {
+    color: #334155 !important;
+    font-size: 1rem !important;
+    max-width: 680px !important;
+    margin: 0 auto 24px !important;
+    line-height: 1.6 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .ortho-surg-hero {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 55%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Orthopedic-Surgery/banner.png') center right / cover no-repeat !important;
+        padding: 50px 0 55px !important;
+    }
+    .ortho-surg-hero .hero-title {
+        font-size: 2.2rem !important;
+    }
+    .ortho-surg-badge-grid {
+        max-width: 520px;
+        flex-wrap: wrap;
+    }
+    .ortho-surg-badge-grid .hero-badge-item {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
+@media (max-width: 575px) {
+    .ortho-surg-hero {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Orthopedic-Surgery/banner.png') top right / cover no-repeat !important;
+        padding: 35px 15px 45px !important;
+    }
+    .ortho-surg-hero .hero-title {
+        font-size: 1.75rem !important;
+    }
+    .ortho-surg-badge-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .ortho-surg-badge-grid .hero-badge-item {
+        min-width: 0;
+        padding: 10px;
+    }
+    .cta-ortho-surg {
+        padding: 45px 15px !important;
+    }
+    .cta-ortho-surg h3 {
+        font-size: 1.55rem !important;
+    }
+}
+
+/* ==========================================================================
+   STEM CELL THERAPY PAGE STYLES (stem-cell-therapy.html)
+   ========================================================================== */
+
+/* 1. Hero Section - Full Width Edge-to-Edge */
+.stem-hero {
+    background: url('../Stem-Cell-Therapy/banner.png') center right / cover no-repeat !important;
+    padding: 75px 0 85px;
+    position: relative;
+    color: #0b224e;
+    width: 100%;
+}
+
+.stem-hero .hero-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a56c4;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(11, 46, 111, 0.08);
+}
+
+.stem-hero .hero-title {
+    font-size: 2.85rem;
+    font-weight: 900;
+    color: #0b224e !important;
+    line-height: 1.2;
+}
+
+.stem-hero .hero-title span,
+.stem-hero .hero-title span.red-text {
+    color: #e8262d !important;
+}
+
+.stem-hero .hero-subtitle {
+    font-size: 1.15rem;
+    color: #475569 !important;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
+
+.stem-badge-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto 30px;
+    max-width: 760px;
+}
+
+.stem-badge-grid .hero-badge-item {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 14px 16px;
+    text-align: center;
+    flex: 1 1 calc(25% - 16px);
+    min-width: 130px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.06);
+    backdrop-filter: blur(4px);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.stem-badge-grid .hero-badge-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(11, 46, 111, 0.12);
+}
+
+.stem-badge-grid .hero-badge-item img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.stem-badge-grid .hero-badge-item span {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.3;
+}
+
+/* 2. Sub-Bar Feature Pills */
+.stem-feature-pill {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 10px rgba(11, 46, 111, 0.03);
+    height: 100%;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.stem-feature-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(11, 46, 111, 0.08);
+}
+
+.stem-feature-pill .feature-pill-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.stem-feature-pill span {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.35;
+}
+
+/* 3. Overview Cards */
+.stem-overview-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 18px rgba(11, 46, 111, 0.04);
+}
+
+.stem-overview-img {
+    max-height: 220px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.stem-checklist-card {
+    background: #f0f7ff;
+    border: 1px solid rgba(26, 86, 196, 0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+}
+
+/* 4. Areas Being Studied (5 Cards) */
+.stem-area-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px 12px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.stem-area-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(11, 46, 111, 0.08);
+}
+
+.stem-area-img-box {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.stem-area-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.stem-area-card h5 {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.stem-area-card p {
+    font-size: 0.76rem;
+    color: #64748b;
+    margin-bottom: 0;
+    line-height: 1.35;
+}
+
+/* 5. Stat Cards (Cost, Duration, Stay) */
+.stem-stat-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px 20px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    transition: transform 0.25s, box-shadow 0.25s;
+    height: 100%;
+}
+
+.stem-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.08);
+}
+
+.stem-stat-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.stem-stat-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 6px;
+}
+
+.stem-stat-desc {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin-bottom: 0;
+}
+
+/* Checklists for Section */
+.stem-checklist-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.stem-checklist-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+    color: #334155;
+    line-height: 1.5;
+}
+
+.stem-checklist-list li:last-child {
+    margin-bottom: 0;
+}
+
+.stem-checklist-list li i {
+    color: #1a56c4;
+    font-size: 1.05rem;
+    margin-top: 1px;
+    flex-shrink: 0;
+}
+
+/* 6. Patient Support & Information Banner */
+.stem-support-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(11, 46, 111, 0.04);
+}
+
+.stem-support-img {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    object-fit: cover;
+}
+
+/* 7. Bottom CTA Banner - Full Width Edge-to-Edge */
+.cta-stem {
+    width: 100% !important;
+    padding: 70px 0 !important;
+    background-image:
+        radial-gradient(ellipse at center, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.72) 42%, rgba(255, 255, 255, 0.25) 75%),
+        url('../Stem-Cell-Therapy/30.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    margin: 40px 0 0 0 !important;
+}
+
+.cta-stem h3 {
+    color: #0b224e !important;
+    font-size: 2.15rem !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 10px !important;
+}
+
+.cta-stem p {
+    color: #334155 !important;
+    font-size: 1rem !important;
+    max-width: 680px !important;
+    margin: 0 auto 24px !important;
+    line-height: 1.6 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .stem-hero {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 55%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Stem-Cell-Therapy/banner.png') center right / cover no-repeat !important;
+        padding: 50px 0 55px !important;
+    }
+    .stem-hero .hero-title {
+        font-size: 2.2rem !important;
+    }
+    .stem-badge-grid {
+        max-width: 520px;
+        flex-wrap: wrap;
+    }
+    .stem-badge-grid .hero-badge-item {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
+@media (max-width: 575px) {
+    .stem-hero {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Stem-Cell-Therapy/banner.png') top right / cover no-repeat !important;
+        padding: 35px 15px 45px !important;
+    }
+    .stem-hero .hero-title {
+        font-size: 1.75rem !important;
+    }
+    .stem-badge-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .stem-badge-grid .hero-badge-item {
+        min-width: 0;
+        padding: 10px;
+    }
+    .cta-stem {
+        padding: 45px 15px !important;
+    }
+    .cta-stem h3 {
         font-size: 1.55rem !important;
     }
 }
