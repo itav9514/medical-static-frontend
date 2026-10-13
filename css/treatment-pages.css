@@ -249,7 +249,7 @@ a.btn-outline-navy:hover,
 
 .metric-pill-item,
 .stats-strip-card {
-    background: #fff;
+    background: #EFF5FF;
     border: 1px solid var(--brand-border);
     border-radius: 50px;
     padding: 12px 22px;
@@ -1276,6 +1276,8 @@ a.btn-outline-navy:hover,
     display: flex;
     align-items: center;
     gap: 12px;
+    background: #EFF5FF;
+    border-radius: 15px;
     text-decoration: none !important;
     padding: 6px 12px;
     border-right: 1px solid #e2ebf5;
@@ -1336,7 +1338,7 @@ a.btn-outline-navy:hover,
 
 /* 4. Treatment Types (6 Cards) */
 .ivf-type-card {
-    background: #ffffff;
+    background: #EFF5FF;
     border: 1px solid #e2e8f0;
     border-radius: 14px;
     padding: 14px;
@@ -1668,6 +1670,7 @@ a.btn-outline-navy:hover,
     border-radius: 10px;
     margin-bottom: 12px;
     overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .faq-outline-btn {
@@ -1682,12 +1685,40 @@ a.btn-outline-navy:hover,
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
+    box-shadow: none;
+    outline: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+.faq-outline-btn:hover {
+    background: #e4eeff;
+}
+
+.faq-outline-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.faq-outline-btn .faq-arrow,
 .faq-outline-btn .plus-icon {
+    color: #1a56c4;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq-outline-btn:not(.collapsed) {
     color: #e63946;
-    font-size: 1.2rem;
-    font-weight: 700;
+    background: #f8fafc;
+}
+
+.faq-outline-btn:not(.collapsed) .faq-arrow,
+.faq-outline-btn:not(.collapsed) .plus-icon {
+    transform: rotate(180deg);
+    color: #e63946;
 }
 
 /* 13. Bottom Banner -> moved to Section 16 (.cta-band .cta-ivf) */
@@ -1911,7 +1942,7 @@ a.btn-outline-navy:hover,
 }
 
 .cancer-metric-card {
-    background: #ffffff;
+    background: #EFF5FF;
     border-radius: 14px;
     border: 1px solid #e2e8f0;
     padding: 16px 20px;
@@ -2242,7 +2273,7 @@ a.btn-outline-navy:hover,
 
 /* 2. Sub-Bar Feature Pills */
 .bariatric-feature-pill {
-    background: #ffffff;
+    background: #EFF5FF;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
     padding: 14px 16px;
@@ -2297,7 +2328,7 @@ a.btn-outline-navy:hover,
 
 /* 4. Types of Bariatric Surgery */
 .bariatric-type-card {
-    background: #ffffff;
+    background: #EFF5FF;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
     padding: 22px 16px;
@@ -3043,7 +3074,7 @@ a.btn-outline-navy:hover,
 
 /* 4. Types of Orthopedic Trauma Surgery (6 Cards) */
 .ortho-type-card {
-    background: #ffffff;
+    background: #EFF5FF;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
     padding: 14px 12px;
@@ -3430,7 +3461,7 @@ a.btn-outline-navy:hover,
 
 /* 4. Types of Orthopedic Surgery (5 Cards) */
 .ortho-surg-type-card {
-    background: #ffffff;
+    background: #EFF5FF;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
     padding: 14px 12px;
@@ -3827,7 +3858,7 @@ a.btn-outline-navy:hover,
 
 /* 4. Areas Being Studied (5 Cards) */
 .stem-area-card {
-    background: #ffffff;
+    background: #EFF5FF;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
     padding: 14px 12px;
@@ -4026,6 +4057,1624 @@ a.btn-outline-navy:hover,
         padding: 45px 15px !important;
     }
     .cta-stem h3 {
+        font-size: 1.55rem !important;
+    }
+}
+
+/* ==========================================================================
+   COSMETIC SURGERY LANDING PAGE
+   ========================================================================== */
+
+/* 1. Hero Section - Full Width Edge-to-Edge */
+.cosmetic-hero {
+    background: url('../Cosmetic-Surgery/banner.png') center right / cover no-repeat !important;
+    padding: 75px 0 85px;
+    position: relative;
+    color: #0b224e;
+    width: 100%;
+}
+
+.cosmetic-hero .hero-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a56c4;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(11, 46, 111, 0.08);
+}
+
+.cosmetic-hero .hero-title {
+    font-size: 2.85rem;
+    font-weight: 900;
+    color: #0b224e !important;
+    line-height: 1.2;
+}
+
+.cosmetic-hero .hero-title span,
+.cosmetic-hero .hero-title span.red-text {
+    color: #e8262d !important;
+}
+
+.cosmetic-hero .hero-subtitle {
+    font-size: 1.15rem;
+    color: #475569 !important;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
+
+.cosmetic-badge-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: nowrap;
+}
+
+.cosmetic-badge-grid .hero-badge-item {
+    background: #ffffff;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(11, 46, 111, 0.05);
+    min-width: 175px;
+    text-align: left;
+}
+
+.cosmetic-badge-grid .hero-badge-item img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.cosmetic-badge-grid .hero-badge-item span {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.25;
+}
+
+/* 2. Sub-Bar Feature Pills */
+.cosmetic-feature-pill {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cosmetic-feature-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(11, 46, 111, 0.06);
+}
+
+.cosmetic-feature-pill .feature-pill-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* 3. Overview Section */
+.cosmetic-overview-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.cosmetic-overview-img {
+    border-radius: 14px;
+    max-height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.cosmetic-when-card {
+    background: #EFF5FF;
+    border: 1px solid #dbeafe;
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.cosmetic-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cosmetic-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.92rem;
+    color: #334155;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.cosmetic-checklist li:last-child {
+    margin-bottom: 0;
+}
+
+.cosmetic-checklist li i {
+    color: #1a56c4;
+    font-size: 1.1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* 4. Types of Cosmetic Surgery (5 Cards) */
+.cosmetic-type-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px 12px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cosmetic-type-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.08);
+}
+
+.cosmetic-type-img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.cosmetic-type-card h5 {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.cosmetic-type-card p {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.45;
+}
+
+/* 5. Treatment Options (5 Cards) */
+.cosmetic-option-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 22px 14px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cosmetic-option-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.08);
+}
+
+.cosmetic-option-icon {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.cosmetic-option-card h5 {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin: 0;
+    line-height: 1.35;
+}
+
+/* 6. Indicative Cost Metric Cards */
+.cosmetic-metric-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    height: 100%;
+}
+
+.cosmetic-metric-card img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.cosmetic-metric-card .metric-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 4px;
+}
+
+.cosmetic-metric-card .metric-val {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.cosmetic-metric-card .metric-sub {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* 7. Support Cards (6 Cards) */
+.cosmetic-support-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 22px 20px;
+    height: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.cosmetic-support-card .card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.cosmetic-support-card .card-head img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.cosmetic-support-card .card-head h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin: 0;
+}
+
+.cosmetic-support-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cosmetic-support-card ul li {
+    font-size: 0.86rem;
+    color: #475569;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 16px;
+    line-height: 1.45;
+}
+
+.cosmetic-support-card ul li:before {
+    content: "•";
+    color: #1a56c4;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.cosmetic-support-card ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* 8. Patient Stories Cards */
+.cosmetic-story-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cosmetic-story-quote {
+    font-size: 0.94rem;
+    color: #334155;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    font-style: italic;
+}
+
+.cosmetic-story-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cosmetic-story-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #1a56c4;
+}
+
+/* 9. Bottom CTA Banner - Full Width Edge-to-Edge */
+.cta-cosmetic {
+    background-image: url('../Cosmetic-Surgery/banner-5.png');
+    background-size: cover;
+    background-position: center;
+    padding: 65px 0 !important;
+}
+
+.cta-cosmetic h3 {
+    color: #0b224e !important;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.cta-cosmetic p {
+    color: #475569 !important;
+    font-size: 1rem;
+}
+
+/* Responsive adjustments for Cosmetic Surgery */
+@media (max-width: 991px) {
+    .cosmetic-hero {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 55%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Cosmetic-Surgery/banner.png') center right / cover no-repeat !important;
+        padding: 50px 0 55px !important;
+    }
+    .cosmetic-hero .hero-title {
+        font-size: 2.2rem !important;
+    }
+    .cosmetic-badge-grid {
+        max-width: 520px;
+        flex-wrap: wrap;
+    }
+    .cosmetic-badge-grid .hero-badge-item {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
+@media (max-width: 575px) {
+    .cosmetic-hero {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Cosmetic-Surgery/banner.png') top right / cover no-repeat !important;
+        padding: 35px 15px 45px !important;
+    }
+    .cosmetic-hero .hero-title {
+        font-size: 1.75rem !important;
+    }
+    .cosmetic-badge-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .cosmetic-badge-grid .hero-badge-item {
+        min-width: 0;
+        padding: 10px;
+    }
+    .cosmetic-badge-grid .hero-badge-item img {
+        width: 30px;
+        height: 30px;
+    }
+    .cosmetic-badge-grid .hero-badge-item span {
+        font-size: 0.75rem;
+    }
+    .cta-cosmetic {
+        padding: 45px 15px !important;
+    }
+    .cta-cosmetic h3 {
+        font-size: 1.55rem !important;
+    }
+}
+
+/* ==========================================================================
+   DENTAL IMPLANTS LANDING PAGE
+   ========================================================================== */
+
+/* 1. Hero Section - Full Width Edge-to-Edge */
+.dental-hero {
+    background: url('../Dental-page/banner.png') center right / cover no-repeat !important;
+    padding: 75px 0 85px;
+    position: relative;
+    color: #0b224e;
+    width: 100%;
+}
+
+.dental-hero .hero-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a56c4;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(11, 46, 111, 0.08);
+}
+
+.dental-hero .hero-title {
+    font-size: 2.85rem;
+    font-weight: 900;
+    color: #0b224e !important;
+    line-height: 1.2;
+}
+
+.dental-hero .hero-title span,
+.dental-hero .hero-title span.red-text {
+    color: #e8262d !important;
+}
+
+.dental-hero .hero-subtitle {
+    font-size: 1.15rem;
+    color: #475569 !important;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
+
+.dental-badge-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: nowrap;
+}
+
+.dental-badge-grid .hero-badge-item {
+    background: #ffffff;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(11, 46, 111, 0.05);
+    min-width: 175px;
+    text-align: left;
+}
+
+.dental-badge-grid .hero-badge-item img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.dental-badge-grid .hero-badge-item span {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.25;
+}
+
+/* 2. Sub-Bar Feature Pills */
+.dental-feature-pill {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dental-feature-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(11, 46, 111, 0.06);
+}
+
+.dental-feature-pill .feature-pill-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* 3. Overview Section */
+.dental-overview-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.dental-overview-img {
+    border-radius: 14px;
+    max-height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.dental-when-card {
+    background: #EFF5FF;
+    border: 1px solid #dbeafe;
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.dental-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dental-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.92rem;
+    color: #334155;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.dental-checklist li:last-child {
+    margin-bottom: 0;
+}
+
+.dental-checklist li i {
+    color: #1a56c4;
+    font-size: 1.1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* 4. Types of Dental Implants (5 Cards) */
+.dental-type-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px 12px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dental-type-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.08);
+}
+
+.dental-type-img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.dental-type-card h5 {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.dental-type-card p {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.45;
+}
+
+/* 5. Treatment Options (5 Cards) */
+.dental-option-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 22px 14px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dental-option-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.08);
+}
+
+.dental-option-icon {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.dental-option-card h5 {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 6px;
+    line-height: 1.35;
+}
+
+.dental-option-card p {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* 6. Indicative Cost Metric Cards */
+.dental-metric-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    height: 100%;
+}
+
+.dental-metric-card img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.dental-metric-card .metric-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 4px;
+}
+
+.dental-metric-card .metric-val {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.dental-metric-card .metric-sub {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* 7. Support Cards (6 Cards) */
+.dental-support-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 22px 20px;
+    height: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.dental-support-card .card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.dental-support-card .card-head img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.dental-support-card .card-head h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin: 0;
+}
+
+.dental-support-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dental-support-card ul li {
+    font-size: 0.86rem;
+    color: #475569;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 16px;
+    line-height: 1.45;
+}
+
+.dental-support-card ul li:before {
+    content: "•";
+    color: #1a56c4;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.dental-support-card ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* 8. Patient Stories Cards */
+.dental-story-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dental-story-quote {
+    font-size: 0.94rem;
+    color: #334155;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    font-style: italic;
+}
+
+.dental-story-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dental-story-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #1a56c4;
+}
+
+/* 9. Bottom CTA Banner - Full Width Edge-to-Edge */
+.cta-dental {
+    background-image: url('../Cosmetic-Surgery/banner-5.png');
+    background-size: cover;
+    background-position: center;
+    padding: 65px 0 !important;
+}
+
+.cta-dental h3 {
+    color: #0b224e !important;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.cta-dental p {
+    color: #475569 !important;
+    font-size: 1rem;
+}
+
+/* Responsive adjustments for Dental Implants */
+@media (max-width: 991px) {
+    .dental-hero {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 55%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Dental-page/banner.png') center right / cover no-repeat !important;
+        padding: 50px 0 55px !important;
+    }
+    .dental-hero .hero-title {
+        font-size: 2.2rem !important;
+    }
+    .dental-badge-grid {
+        max-width: 520px;
+        flex-wrap: wrap;
+    }
+    .dental-badge-grid .hero-badge-item {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
+@media (max-width: 575px) {
+    .dental-hero {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Dental-page/banner.png') top right / cover no-repeat !important;
+        padding: 35px 15px 45px !important;
+    }
+    .dental-hero .hero-title {
+        font-size: 1.75rem !important;
+    }
+    .dental-badge-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .dental-badge-grid .hero-badge-item {
+        min-width: 0;
+        padding: 10px;
+    }
+    .dental-badge-grid .hero-badge-item img {
+        width: 30px;
+        height: 30px;
+    }
+    .dental-badge-grid .hero-badge-item span {
+        font-size: 0.75rem;
+    }
+    .cta-dental {
+        padding: 45px 15px !important;
+    }
+    .cta-dental h3 {
+        font-size: 1.55rem !important;
+    }
+}
+
+/* ==========================================================================
+   SPINE SURGERY LANDING PAGE
+   ========================================================================== */
+
+/* 1. Hero Section - Full Width Edge-to-Edge */
+.spine-hero {
+    background: url('../Spine-Care/banner.png') center right / cover no-repeat !important;
+    padding: 75px 0 85px;
+    position: relative;
+    color: #0b224e;
+    width: 100%;
+}
+
+.spine-hero .hero-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a56c4;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(11, 46, 111, 0.08);
+}
+
+.spine-hero .hero-title {
+    font-size: 2.85rem;
+    font-weight: 900;
+    color: #0b224e !important;
+    line-height: 1.2;
+}
+
+.spine-hero .hero-title span,
+.spine-hero .hero-title span.red-text {
+    color: #e8262d !important;
+}
+
+.spine-hero .hero-subtitle {
+    font-size: 1.15rem;
+    color: #475569 !important;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
+
+.spine-badge-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: nowrap;
+}
+
+.spine-badge-grid .hero-badge-item {
+    background: #ffffff;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(11, 46, 111, 0.05);
+    min-width: 175px;
+    text-align: left;
+}
+
+.spine-badge-grid .hero-badge-item img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.spine-badge-grid .hero-badge-item span {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.25;
+}
+
+/* 2. Sub-Bar Feature Pills */
+.spine-feature-pill {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.spine-feature-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(11, 46, 111, 0.06);
+}
+
+.spine-feature-pill .feature-pill-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* 3. Overview Section */
+.spine-overview-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.spine-overview-img {
+    border-radius: 14px;
+    max-height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.spine-when-card {
+    background: #EFF5FF;
+    border: 1px solid #dbeafe;
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.spine-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.spine-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.92rem;
+    color: #334155;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.spine-checklist li:last-child {
+    margin-bottom: 0;
+}
+
+.spine-checklist li i {
+    color: #1a56c4;
+    font-size: 1.1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* 4. Types of Spine Surgery (5 Cards) */
+.spine-type-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px 12px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.spine-type-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.08);
+}
+
+.spine-type-img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.spine-type-card h5 {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.spine-type-card p {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.45;
+}
+
+/* 5. Treatment Options (5 Cards) */
+.spine-option-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 22px 14px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.spine-option-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.08);
+}
+
+.spine-option-icon {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.spine-option-card h5 {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 6px;
+    line-height: 1.35;
+}
+
+.spine-option-card p {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* 6. Indicative Cost Metric Cards */
+.spine-metric-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    height: 100%;
+}
+
+.spine-metric-card img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.spine-metric-card .metric-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 4px;
+}
+
+.spine-metric-card .metric-val {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.spine-metric-card .metric-sub {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* 7. Support Cards (6 Cards) */
+.spine-support-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 22px 20px;
+    height: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.spine-support-card .card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.spine-support-card .card-head img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.spine-support-card .card-head h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin: 0;
+}
+
+.spine-support-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.spine-support-card ul li {
+    font-size: 0.86rem;
+    color: #475569;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 16px;
+    line-height: 1.45;
+}
+
+.spine-support-card ul li:before {
+    content: "•";
+    color: #1a56c4;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.spine-support-card ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* 8. Patient Stories Cards */
+.spine-story-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.spine-story-quote {
+    font-size: 0.94rem;
+    color: #334155;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    font-style: italic;
+}
+
+.spine-story-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.spine-story-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #1a56c4;
+}
+
+/* 9. Bottom CTA Banner - Full Width Edge-to-Edge */
+.cta-spine {
+    background-image: url('../Cosmetic-Surgery/banner-5.png');
+    background-size: cover;
+    background-position: center;
+    padding: 65px 0 !important;
+}
+
+.cta-spine h3 {
+    color: #0b224e !important;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.cta-spine p {
+    color: #475569 !important;
+    font-size: 1rem;
+}
+
+/* Responsive adjustments for Spine Surgery */
+@media (max-width: 991px) {
+    .spine-hero {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 55%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Spine-Care/banner.png') center right / cover no-repeat !important;
+        padding: 50px 0 55px !important;
+    }
+    .spine-hero .hero-title {
+        font-size: 2.2rem !important;
+    }
+    .spine-badge-grid {
+        max-width: 520px;
+        flex-wrap: wrap;
+    }
+    .spine-badge-grid .hero-badge-item {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
+@media (max-width: 575px) {
+    .spine-hero {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Spine-Care/banner.png') top right / cover no-repeat !important;
+        padding: 35px 15px 45px !important;
+    }
+    .spine-hero .hero-title {
+        font-size: 1.75rem !important;
+    }
+    .spine-badge-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .spine-badge-grid .hero-badge-item {
+        min-width: 0;
+        padding: 10px;
+    }
+    .spine-badge-grid .hero-badge-item img {
+        width: 30px;
+        height: 30px;
+    }
+    .spine-badge-grid .hero-badge-item span {
+        font-size: 0.75rem;
+    }
+    .cta-spine {
+        padding: 45px 15px !important;
+    }
+    .cta-spine h3 {
+        font-size: 1.55rem !important;
+    }
+}
+
+/* ==========================================================================
+   LIVER & KIDNEY TRANSPLANT STYLES
+   ========================================================================== */
+
+/* 1. Hero Section */
+.liver-kidney-hero {
+    background: url('../Liver-Kidney/banner.png') center right / cover no-repeat;
+    position: relative;
+    padding: 65px 0 75px;
+    width: 100%;
+}
+
+.liver-kidney-hero .hero-tag {
+    display: inline-block;
+    padding: 4px 14px;
+    background: rgba(232, 38, 45, 0.12);
+    color: #e8262d;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    text-transform: uppercase;
+}
+
+.liver-kidney-hero .hero-title {
+    font-size: 2.75rem;
+    font-weight: 900;
+    color: #0b224e;
+    line-height: 1.2;
+}
+
+.liver-kidney-hero .hero-subtitle {
+    font-size: 1.05rem;
+    color: #475569;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* 2. Centered Badge Grid */
+.liver-kidney-badge-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 30px auto;
+    max-width: 760px;
+}
+
+.liver-kidney-badge-grid .hero-badge-item {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    min-width: 140px;
+    box-shadow: 0 4px 12px rgba(11, 46, 111, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.liver-kidney-badge-grid .hero-badge-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.1);
+}
+
+.liver-kidney-badge-grid .hero-badge-item img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
+
+.liver-kidney-badge-grid .hero-badge-item span {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.25;
+}
+
+/* 3. Sub-bar: Metric Strip */
+.liver-kidney-feature-pill {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 50px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    height: 100%;
+}
+
+.liver-kidney-feature-pill .feature-pill-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* 4. Overview Section */
+.liver-kidney-overview-box {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 26px;
+}
+
+.liver-kidney-overview-img {
+    max-height: 180px;
+    object-fit: contain;
+}
+
+.liver-kidney-when-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 26px;
+}
+
+.liver-kidney-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.liver-kidney-checklist li {
+    font-size: 0.86rem;
+    color: #334155;
+    margin-bottom: 9px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.45;
+}
+
+.liver-kidney-checklist li:last-child {
+    margin-bottom: 0;
+}
+
+/* 5. Types of Transplant Procedures (4 Cards) */
+.liver-kidney-type-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 16px 14px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.liver-kidney-type-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.08);
+}
+
+.liver-kidney-type-img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.liver-kidney-type-card h5 {
+    font-size: 1.02rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.liver-kidney-type-card p {
+    font-size: 0.82rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.45;
+}
+
+/* 6. Treatment Options (5 Cards) */
+.liver-kidney-option-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 22px 14px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.liver-kidney-option-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.08);
+}
+
+.liver-kidney-option-icon {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.liver-kidney-option-card h5 {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 6px;
+    line-height: 1.35;
+}
+
+.liver-kidney-option-card p {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* 7. Bottom CTA Banner (Edge-to-Edge) */
+.cta-liver-kidney {
+    background-image: url('../Cosmetic-Surgery/banner-5.png');
+    background-size: cover;
+    background-position: center;
+    padding: 65px 0 !important;
+}
+
+.cta-liver-kidney h3 {
+    color: #0b224e !important;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.cta-liver-kidney p {
+    color: #475569 !important;
+    font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .liver-kidney-hero {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 55%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Liver-Kidney/banner.png') center right / cover no-repeat !important;
+        padding: 50px 0 55px !important;
+    }
+    .liver-kidney-hero .hero-title {
+        font-size: 2.2rem !important;
+    }
+    .liver-kidney-badge-grid {
+        max-width: 520px;
+        flex-wrap: wrap;
+    }
+    .liver-kidney-badge-grid .hero-badge-item {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
+@media (max-width: 575px) {
+    .liver-kidney-hero {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0.35) 100%),
+            url('../Liver-Kidney/banner.png') top right / cover no-repeat !important;
+        padding: 35px 15px 45px !important;
+    }
+    .liver-kidney-hero .hero-title {
+        font-size: 1.75rem !important;
+    }
+    .liver-kidney-badge-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .liver-kidney-badge-grid .hero-badge-item {
+        min-width: 0;
+        padding: 10px;
+    }
+    .liver-kidney-badge-grid .hero-badge-item img {
+        width: 30px;
+        height: 30px;
+    }
+    .liver-kidney-badge-grid .hero-badge-item span {
+        font-size: 0.75rem;
+    }
+    .cta-liver-kidney {
+        padding: 45px 15px !important;
+    }
+    .cta-liver-kidney h3 {
         font-size: 1.55rem !important;
     }
 }

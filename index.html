@@ -236,14 +236,14 @@
             background: #fff;
             border-radius: 14px;
             box-shadow: 0 6px 24px rgba(11, 46, 111, .12);
-            overflow: hidden
         }
 
         .mh-fl {
             background: var(--navy);
             color: #fff;
             padding: 28px;
-            flex: 0 0 300px
+            flex: 0 0 300px;
+            border-radius: 14px 0 0 14px;
         }
 
         .mh-fl h3 {
@@ -335,6 +335,114 @@
 
         .mh-fg .iti {
             width: 100%
+        }
+
+        .bootstrap-datetimepicker-widget.dropdown-menu {
+            position: static !important;
+            float: none !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin-top: 8px !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+            border-radius: 8px !important;
+            box-sizing: border-box !important;
+        }
+
+        .bootstrap-datetimepicker-widget.dropdown-menu:before,
+        .bootstrap-datetimepicker-widget.dropdown-menu:after {
+            display: none !important;
+        }
+
+        /* Custom Dropdown Styling (Contained strictly inside form & mobile screen) */
+        .custom-select-wrap {
+            position: relative;
+            width: 100%;
+        }
+
+        .custom-select-trigger {
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            background: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #495057;
+            cursor: pointer;
+            user-select: none;
+            box-sizing: border-box;
+            width: 100%;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        .custom-select-trigger:focus,
+        .custom-select-wrap.open .custom-select-trigger {
+            border-color: #86b7fe;
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+
+        .custom-select-trigger.is-invalid {
+            border-color: #dc3545;
+        }
+
+        .custom-select-trigger::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #6c757d;
+            transition: transform 0.2s ease;
+            flex-shrink: 0;
+            margin-left: 8px;
+        }
+
+        .custom-select-wrap.open .custom-select-trigger::after {
+            transform: rotate(180deg);
+        }
+
+        .custom-select-menu {
+            position: absolute;
+            top: calc(100% + 4px);
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: 100%;
+            max-height: 240px;
+            overflow-y: auto;
+            background: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(11, 46, 111, 0.18);
+            z-index: 1060;
+            display: none;
+            padding: 4px 0;
+            box-sizing: border-box;
+        }
+
+        .custom-select-wrap.open .custom-select-menu {
+            display: block;
+        }
+
+        .custom-select-item {
+            padding: 10px 16px;
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .custom-select-item:hover,
+        .custom-select-item.active {
+            background: #eff5ff;
+            color: var(--blue);
+            font-weight: 600;
         }
 
         .mh-up {
@@ -588,7 +696,8 @@
             }
 
             .mh-fl {
-                flex: auto
+                flex: auto;
+                border-radius: 14px 14px 0 0;
             }
 
         }
@@ -598,6 +707,13 @@
             .mh-fg,
             .mh-fg.s1 {
                 grid-template-columns: 1fr
+            }
+
+            .mh-fg .form-control,
+            .mh-fg .form-select,
+            .custom-select-trigger,
+            .custom-select-item {
+                font-size: 16px
             }
 
             .mh-steps li span {
@@ -983,15 +1099,15 @@
                                 required>
                             <div class="invalid-feedback">Please enter a valid phone number</div>
                         </div>
-                        <div>
-                            <div class="date" id="datePicker" data-target-input="nearest">
+                        <div class="position-relative">
+                            <div class="date position-relative" id="datePicker" data-target-input="nearest">
                                 <input type="text" class="form-control datetimepicker-input" id="appointmentDate"
                                     name="appointmentDate" placeholder="Callback Date" data-target="#datePicker"
                                     data-toggle="datetimepicker" autocomplete="off" required>
                             </div>
                         </div>
-                        <div>
-                            <div class="time" id="timePicker" data-target-input="nearest">
+                        <div class="position-relative">
+                            <div class="time position-relative" id="timePicker" data-target-input="nearest">
                                 <input type="text" class="form-control datetimepicker-input" id="appointmentTime"
                                     name="appointmentTime" placeholder="Callback Time" data-target="#timePicker"
                                     data-toggle="datetimepicker" autocomplete="off" required>
@@ -1174,7 +1290,24 @@
         document.getElementById("heroFeat").innerHTML = [["Top Hospitals", "f-hospital"], ["Experienced Doctors", "f-doctor"], ["Affordable Treatment", "f-afford"], ["Complete Travel Support", "f-travel"]].map(f => `<div>${im(f[1])}${f[0]}</div>`).join("");
         loadBg(document.getElementById("ctaBanner"), "cta-bg", "linear-gradient(#0b2e6fcc,#0b2e6fcc)");
         document.getElementById("steps").innerHTML = ["Select Treatment", "Your Country", "Upload Reports", "Contact Details", "Submit"].map((s, i) => `<li${i < 3 ? ' class="on"' : ""}><b>${i + 1}</b><span>${s}</span></li>`).join("");
-        document.getElementById("treatment").insertAdjacentHTML("beforeend", TREAT.map(t => `<option>${t[0]}</option>`).join(""));
+        const ALL_TREATMENTS = [
+            "Bariatric Surgery",
+            "Cancer Treatment",
+            "Cardiac Surgery",
+            "Cosmetic Surgery",
+            "Dental Implants",
+            "Eye Surgery",
+            "Hair Transplant",
+            "IVF & Fertility",
+            "Knee & Hip Replacement",
+            "Liver & Kidney Transplant",
+            "Neuro Surgeries",
+            "Orthopedic Surgery",
+            "Orthopedic Trauma Surgery",
+            "Spine Surgery",
+            "Stem Cell Therapy"
+        ];
+        document.getElementById("treatment").insertAdjacentHTML("beforeend", ALL_TREATMENTS.map(t => `<option value="${t}">${t}</option>`).join(""));
 
         document.getElementById("app").innerHTML =
             sec("why", "Why India for Treatment?", "India offers world-class medical care, modern technology, experienced doctors and affordable treatment costs for international patients.", "", grid(5, [["World-Class Healthcare", "w-1"], ["Highly Experienced Doctors", "w-2"], ["Advanced Technology", "w-3"], ["Cost-Effective Treatment", "w-4"], ["Easy Travel & Visa Process", "w-5"]].map(w => card(w[1], w[0])))) +
@@ -1252,6 +1385,101 @@
 
             reportFile.addEventListener("change", () => {
                 document.getElementById("upName").textContent = reportFile.files[0] ? reportFile.files[0].name : "Upload Reports";
+            });
+
+            // Custom in-DOM select dropdowns: stays strictly inside form and mobile viewport
+            function makeCustomSelect(selectId) {
+                const select = document.getElementById(selectId);
+                if (!select) return;
+                const parent = select.parentElement;
+                parent.classList.add("custom-select-wrap");
+
+                select.style.position = "absolute";
+                select.style.opacity = "0";
+                select.style.pointerEvents = "none";
+                select.style.height = "0";
+                select.style.width = "0";
+                select.style.margin = "0";
+                select.style.padding = "0";
+                select.style.border = "none";
+
+                const trigger = document.createElement("div");
+                trigger.className = "form-select custom-select-trigger";
+                trigger.setAttribute("tabindex", "0");
+                trigger.textContent = select.options[select.selectedIndex]?.text || "Select";
+
+                const menu = document.createElement("div");
+                menu.className = "custom-select-menu";
+
+                function buildMenu() {
+                    menu.innerHTML = "";
+                    Array.from(select.options).forEach((opt) => {
+                        const item = document.createElement("div");
+                        item.className = "custom-select-item" + (opt.selected && opt.value ? " active" : "");
+                        item.textContent = opt.text;
+                        item.dataset.value = opt.value;
+                        item.addEventListener("click", (e) => {
+                            e.stopPropagation();
+                            select.value = opt.value;
+                            trigger.textContent = opt.text;
+                            trigger.classList.remove("is-invalid");
+                            select.classList.remove("is-invalid");
+                            menu.querySelectorAll(".custom-select-item").forEach(i => i.classList.remove("active"));
+                            if (opt.value) item.classList.add("active");
+                            parent.classList.remove("open");
+                            select.dispatchEvent(new Event("change", { bubbles: true }));
+                        });
+                        menu.appendChild(item);
+                    });
+                }
+
+                buildMenu();
+
+                trigger.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    document.querySelectorAll(".custom-select-wrap.open").forEach(w => {
+                        if (w !== parent) w.classList.remove("open");
+                    });
+                    parent.classList.toggle("open");
+                });
+
+                trigger.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        parent.classList.toggle("open");
+                    } else if (e.key === "Escape") {
+                        parent.classList.remove("open");
+                    }
+                });
+
+                parent.appendChild(trigger);
+                parent.appendChild(menu);
+
+                const observer = new MutationObserver(() => {
+                    if (select.classList.contains("is-invalid")) {
+                        trigger.classList.add("is-invalid");
+                    } else {
+                        trigger.classList.remove("is-invalid");
+                    }
+                });
+                observer.observe(select, { attributes: true, attributeFilter: ["class"] });
+
+                form.addEventListener("reset", () => {
+                    setTimeout(() => {
+                        trigger.textContent = select.options[0]?.text || "Select";
+                        trigger.classList.remove("is-invalid");
+                        menu.querySelectorAll(".custom-select-item").forEach(i => i.classList.remove("active"));
+                    }, 50);
+                });
+            }
+
+            makeCustomSelect("treatment");
+            makeCustomSelect("nationality");
+
+            document.addEventListener("click", (e) => {
+                if (!e.target.closest(".custom-select-wrap")) {
+                    document.querySelectorAll(".custom-select-wrap.open").forEach(w => w.classList.remove("open"));
+                }
             });
 
             function setSteps(n) { // n = current step (1-5)
@@ -1395,7 +1623,15 @@
                         form.reset();
                         submitBtn.disabled = true;
                         sessionStorage.setItem("medicalEnquiryResponse", JSON.stringify(data));
-                        setTimeout(() => (window.location.href = "/thankyou.html"), 2000);
+                        setTimeout(() => (window.location.href = "thankyou.html"), 1500);
+                    } else if (response.status === 405 && (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost")) {
+                        // Live Server (VS Code Extension) is a static server and does not process POST requests
+                        console.warn("Live Server Notice: Local static server does not support POST /api/MedicalEnquiry. Simulating successful appointment for local frontend testing.");
+                        messageDiv.innerHTML = '<div class="alert alert-success">Appointment booked successfully! Redirecting...</div>';
+                        form.reset();
+                        submitBtn.disabled = true;
+                        sessionStorage.setItem("medicalEnquiryResponse", JSON.stringify({ success: true, localPreview: true, ...formData }));
+                        setTimeout(() => (window.location.href = "thankyou.html"), 1500);
                     } else {
                         messageDiv.innerHTML = `<div class="alert alert-danger">${data.message || "Failed to book appointment"}</div>`;
                         setSteps(4);
