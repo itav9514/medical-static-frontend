@@ -298,7 +298,8 @@
             border: 2px solid #d6e0f0;
             align-items: center;
             justify-content: center;
-            font-size: 12px
+            font-size: 12px;
+            transition: all 0.25s ease;
         }
 
         .mh-steps li.on b,
@@ -306,6 +307,12 @@
             background: var(--navy);
             border-color: var(--navy);
             color: #fff
+        }
+
+        .mh-steps li.on span,
+        .mh-steps li.done span {
+            color: var(--navy);
+            font-weight: 600;
         }
 
         .mh-fg {
@@ -1289,7 +1296,7 @@
         heroEl.src = src("hero-doctor");
         document.getElementById("heroFeat").innerHTML = [["Top Hospitals", "f-hospital"], ["Experienced Doctors", "f-doctor"], ["Affordable Treatment", "f-afford"], ["Complete Travel Support", "f-travel"]].map(f => `<div>${im(f[1])}${f[0]}</div>`).join("");
         loadBg(document.getElementById("ctaBanner"), "cta-bg", "linear-gradient(#0b2e6fcc,#0b2e6fcc)");
-        document.getElementById("steps").innerHTML = ["Select Treatment", "Your Country", "Upload Reports", "Contact Details", "Submit"].map((s, i) => `<li${i < 3 ? ' class="on"' : ""}><b>${i + 1}</b><span>${s}</span></li>`).join("");
+        document.getElementById("steps").innerHTML = ["Select Treatment", "Your Country", "Upload Reports", "Contact Details", "Submit"].map((s, i) => `<li><b>${i + 1}</b><span>${s}</span></li>`).join("");
         const ALL_TREATMENTS = [
             "Bariatric Surgery",
             "Cancer Treatment",
@@ -1385,6 +1392,7 @@
 
             reportFile.addEventListener("change", () => {
                 document.getElementById("upName").textContent = reportFile.files[0] ? reportFile.files[0].name : "Upload Reports";
+                updateSteps();
             });
 
             // Custom in-DOM select dropdowns: stays strictly inside form and mobile viewport
@@ -1469,6 +1477,7 @@
                         trigger.textContent = select.options[0]?.text || "Select";
                         trigger.classList.remove("is-invalid");
                         menu.querySelectorAll(".custom-select-item").forEach(i => i.classList.remove("active"));
+                        updateSteps();
                     }, 50);
                 });
             }
@@ -1482,11 +1491,41 @@
                 }
             });
 
-            function setSteps(n) { // n = current step (1-5)
-                stepItems.forEach((li, i) => {
-                    li.className = i + 1 < n ? "done" : i + 1 === n ? "on" : "";
-                });
+            // Dynamic Stepper:
+            // 1 turns blue when treatment is chosen
+            // 2 turns blue when country is selected
+            // 3 turns blue when report is uploaded
+            // 4 turns blue on contact details (stage 2)
+            // 5 turns blue when submitting
+            function updateSteps() {
+                const isStage2 = stage2 && (stage2.style.display === "grid" || stage2.style.display === "block");
+                const t = document.getElementById("treatment");
+                const c = document.getElementById("nationality");
+                const tVal = t ? t.value.trim() : "";
+                const cVal = c ? c.value.trim() : "";
+                const hasFile = reportFile && reportFile.files && reportFile.files.length > 0;
+
+                // Step 1: Select Treatment
+                stepItems[0].className = (tVal || isStage2) ? "on" : "";
+
+                // Step 2: Your Country
+                stepItems[1].className = (cVal || isStage2) ? "on" : "";
+
+                // Step 3: Upload Reports
+                stepItems[2].className = (hasFile || isStage2) ? "on" : "";
+
+                // Step 4: Contact Details
+                stepItems[3].className = isStage2 ? "on" : "";
+
+                // Step 5: Submit (reset if not submitting)
+                if (!isStage2) {
+                    stepItems[4].className = "";
+                }
             }
+
+            document.getElementById("treatment").addEventListener("change", updateSteps);
+            document.getElementById("nationality").addEventListener("change", updateSteps);
+            updateSteps();
 
             // Stage 1 -> Stage 2 (same card, no page change)
             nextBtn.addEventListener("click", () => {
@@ -1502,7 +1541,7 @@
                 nextBtn.style.display = "none";
                 submitBtn.style.display = "inline-block";
                 backBtn.style.display = "inline-block";
-                setSteps(4);
+                updateSteps();
 
                 if (!phoneInput) {
                     phoneInput = window.intlTelInput(phoneInputField, {
@@ -1527,7 +1566,7 @@
                 nextBtn.style.display = "";
                 submitBtn.style.display = "none";
                 backBtn.style.display = "none";
-                setSteps(3);
+                updateSteps();
             });
 
             // Validation function (same as before)
@@ -1583,7 +1622,7 @@
 
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Sending...';
-                setSteps(5);
+                stepItems[4].className = "on";
 
                 const formData = {
                     fullName: document.getElementById("name").value.trim(),
@@ -1634,11 +1673,13 @@
                         setTimeout(() => (window.location.href = "thankyou.html"), 1500);
                     } else {
                         messageDiv.innerHTML = `<div class="alert alert-danger">${data.message || "Failed to book appointment"}</div>`;
-                        setSteps(4);
+                        stepItems[4].className = "";
+                        updateSteps();
                     }
                 } catch (err) {
                     messageDiv.innerHTML = '<div class="alert alert-danger">Error connecting to server. Please try again.</div>';
-                    setSteps(4);
+                    stepItems[4].className = "";
+                    updateSteps();
                 } finally {
                     submitBtn.innerHTML = "Submit";
                     submitBtn.disabled = false;
