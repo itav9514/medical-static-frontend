@@ -18,6 +18,14 @@
     --text-muted: #64748b;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+section[id] {
+    scroll-margin-top: 85px;
+}
+
 body {
     font-family: 'Open Sans', 'Roboto', sans-serif;
     color: var(--text-dark);
@@ -1446,7 +1454,7 @@ a.btn-outline-navy:hover,
 
 .ivf-hosp-img {
     width: 100% !important;
-    height: 145px !important;
+    /* height: 145px !important; */
     object-fit: cover;
     display: block !important;
     flex-shrink: 0;
@@ -2265,7 +2273,7 @@ a.btn-outline-navy:hover,
 }
 
 .btn-outline-blue:hover {
-    background: #1a56c4;
+    background: #1a56c4 !important;
     color: #ffffff !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 14px rgba(26, 86, 196, 0.25);
@@ -5675,6 +5683,984 @@ a.btn-outline-navy:hover,
         padding: 45px 15px !important;
     }
     .cta-liver-kidney h3 {
+        font-size: 1.55rem !important;
+    }
+}
+
+/* ==========================================================================
+   EYE SURGERY STYLES
+   ========================================================================== */
+
+/* 1. Hero Section (100% Edge-to-Edge) */
+.eye-hero {
+    position: relative;
+    width: 100%;
+    background: url('../Eye-Surgery/banner.png') center center / cover no-repeat;
+    padding: 70px 0 65px;
+    color: #0b224e;
+    overflow: hidden;
+}
+
+.eye-hero .hero-breadcrumb {
+    font-size: 0.85rem;
+    color: #475569;
+    margin-bottom: 12px;
+}
+
+.eye-hero .hero-breadcrumb a {
+    color: #475569;
+    text-decoration: none;
+}
+
+.eye-hero .hero-breadcrumb a:hover {
+    color: #e8262d;
+}
+
+.eye-hero .hero-title {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #0b224e;
+    letter-spacing: -0.5px;
+}
+
+.eye-hero .hero-title .text-blue {
+    color: #00a3e0;
+}
+
+.eye-hero .hero-subtitle {
+    font-size: 1.15rem;
+    color: #334155;
+    font-weight: 600;
+    max-width: 650px;
+    margin: 0 auto 28px;
+}
+
+.eye-badge-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 16px;
+    max-width: 980px;
+    margin: 0 auto 30px;
+}
+
+.eye-badge-grid .hero-badge-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1 1 0;
+    min-width: 180px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.05);
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.eye-badge-grid .hero-badge-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.1);
+}
+
+.eye-badge-grid .hero-badge-item img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.eye-badge-grid .hero-badge-item span {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.3;
+}
+
+/* 2. Sub-Bar Feature Pills */
+.eye-feature-pill {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 100%;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    transition: transform 0.2s ease;
+}
+
+.eye-feature-pill:hover {
+    transform: translateY(-2px);
+}
+
+.eye-feature-pill .feature-pill-icon {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* 3. Overview & When Required Section */
+.eye-overview-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 18px rgba(11, 46, 111, 0.05);
+}
+
+.eye-overview-img {
+    width: 200px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.eye-when-card {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.eye-when-card h4 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 14px;
+}
+
+.eye-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.eye-checklist li {
+    font-size: 0.85rem;
+    color: #334155;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.eye-checklist li i {
+    color: #00a3e0;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+/* 4. Types of Eye Surgery */
+.eye-type-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 16px rgba(11, 46, 111, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.eye-type-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(11, 46, 111, 0.12);
+}
+
+.eye-type-card img {
+    width: 100%;
+    height: 135px;
+    object-fit: cover;
+}
+
+.eye-type-body {
+    padding: 16px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.eye-type-body h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 8px;
+}
+
+.eye-type-body p {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin-bottom: 14px;
+    flex-grow: 1;
+}
+
+.eye-type-body .learn-more {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1a56c4;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: auto;
+}
+
+.eye-type-body .learn-more:hover {
+    color: #e8262d;
+}
+
+/* 5. Treatment Options */
+.eye-option-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 22px 14px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.eye-option-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.1);
+}
+
+.eye-option-icon {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.eye-option-card h6 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0b224e;
+    margin: 0;
+    line-height: 1.35;
+}
+
+/* 6. Metric Cards */
+.eye-metric-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    height: 100%;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.05);
+}
+
+.eye-metric-card img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.eye-metric-card .metric-label {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 4px;
+}
+
+.eye-metric-card .metric-val {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #e8262d;
+    margin-bottom: 4px;
+}
+
+.eye-metric-card .metric-sub {
+    font-size: 0.78rem;
+    color: #64748b;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* 7. Support Cards */
+.eye-support-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 22px;
+    height: 100%;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+}
+
+.eye-support-card .card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.eye-support-card .card-head img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.eye-support-card .card-head h5 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin: 0;
+}
+
+.eye-support-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.eye-support-card ul li {
+    font-size: 0.8rem;
+    color: #64748b;
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 6px;
+    line-height: 1.45;
+}
+
+.eye-support-card ul li:before {
+    content: "•";
+    color: #1a56c4;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: -1px;
+}
+
+.eye-support-card ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* 8. Patient Story Card */
+.eye-story-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 16px rgba(11, 46, 111, 0.05);
+}
+
+.eye-story-quote-icon {
+    color: #e8262d;
+    font-size: 1.8rem;
+    line-height: 1;
+    margin-bottom: 12px;
+    font-family: serif;
+    font-weight: 900;
+}
+
+.eye-story-quote {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.55;
+    margin-bottom: 20px;
+}
+
+.eye-story-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.eye-story-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e2e8f0;
+}
+
+/* 9. Bottom CTA Banner (100% Edge-to-Edge) */
+.cta-eye {
+    width: 100%;
+    background: url('../Eye-Surgery/banner-2.png') center center / cover no-repeat;
+    padding: 65px 0 !important;
+    text-align: center;
+}
+
+.cta-eye h3 {
+    color: #0b224e !important;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.cta-eye p {
+    color: #475569 !important;
+    font-size: 0.98rem;
+    max-width: 600px;
+    margin: 0 auto 24px;
+}
+
+/* Responsive Rules for Eye Surgery */
+@media (max-width: 991px) {
+    .eye-hero {
+        padding: 50px 0 55px !important;
+    }
+    .eye-hero .hero-title {
+        font-size: 2.3rem !important;
+    }
+    .eye-badge-grid {
+        max-width: 520px;
+        flex-wrap: wrap;
+    }
+    .eye-badge-grid .hero-badge-item {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
+@media (max-width: 767px) {
+    .eye-overview-box {
+        flex-direction: column;
+    }
+    .eye-overview-img {
+        width: 100%;
+        height: 180px;
+    }
+}
+
+@media (max-width: 575px) {
+    .eye-hero {
+        padding: 40px 15px 45px !important;
+    }
+    .eye-hero .hero-title {
+        font-size: 1.85rem !important;
+    }
+    .eye-badge-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .eye-badge-grid .hero-badge-item {
+        min-width: 0;
+        padding: 10px;
+    }
+    .eye-badge-grid .hero-badge-item img {
+        width: 28px;
+        height: 28px;
+    }
+    .eye-badge-grid .hero-badge-item span {
+        font-size: 0.72rem;
+    }
+    .cta-eye {
+        padding: 45px 15px !important;
+    }
+    .cta-eye h3 {
+        font-size: 1.55rem !important;
+    }
+}
+
+/* ==========================================================================
+   HAIR TRANSPLANT STYLES
+   ========================================================================== */
+
+/* 1. Hero Section (100% Edge-to-Edge) */
+.hair-hero {
+    position: relative;
+    width: 100%;
+    background: url('../hair-transplant/banner.png') center center / cover no-repeat;
+    padding: 70px 0 65px;
+    color: #0b224e;
+    overflow: hidden;
+}
+
+.hair-hero .hero-breadcrumb {
+    font-size: 0.85rem;
+    color: #475569;
+    margin-bottom: 12px;
+}
+
+.hair-hero .hero-breadcrumb a {
+    color: #475569;
+    text-decoration: none;
+}
+
+.hair-hero .hero-breadcrumb a:hover {
+    color: #e8262d;
+}
+
+.hair-hero .hero-title {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #0b224e;
+    letter-spacing: -0.5px;
+}
+
+.hair-hero .hero-title .text-blue {
+    color: #00a3e0;
+}
+
+.hair-hero .hero-subtitle {
+    font-size: 1.15rem;
+    color: #334155;
+    font-weight: 600;
+    max-width: 650px;
+    margin: 0 auto 28px;
+}
+
+.hair-badge-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 16px;
+    max-width: 980px;
+    margin: 0 auto 30px;
+}
+
+.hair-badge-grid .hero-badge-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1 1 0;
+    min-width: 180px;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.05);
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hair-badge-grid .hero-badge-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.1);
+}
+
+.hair-badge-grid .hero-badge-item img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.hair-badge-grid .hero-badge-item span {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.3;
+}
+
+/* 2. Sub-Bar Feature Pills */
+.hair-feature-pill {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 100%;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    transition: transform 0.2s ease;
+}
+
+.hair-feature-pill:hover {
+    transform: translateY(-2px);
+}
+
+.hair-feature-pill .feature-pill-icon {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* 3. Overview & When Required Section */
+.hair-overview-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 18px rgba(11, 46, 111, 0.05);
+}
+
+.hair-overview-img {
+    width: 200px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.hair-when-card {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.hair-when-card h4 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 14px;
+}
+
+.hair-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hair-checklist li {
+    font-size: 0.85rem;
+    color: #334155;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hair-checklist li i {
+    color: #00a3e0;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+/* 4. Types of Hair Transplant */
+.hair-type-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 16px rgba(11, 46, 111, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hair-type-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(11, 46, 111, 0.12);
+}
+
+.hair-type-card img {
+    width: 100%;
+    height: 135px;
+    object-fit: cover;
+}
+
+.hair-type-body {
+    padding: 16px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.hair-type-body h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 8px;
+}
+
+.hair-type-body p {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin-bottom: 14px;
+    flex-grow: 1;
+}
+
+.hair-type-body .learn-more {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1a56c4;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: auto;
+}
+
+.hair-type-body .learn-more:hover {
+    color: #e8262d;
+}
+
+/* 5. Treatment Options */
+.hair-option-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 22px 14px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hair-option-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.1);
+}
+
+.hair-option-icon {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.hair-option-card h6 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0b224e;
+    margin: 0;
+    line-height: 1.35;
+}
+
+/* 6. Metric Cards */
+.hair-metric-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    height: 100%;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.05);
+}
+
+.hair-metric-card img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.hair-metric-card .metric-label {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 4px;
+}
+
+.hair-metric-card .metric-val {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #e8262d;
+    margin-bottom: 4px;
+}
+
+.hair-metric-card .metric-sub {
+    font-size: 0.78rem;
+    color: #64748b;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* 7. Support Cards */
+.hair-support-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 22px;
+    height: 100%;
+    box-shadow: 0 4px 14px rgba(11, 46, 111, 0.04);
+}
+
+.hair-support-card .card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.hair-support-card .card-head img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.hair-support-card .card-head h5 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin: 0;
+}
+
+.hair-support-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hair-support-card ul li {
+    font-size: 0.8rem;
+    color: #64748b;
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 6px;
+    line-height: 1.45;
+}
+
+.hair-support-card ul li:before {
+    content: "•";
+    color: #1a56c4;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: -1px;
+}
+
+.hair-support-card ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* 8. Patient Story Card */
+.hair-story-card {
+    background: #EFF5FF;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 16px rgba(11, 46, 111, 0.05);
+}
+
+.hair-story-quote-icon {
+    color: #e8262d;
+    font-size: 1.8rem;
+    line-height: 1;
+    margin-bottom: 12px;
+    font-family: serif;
+    font-weight: 900;
+}
+
+.hair-story-quote {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.55;
+    margin-bottom: 20px;
+}
+
+.hair-story-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hair-story-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e2e8f0;
+}
+
+/* 9. Bottom CTA Banner (100% Edge-to-Edge) */
+.cta-hair {
+    width: 100%;
+    background: url('../hair-transplant/banner-3.png') center center / cover no-repeat;
+    padding: 65px 0 !important;
+    text-align: center;
+}
+
+.cta-hair h3 {
+    color: #0b224e !important;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.cta-hair p {
+    color: #475569 !important;
+    font-size: 0.98rem;
+    max-width: 600px;
+    margin: 0 auto 24px;
+}
+
+/* Responsive Rules for Hair Transplant */
+@media (max-width: 991px) {
+    .hair-hero {
+        padding: 50px 0 55px !important;
+    }
+    .hair-hero .hero-title {
+        font-size: 2.3rem !important;
+    }
+    .hair-badge-grid {
+        max-width: 520px;
+        flex-wrap: wrap;
+    }
+    .hair-badge-grid .hero-badge-item {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
+@media (max-width: 767px) {
+    .hair-overview-box {
+        flex-direction: column;
+    }
+    .hair-overview-img {
+        width: 100%;
+        height: 180px;
+    }
+}
+
+@media (max-width: 575px) {
+    .hair-hero {
+        padding: 40px 15px 45px !important;
+    }
+    .hair-hero .hero-title {
+        font-size: 1.85rem !important;
+    }
+    .hair-badge-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .hair-badge-grid .hero-badge-item {
+        min-width: 0;
+        padding: 10px;
+    }
+    .hair-badge-grid .hero-badge-item img {
+        width: 28px;
+        height: 28px;
+    }
+    .hair-badge-grid .hero-badge-item span {
+        font-size: 0.72rem;
+    }
+    .cta-hair {
+        padding: 45px 15px !important;
+    }
+    .cta-hair h3 {
         font-size: 1.55rem !important;
     }
 }
