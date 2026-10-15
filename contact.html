@@ -36,7 +36,7 @@
   <link href="css/mobile-responsive.css" rel="stylesheet" />
   <style>
     .page-header {
-      background: url(img/about-banner.png) top center no-repeat!important;
+      background: url(img/about-banner.png) top center no-repeat !important;
     }
 
     .display-3 {
@@ -57,6 +57,25 @@
       }
     }
   </style>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '276665016196873');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=276665016196873&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -70,9 +89,9 @@
   <!-- Spinner End -->
 
 
-    <!-- Navbar Start -->
+  <!-- Navbar Start -->
   <div id="header"></div>
-    <!-- Navbar End -->
+  <!-- Navbar End -->
 
   <!-- Page Header Start -->
   <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -189,15 +208,18 @@
                       <option value="Within 1 hour">Within 1 hour</option>
                     </select>
 
-                    <div class="form-control custom-select-btn" id="preferredTimeBtn" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false">
-                      <span class="custom-select-label text-muted" id="preferredTimeSelected">When would you like us to call you?</span>
+                    <div class="form-control custom-select-btn" id="preferredTimeBtn" tabindex="0" role="button"
+                      aria-haspopup="listbox" aria-expanded="false">
+                      <span class="custom-select-label text-muted" id="preferredTimeSelected">When would you like us to
+                        call you?</span>
                       <i class="fa fa-chevron-down custom-select-chevron"></i>
                     </div>
                     <label for="preferredTimeBtn">Preferred Callback Time</label>
 
                     <div class="custom-select-menu" id="preferredTimeMenu" role="listbox">
                       <div class="custom-select-option" data-value="Immediately" role="option">Immediately</div>
-                      <div class="custom-select-option" data-value="Within 15 minutes" role="option">Within 15 minutes</div>
+                      <div class="custom-select-option" data-value="Within 15 minutes" role="option">Within 15 minutes
+                      </div>
                       <div class="custom-select-option" data-value="Within 1 hour" role="option">Within 1 hour</div>
                     </div>
 
@@ -243,9 +265,9 @@
   </div>
   <!-- Contact End -->
 
-    <!-- Footer Start -->
-    <div id="footer"></div>
-    <!-- Footer End -->
+  <!-- Footer Start -->
+  <div id="footer"></div>
+  <!-- Footer End -->
 
   <!-- Back to Top -->
   <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
