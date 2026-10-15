@@ -6184,7 +6184,7 @@ a.btn-outline-navy:hover,
 .hair-hero {
     position: relative;
     width: 100%;
-    background: url('../hair-transplant/banner.png') center center / cover no-repeat;
+    background: url('../hair-transplant-page/banner.png') center center / cover no-repeat;
     padding: 70px 0 65px;
     color: #0b224e;
     overflow: hidden;
@@ -6588,7 +6588,7 @@ a.btn-outline-navy:hover,
 /* 9. Bottom CTA Banner (100% Edge-to-Edge) */
 .cta-hair {
     width: 100%;
-    background: url('../hair-transplant/banner-3.png') center center / cover no-repeat;
+    background: url('../hair-transplant-page/banner-3.png') center center / cover no-repeat;
     padding: 65px 0 !important;
     text-align: center;
 }
