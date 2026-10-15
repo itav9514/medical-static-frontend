@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Treatment Costs in India | Compare Medical Procedure Prices | Adam Vacations Medical</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Treatment Costs in India, Medical Tourism India Cost, Surgery Price India, Affordable Healthcare India" name="keywords">
+    <meta content="Get transparent, indicative estimates for medical treatments in India. Plan your journey with top hospitals, experienced doctors, and personalized support at every step." name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@500;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet & Unified Treatment Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/treatment-pages.css" rel="stylesheet">
+    <link href="css/mobile-responsive.css" rel="stylesheet">
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '276665016196873');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=276665016196873&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Dynamic Header -->
+    <div id="header"></div>
+
+    <!-- 1. HERO SECTION (100% Full Width Edge-to-Edge) -->
+    <section class="cost-hero">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <!-- Left Column: Title, Badges, CTAs -->
+                <div class="col-lg-6">
+                    <h1 class="cost-hero-title">
+                        Treatment Costs <span class="text-red">in India</span>
+                    </h1>
+                    <div class="cost-hero-subtitle">Your Complete Medical Journey</div>
+                    <p class="cost-hero-desc">
+                        Get transparent, indicative estimates for your medical treatment in India. Plan your journey with top hospitals, experienced doctors and personalized support at every step.
+                    </p>
+
+                    <!-- 4 Badges (2x2 Grid) -->
+                    <div class="cost-badge-grid">
+                        <div class="cost-badge-item">
+                            <img src="cost-page/icon-1.png" alt="Indicative Cost Guidance">
+                            <span>Indicative Cost<br>Guidance</span>
+                        </div>
+                        <div class="cost-badge-item">
+                            <img src="cost-page/icon-2.png" alt="Multiple Hospital Options">
+                            <span>Multiple Hospital<br>Options</span>
+                        </div>
+                        <div class="cost-badge-item">
+                            <img src="cost-page/icon-3.png" alt="Personalized Treatment Plans">
+                            <span>Personalized<br>Treatment Plans</span>
+                        </div>
+                        <div class="cost-badge-item">
+                            <img src="cost-page/icon-4.png" alt="End-to-End Travel Support">
+                            <span>End-to-End<br>Travel Support</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex align-items-center gap-3 flex-wrap">
+                        <a href="#estimate-form" class="btn-brand-red">Get a Free Medical Opinion <i class="fa fa-arrow-right ms-1"></i></a>
+                        <a href="#explore-costs" class="btn-outline-blue bg-white">Explore Treatments <i class="fa fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Floating Cost Estimate Form -->
+                <div class="col-lg-6">
+                    <div class="cost-hero-form ms-lg-auto" id="estimate-form" style="max-width: 490px;">
+                        <h4 class="cost-form-title">Get Your Treatment Cost Estimate</h4>
+                        <p class="cost-form-desc">Fill in your details and our team will share a personalized estimate with treatment options.</p>
+
+                        <form id="costForm" onsubmit="handleCostSubmit(event)">
+                            <!-- 1. Select Treatment -->
+                            <div class="cost-input-group">
+                                <img src="cost-page/icon-5.png" class="cost-input-icon" alt="Treatment">
+                                <select class="cost-form-control" id="costTreatment" required>
+                                    <option value="" selected disabled>Select Treatment</option>
+                                    <option value="Knee Replacement">Knee Replacement</option>
+                                    <option value="Hip Replacement">Hip Replacement</option>
+                                    <option value="Heart Bypass Surgery">Heart Bypass Surgery</option>
+                                    <option value="Kidney Transplant">Kidney Transplant</option>
+                                    <option value="Liver Transplant">Liver Transplant</option>
+                                    <option value="Cancer Treatment">Cancer Treatment</option>
+                                    <option value="Dental Implants">Dental Implants</option>
+                                    <option value="Bone Marrow Transplant">Bone Marrow Transplant</option>
+                                    <option value="IVF & Fertility">IVF & Fertility</option>
+                                    <option value="Cosmetic Surgery">Cosmetic Surgery</option>
+                                    <option value="Spine Surgery">Spine Surgery</option>
+                                    <option value="Eye Surgery">Eye Surgery</option>
+                                    <option value="Hair Transplant">Hair Transplant</option>
+                                    <option value="Other">Other Treatment</option>
+                                </select>
+                            </div>
+
+                            <!-- 2. Country Travelling From -->
+                            <div class="cost-input-group">
+                                <img src="cost-page/icon-6.png" class="cost-input-icon" alt="Country">
+                                <select class="cost-form-control" id="costCountry" required>
+                                    <option value="" selected disabled>Country You're Travelling From</option>
+                                    <option value="USA">United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="UAE">United Arab Emirates</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Nigeria">Nigeria</option>
+                                    <option value="Kenya">Kenya</option>
+                                    <option value="Oman">Oman</option>
+                                    <option value="Saudi Arabia">Saudi Arabia</option>
+                                    <option value="Bangladesh">Bangladesh</option>
+                                    <option value="Other">Other Country</option>
+                                </select>
+                            </div>
+
+                            <!-- 3. Preferred City in India -->
+                            <div class="cost-input-group">
+                                <img src="cost-page/icon-7.png" class="cost-input-icon" alt="City">
+                                <select class="cost-form-control" id="costCity">
+                                    <option value="" selected disabled>Preferred City in India</option>
+                                    <option value="Delhi NCR">Delhi NCR</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Chennai">Chennai</option>
+                                    <option value="Bangalore">Bangalore</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                    <option value="Kolkata">Kolkata</option>
+                                    <option value="Any City">Any City (Best Doctor Recommendation)</option>
+                                </select>
+                            </div>
+
+                            <!-- 4. Number of Travelers -->
+                            <div class="cost-input-group">
+                                <img src="cost-page/icon-8.png" class="cost-input-icon" alt="Travelers">
+                                <select class="cost-form-control" id="costTravelers">
+                                    <option value="" selected disabled>Number of Travelers</option>
+                                    <option value="1">1 (Patient Only)</option>
+                                    <option value="2">2 (Patient + 1 Attendant)</option>
+                                    <option value="3">3 (Patient + 2 Attendants)</option>
+                                    <option value="4+">4 or More</option>
+                                </select>
+                            </div>
+
+                            <!-- 5. Full Name -->
+                            <div class="cost-input-group">
+                                <img src="cost-page/icon-8.png" class="cost-input-icon" alt="Name">
+                                <input type="text" class="cost-form-control" id="costName" placeholder="Your Full Name" required minlength="2">
+                            </div>
+
+                            <!-- 6. Email or WhatsApp -->
+                            <div class="cost-input-group">
+                                <img src="cost-page/icon-9.png" class="cost-input-icon" alt="Contact">
+                                <input type="text" class="cost-form-control" id="costContact" placeholder="Email or WhatsApp Number" required>
+                            </div>
+
+                            <!-- 7. Upload Medical Reports -->
+                            <label class="cost-upload-box" for="costReport">
+                                <span><i class="fa fa-cloud-upload-alt me-1 text-primary"></i> Upload Medical Reports</span>
+                                <small>PDF, JPG, PNG (Max 10 MB)</small>
+                                <input type="file" id="costReport" class="d-none" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFileSelect(this)">
+                            </label>
+
+                            <!-- 8. Submit Button -->
+                            <button type="submit" class="cost-btn-submit" id="costSubmitBtn">
+                                Get My Treatment Estimate &rarr;
+                            </button>
+
+                            <p class="cost-form-privacy">
+                                <i class="fa fa-lock me-1"></i> Your details stay private and are used only to prepare your estimate.
+                            </p>
+                            <div id="costFormMsg" class="mt-2 text-center" style="font-size:0.82rem;"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SUB-BAR: METRIC / FEATURE STRIP (4 Cards) -->
+    <div class="container my-4">
+        <div class="row g-3">
+            <div class="col-sm-6 col-lg-3">
+                <div class="cost-feature-pill">
+                    <img src="cost-page/7.png" alt="Treatment Time" class="cost-pill-icon">
+                    <div>
+                        <span class="d-block fw-bold" style="font-size:0.88rem;color:#0b224e;">Treatment Time</span>
+                        <small style="font-size:0.75rem;color:#64748b;font-weight:600;">Varies by treatment</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="cost-feature-pill">
+                    <img src="cost-page/8.png" alt="Hospital Stay" class="cost-pill-icon">
+                    <div>
+                        <span class="d-block fw-bold" style="font-size:0.88rem;color:#0b224e;">Hospital Stay</span>
+                        <small style="font-size:0.75rem;color:#64748b;font-weight:600;">Varies by treatment</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="cost-feature-pill">
+                    <img src="cost-page/9.png" alt="Duration in India" class="cost-pill-icon">
+                    <div>
+                        <span class="d-block fw-bold" style="font-size:0.88rem;color:#0b224e;">Duration in India</span>
+                        <small style="font-size:0.75rem;color:#64748b;font-weight:600;">Varies by treatment</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="cost-feature-pill">
+                    <img src="cost-page/10.png" alt="Starting Cost" class="cost-pill-icon">
+                    <div>
+                        <span class="d-block fw-bold" style="font-size:0.88rem;color:#0b224e;">Starting Cost</span>
+                        <small style="font-size:0.75rem;color:#64748b;font-weight:600;">Personalized estimate</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. EXPLORE TREATMENT COSTS SECTION (Filter + 8 Cards) -->
+    <section class="py-5" id="explore-costs">
+        <div class="container">
+            <div class="sec-header mb-4 text-start">
+                <h2 class="sec-title mb-1" style="color:#0b224e;font-weight:800;">Explore Treatment Costs</h2>
+                <p class="sec-desc text-muted mb-0" style="font-size:0.88rem;">
+                    View indicative costs for popular treatments in India. Get a personalised estimate based on your medical reports and requirements.
+                </p>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="cost-filter-bar">
+                <div class="row g-2 align-items-center">
+                    <div class="col-md-3">
+                        <select class="cost-filter-select" id="filterCategory" onchange="filterTreatmentCards()">
+                            <option value="all">Select Treatment Category</option>
+                            <option value="orthopedic">Orthopedics &amp; Joints</option>
+                            <option value="cardiac">Cardiac &amp; Heart</option>
+                            <option value="transplant">Organ Transplants</option>
+                            <option value="cancer">Cancer Care</option>
+                            <option value="dental">Dental &amp; Others</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="cost-filter-select" id="filterCity">
+                            <option value="all">Select City</option>
+                            <option value="delhi">Delhi NCR</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="chennai">Chennai</option>
+                            <option value="bangalore">Bangalore</option>
+                            <option value="hyderabad">Hyderabad</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="cost-filter-select" id="filterBudget">
+                            <option value="all">Select Budget Range</option>
+                            <option value="low">Under $4,000</option>
+                            <option value="mid">$4,000 - $10,000</option>
+                            <option value="high">$10,000 - $25,000</option>
+                            <option value="premium">$25,000+</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="cost-filter-btn" onclick="filterTreatmentCards()">
+                            <i class="fa fa-search"></i> Search Treatments
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8 Treatment Cards Grid -->
+            <div class="row g-4" id="treatmentCardsContainer">
+                <!-- Card 1: Knee Replacement -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="orthopedic">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/11.png" alt="Knee Replacement" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Knee Replacement</h5>
+                            <p class="cost-card-desc">Regain mobility and live pain-free with expert care.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="knee-hipreplacement.html" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Hip Replacement -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="orthopedic">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/12.png" alt="Hip Replacement" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Hip Replacement</h5>
+                            <p class="cost-card-desc">Advanced treatment for better movement and quality of life.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="knee-hipreplacement.html" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Heart Bypass Surgery -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="cardiac">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/13.png" alt="Heart Bypass Surgery" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Heart Bypass Surgery</h5>
+                            <p class="cost-card-desc">Expert cardiac care with world-class facilities.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="cardiac-surgery.html" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Kidney Transplant -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="transplant">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/14.png" alt="Kidney Transplant" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Kidney Transplant</h5>
+                            <p class="cost-card-desc">Comprehensive care for a healthier tomorrow.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="liver-kidney-transplant.html" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Liver Transplant -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="transplant">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/15.png" alt="Liver Transplant" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Liver Transplant</h5>
+                            <p class="cost-card-desc">Advanced treatment with multidisciplinary support.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="liver-kidney-transplant.html" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Cancer Treatment -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="cancer">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/16.png" alt="Cancer Treatment" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Cancer Treatment</h5>
+                            <p class="cost-card-desc">Personalised cancer care with modern treatment options.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="cancer-treatment.html" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7: Dental Implants -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="dental">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/17.png" alt="Dental Implants" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Dental Implants</h5>
+                            <p class="cost-card-desc">Restore your smile with advanced dental solutions.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="dental-implants.html" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8: Bone Marrow Transplant -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="transplant">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/18.png" alt="Bone Marrow Transplant" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Bone Marrow Transplant</h5>
+                            <p class="cost-card-desc">Specialised care for complex blood disorders.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="#estimate-form" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. WHAT CAN AFFECT YOUR TREATMENT COST -->
+    <section class="py-5" style="background:#f8fafc;">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <!-- Left Column -->
+                <div class="col-lg-4">
+                    <h2 class="sec-title mb-2" style="color:#0b224e;font-weight:800;font-size:1.9rem;line-height:1.25;">
+                        What Can Affect Your<br><span class="text-red">Treatment Cost?</span>
+                    </h2>
+                    <p class="text-muted mb-4" style="font-size:0.88rem;line-height:1.6;">
+                        Several factors can influence the total cost of your treatment. Your final estimate will be provided after a detailed medical review.
+                    </p>
+                    <a href="#estimate-form" class="btn-brand-red">Get a Personalised Estimate &rarr;</a>
+                </div>
+
+                <!-- Right Column (6 Factors in 3x2 Grid) -->
+                <div class="col-lg-8">
+                    <div class="row g-3">
+                        <!-- Factor 1 -->
+                        <div class="col-md-6">
+                            <div class="cost-factor-card">
+                                <img src="cost-page/19.png" alt="Diagnosis" class="cost-factor-icon">
+                                <div>
+                                    <div class="cost-factor-title">Diagnosis and Medical Condition</div>
+                                    <div class="cost-factor-desc">Your specific condition and its complexity.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Factor 2 -->
+                        <div class="col-md-6">
+                            <div class="cost-factor-card">
+                                <img src="cost-page/20.png" alt="Doctor and Hospital" class="cost-factor-icon">
+                                <div>
+                                    <div class="cost-factor-title">Doctor and Hospital</div>
+                                    <div class="cost-factor-desc">Choice of specialist and hospital facilities.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Factor 3 -->
+                        <div class="col-md-6">
+                            <div class="cost-factor-card">
+                                <img src="cost-page/21.png" alt="Procedure" class="cost-factor-icon">
+                                <div>
+                                    <div class="cost-factor-title">Procedure and Treatment Method</div>
+                                    <div class="cost-factor-desc">Type of procedure and technology used.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Factor 4 -->
+                        <div class="col-md-6">
+                            <div class="cost-factor-card">
+                                <img src="cost-page/22.png" alt="Investigations" class="cost-factor-icon">
+                                <div>
+                                    <div class="cost-factor-title">Investigations and Tests</div>
+                                    <div class="cost-factor-desc">Pre-treatment tests and evaluations.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Factor 5 -->
+                        <div class="col-md-6">
+                            <div class="cost-factor-card">
+                                <img src="cost-page/23.png" alt="Length of Stay" class="cost-factor-icon">
+                                <div>
+                                    <div class="cost-factor-title">Length of Stay</div>
+                                    <div class="cost-factor-desc">Duration of hospital stay in India.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Factor 6 -->
+                        <div class="col-md-6">
+                            <div class="cost-factor-card">
+                                <img src="cost-page/24.png" alt="Recovery" class="cost-factor-icon">
+                                <div>
+                                    <div class="cost-factor-title">Recovery and Follow-up Needs</div>
+                                    <div class="cost-factor-desc">Post-treatment care and follow-up requirements.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. WHAT YOUR ESTIMATE MAY INCLUDE -->
+    <section class="py-5">
+        <div class="container">
+            <div class="sec-header mb-4 text-start">
+                <h2 class="sec-title mb-1" style="color:#0b224e;font-weight:800;">What Your Estimate May Include</h2>
+                <p class="sec-desc text-muted mb-0" style="font-size:0.88rem;">
+                    Your treatment estimate can include the following components. Exact inclusions depend on your treatment plan and hospital.
+                </p>
+            </div>
+
+            <div class="row g-3">
+                <!-- Inclusions 1 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="cost-inclusion-card">
+                        <img src="cost-page/25.png" alt="Treatment and Hospital Charges" class="cost-inclusion-icon">
+                        <h6 class="cost-inclusion-title">Treatment and Hospital Charges</h6>
+                        <p class="cost-inclusion-desc">Surgery/procedure cost, hospital stay, OT charges and standard care (as per treatment plan).</p>
+                    </div>
+                </div>
+
+                <!-- Inclusions 2 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="cost-inclusion-card">
+                        <img src="cost-page/26.png" alt="Consultations and Tests" class="cost-inclusion-icon">
+                        <h6 class="cost-inclusion-title">Consultations and Tests</h6>
+                        <p class="cost-inclusion-desc">Doctor consultation fees, pre-treatment investigations and follow-up consultations.</p>
+                    </div>
+                </div>
+
+                <!-- Inclusions 3 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="cost-inclusion-card">
+                        <img src="cost-page/27.png" alt="Accommodation Support" class="cost-inclusion-icon">
+                        <h6 class="cost-inclusion-title">Accommodation Support</h6>
+                        <p class="cost-inclusion-desc">Assistance with hotel/service apartment options near the hospital (through our travel desk).</p>
+                    </div>
+                </div>
+
+                <!-- Inclusions 4 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="cost-inclusion-card">
+                        <img src="cost-page/28.png" alt="Travel and Local Transport Support" class="cost-inclusion-icon">
+                        <h6 class="cost-inclusion-title">Travel and Local Transport Support</h6>
+                        <p class="cost-inclusion-desc">Assistance with flight bookings, airport transfers and local travel (available as support services).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. YOUR MEDICAL JOURNEY, STEP BY STEP -->
+    <section class="py-5" style="background:#f8fafc;">
+        <div class="container">
+            <div class="sec-header mb-4 text-start">
+                <h2 class="sec-title mb-1" style="color:#0b224e;font-weight:800;">Your Medical Journey, Step by Step</h2>
+                <p class="sec-desc text-muted mb-0" style="font-size:0.88rem;">
+                    From your initial enquiry to a safe return home, we support you throughout your complete journey.
+                </p>
+            </div>
+
+            <div class="cost-journey-grid">
+                <!-- Step 1 -->
+                <div class="cost-journey-step">
+                    <div class="cost-step-num">1</div>
+                    <div class="cost-step-title">Share Medical Reports</div>
+                    <p class="cost-step-desc">Upload your reports and explain your treatment requirement.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="cost-journey-step">
+                    <div class="cost-step-num">2</div>
+                    <div class="cost-step-title">Get Medical Opinion</div>
+                    <p class="cost-step-desc">Our team coordinates with partner hospitals and specialists.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="cost-journey-step">
+                    <div class="cost-step-num">3</div>
+                    <div class="cost-step-title">Review Treatment Options &amp; Estimate</div>
+                    <p class="cost-step-desc">Get treatment options with indicative costs.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="cost-journey-step">
+                    <div class="cost-step-num">4</div>
+                    <div class="cost-step-title">Plan Your Journey</div>
+                    <p class="cost-step-desc">Support with visa, flights, accommodation and airport transfers.</p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="cost-journey-step">
+                    <div class="cost-step-num">5</div>
+                    <div class="cost-step-title">Treatment and Local Support</div>
+                    <p class="cost-step-desc">Assistance with appointments, hospital visits and local coordination.</p>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="cost-journey-step">
+                    <div class="cost-step-num">6</div>
+                    <div class="cost-step-title">Return and Follow-up</div>
+                    <p class="cost-step-desc">Support with post-treatment care and follow-up after returning home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. A PATIENT-FIRST APPROACH YOU CAN RELY ON -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <!-- Left Photo -->
+                <div class="col-lg-4">
+                    <img src="cost-page/29.png" alt="A Patient-First Approach You Can Rely On" class="img-fluid rounded-3 shadow-sm w-100" style="max-height: 380px; object-fit: cover;">
+                </div>
+
+                <!-- Right Content -->
+                <div class="col-lg-8">
+                    <h2 class="sec-title mb-3" style="color:#0b224e;font-weight:800;font-size:1.9rem;">
+                        A Patient-First Approach You Can Rely On
+                    </h2>
+                    <div class="row g-3">
+                        <!-- Approach 1 -->
+                        <div class="col-md-6">
+                            <div class="cost-patient-card">
+                                <img src="cost-page/30.png" alt="Patient-first Coordination" class="cost-patient-icon">
+                                <div>
+                                    <div class="cost-factor-title">Patient-first Coordination</div>
+                                    <div class="cost-factor-desc">Your needs are at the center of everything we do.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Approach 2 -->
+                        <div class="col-md-6">
+                            <div class="cost-patient-card">
+                                <img src="cost-page/31.png" alt="Hospital Options Reviewed" class="cost-patient-icon">
+                                <div>
+                                    <div class="cost-factor-title">Hospital Options Reviewed</div>
+                                    <div class="cost-factor-desc">Access to reputed hospitals and specialists.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Approach 3 -->
+                        <div class="col-md-6">
+                            <div class="cost-patient-card">
+                                <img src="cost-page/32.png" alt="Travel Assistance Available" class="cost-patient-icon">
+                                <div>
+                                    <div class="cost-factor-title">Travel Assistance Available</div>
+                                    <div class="cost-factor-desc">Support for a smooth and comfortable journey.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Approach 4 -->
+                        <div class="col-md-6">
+                            <div class="cost-patient-card">
+                                <img src="cost-page/33.png" alt="Clear Cost Guidance" class="cost-patient-icon">
+                                <div>
+                                    <div class="cost-factor-title">Clear Cost Guidance</div>
+                                    <div class="cost-factor-desc">Transparent, indicative estimates and detailed information.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FREQUENTLY ASKED QUESTIONS (FAQS) -->
+    <section class="py-5" style="background:#f8fafc;">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap gap-2">
+                <div>
+                    <h2 class="sec-title mb-1" style="color:#0b224e;font-weight:800;">Frequently Asked Questions (FAQs)</h2>
+                    <p class="sec-desc text-muted mb-0" style="font-size:0.88rem;">Find answers to common questions about treatment costs and estimates.</p>
+                </div>
+                <a href="faq.html" class="sec-view-link text-primary fw-bold text-decoration-none" style="font-size:0.86rem;">
+                    View All FAQs <i class="fa fa-arrow-right ms-1"></i>
+                </a>
+            </div>
+
+            <!-- 2-Column FAQ Accordion -->
+            <div class="row g-3">
+                <!-- Col 1 -->
+                <div class="col-lg-6">
+                    <!-- FAQ 1 -->
+                    <div class="faq-outline-item mb-3">
+                        <button class="faq-outline-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#costFaq1">
+                            <span>How do I get a treatment cost estimate?</span>
+                            <i class="fa fa-chevron-down faq-arrow"></i>
+                        </button>
+                        <div id="costFaq1" class="collapse">
+                            <div class="p-3 pt-0 text-muted" style="font-size:0.88rem;line-height:1.6;">
+                                Simply share your latest medical reports, current diagnosis, and doctor's prescription through our online form or WhatsApp. Our medical team will review them with leading specialists and partner hospitals in India to provide an indicative cost estimate within 24 to 48 hours.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-outline-item mb-3">
+                        <button class="faq-outline-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#costFaq2">
+                            <span>What affects my final treatment estimate?</span>
+                            <i class="fa fa-chevron-down faq-arrow"></i>
+                        </button>
+                        <div id="costFaq2" class="collapse">
+                            <div class="p-3 pt-0 text-muted" style="font-size:0.88rem;line-height:1.6;">
+                                Final costs depend on several factors including the patient's overall health condition, hospital room category, surgical technique (e.g., robotic, minimally invasive), implant/prosthesis type, length of ICU or hospital stay, and any pre-existing co-morbidities requiring extra care.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-outline-item mb-3">
+                        <button class="faq-outline-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#costFaq3">
+                            <span>Are flights and accommodation included in the estimate?</span>
+                            <i class="fa fa-chevron-down faq-arrow"></i>
+                        </button>
+                        <div id="costFaq3" class="collapse">
+                            <div class="p-3 pt-0 text-muted" style="font-size:0.88rem;line-height:1.6;">
+                                Hospital cost estimates strictly cover medical procedures, doctor fees, hospital stay, and routine tests. However, Adam Vacations provides complete travel support packages that include flight bookings, hotel or guest house accommodation, airport transfers, and local transport assistance.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="col-lg-6">
+                    <!-- FAQ 4 -->
+                    <div class="faq-outline-item mb-3">
+                        <button class="faq-outline-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#costFaq4">
+                            <span>Do I need to share my medical reports for an estimate?</span>
+                            <i class="fa fa-chevron-down faq-arrow"></i>
+                        </button>
+                        <div id="costFaq4" class="collapse">
+                            <div class="p-3 pt-0 text-muted" style="font-size:0.88rem;line-height:1.6;">
+                                Yes, medical reports such as discharge summaries, imaging scans (MRI/CT), blood tests, and recent prescriptions are essential. Specialists require these reports to assess your exact clinical condition and provide a precise, realistic treatment plan and cost estimate.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-outline-item mb-3">
+                        <button class="faq-outline-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#costFaq5">
+                            <span>Is the cost the same for all patients?</span>
+                            <i class="fa fa-chevron-down faq-arrow"></i>
+                        </button>
+                        <div id="costFaq5" class="collapse">
+                            <div class="p-3 pt-0 text-muted" style="font-size:0.88rem;line-height:1.6;">
+                                No, medical treatment costs are personalized for every individual. While base package rates exist, the final cost varies based on clinical complexity, chosen surgeon, hospital tier, and specific medical requirements identified during in-person evaluation.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-outline-item mb-3">
+                        <button class="faq-outline-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#costFaq6">
+                            <span>Why do treatment prices vary between hospitals?</span>
+                            <i class="fa fa-chevron-down faq-arrow"></i>
+                        </button>
+                        <div id="costFaq6" class="collapse">
+                            <div class="p-3 pt-0 text-muted" style="font-size:0.88rem;line-height:1.6;">
+                                Pricing varies based on hospital accreditation (JCI vs NABH), location/city tier, technological infrastructure (advanced robotic systems, hybrid OTs), specialist seniority, and room category options chosen by the patient.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. BOTTOM CTA BANNER (100% Full Width Edge-to-Edge) -->
+    <section class="cta-cost">
+        <div class="container">
+            <div class="cta-cost-card">
+                <div class="row align-items-center g-4">
+                    <!-- Left Photo Collage -->
+                    <div class="col-md-3 text-center">
+                        <img src="cost-page/34.png" alt="Plan Your Treatment With More Clarity" class="img-fluid rounded-3 shadow" style="max-height: 160px;">
+                    </div>
+
+                    <!-- Middle Content -->
+                    <div class="col-md-5">
+                        <h3>Plan Your Treatment With More Clarity</h3>
+                        <p>Get expert guidance, treatment options and an indicative cost estimate for your medical journey in India.</p>
+                        <a href="#estimate-form" class="btn btn-light text-primary fw-bold px-4 py-2 rounded-pill">
+                            Get My Treatment Options &rarr;
+                        </a>
+                    </div>
+
+                    <!-- Right Bullet List -->
+                    <div class="col-md-4">
+                        <ul class="cta-cost-list">
+                            <li><i class="fa fa-check-circle text-warning"></i> Personalised guidance</li>
+                            <li><i class="fa fa-check-circle text-warning"></i> Multiple hospital options</li>
+                            <li><i class="fa fa-check-circle text-warning"></i> End-to-end support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Footer -->
+    <div id="footer"></div>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript (Loads partials/header.html and partials/footer.html) -->
+    <script src="js/main.js"></script>
+
+    <script>
+        // File selection label handler
+        function handleFileSelect(input) {
+            const label = input.parentElement.querySelector('span');
+            if (input.files && input.files[0]) {
+                label.innerHTML = '<i class="fa fa-file-check me-1 text-success"></i> ' + input.files[0].name;
+            } else {
+                label.innerHTML = '<i class="fa fa-cloud-upload-alt me-1 text-primary"></i> Upload Medical Reports';
+            }
+        }
+
+        // Treatment Cards Filter
+        function filterTreatmentCards() {
+            const cat = document.getElementById('filterCategory').value;
+            const items = document.querySelectorAll('.treatment-item');
+            items.forEach(function (el) {
+                if (cat === 'all' || el.getAttribute('data-cat') === cat) {
+                    el.style.display = '';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+        }
+
+        // In-DOM Custom Select Dropdown: Constrained strictly inside form/column with zero screen overflow
+        function makeCustomSelect(selectId, hasIcon) {
+            const select = document.getElementById(selectId);
+            if (!select) return;
+            const parent = select.parentElement;
+            parent.classList.add("cost-page-select", "custom-select-wrap");
+
+            select.style.position = "absolute";
+            select.style.opacity = "0";
+            select.style.pointerEvents = "none";
+            select.style.height = "0";
+            select.style.width = "0";
+            select.style.margin = "0";
+            select.style.padding = "0";
+            select.style.border = "none";
+
+            const trigger = document.createElement("div");
+            trigger.className = "custom-select-trigger" + (hasIcon ? " has-icon" : "");
+            trigger.setAttribute("tabindex", "0");
+            trigger.textContent = select.options[select.selectedIndex]?.text || "Select";
+            if (!select.value) trigger.classList.add("is-placeholder");
+
+            const menu = document.createElement("div");
+            menu.className = "custom-select-menu";
+
+            function buildMenu() {
+                menu.innerHTML = "";
+                Array.from(select.options).forEach(function (opt) {
+                    const item = document.createElement("div");
+                    item.className = "custom-select-item" + (opt.selected && opt.value ? " active" : "");
+                    item.textContent = opt.text;
+                    item.dataset.value = opt.value;
+                    item.addEventListener("click", function (e) {
+                        e.stopPropagation();
+                        select.value = opt.value;
+                        trigger.textContent = opt.text;
+                        if (!opt.value) {
+                            trigger.classList.add("is-placeholder");
+                        } else {
+                            trigger.classList.remove("is-placeholder");
+                        }
+                        menu.querySelectorAll(".custom-select-item").forEach(function (i) { i.classList.remove("active"); });
+                        if (opt.value) item.classList.add("active");
+                        parent.classList.remove("open");
+                        select.dispatchEvent(new Event("change", { bubbles: true }));
+                    });
+                    menu.appendChild(item);
+                });
+            }
+
+            buildMenu();
+
+            trigger.addEventListener("click", function (e) {
+                e.stopPropagation();
+                document.querySelectorAll(".cost-page-select.open").forEach(function (w) {
+                    if (w !== parent) w.classList.remove("open");
+                });
+                parent.classList.toggle("open");
+            });
+
+            trigger.addEventListener("keydown", function (e) {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    parent.classList.toggle("open");
+                } else if (e.key === "Escape") {
+                    parent.classList.remove("open");
+                }
+            });
+
+            parent.appendChild(trigger);
+            parent.appendChild(menu);
+        }
+
+        // Initialize custom dropdowns on load
+        $(function () {
+            makeCustomSelect("costTreatment", true);
+            makeCustomSelect("costCountry", true);
+            makeCustomSelect("costCity", true);
+            makeCustomSelect("costTravelers", true);
+            makeCustomSelect("filterCategory", false);
+            makeCustomSelect("filterCity", false);
+            makeCustomSelect("filterBudget", false);
+        });
+
+        // Click outside closes open menus
+        document.addEventListener("click", function (e) {
+            if (!e.target.closest(".cost-page-select")) {
+                document.querySelectorAll(".cost-page-select.open").forEach(function (w) {
+                    w.classList.remove("open");
+                });
+            }
+        });
+
+        // Form Submission Handler
+        function handleCostSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('costSubmitBtn');
+            const msg = document.getElementById('costFormMsg');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Submitting...';
+
+            setTimeout(function () {
+                msg.innerHTML = '<div class="alert alert-success py-2">Thank you! Your estimate request has been received. Redirecting...</div>';
+                setTimeout(function () {
+                    window.location.href = 'thankyou.html';
+                }, 1200);
+            }, 800);
+        }
+    </script>
+</body>
+
+</html>

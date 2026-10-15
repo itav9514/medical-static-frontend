@@ -179,6 +179,18 @@
             }
         }
 
+        /* Desktop Viewport Optimization for 6 Menu Items (1200px to 1360px) */
+        @media (min-width: 1200px) and (max-width: 1360px) {
+            .navbar-nav .nav-link {
+                padding: 35px 10px !important;
+                font-size: 14.5px !important;
+            }
+            .call-top {
+                padding-left: 105px !important;
+                padding-right: 18px !important;
+            }
+        }
+
         /* 4. Mobile Call Button Handling */
         @media (min-width: 992px) {
             .phone-header-mobile {
@@ -426,11 +438,42 @@
             }
         }
 
-        /* Small Phones (<= 767px) */
-        @media (max-width: 767px) {
+        /* iPhone / Small Phones (<= 767.98px) */
+        @media (max-width: 767.98px) {
+            .treattopheder {
+                max-height: 280px !important;
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
+                -webkit-overflow-scrolling: touch !important;
+                overscroll-behavior: contain !important;
+                padding-right: 6px !important;
+                scrollbar-width: thin !important;
+                scrollbar-color: #02295a #f1f5f9 !important;
+            }
+
             .treattopheder ul li {
                 width: 100% !important;
                 /* Mobile par 1 single column */
+            }
+
+            /* Custom Scroller for iPhone / WebKit */
+            .treattopheder::-webkit-scrollbar {
+                width: 6px !important;
+                display: block !important;
+            }
+
+            .treattopheder::-webkit-scrollbar-track {
+                background: #f1f5f9 !important;
+                border-radius: 10px !important;
+            }
+
+            .treattopheder::-webkit-scrollbar-thumb {
+                background: #02295a !important;
+                border-radius: 10px !important;
+            }
+
+            .treattopheder::-webkit-scrollbar-thumb:hover {
+                background: #e52128 !important;
             }
         }
     </style>
@@ -498,6 +541,7 @@
                         </div>
                     </div>
                 </div>
+                <a href="../cost.html" class="nav-item nav-link">Cost</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">

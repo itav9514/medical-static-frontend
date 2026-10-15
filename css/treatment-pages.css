@@ -6664,3 +6664,654 @@ a.btn-outline-navy:hover,
         font-size: 1.55rem !important;
     }
 }
+
+/* ==========================================================================
+   TREATMENT COSTS PAGE STYLES (cost.html)
+   ========================================================================== */
+
+/* 1. Hero Section (100% Full Width Edge-to-Edge) */
+.cost-hero {
+    position: relative;
+    width: 100%;
+    background: url('../cost-page/banner.png') center right / cover no-repeat;
+    padding: 60px 0 65px;
+    color: #0b224e;
+    overflow: hidden;
+}
+
+.cost-hero .hero-breadcrumb {
+    font-size: 0.85rem;
+    color: #475569;
+    margin-bottom: 12px;
+}
+
+.cost-hero .hero-breadcrumb a {
+    color: #0b224e;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.cost-hero .hero-breadcrumb span {
+    color: #64748b;
+}
+
+.cost-hero-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #0b224e;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.cost-hero-title .text-red {
+    color: #e52128;
+}
+
+.cost-hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 14px;
+}
+
+.cost-hero-desc {
+    font-size: 0.95rem;
+    color: #475569;
+    max-width: 540px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.cost-badge-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+    max-width: 520px;
+}
+
+.cost-badge-item {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 6px rgba(11, 34, 78, 0.04);
+}
+
+.cost-badge-item img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.cost-badge-item span {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #0b224e;
+    line-height: 1.25;
+}
+
+/* 2. Floating Form Card on Hero Right */
+.cost-hero-form {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 26px 24px;
+    box-shadow: 0 10px 30px rgba(11, 34, 78, 0.09);
+    border: 1.5px solid #e2e8f0;
+}
+
+.cost-form-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 4px;
+}
+
+.cost-form-desc {
+    font-size: 0.82rem;
+    color: #64748b;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.cost-input-group {
+    position: relative;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.cost-input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.85;
+}
+
+.cost-form-control {
+    width: 100% !important;
+    height: 44px !important;
+    padding: 9px 14px 9px 44px !important;
+    border: 1.5px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 0.86rem !important;
+    color: #1e293b !important;
+    background-color: #ffffff !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
+}
+
+.cost-form-control::placeholder {
+    color: #64748b !important;
+    font-weight: 400 !important;
+}
+
+.cost-form-control:focus {
+    border-color: #0b224e !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(11, 34, 78, 0.08) !important;
+}
+
+/* Custom In-DOM Dropdowns for Cost Form & Explore Costs Filters */
+.cost-page-select.custom-select-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.cost-page-select .custom-select-trigger {
+    width: 100%;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.86rem;
+    color: #1e293b;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.cost-page-select .custom-select-trigger.has-icon {
+    padding-left: 44px !important;
+}
+
+.cost-page-select .custom-select-trigger.is-placeholder {
+    color: #64748b !important;
+    font-weight: 400 !important;
+}
+
+.cost-page-select .custom-select-trigger:focus,
+.cost-page-select.open .custom-select-trigger {
+    border-color: #0b224e;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(11, 34, 78, 0.08);
+}
+
+.cost-page-select .custom-select-trigger::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #64748b;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    margin-left: 8px;
+}
+
+.cost-page-select.open .custom-select-trigger::after {
+    transform: rotate(180deg);
+}
+
+.cost-page-select .custom-select-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: 230px;
+    overflow-y: auto;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    box-shadow: 0 10px 28px rgba(11, 34, 78, 0.16);
+    z-index: 1060;
+    display: none;
+    padding: 4px 0;
+    box-sizing: border-box;
+}
+
+.cost-page-select.open .custom-select-menu {
+    display: block;
+}
+
+.cost-page-select .custom-select-item {
+    padding: 9px 14px;
+    font-size: 0.84rem;
+    color: #334155;
+    cursor: pointer;
+    white-space: normal;
+    line-height: 1.35;
+    transition: background 0.15s, color 0.15s;
+}
+
+.cost-page-select .custom-select-item:hover,
+.cost-page-select .custom-select-item.active {
+    background: #eff6ff;
+    color: #0b224e;
+    font-weight: 600;
+}
+
+.cost-upload-box {
+    border: 1.5px dashed #94a3b8;
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-align: center;
+    background: #f8fafc;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.cost-upload-box:hover {
+    background: #f1f5f9;
+    border-color: #0b224e;
+}
+
+.cost-upload-box span {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0b224e;
+    display: block;
+}
+
+.cost-upload-box small {
+    font-size: 0.72rem;
+    color: #64748b;
+}
+
+.cost-btn-submit {
+    width: 100%;
+    background: #e52128;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 11px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.cost-btn-submit:hover {
+    background: #c51b22;
+    color: #ffffff;
+}
+
+.cost-form-privacy {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+/* 3. Metric / Feature Strip (4 Pills) */
+.cost-feature-pill {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 6px rgba(11, 34, 78, 0.03);
+    height: 100%;
+}
+
+.cost-pill-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* 4. Explore Treatment Costs Filter & Cards */
+.cost-filter-bar {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 3px 12px rgba(11, 34, 78, 0.04);
+    margin-bottom: 28px;
+}
+
+.cost-filter-select {
+    padding: 9px 12px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #334155;
+    width: 100%;
+}
+
+.cost-filter-btn {
+    background: #e52128;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 9px 16px;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: background 0.2s ease;
+}
+
+.cost-filter-btn:hover {
+    background: #c51b22;
+    color: #ffffff;
+}
+
+.cost-treatment-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 2px 8px rgba(11, 34, 78, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cost-treatment-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(11, 34, 78, 0.09);
+    border-color: #cbd5e1;
+}
+
+.cost-card-img {
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+}
+
+.cost-card-body {
+    padding: 16px 16px 14px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cost-card-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 4px;
+}
+
+.cost-card-desc {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    min-height: 38px;
+}
+
+.cost-card-tag {
+    color: #e52128;
+    font-size: 0.76rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.cost-card-status {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.cost-card-link {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #e52128;
+    text-decoration: none;
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.cost-card-link:hover {
+    color: #c51b22;
+}
+
+/* 5. What Can Affect Your Treatment Cost */
+.cost-factor-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-shadow: 0 2px 6px rgba(11, 34, 78, 0.03);
+    height: 100%;
+}
+
+.cost-factor-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.cost-factor-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #0b224e;
+    margin-bottom: 2px;
+}
+
+.cost-factor-desc {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-bottom: 0;
+    line-height: 1.35;
+}
+
+/* 6. What Your Estimate May Include */
+.cost-inclusion-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 22px 18px;
+    box-shadow: 0 2px 8px rgba(11, 34, 78, 0.04);
+    height: 100%;
+}
+
+.cost-inclusion-icon {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.cost-inclusion-title {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 6px;
+}
+
+.cost-inclusion-desc {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin-bottom: 0;
+}
+
+/* 7. Step by Step Medical Journey */
+.cost-journey-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+    position: relative;
+}
+
+.cost-journey-step {
+    text-align: center;
+    position: relative;
+}
+
+.cost-step-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #0b224e;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+}
+
+.cost-step-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0b224e;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.cost-step-desc {
+    font-size: 0.74rem;
+    color: #64748b;
+    line-height: 1.35;
+    margin-bottom: 0;
+}
+
+/* 8. Patient-First Approach */
+.cost-patient-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-shadow: 0 2px 6px rgba(11, 34, 78, 0.03);
+    height: 100%;
+}
+
+.cost-patient-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* 9. Bottom CTA Banner (100% Full Width Edge-to-Edge) */
+.cta-cost {
+    width: 100%;
+    background: url('../cost-page/banner-2.png') center center / cover no-repeat;
+    padding: 55px 0 !important;
+}
+
+.cta-cost-card {
+    background: rgba(11, 34, 78, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 18px;
+    padding: 28px;
+    color: #ffffff;
+}
+
+.cta-cost-card h3 {
+    color: #ffffff !important;
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.cta-cost-card p {
+    color: #e2e8f0;
+    font-size: 0.92rem;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+.cta-cost-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cta-cost-list li {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 10. Responsive Adjustments for Cost Page */
+@media (max-width: 991.98px) {
+    .cost-hero-title {
+        font-size: 2.2rem;
+    }
+    .cost-journey-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px 14px;
+    }
+}
+
+@media (max-width: 575px) {
+    .cost-hero {
+        padding: 40px 15px 45px !important;
+    }
+    .cost-hero-title {
+        font-size: 1.85rem !important;
+    }
+    .cost-badge-grid {
+        grid-template-columns: 1fr;
+    }
+    .cost-journey-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px 10px;
+    }
+}
