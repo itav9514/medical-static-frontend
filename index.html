@@ -1303,7 +1303,10 @@
         const im = (k, a = "") => `<img src="${src(k)}" data-k="${k}" data-i="0" alt="${a}" loading="lazy" onerror="imgFail(this)">`;
         const card = (slug, t, sub = "") => `<div class="mh-card">${im(slug, t)}<div>${t}</div>${sub ? `<small>${sub}</small>` : ""}</div>`;
         const grid = (c, a) => `<div class="mh-g" style="--c:${c}">${a.join("")}</div>`;
-        const sec = (id, t, s, l, b) => `<section class="mh-sec" id="${id}"><div class="mh-wrap"><div class="mh-hd"><div><h2>${t}</h2>${s ? `<p>${s}</p>` : ""}</div>${l ? `<a href="#">${l} →</a>` : ""}</div>${b}</div></section>`;
+        const sec = (id, t, s, l, b) => {
+            const href = id === "hospitals" ? "hospitals.html" : (id === "doctors" ? "doctors.html" : (id === "costs" ? "cost.html" : (id === "stories" ? "patient-stories.html" : "#")));
+            return `<section class="mh-sec" id="${id}"><div class="mh-wrap"><div class="mh-hd"><div><h2>${t}</h2>${s ? `<p>${s}</p>` : ""}</div>${l ? `<a href="${href}">${l} →</a>` : ""}</div>${b}</div></section>`;
+        };
 
         const TREAT = [["Cancer Treatment", "cancer"], ["Cardiac Surgery", "cardiac"], ["Knee Replacement", "knee"], ["Hip Replacement", "hip"], ["Kidney Transplant", "kidney"], ["Liver Transplant", "liver"], ["IVF Treatment", "ivf"], ["Dental Implants", "dental"]];
         const COST = [["Knee Replacement", "$4,000", "4-5 days", "2-3 weeks"], ["Hip Replacement", "$4,500", "4-5 days", "2-3 weeks"], ["Heart Bypass", "$5,000", "6-7 days", "3-4 weeks"], ["Liver Transplant", "$35,000", "2-3 weeks", "8-12 weeks"], ["Kidney Transplant", "$16,000", "1-2 weeks", "4-6 weeks"], ["Dental Implant", "$800", "1-2 days", "1-2 days"]];

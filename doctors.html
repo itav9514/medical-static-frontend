@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Top Doctors in India | Leading Specialists & Surgeons | Adam Vacations</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Top Doctors in India, Best Surgeons in India, Cardiologists Delhi, Oncologists Chennai, Orthopedic Surgeons India, Top Neurosurgeons, Medical Tourism Doctors India" name="keywords">
+    <meta content="Connect with India's leading medical specialists and surgeons across Cardiology, Oncology, Orthopedics, Neurosurgery, and IVF. Get expert medical opinions and personalized travel support with Adam Vacations." name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@500;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet & Unified Treatment Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/treatment-pages.css" rel="stylesheet">
+    <link href="css/mobile-responsive.css" rel="stylesheet">
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '276665016196873');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=276665016196873&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Dynamic Header -->
+    <div id="header"></div>
+
+    <!-- MAIN WRAPPER -->
+    <main>
+        <!-- 1. HERO SECTION (100% Full Width Edge-to-Edge Breakout) -->
+        <section class="doc-hero-banner">
+            <div class="container">
+                <div class="doc-hero-content">
+                    <span class="doc-hero-tag">World-Class Care in India</span>
+                    <h1 class="doc-hero-title">
+                        Expert Doctors<br>
+                        For a <span class="text-red">Healthier Tomorrow</span>
+                    </h1>
+                    <p class="doc-hero-desc">
+                        Connect with India's leading doctors across multiple specialties and get the right treatment with expert guidance, personalised care and complete medical travel support.
+                    </p>
+
+                    <!-- 3 Trust Badges -->
+                    <div class="doc-trust-pills">
+                        <div class="doc-trust-pill">
+                            <span class="doc-pill-icon">
+                                <img src="Doctors-page/1.png" alt="Stethoscope Icon">
+                            </span>
+                            <span class="doc-pill-text">Highly Experienced Doctors</span>
+                        </div>
+                        <div class="doc-trust-pill">
+                            <span class="doc-pill-icon">
+                                <img src="Doctors-page/2.png" alt="Hospital Icon">
+                            </span>
+                            <span class="doc-pill-text">Leading Hospitals in India</span>
+                        </div>
+                        <div class="doc-trust-pill">
+                            <span class="doc-pill-icon">
+                                <img src="Doctors-page/3.png" alt="Shield Icon">
+                            </span>
+                            <span class="doc-pill-text">Personalised Patient Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- 2. FLOATING SEARCH & FILTER BAR -->
+            <div class="doc-search-card">
+                <form class="doc-search-form" id="doctorSearchForm" onsubmit="event.preventDefault(); filterDoctors();">
+                    <!-- Select Treatment -->
+                    <div class="doc-field-group">
+                        <label class="doc-field-label" for="docTreatmentFilter">Select Treatment</label>
+                        <div class="custom-select-wrap" id="wrap-docTreatmentFilter">
+                            <select id="docTreatmentFilter" class="d-none" onchange="filterDoctors();">
+                                <option value="all">Choose Treatment</option>
+                                <option value="cardiac">Cardiac Surgery</option>
+                                <option value="oncology">Cancer Treatment</option>
+                                <option value="orthopedics">Orthopedic Surgery</option>
+                                <option value="ivf">IVF & Fertility</option>
+                                <option value="neurosurgery">Neuro Surgeries</option>
+                                <option value="urology">Urology & Kidney</option>
+                                <option value="gastro">Gastroenterology & Liver</option>
+                                <option value="dental">Dental Implants</option>
+                                <option value="cosmetic">Cosmetic Surgery</option>
+                                <option value="eye">Eye Surgery</option>
+                                <option value="spine">Spine Surgery</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Select Speciality -->
+                    <div class="doc-field-group">
+                        <label class="doc-field-label" for="docSpecialtyFilter">Select Speciality</label>
+                        <div class="custom-select-wrap" id="wrap-docSpecialtyFilter">
+                            <select id="docSpecialtyFilter" class="d-none" onchange="filterDoctors();">
+                                <option value="all">Choose Specialty</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="oncology">Oncology</option>
+                                <option value="orthopedics">Orthopedics</option>
+                                <option value="urology">Urology</option>
+                                <option value="neurosurgery">Neurosurgery</option>
+                                <option value="gastroenterology">Gastroenterology</option>
+                                <option value="ivf">IVF & Fertility</option>
+                                <option value="dental">Dental</option>
+                                <option value="cosmetic">Cosmetic Surgery</option>
+                                <option value="ophthalmology">Ophthalmology</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Select City -->
+                    <div class="doc-field-group">
+                        <label class="doc-field-label" for="docCityFilter">Select City</label>
+                        <div class="custom-select-wrap" id="wrap-docCityFilter">
+                            <select id="docCityFilter" class="d-none" onchange="filterDoctors();">
+                                <option value="all">Choose City</option>
+                                <option value="delhi">New Delhi</option>
+                                <option value="gurgaon">Gurgaon</option>
+                                <option value="chennai">Chennai</option>
+                                <option value="mumbai">Mumbai</option>
+                                <option value="hyderabad">Hyderabad</option>
+                                <option value="bengaluru">Bengaluru</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Doctor Type -->
+                    <div class="doc-field-group">
+                        <label class="doc-field-label" for="docTypeFilter">Doctor Type</label>
+                        <div class="custom-select-wrap" id="wrap-docTypeFilter">
+                            <select id="docTypeFilter" class="d-none" onchange="filterDoctors();">
+                                <option value="all">All Doctors</option>
+                                <option value="director">Department Director / HOD</option>
+                                <option value="surgeon">Chief Surgeon</option>
+                                <option value="consultant">Senior Consultant</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Search Button -->
+                    <button type="submit" class="btn-search-doctors">
+                        Search Doctors <i class="fa fa-arrow-right ms-1"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- 3. FIND DOCTORS BY SPECIALTY -->
+            <section class="doc-specialties-sec mb-5" id="specialties">
+                <div class="doc-section-header">
+                    <div>
+                        <span class="doc-sec-tag">Explore by Specialty</span>
+                        <h2 class="doc-sec-title">Find Doctors by Specialty</h2>
+                    </div>
+                    <a href="#doctorsGrid" class="doc-sec-link" onclick="quickFilterSpecialty('all');">
+                        View All Specialties <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="doc-spec-grid">
+                    <!-- 1. Cardiology -->
+                    <div class="doc-spec-card bg-spec-cardio" onclick="quickFilterSpecialty('cardiology');">
+                        <img src="Doctors-page/4.png" alt="Cardiology">
+                        <span>Cardiology</span>
+                    </div>
+
+                    <!-- 2. Oncology -->
+                    <div class="doc-spec-card bg-spec-onco" onclick="quickFilterSpecialty('oncology');">
+                        <img src="Doctors-page/5.png" alt="Oncology">
+                        <span>Oncology</span>
+                    </div>
+
+                    <!-- 3. Orthopedics -->
+                    <div class="doc-spec-card bg-spec-ortho" onclick="quickFilterSpecialty('orthopedics');">
+                        <img src="Doctors-page/6.png" alt="Orthopedics">
+                        <span>Orthopedics</span>
+                    </div>
+
+                    <!-- 4. Urology -->
+                    <div class="doc-spec-card bg-spec-uro" onclick="quickFilterSpecialty('urology');">
+                        <img src="Doctors-page/7.png" alt="Urology">
+                        <span>Urology</span>
+                    </div>
+
+                    <!-- 5. Neurosurgery -->
+                    <div class="doc-spec-card bg-spec-neuro" onclick="quickFilterSpecialty('neurosurgery');">
+                        <img src="Doctors-page/8.png" alt="Neurosurgery">
+                        <span>Neurosurgery</span>
+                    </div>
+
+                    <!-- 6. Gastroenterology -->
+                    <div class="doc-spec-card bg-spec-gastro" onclick="quickFilterSpecialty('gastroenterology');">
+                        <img src="Doctors-page/9.png" alt="Gastroenterology">
+                        <span>Gastroenterology</span>
+                    </div>
+
+                    <!-- 7. IVF & Fertility -->
+                    <div class="doc-spec-card bg-spec-ivf" onclick="quickFilterSpecialty('ivf');">
+                        <img src="Doctors-page/10.png" alt="IVF & Fertility">
+                        <span>IVF & Fertility</span>
+                    </div>
+
+                    <!-- 8. Dental -->
+                    <div class="doc-spec-card bg-spec-dental" onclick="quickFilterSpecialty('dental');">
+                        <img src="Doctors-page/11.png" alt="Dental">
+                        <span>Dental</span>
+                    </div>
+
+                    <!-- 9. Cosmetic Surgery -->
+                    <div class="doc-spec-card bg-spec-cosmetic" onclick="quickFilterSpecialty('cosmetic');">
+                        <img src="Doctors-page/12.png" alt="Cosmetic Surgery">
+                        <span>Cosmetic Surgery</span>
+                    </div>
+
+                    <!-- 10. Ophthalmology -->
+                    <div class="doc-spec-card bg-spec-ophth" onclick="quickFilterSpecialty('ophthalmology');">
+                        <img src="Doctors-page/13.png" alt="Ophthalmology">
+                        <span>Ophthalmology</span>
+                    </div>
+
+                    <!-- 11. More Specialties -->
+                    <div class="doc-spec-card bg-spec-more" onclick="quickFilterSpecialty('all');">
+                        <img src="Doctors-page/14.png" alt="More Specialties">
+                        <span>More Specialties</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. TOP DOCTORS IN INDIA -->
+            <section class="doc-list-sec" id="doctorsSection">
+                <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap gap-2">
+                    <div>
+                        <span class="doc-sec-tag">Meet Our Experts</span>
+                        <h2 class="doc-sec-title mb-1">Top Doctors in India</h2>
+                        <p class="doc-sec-desc text-muted mb-0">Consult with highly qualified and experienced doctors from India's best hospitals.</p>
+                    </div>
+                    <a href="#specialties" class="sec-view-link" onclick="quickFilterSpecialty('all');">
+                        View All Doctors <i class="fa fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+
+                <!-- Doctors Owl Carousel Slider -->
+                <div class="slider-box ivf-slider-box" id="doctorsSliderBox">
+                    <button type="button" class="slider-arrow prev" data-target=".doctors-page-slider" aria-label="Previous">
+                        <i class="fa fa-chevron-left"></i>
+                    </button>
+                    <button type="button" class="slider-arrow next" data-target=".doctors-page-slider" aria-label="Next">
+                        <i class="fa fa-chevron-right"></i>
+                    </button>
+
+                    <div class="owl-carousel ivf-slider doctors-page-slider" id="doctorsCarousel">
+                        <!-- DOCTOR 1: Dr. Rajesh Kumar -->
+                        <div class="item">
+                            <div class="doctor-card" data-specialty="cardiology" data-treatment="cardiac" data-city="delhi" data-type="surgeon"
+                                 data-name="Dr. Rajesh Kumar" data-hosp="Fortis Hospital, New Delhi" data-exp="25+ Years Experience" data-rating="4.8"
+                                 data-reviews="120+" data-img="Doctors-page/15.png" data-dept="Director - Adult & Pediatric Cardiac Surgery"
+                                 data-bio="Dr. Rajesh Kumar is an internationally celebrated cardiac surgeon with over 25 years of extensive surgical experience. Having performed more than 10,000 successful open-heart, CABG bypass, and valve replacement surgeries, he is considered a premier authority in minimally invasive cardiac procedures."
+                                 data-procedures="CABG Bypass Surgery, Heart Valve Repair & Replacement, Minimally Invasive Heart Surgery, Aortic Aneurysm Repair, Pediatric Cardiac Procedures">
+                                <div class="doctor-card-img-wrap">
+                                    <img src="Doctors-page/15.png" alt="Dr. Rajesh Kumar" loading="lazy">
+                                    <span class="doc-hosp-pill">
+                                        <span class="badge-dot dot-fortis"></span> Fortis
+                                    </span>
+                                </div>
+                                <div class="doctor-card-body">
+                                    <h4 class="doctor-card-name">Dr. Rajesh Kumar</h4>
+                                    <span class="doctor-card-spec">Cardiac Surgeon</span>
+                                    <ul class="doctor-card-meta">
+                                        <li><i class="fa fa-briefcase"></i> 25+ Years Experience</li>
+                                        <li><i class="fa fa-map-marker-alt"></i> Fortis Hospital, New Delhi</li>
+                                    </ul>
+                                    <div class="doctor-card-rating">
+                                        <span class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                                        <span class="score">4.8 (120+ reviews)</span>
+                                    </div>
+                                    <button type="button" class="btn-view-doc-profile" onclick="openDoctorModal(this);">
+                                        View Profile <i class="fa fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DOCTOR 2: Dr. Neha Sharma -->
+                        <div class="item">
+                            <div class="doctor-card" data-specialty="oncology" data-treatment="oncology" data-city="chennai" data-type="consultant"
+                                 data-name="Dr. Neha Sharma" data-hosp="Apollo Hospital, Chennai" data-exp="18+ Years Experience" data-rating="4.9"
+                                 data-reviews="95+" data-img="Doctors-page/16.png" data-dept="Senior Consultant - Medical & Surgical Oncology"
+                                 data-bio="Dr. Neha Sharma is a renowned medical oncologist and clinical researcher with 18+ years of dedicated practice at Apollo Cancer Centre. She specializes in targeted immuno-therapies, precision chemotherapy, and comprehensive organ-preservation cancer management."
+                                 data-procedures="Targeted Chemotherapy, Immunotherapy Protocols, Breast & Gynecological Oncology, Comprehensive Tumor Board Management, Precision Radiation Therapy Guidance">
+                                <div class="doctor-card-img-wrap">
+                                    <img src="Doctors-page/16.png" alt="Dr. Neha Sharma" loading="lazy">
+                                    <span class="doc-hosp-pill">
+                                        <span class="badge-dot dot-apollo"></span> Apollo
+                                    </span>
+                                </div>
+                                <div class="doctor-card-body">
+                                    <h4 class="doctor-card-name">Dr. Neha Sharma</h4>
+                                    <span class="doctor-card-spec">Oncologist</span>
+                                    <ul class="doctor-card-meta">
+                                        <li><i class="fa fa-briefcase"></i> 18+ Years Experience</li>
+                                        <li><i class="fa fa-map-marker-alt"></i> Apollo Hospital, Chennai</li>
+                                    </ul>
+                                    <div class="doctor-card-rating">
+                                        <span class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                                        <span class="score">4.9 (95+ reviews)</span>
+                                    </div>
+                                    <button type="button" class="btn-view-doc-profile" onclick="openDoctorModal(this);">
+                                        View Profile <i class="fa fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DOCTOR 3: Dr. Amit Verma -->
+                        <div class="item">
+                            <div class="doctor-card" data-specialty="orthopedics" data-treatment="orthopedics" data-city="delhi" data-type="surgeon"
+                                 data-name="Dr. Amit Verma" data-hosp="Max Hospital, New Delhi" data-exp="20+ Years Experience" data-rating="4.7"
+                                 data-reviews="110+" data-img="Doctors-page/17.png" data-dept="Chief Surgeon - Joint Replacement & Arthroscopy"
+                                 data-bio="Dr. Amit Verma is a pioneer in Robotic Joint Replacement in North India. With 20+ years of high-volume clinical practice, he has performed over 8,500 computer-navigated knee and hip surgeries, ensuring rapid rehabilitation and minimal post-operative discomfort."
+                                 data-procedures="Robotic Total Knee Replacement, Total Hip Arthroplasty, Revision Joint Reconstruction, Knee Arthroscopy & ACL Repair, Complex Pelvic & Acetabular Surgery">
+                                <div class="doctor-card-img-wrap">
+                                    <img src="Doctors-page/17.png" alt="Dr. Amit Verma" loading="lazy">
+                                    <span class="doc-hosp-pill">
+                                        <span class="badge-dot dot-max"></span> MAX
+                                    </span>
+                                </div>
+                                <div class="doctor-card-body">
+                                    <h4 class="doctor-card-name">Dr. Amit Verma</h4>
+                                    <span class="doctor-card-spec">Orthopedic Surgeon</span>
+                                    <ul class="doctor-card-meta">
+                                        <li><i class="fa fa-briefcase"></i> 20+ Years Experience</li>
+                                        <li><i class="fa fa-map-marker-alt"></i> Max Hospital, New Delhi</li>
+                                    </ul>
+                                    <div class="doctor-card-rating">
+                                        <span class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                                        <span class="score">4.7 (110+ reviews)</span>
+                                    </div>
+                                    <button type="button" class="btn-view-doc-profile" onclick="openDoctorModal(this);">
+                                        View Profile <i class="fa fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DOCTOR 4: Dr. Priya Singh -->
+                        <div class="item">
+                            <div class="doctor-card" data-specialty="ivf" data-treatment="ivf" data-city="delhi" data-type="director"
+                                 data-name="Dr. Priya Singh" data-hosp="BLK Hospital, New Delhi" data-exp="15+ Years Experience" data-rating="4.8"
+                                 data-reviews="90+" data-img="Doctors-page/18.png" data-dept="Director - Reproductive Medicine & IVF"
+                                 data-bio="Dr. Priya Singh is an acclaimed Reproductive Endocrinologist and IVF Specialist who has helped thousands of international couples build families. She holds high success rates in complex infertility cases, advanced ICSI, and blastocyst culture techniques."
+                                 data-procedures="In-Vitro Fertilization (IVF), ICSI / IMSI, Egg Freezing & Embryo Vitrification, Pre-implantation Genetic Testing (PGT), Recurrent Implantation Failure Management">
+                                <div class="doctor-card-img-wrap">
+                                    <img src="Doctors-page/18.png" alt="Dr. Priya Singh" loading="lazy">
+                                    <span class="doc-hosp-pill">
+                                        <span class="badge-dot dot-blk"></span> BLK
+                                    </span>
+                                </div>
+                                <div class="doctor-card-body">
+                                    <h4 class="doctor-card-name">Dr. Priya Singh</h4>
+                                    <span class="doctor-card-spec">Fertility Specialist</span>
+                                    <ul class="doctor-card-meta">
+                                        <li><i class="fa fa-briefcase"></i> 15+ Years Experience</li>
+                                        <li><i class="fa fa-map-marker-alt"></i> BLK Hospital, New Delhi</li>
+                                    </ul>
+                                    <div class="doctor-card-rating">
+                                        <span class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                                        <span class="score">4.8 (90+ reviews)</span>
+                                    </div>
+                                    <button type="button" class="btn-view-doc-profile" onclick="openDoctorModal(this);">
+                                        View Profile <i class="fa fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DOCTOR 5: Dr. Sandeep Vaishya -->
+                        <div class="item">
+                            <div class="doctor-card" data-specialty="neurosurgery" data-treatment="neurosurgery" data-city="gurgaon" data-type="director"
+                                 data-name="Dr. Sandeep Vaishya" data-hosp="Fortis Memorial, Gurgaon" data-exp="22+ Years Experience" data-rating="4.9"
+                                 data-reviews="135+" data-img="Doctors-page/15.png" data-dept="Executive Director - Neurosurgery & Spine"
+                                 data-bio="Dr. Sandeep Vaishya is an internationally recognized neurosurgeon with specialized training from premier medical institutes worldwide. Known for exceptional precision in micro-neurosurgery, deep brain stimulation (DBS), and minimally invasive spine instrumentation."
+                                 data-procedures="Brain Tumor Resection, Deep Brain Stimulation (DBS), Minimally Invasive Spine Surgery, Gamma Knife Radiosurgery, Brachial Plexus Surgery">
+                                <div class="doctor-card-img-wrap">
+                                    <img src="Doctors-page/15.png" alt="Dr. Sandeep Vaishya" loading="lazy">
+                                    <span class="doc-hosp-pill">
+                                        <span class="badge-dot dot-fortis"></span> Fortis
+                                    </span>
+                                </div>
+                                <div class="doctor-card-body">
+                                    <h4 class="doctor-card-name">Dr. Sandeep Vaishya</h4>
+                                    <span class="doctor-card-spec">Neurosurgeon</span>
+                                    <ul class="doctor-card-meta">
+                                        <li><i class="fa fa-briefcase"></i> 22+ Years Experience</li>
+                                        <li><i class="fa fa-map-marker-alt"></i> Fortis Memorial, Gurgaon</li>
+                                    </ul>
+                                    <div class="doctor-card-rating">
+                                        <span class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                                        <span class="score">4.9 (135+ reviews)</span>
+                                    </div>
+                                    <button type="button" class="btn-view-doc-profile" onclick="openDoctorModal(this);">
+                                        View Profile <i class="fa fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DOCTOR 6: Dr. Subhash Gupta -->
+                        <div class="item">
+                            <div class="doctor-card" data-specialty="gastroenterology" data-treatment="gastro" data-city="delhi" data-type="director"
+                                 data-name="Dr. Subhash Gupta" data-hosp="Max Healthcare, New Delhi" data-exp="28+ Years Experience" data-rating="4.9"
+                                 data-reviews="150+" data-img="Doctors-page/16.png" data-dept="Chairman - Centre for Liver & Biliary Sciences"
+                                 data-bio="Dr. Subhash Gupta is one of the world's leading liver transplant surgeons, having spearheaded over 3,000 living donor liver transplants. Patients from over 50 countries travel specifically to consult his specialized multidisciplinary transplant team."
+                                 data-procedures="Living Donor Liver Transplant, Complex Hepato-Biliary Resections, Pancreatic Surgery, Biliary Reconstruction, Pediatric Liver Transplantation">
+                                <div class="doctor-card-img-wrap">
+                                    <img src="Doctors-page/16.png" alt="Dr. Subhash Gupta" loading="lazy">
+                                    <span class="doc-hosp-pill">
+                                        <span class="badge-dot dot-max"></span> MAX
+                                    </span>
+                                </div>
+                                <div class="doctor-card-body">
+                                    <h4 class="doctor-card-name">Dr. Subhash Gupta</h4>
+                                    <span class="doctor-card-spec">Gastroenterologist &amp; Liver Specialist</span>
+                                    <ul class="doctor-card-meta">
+                                        <li><i class="fa fa-briefcase"></i> 28+ Years Experience</li>
+                                        <li><i class="fa fa-map-marker-alt"></i> Max Healthcare, New Delhi</li>
+                                    </ul>
+                                    <div class="doctor-card-rating">
+                                        <span class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                                        <span class="score">4.9 (150+ reviews)</span>
+                                    </div>
+                                    <button type="button" class="btn-view-doc-profile" onclick="openDoctorModal(this);">
+                                        View Profile <i class="fa fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DOCTOR 7: Dr. Anoop Misra -->
+                        <div class="item">
+                            <div class="doctor-card" data-specialty="urology" data-treatment="urology" data-city="delhi" data-type="consultant"
+                                 data-name="Dr. Anoop Misra" data-hosp="Fortis Hospital, New Delhi" data-exp="24+ Years Experience" data-rating="4.8"
+                                 data-reviews="98+" data-img="Doctors-page/17.png" data-dept="Senior Consultant - Urology & Renal Sciences"
+                                 data-bio="Dr. Anoop Misra is an eminent urologist with extensive expertise in robotic kidney transplants, laser prostate surgery (HoLEP), and advanced reconstructive urology with exceptional patient satisfaction."
+                                 data-procedures="Robotic Partial Nephrectomy, Kidney Transplant Surgery, Laser Prostate Resection (HoLEP), Retrograde Intrarenal Surgery (RIRS), Reconstructive Urology">
+                                <div class="doctor-card-img-wrap">
+                                    <img src="Doctors-page/17.png" alt="Dr. Anoop Misra" loading="lazy">
+                                    <span class="doc-hosp-pill">
+                                        <span class="badge-dot dot-fortis"></span> Fortis
+                                    </span>
+                                </div>
+                                <div class="doctor-card-body">
+                                    <h4 class="doctor-card-name">Dr. Anoop Misra</h4>
+                                    <span class="doctor-card-spec">Urologist &amp; Kidney Specialist</span>
+                                    <ul class="doctor-card-meta">
+                                        <li><i class="fa fa-briefcase"></i> 24+ Years Experience</li>
+                                        <li><i class="fa fa-map-marker-alt"></i> Fortis Hospital, New Delhi</li>
+                                    </ul>
+                                    <div class="doctor-card-rating">
+                                        <span class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                                        <span class="score">4.8 (98+ reviews)</span>
+                                    </div>
+                                    <button type="button" class="btn-view-doc-profile" onclick="openDoctorModal(this);">
+                                        View Profile <i class="fa fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DOCTOR 8: Dr. Lokesh Kumar -->
+                        <div class="item">
+                            <div class="doctor-card" data-specialty="cosmetic" data-treatment="cosmetic" data-city="delhi" data-type="surgeon"
+                                 data-name="Dr. Lokesh Kumar" data-hosp="BLK-Max Hospital, New Delhi" data-exp="26+ Years Experience" data-rating="4.8"
+                                 data-reviews="105+" data-img="Doctors-page/18.png" data-dept="Chief Consultant - Plastic & Cosmetic Surgery"
+                                 data-bio="Dr. Lokesh Kumar is a leading plastic and aesthetic surgeon renowned internationally for natural-looking cosmetic transformations, micro-vascular reconstructions, and state-of-the-art body contouring."
+                                 data-procedures="Facelift & Blepharoplasty, Rhinoplasty, High-Definition Liposuction, Breast Augmentation & Lift, Complex Scar Revision & Reconstructive Surgery">
+                                <div class="doctor-card-img-wrap">
+                                    <img src="Doctors-page/18.png" alt="Dr. Lokesh Kumar" loading="lazy">
+                                    <span class="doc-hosp-pill">
+                                        <span class="badge-dot dot-blk"></span> BLK
+                                    </span>
+                                </div>
+                                <div class="doctor-card-body">
+                                    <h4 class="doctor-card-name">Dr. Lokesh Kumar</h4>
+                                    <span class="doctor-card-spec">Cosmetic &amp; Plastic Surgeon</span>
+                                    <ul class="doctor-card-meta">
+                                        <li><i class="fa fa-briefcase"></i> 26+ Years Experience</li>
+                                        <li><i class="fa fa-map-marker-alt"></i> BLK-Max Hospital, New Delhi</li>
+                                    </ul>
+                                    <div class="doctor-card-rating">
+                                        <span class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                                        <span class="score">4.8 (105+ reviews)</span>
+                                    </div>
+                                    <button type="button" class="btn-view-doc-profile" onclick="openDoctorModal(this);">
+                                        View Profile <i class="fa fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- No Results Notification -->
+                <div id="noDoctorsMsg" class="alert alert-info text-center py-4 rounded-3" style="display: none;">
+                    <i class="fa fa-info-circle fa-2x mb-2 text-primary"></i>
+                    <h5 class="fw-bold mb-1">No doctors match your selected criteria.</h5>
+                    <p class="text-muted mb-3">Try adjusting your specialty, city or treatment filters, or get in touch with our team directly for custom recommendations.</p>
+                    <button type="button" class="btn btn-outline-primary rounded-pill px-4" onclick="resetDoctorFilters();">
+                        Reset All Filters
+                    </button>
+                </div>
+            </section>
+
+            <!-- 5. EXPERT CARE YOU CAN TRUST (4 Pill Cards) -->
+            <section class="doc-why-sec">
+                <div class="text-center mb-4">
+                    <span class="doc-sec-tag">Why Choose Our Doctors</span>
+                    <h2 class="doc-sec-title">Expert Care You Can Trust</h2>
+                </div>
+
+                <div class="doc-why-grid">
+                    <!-- Pill 1 -->
+                    <div class="doc-why-card why-blue">
+                        <div class="doc-why-icon-wrap">
+                            <img src="Doctors-page/19.png" alt="Qualified Doctor Icon">
+                        </div>
+                        <h5>Highly Qualified and Experienced</h5>
+                    </div>
+
+                    <!-- Pill 2 -->
+                    <div class="doc-why-card why-pink">
+                        <div class="doc-why-icon-wrap">
+                            <img src="Doctors-page/22.png" alt="Top Hospitals Icon">
+                        </div>
+                        <h5>Associated with Top Hospitals</h5>
+                    </div>
+
+                    <!-- Pill 3 -->
+                    <div class="doc-why-card why-green">
+                        <div class="doc-why-icon-wrap">
+                            <img src="Doctors-page/21.png" alt="Patient Support Icon">
+                        </div>
+                        <h5>International Patient Support</h5>
+                    </div>
+
+                    <!-- Pill 4 -->
+                    <div class="doc-why-card why-yellow">
+                        <div class="doc-why-icon-wrap">
+                            <img src="Doctors-page/23.png" alt="Treatment Plans Icon">
+                        </div>
+                        <h5>Personalised Treatment Plans</h5>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. "World-Class Medical Expertise with a Personal Touch" Mid Banner -->
+            <section class="doc-mid-banner">
+                <div class="doc-mid-banner-content">
+                    <h3 class="doc-mid-banner-title">World-Class Medical Expertise with a Personal Touch</h3>
+                    <div class="doc-mid-banner-bar"></div>
+                    <p class="doc-mid-banner-desc">
+                        Our doctors are committed to providing international patients with safe, ethical and high-quality care.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 7. WHAT OUR PATIENTS SAY & STATS -->
+            <section class="doc-stories-sec">
+                <div class="mb-4">
+                    <span class="doc-sec-tag">Patient Stories</span>
+                    <h2 class="doc-sec-title">What Our Patients Say</h2>
+                </div>
+
+                <div class="row g-4 align-items-stretch">
+                    <!-- Left: Patient Stories Slider -->
+                    <div class="col-lg-7">
+                        <div class="slider-box ivf-slider-box patient-slider-box">
+                            <button type="button" class="slider-arrow prev" data-target=".patient-stories-carousel" aria-label="Previous">
+                                <i class="fa fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="slider-arrow next" data-target=".patient-stories-carousel" aria-label="Next">
+                                <i class="fa fa-chevron-right"></i>
+                            </button>
+
+                            <div class="owl-carousel patient-stories-carousel">
+                                <!-- Story 1: Sarah M. -->
+                                <div class="item">
+                                    <div class="doc-testimonial-card">
+                                        <div>
+                                            <span class="doc-quote-icon">
+                                                <i class="fa fa-quote-left"></i>
+                                            </span>
+                                            <p class="doc-testimonial-text">
+                                                "The doctor and entire team were very supportive throughout my treatment journey. I felt well taken care of, and the coordination by Adam Vacations made everything smooth from travel to treatment."
+                                            </p>
+                                        </div>
+                                        <div class="doc-testimonial-footer">
+                                            <div class="doc-testimonial-author">
+                                                <img src="Doctors-page/24.png" alt="Sarah M." class="doc-author-avatar">
+                                                <div>
+                                                    <h5 class="doc-author-name">Sarah M.</h5>
+                                                    <p class="doc-author-sub">From UK | Cardiac Treatment</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Story 2: Ahmed Al-Mansoor -->
+                                <div class="item">
+                                    <div class="doc-testimonial-card">
+                                        <div>
+                                            <span class="doc-quote-icon">
+                                                <i class="fa fa-quote-left"></i>
+                                            </span>
+                                            <p class="doc-testimonial-text">
+                                                "Consulting with Dr. Amit Verma was the best decision for my bilateral knee replacement. The surgery was completely painless with robotic assistance and I walked the very next day."
+                                            </p>
+                                        </div>
+                                        <div class="doc-testimonial-footer">
+                                            <div class="doc-testimonial-author">
+                                                <img src="Doctors-page/24.png" alt="Ahmed Al-Mansoor" class="doc-author-avatar">
+                                                <div>
+                                                    <h5 class="doc-author-name">Ahmed Al-Mansoor</h5>
+                                                    <p class="doc-author-sub">From UAE | Orthopedic Surgery</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Story 3: Grace & John O. -->
+                                <div class="item">
+                                    <div class="doc-testimonial-card">
+                                        <div>
+                                            <span class="doc-quote-icon">
+                                                <i class="fa fa-quote-left"></i>
+                                            </span>
+                                            <p class="doc-testimonial-text">
+                                                "Our fertility journey seemed impossible until we met Dr. Priya Singh at BLK. Her compassionate guidance and world-class IVF lab gave us our twin miracles. Forever grateful!"
+                                            </p>
+                                        </div>
+                                        <div class="doc-testimonial-footer">
+                                            <div class="doc-testimonial-author">
+                                                <img src="Doctors-page/24.png" alt="Grace & John O." class="doc-author-avatar">
+                                                <div>
+                                                    <h5 class="doc-author-name">Grace &amp; John O.</h5>
+                                                    <p class="doc-author-sub">From Nigeria | IVF &amp; Fertility</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Story 4: Tariq K. -->
+                                <div class="item">
+                                    <div class="doc-testimonial-card">
+                                        <div>
+                                            <span class="doc-quote-icon">
+                                                <i class="fa fa-quote-left"></i>
+                                            </span>
+                                            <p class="doc-testimonial-text">
+                                                "Dr. Subhash Gupta's team performed a life-saving liver transplant for my brother. Exceptional international patient care and complete post-operative follow-up support."
+                                            </p>
+                                        </div>
+                                        <div class="doc-testimonial-footer">
+                                            <div class="doc-testimonial-author">
+                                                <img src="Doctors-page/24.png" alt="Tariq K." class="doc-author-avatar">
+                                                <div>
+                                                    <h5 class="doc-author-name">Tariq K.</h5>
+                                                    <p class="doc-author-sub">From Kenya | Liver Transplant</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Trust Stats -->
+                    <div class="col-lg-5">
+                        <div class="doc-stats-stack">
+                            <!-- Stat 1 -->
+                            <div class="doc-stat-box">
+                                <img src="Doctors-page/25.png" alt="Experienced Doctors" class="doc-stat-icon">
+                                <div>
+                                    <h3 class="doc-stat-num">500+</h3>
+                                    <p class="doc-stat-label">Experienced Doctors</p>
+                                </div>
+                            </div>
+
+                            <!-- Stat 2 -->
+                            <div class="doc-stat-box">
+                                <img src="Doctors-page/26.png" alt="Top Hospitals" class="doc-stat-icon">
+                                <div>
+                                    <h3 class="doc-stat-num">50+</h3>
+                                    <p class="doc-stat-label">Top Hospitals in India</p>
+                                </div>
+                            </div>
+
+                            <!-- Stat 3 -->
+                            <div class="doc-stat-box">
+                                <img src="Doctors-page/27.png" alt="International Patients" class="doc-stat-icon">
+                                <div>
+                                    <h3 class="doc-stat-num">1000+</h3>
+                                    <p class="doc-stat-label">International Patients Supported</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 8. FULL-WIDTH BOTTOM CTA BANNER (100% Edge-to-Edge Breakout) -->
+        <section class="doc-bottom-cta">
+            <div class="container">
+                <div class="doc-bottom-cta-card">
+                    <div class="doc-cta-left">
+                        <span class="doc-cta-plane-icon">
+                            <i class="fa fa-paper-plane"></i>
+                        </span>
+                        <div class="doc-cta-text">
+                            <h4>Need Help Finding the Right Doctor?</h4>
+                            <p>Get a free medical opinion and let our experts guide you to the best treatment options in India.</p>
+                        </div>
+                    </div>
+                    <a href="appointment.html" class="btn-cta-opinion-pill">
+                        Get Free Medical Opinion <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Dynamic Footer -->
+    <div id="footer"></div>
+
+    <!-- DOCTOR PROFILE DETAILS MODAL -->
+    <div class="modal fade" id="doctorModal" tabindex="-1" aria-labelledby="doctorModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 18px; overflow: hidden;">
+                <div class="modal-header border-bottom px-4 py-3" style="background: #f8fafc;">
+                    <div>
+                        <span class="badge bg-primary px-3 py-1 rounded-pill mb-1" id="docModalHospitalBadge">Top Hospital Specialist</span>
+                        <h4 class="modal-title font-weight-bold text-navy" id="doctorModalTitle" style="color: #02295a; font-weight: 800;">Doctor Name</h4>
+                        <span class="text-muted small" id="docModalDept">Department</span>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4 align-items-center mb-3">
+                        <div class="col-md-5 text-center">
+                            <img id="doctorModalImg" src="" alt="Doctor" class="img-fluid rounded-3 shadow-sm w-100" style="max-height: 230px; object-fit: cover;">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="d-flex align-items-center gap-2 mb-2 text-muted">
+                                <i class="fa fa-map-marker-alt text-danger"></i>
+                                <span class="fw-bold" id="doctorModalLocation">Hospital, Location</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 mb-2 text-muted">
+                                <i class="fa fa-briefcase text-primary"></i>
+                                <span class="fw-bold" id="doctorModalExp">Experience</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <span class="stars text-warning"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                                <span class="fw-bold text-secondary small" id="doctorModalRating">4.8 (120+ reviews)</span>
+                            </div>
+                            <h6 class="fw-bold text-navy mb-1" style="color: #02295a;">Key Procedures Performed:</h6>
+                            <p class="text-secondary small mb-0" id="doctorModalProcedures">Procedures list...</p>
+                        </div>
+                    </div>
+                    <hr class="my-3">
+                    <h6 class="fw-bold text-navy mb-2" style="color: #02295a;">About the Doctor &amp; Medical Background:</h6>
+                    <p class="text-secondary" id="doctorModalBio" style="line-height: 1.7; font-size: 14.5px;">Biography...</p>
+                </div>
+                <div class="modal-footer border-top bg-light px-4 py-3 d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Close</button>
+                    <a href="appointment.html" class="btn btn-danger rounded-pill px-4 font-weight-bold" style="background: #e52128; border: none;">
+                        Consult This Doctor <i class="fa fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript (header/footer fetch) -->
+    <script src="js/main.js"></script>
+
+    <!-- Doctors Page Interactive Scripts -->
+    <script>
+        // 1. Owl Carousel Initialization & Dynamic Filtering
+        let originalDoctorItems = [];
+        let docCarousel = null;
+
+        function initDoctorCarousel() {
+            return $('.doctors-page-slider').owlCarousel({
+                loop: true,
+                nav: false,
+                dots: false,
+                margin: 20,
+                smartSpeed: 600,
+                autoplay: true,
+                autoplayTimeout: 4000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: { items: 1 },
+                    576: { items: 2 },
+                    992: { items: 3 },
+                    1200: { items: 4 }
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            // Save original items for filtering
+            $('#doctorsCarousel .item').each(function () {
+                originalDoctorItems.push($(this).clone());
+            });
+
+            // Initialize Doctor Carousel
+            docCarousel = initDoctorCarousel();
+
+            // Initialize Patient Stories Carousel
+            $('.patient-stories-carousel').owlCarousel({
+                items: 1,
+                loop: true,
+                margin: 15,
+                smartSpeed: 600,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                nav: false,
+                dots: false
+            });
+
+            // Slider navigation click handler (for side arrows on both sliders)
+            $(document).on('click', '.slider-arrow', function (e) {
+                e.preventDefault();
+                const target = $(this).data('target');
+                if (target) {
+                    const action = $(this).hasClass('prev') ? 'prev.owl.carousel' : 'next.owl.carousel';
+                    $(target).trigger(action, [400]);
+                }
+            });
+        });
+
+        function filterDoctors() {
+            const treatment = (document.getElementById('docTreatmentFilter').value || 'all').toLowerCase();
+            const specialty = (document.getElementById('docSpecialtyFilter').value || 'all').toLowerCase();
+            const city = (document.getElementById('docCityFilter').value || 'all').toLowerCase();
+            const type = (document.getElementById('docTypeFilter').value || 'all').toLowerCase();
+
+            // Destroy current carousel
+            if (docCarousel) {
+                docCarousel.trigger('destroy.owl.carousel');
+                docCarousel.find('.owl-stage-outer').children().unwrap();
+            }
+            const $carousel = $('#doctorsCarousel');
+            $carousel.empty();
+
+            let matchCount = 0;
+            originalDoctorItems.forEach($item => {
+                const card = $item.find('.doctor-card')[0];
+                if (!card) return;
+                const cTreat = (card.getAttribute('data-treatment') || '').toLowerCase();
+                const cSpec = (card.getAttribute('data-specialty') || '').toLowerCase();
+                const cCity = (card.getAttribute('data-city') || '').toLowerCase();
+                const cType = (card.getAttribute('data-type') || '').toLowerCase();
+
+                const matchTreatment = (treatment === 'all' || cTreat.includes(treatment));
+                const matchSpecialty = (specialty === 'all' || cSpec.includes(specialty));
+                const matchCity = (city === 'all' || cCity === city);
+                const matchType = (type === 'all' || cType.includes(type));
+
+                if (matchTreatment && matchSpecialty && matchCity && matchType) {
+                    $carousel.append($item.clone());
+                    matchCount++;
+                }
+            });
+
+            const noMsg = document.getElementById('noDoctorsMsg');
+            const sliderBox = document.getElementById('doctorsSliderBox');
+
+            if (matchCount === 0) {
+                if (noMsg) noMsg.style.display = 'block';
+                if (sliderBox) sliderBox.style.display = 'none';
+            } else {
+                if (noMsg) noMsg.style.display = 'none';
+                if (sliderBox) sliderBox.style.display = 'block';
+                docCarousel = initDoctorCarousel();
+            }
+        }
+
+        // Quick filter by clicking specialty cards
+        function quickFilterSpecialty(spec) {
+            const specSelect = document.getElementById('docSpecialtyFilter');
+            if (specSelect) {
+                specSelect.value = spec;
+                updateCustomSelectDisplay('docSpecialtyFilter', spec);
+            }
+            filterDoctors();
+
+            // Highlight active specialty card
+            document.querySelectorAll('.doc-spec-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            const activeCard = event && event.currentTarget;
+            if (activeCard && activeCard.classList.contains('doc-spec-card')) {
+                activeCard.classList.add('active');
+            }
+
+            // Scroll to carousel smoothly
+            const targetSec = document.getElementById('doctorsSection');
+            if (targetSec) {
+                targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function resetDoctorFilters() {
+            ['docTreatmentFilter', 'docSpecialtyFilter', 'docCityFilter', 'docTypeFilter'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.value = 'all';
+                    updateCustomSelectDisplay(id, 'all');
+                }
+            });
+            filterDoctors();
+        }
+
+        // 2. Custom Select Dropdown Builder (Smooth In-DOM Custom Selects)
+        function makeCustomSelect(selectId) {
+            const select = document.getElementById(selectId);
+            if (!select) return;
+            const parent = select.parentElement;
+
+            const existingTrigger = parent.querySelector(".custom-select-trigger");
+            if (existingTrigger) existingTrigger.remove();
+            const existingMenu = parent.querySelector(".custom-select-menu");
+            if (existingMenu) existingMenu.remove();
+
+            const trigger = document.createElement("div");
+            trigger.className = "custom-select-trigger";
+            const initialText = select.options[select.selectedIndex] ? select.options[select.selectedIndex].text : select.options[0].text;
+            trigger.innerHTML = `<span class="selected-text">${initialText}</span><i class="fa fa-chevron-down arrow-icon"></i>`;
+
+            const menu = document.createElement("div");
+            menu.className = "custom-select-menu";
+
+            Array.from(select.options).forEach((opt, idx) => {
+                const item = document.createElement("div");
+                item.className = "custom-select-option" + (idx === select.selectedIndex ? " selected" : "");
+                item.textContent = opt.text;
+                item.dataset.value = opt.value;
+
+                item.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    select.value = opt.value;
+                    trigger.querySelector(".selected-text").textContent = opt.text;
+
+                    menu.querySelectorAll(".custom-select-option").forEach(o => o.classList.remove("selected"));
+                    item.classList.add("selected");
+
+                    parent.classList.remove("open");
+                    select.dispatchEvent(new Event("change"));
+                });
+
+                menu.appendChild(item);
+            });
+
+            trigger.addEventListener("click", function (e) {
+                e.stopPropagation();
+                document.querySelectorAll(".doc-search-card .custom-select-wrap.open").forEach(w => {
+                    if (w !== parent) w.classList.remove("open");
+                });
+                parent.classList.toggle("open");
+            });
+
+            parent.appendChild(trigger);
+            parent.appendChild(menu);
+        }
+
+        function updateCustomSelectDisplay(selectId, val) {
+            const select = document.getElementById(selectId);
+            const parent = select && select.parentElement;
+            if (!parent) return;
+            const trigger = parent.querySelector(".custom-select-trigger .selected-text");
+            const menu = parent.querySelector(".custom-select-menu");
+            if (!trigger || !menu) return;
+
+            let foundText = "";
+            menu.querySelectorAll(".custom-select-option").forEach(opt => {
+                if (opt.dataset.value === val) {
+                    opt.classList.add("selected");
+                    foundText = opt.textContent;
+                } else {
+                    opt.classList.remove("selected");
+                }
+            });
+            if (foundText) trigger.textContent = foundText;
+        }
+
+        $(function () {
+            makeCustomSelect("docTreatmentFilter");
+            makeCustomSelect("docSpecialtyFilter");
+            makeCustomSelect("docCityFilter");
+            makeCustomSelect("docTypeFilter");
+        });
+
+        document.addEventListener("click", function (e) {
+            if (!e.target.closest(".custom-select-wrap")) {
+                document.querySelectorAll(".doc-search-card .custom-select-wrap.open").forEach(w => {
+                    w.classList.remove("open");
+                });
+            }
+        });
+
+        // 3. Doctor Details Modal
+        function openDoctorModal(button) {
+            const card = button.closest('.doctor-card');
+            if (!card) return;
+
+            const name = card.getAttribute('data-name');
+            const hosp = card.getAttribute('data-hosp');
+            const exp = card.getAttribute('data-exp');
+            const rating = card.getAttribute('data-rating') + ' (' + card.getAttribute('data-reviews') + ' reviews)';
+            const img = card.getAttribute('data-img');
+            const dept = card.getAttribute('data-dept');
+            const bio = card.getAttribute('data-bio');
+            const procedures = card.getAttribute('data-procedures');
+
+            document.getElementById('doctorModalTitle').textContent = name;
+            document.getElementById('doctorModalLocation').textContent = hosp;
+            document.getElementById('doctorModalExp').textContent = exp;
+            document.getElementById('doctorModalRating').textContent = rating;
+            document.getElementById('doctorModalImg').src = img;
+            document.getElementById('docModalDept').textContent = dept;
+            document.getElementById('doctorModalBio').textContent = bio;
+            document.getElementById('doctorModalProcedures').textContent = procedures;
+
+            const modal = new bootstrap.Modal(document.getElementById('doctorModal'));
+            modal.show();
+        }
+
+
+
+        // 6. Highlight "Doctors" in Navbar Once Header Loads
+        function setDoctorsNavActive() {
+            const links = document.querySelectorAll('.navbar-nav .nav-link');
+            if (links.length > 0) {
+                links.forEach(link => {
+                    link.classList.remove('active');
+                    const href = link.getAttribute('href') || '';
+                    if (href.includes('doctors.html')) {
+                        link.classList.add('active');
+                    }
+                });
+            } else {
+                setTimeout(setDoctorsNavActive, 100);
+            }
+        }
+        setDoctorsNavActive();
+    </script>
+</body>
+
+</html>
