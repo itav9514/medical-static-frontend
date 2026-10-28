@@ -368,7 +368,7 @@
 
                 console.log("Submitting appointment:", formData);
 
-                const response = await fetch("/api/MedicalMessage", {
+                const response = await fetch("/api/MedicalEnquiry", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(formData)
