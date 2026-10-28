@@ -995,7 +995,8 @@
 
 .bg-primary-1 {
     background-color: #f7fafc !important;
-    height: 450px;
+    height: auto !important;
+    min-height: auto !important;
 }
 
 .text-white-1 {
@@ -1034,7 +1035,8 @@ h5.text-white {
     list-style-type: none;
     background: #f1f0f6;
     width: 48%;
-    height: 73px;
+    min-height: 73px;
+    height: auto !important;
     margin-right: 2%;
     margin-bottom: 2%;
     float: left;
@@ -2388,7 +2390,16 @@ button:disabled {
 }
 
 .custom-select-trigger.is-invalid {
-    border-color: #dc3545;
+    border-color: #dc3545 !important;
+    background-image: none !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.2) !important;
+}
+
+.form-select.is-invalid,
+.was-validated .form-select:invalid,
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+    background-repeat: no-repeat !important;
 }
 
 .custom-select-trigger::after {
@@ -3255,5 +3266,80 @@ details.mh-faq p {
         right: 12px;
         padding: 5px 12px;
         font-size: 11px;
+    }
+}
+
+/* Hero Video Controls (Play/Pause & Sound Toggle) */
+.hero-video-controls {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    z-index: 50 !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    pointer-events: auto !important;
+}
+
+.hero-control-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(11, 46, 111, 0.85);
+    color: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 0;
+}
+
+.hero-control-btn:hover {
+    background: #e8262d;
+    border-color: #e8262d;
+    transform: scale(1.08);
+}
+
+.hero-control-btn.unmuted {
+    background: #0f9d78;
+    border-color: #0f9d78;
+}
+
+.hero-control-btn.is-paused {
+    background: rgba(232, 38, 45, 0.9);
+    border-color: #e8262d;
+}
+
+#treatments .mh-card {
+    text-decoration: none;
+    display: block;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    cursor: pointer;
+}
+
+#treatments .mh-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(11, 46, 111, 0.14);
+    border-color: #0b2e6f;
+    color: #e8262d;
+}
+
+@media (max-width: 767px) {
+    .hero-video-controls {
+        bottom: 12px;
+        right: 12px;
+        gap: 8px;
+    }
+
+    .hero-control-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
     }
 }

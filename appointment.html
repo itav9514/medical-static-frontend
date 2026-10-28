@@ -39,7 +39,7 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -78,14 +78,14 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
-            <h1 class="display-3 mb-3 animated slideInDown">Appointment</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
+            <!-- <h1 class="display-3 mb-3 animated slideInDown">Appointment</h1> -->
+            <!-- <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb text-uppercase mb-0">
                     <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
                     <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
                     <li class="breadcrumb-item text-primary active" aria-current="page">Appointment</li>
                 </ol>
-            </nav>
+            </nav> -->
         </div>
     </div>
     <!-- Page Header End -->
@@ -98,74 +98,116 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <p class="d-inline-block border rounded-pill py-1 px-4">Appointment</p>
                     <h1 class="mb-4">Make An Appointment To Visit Our Doctor</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et
-                        eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
+                    <p class="mb-4">
+                        Connect with India’s leading super-specialists and world-class JCI-accredited hospitals. Share
+                        your medical reports for a personalized treatment plan, priority appointment scheduling, and
+                        dedicated end-to-end patient care support.
                     </p>
-                    <div class="bg-light rounded d-flex align-items-center p-5 mb-4">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white"
+                    <div class="bg-light rounded d-flex align-items-center p-4 p-md-5 mb-4 appt-info-card">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white appt-info-icon"
                             style="width: 55px; height: 55px;">
                             <i class="fa fa-phone-alt text-primary"></i>
                         </div>
-                        <div class="ms-4">
-                            <p class="mb-2">Call Us Now</p>
-                            <h5 class="mb-0">+1 855 888 0114</h5>
+                        <div class="ms-3 ms-sm-4 appt-info-text">
+                            <p class="mb-1 text-muted">Call Us Now</p>
+                            <h5 class="mb-0"><a href="tel:+18558880114" class="text-dark text-decoration-none fw-bold">+1 855 888 0114</a></h5>
                         </div>
                     </div>
-                    <div class="bg-light rounded d-flex align-items-center p-5">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white"
+                    <div class="bg-light rounded d-flex align-items-center p-4 p-md-5 mb-4 appt-info-card">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white appt-info-icon"
                             style="width: 55px; height: 55px;">
                             <i class="fa fa-envelope-open text-primary"></i>
                         </div>
-                        <div class="ms-4">
-                            <p class="mb-2">Mail Us Now</p>
-                            <h5 class="mb-0">medical@adamvacations.com</h5>
+                        <div class="ms-3 ms-sm-4 appt-info-text overflow-hidden">
+                            <p class="mb-1 text-muted">Mail Us Now</p>
+                            <h5 class="mb-0 text-break"><a href="mailto:medical@adamvacations.com" class="text-dark text-decoration-none fw-bold appt-email-link">medical@adamvacations.com</a></h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="bg-light rounded h-100 d-flex align-items-center p-5">
-                        <form>
+                        <form id="appointmentForm" onsubmit="handleAppointmentSubmit(event)">
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Name"
-                                        style="height: 55px;">
+                                    <input type="text" class="form-control border-0" id="apptName"
+                                        placeholder="Your Name *" required style="height: 55px;">
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control border-0" placeholder="Your Email"
-                                        style="height: 55px;">
+                                    <input type="email" class="form-control border-0" id="apptEmail"
+                                        placeholder="Your Email *" required style="height: 55px;">
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Mobile"
-                                        style="height: 55px;">
+                                    <input type="tel" class="form-control border-0" id="apptMobile"
+                                        placeholder="WhatsApp / Phone *" required style="height: 55px;">
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <select class="form-select border-0" style="height: 55px;">
-                                        <option selected>Choose Doctor</option>
-                                        <option value="1">Doctor 1</option>
-                                        <option value="2">Doctor 2</option>
-                                        <option value="3">Doctor 3</option>
+                                <!-- <div class="col-12 col-sm-6">
+                                    <select class="form-select border-0" id="apptDoctor" style="height: 55px;">
+                                        <option value="">Choose Doctor / Department</option>
+                                        <option value="Dr. Ashok Seth - Cardiology">Dr. Ashok Seth (Cardiology)</option>
+                                        <option value="Dr. Naresh Trehan - Cardiac Surgery">Dr. Naresh Trehan (Cardiac
+                                            Surgery)</option>
+                                        <option value="Dr. Subhash Chandra - Cardiology">Dr. Subhash Chandra
+                                            (Cardiology)</option>
+                                        <option value="Dr. S. K. S. Marya - Orthopedics">Dr. S. K. S. Marya (Orthopedics
+                                            & Joint Replacement)</option>
+                                        <option value="Dr. B. K. Singh - Orthopedics">Dr. B. K. Singh (Orthopedics &
+                                            Joint Replacement)</option>
+                                        <option value="Dr. Rana Patir - Neurosurgery">Dr. Rana Patir (Neurosurgery &
+                                            Spine)</option>
+                                        <option value="Dr. Sandeep Vaishya - Neurosurgery">Dr. Sandeep Vaishya
+                                            (Neurosurgery & Spine)</option>
+                                        <option value="Dr. Vinod Raina - Oncology">Dr. Vinod Raina (Medical Oncology)
+                                        </option>
+                                        <option value="Dr. Harit Chaturvedi - Oncology">Dr. Harit Chaturvedi (Surgical
+                                            Oncology)</option>
+                                        <option value="Dr. Anurag Ahuja - Dental">Dr. Anurag Ahuja (Dental Implants &
+                                            Surgery)</option>
+                                        <option value="Dr. Radhika Tandon - Eye Care">Dr. Radhika Tandon (Eye Care &
+                                            Ophthalmology)</option>
+                                        <option value="General Specialist - Adam Vacations Panel">General Specialist
+                                            Consultation</option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="col-12 col-sm-6">
-                                    <div class="date" id="date" data-target-input="nearest">
+                                    <div class="date" id="datePickerDiv" data-target-input="nearest">
                                         <input type="text" class="form-control border-0 datetimepicker-input"
-                                            placeholder="Choose Date" data-target="#date" data-toggle="datetimepicker"
-                                            style="height: 55px;">
+                                            id="apptDate" placeholder="Preferred Date" data-target="#datePickerDiv"
+                                            data-toggle="datetimepicker" style="height: 55px;">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <div class="time" id="time" data-target-input="nearest">
+                                    <div class="time" id="timePickerDiv" data-target-input="nearest">
                                         <input type="text" class="form-control border-0 datetimepicker-input"
-                                            placeholder="Choose Date" data-target="#time" data-toggle="datetimepicker"
-                                            style="height: 55px;">
+                                            id="apptTime" placeholder="Preferred Time" data-target="#timePickerDiv"
+                                            data-toggle="datetimepicker" style="height: 55px;">
                                     </div>
                                 </div>
+                                <!-- <div class="col-12">
+                                    <div
+                                        class="border rounded p-2 bg-white d-flex align-items-center justify-content-between">
+                                        <label for="apptReport" class="mb-0 text-muted small flex-grow-1"
+                                            id="apptReportLabel" style="cursor:pointer;">
+                                            <i class="fa fa-paperclip text-primary me-2"></i> Attach Medical Reports
+                                            (PDF, JPG, PNG - Max 10MB)
+                                        </label>
+                                        <input type="file" id="apptReport" accept=".pdf,.jpg,.jpeg,.png"
+                                            style="display:none;" onchange="handleApptFile(this)">
+                                        <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3"
+                                            onclick="document.getElementById('apptReport').click()">
+                                            Browse
+                                        </button>
+                                    </div>
+                                </div> -->
                                 <div class="col-12">
-                                    <textarea class="form-control border-0" rows="5"
-                                        placeholder="Describe your problem"></textarea>
+                                    <textarea class="form-control border-0" id="apptProblem" rows="4"
+                                        placeholder="Describe your medical condition or requirements..."></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Book Appointment</button>
+                                    <button class="btn btn-primary w-100 py-3" id="apptSubmitBtn" type="submit">Book
+                                        Appointment</button>
+                                </div>
+                                <div class="col-12">
+                                    <div id="apptMsg"></div>
                                 </div>
                             </div>
                         </form>
@@ -201,6 +243,166 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- Appointment Form Interactive Handler -->
+    <script>
+        function handleApptFile(input) {
+            const label = document.getElementById('apptReportLabel');
+            if (input.files && input.files[0]) {
+                label.innerHTML = '<strong class="text-success"><i class="fa fa-check-circle me-1"></i> ' + input.files[0].name + '</strong>';
+            } else {
+                label.textContent = 'Attach Medical Reports (PDF, JPG, PNG - Max 10MB)';
+            }
+        }
+
+        // Prefill form from URL query parameters (e.g. from doctors.html or hospitals.html)
+        document.addEventListener('DOMContentLoaded', function () {
+            const params = new URLSearchParams(window.location.search);
+            const doctorParam = params.get('doctor');
+            const hospitalParam = params.get('hospital');
+            const deptParam = params.get('dept');
+
+            const doctorSelect = document.getElementById('apptDoctor');
+            const problemText = document.getElementById('apptProblem');
+
+            if (doctorParam && doctorSelect) {
+                let found = false;
+                for (let i = 0; i < doctorSelect.options.length; i++) {
+                    if (doctorSelect.options[i].text.toLowerCase().includes(doctorParam.toLowerCase())) {
+                        doctorSelect.selectedIndex = i;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    const opt = new Option(doctorParam, doctorParam, true, true);
+                    doctorSelect.add(opt);
+                }
+            }
+
+            if (hospitalParam && problemText) {
+                problemText.value = 'Inquiry for partner hospital: ' + hospitalParam + '\n';
+            }
+            if (deptParam && problemText) {
+                problemText.value += 'Department / Specialty: ' + deptParam + '\n';
+            }
+        });
+
+        async function handleAppointmentSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('apptSubmitBtn');
+            const msg = document.getElementById('apptMsg');
+            const originalBtnText = btn.innerHTML;
+
+            const nameEl = document.getElementById('apptName');
+            const emailEl = document.getElementById('apptEmail');
+            const mobileEl = document.getElementById('apptMobile');
+            const doctorEl = document.getElementById('apptDoctor');
+            const dateEl = document.getElementById('apptDate');
+            const timeEl = document.getElementById('apptTime');
+            const problemEl = document.getElementById('apptProblem');
+            const reportEl = document.getElementById('apptReport');
+
+            const fullName = (nameEl ? nameEl.value : '').trim();
+            const email = (emailEl ? emailEl.value : '').trim().toLowerCase();
+            const phone = (mobileEl ? mobileEl.value : '').trim();
+            const doctor = (doctorEl ? doctorEl.value : '').trim();
+            const date = (dateEl ? dateEl.value : '').trim();
+            const time = (timeEl ? timeEl.value : '').trim();
+            const problem = (problemEl ? problemEl.value : '').trim();
+
+            if (!fullName || fullName.length < 2) {
+                msg.innerHTML = '<div class="alert alert-warning py-2">Please enter your full name.</div>';
+                nameEl.focus();
+                return;
+            }
+            if (!email || !/^[^s@]+@[^s@]+.[^s@]+$/.test(email)) {
+                msg.innerHTML = '<div class="alert alert-warning py-2">Please enter a valid email address.</div>';
+                emailEl.focus();
+                return;
+            }
+            if (!phone || phone.length < 5) {
+                msg.innerHTML = '<div class="alert alert-warning py-2">Please enter a valid contact phone number.</div>';
+                mobileEl.focus();
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Booking Appointment...';
+            msg.innerHTML = '';
+
+            const formData = {
+                fullName: fullName,
+                nationality: "International Patient",
+                treatment: doctor || "General Medical Consultation",
+                email: email,
+                phone: phone,
+                appointmentDate: date || new Date().toISOString().split('T')[0],
+                appointmentTime: time || "10:00 AM",
+                description: (doctor ? "Requested Doctor: " + doctor + " | " : "") + (problem || "Consultation Request")
+            };
+
+            try {
+                if (reportEl && reportEl.files && reportEl.files[0]) {
+                    const f = reportEl.files[0];
+                    if (f.size > 10 * 1024 * 1024) {
+                        msg.innerHTML = '<div class="alert alert-danger py-2">Medical report file must be under 10 MB.</div>';
+                        btn.disabled = false;
+                        btn.innerHTML = originalBtnText;
+                        return;
+                    }
+                    formData.reportFileName = f.name;
+                    formData.reportFile = await new Promise(function (resolve, reject) {
+                        const reader = new FileReader();
+                        reader.onload = function () { resolve(reader.result.split(',')[1]); };
+                        reader.onerror = reject;
+                        reader.readAsDataURL(f);
+                    });
+                }
+
+                console.log("Submitting appointment:", formData);
+
+                const response = await fetch("/api/MedicalMessage", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formData)
+                });
+
+                const responseText = await response.text();
+                let data;
+                try { data = JSON.parse(responseText); } catch (e) { data = { raw: responseText }; }
+
+                if (response.ok) {
+                    msg.innerHTML = '<div class="alert alert-success py-2"><i class="fa fa-check-circle me-1"></i> Appointment booked successfully! Redirecting...</div>';
+                    document.getElementById('appointmentForm').reset();
+                    const savedData = { ...formData, ...(typeof data === 'object' && data !== null ? data : {}), name: formData.fullName || formData.name, fullName: formData.fullName || formData.name, email: formData.email, phone: formData.phone, appointmentDate: formData.appointmentDate, appointmentTime: formData.appointmentTime, description: formData.description || formData.message };
+                    sessionStorage.setItem("medicalEnquiryResponse", JSON.stringify(savedData));
+                    setTimeout(function () { window.location.href = "thankyou.html"; }, 1500);
+                } else if (response.status === 405 && (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost")) {
+                    console.warn("Local test simulation.");
+                    msg.innerHTML = '<div class="alert alert-success py-2"><i class="fa fa-check-circle me-1"></i> Appointment booked successfully! Redirecting...</div>';
+                    document.getElementById('appointmentForm').reset();
+                    sessionStorage.setItem("medicalEnquiryResponse", JSON.stringify({ success: true, localPreview: true, ...formData }));
+                    setTimeout(function () { window.location.href = "thankyou.html"; }, 1500);
+                } else {
+                    msg.innerHTML = '<div class="alert alert-danger py-2">' + (data.message || 'Failed to book appointment. Please try again.') + '</div>';
+                    btn.disabled = false;
+                    btn.innerHTML = originalBtnText;
+                }
+            } catch (err) {
+                console.error("Appointment submission error:", err);
+                if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost" || window.location.protocol === "file:") {
+                    msg.innerHTML = '<div class="alert alert-success py-2"><i class="fa fa-check-circle me-1"></i> Appointment booked successfully! Redirecting...</div>';
+                    sessionStorage.setItem("medicalEnquiryResponse", JSON.stringify({ success: true, localPreview: true, ...formData }));
+                    setTimeout(function () { window.location.href = "thankyou.html"; }, 1500);
+                } else {
+                    msg.innerHTML = '<div class="alert alert-danger py-2">Error connecting to server. Please try again or contact support.</div>';
+                    btn.disabled = false;
+                    btn.innerHTML = originalBtnText;
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

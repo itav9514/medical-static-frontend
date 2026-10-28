@@ -46,22 +46,166 @@
       padding: 83px 0 100px 0;
     }
 
-    .appointment-only {
-      display: none;
+    /* ========================================================
+       ENQUIRY SUMMARY CARD & MESSAGE / CONDITION RESPONSIVE FIX
+       ======================================================== */
+    .top-head {
+      margin-top: -95px;
+      background: #ffffff;
+      border: 2px solid #92bce7;
+      border-radius: 20px;
+      padding: 24px 24px 30px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(11, 46, 111, 0.08);
+      float: none !important;
+      overflow: hidden;
     }
 
-    .message-only {
-      display: none;
+    .top-head h2 {
+      color: #0b1a30;
+      font-weight: 700;
+      font-size: 28px;
+      margin: 0 0 20px;
+      letter-spacing: -0.3px;
     }
 
-    body[data-enquiry-type="appointment"] .appointment-only {
-      display: list-item;
-      list-style-type: none;
+    .booking-summary ul#enquiry-summary-list {
+      margin: 0;
+      padding: 0;
+      list-style: none !important;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
     }
 
-    body[data-enquiry-type="message"] .message-only {
-      display: list-item;
-      list-style-type: none;
+    /* Base styling for all enquiry items */
+    .top-head ul#enquiry-summary-list li {
+      list-style: none !important;
+      background: #f1f0f6;
+      border-radius: 12px;
+      padding: 12px 16px;
+      box-sizing: border-box;
+      min-height: 75px;
+      height: auto !important;
+      flex: 0 0 calc(50% - 7px);
+      max-width: calc(50% - 7px);
+      display: flex !important;
+      flex-direction: column;
+      justify-content: flex-start;
+      float: none !important;
+      margin: 0 !important;
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s ease;
+    }
+
+    .top-head ul#enquiry-summary-list li strong {
+      color: #0b1a30;
+      font-weight: 700;
+      font-size: 14.5px;
+      margin-bottom: 5px;
+      display: block;
+      line-height: 1.25;
+    }
+
+    .top-head ul#enquiry-summary-list li p {
+      color: #334155;
+      font-weight: 400;
+      font-size: 13.5px;
+      line-height: 1.5;
+      margin: 0;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* Make Message / Condition take 100% full width */
+    .top-head ul#enquiry-summary-list li.message-card-full {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+      min-height: auto !important;
+      height: auto !important;
+      background: #edf2f7;
+    }
+
+    .top-head ul#enquiry-summary-list li.message-card-full p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #1e293b;
+    }
+
+    /* Show/hide types properly with flex */
+    .top-head ul#enquiry-summary-list li.appointment-only,
+    .top-head ul#enquiry-summary-list li.message-only {
+      display: none !important;
+    }
+
+    body[data-enquiry-type="appointment"] .top-head ul#enquiry-summary-list li.appointment-only {
+      display: flex !important;
+    }
+
+    body[data-enquiry-type="message"] .top-head ul#enquiry-summary-list li.message-only {
+      display: flex !important;
+    }
+
+    /* iPad & Tablet View (768px - 991px) */
+    @media (max-width: 991.98px) {
+      .top-head {
+        margin-top: -60px;
+        padding: 20px 18px 24px;
+        border-radius: 16px;
+      }
+
+      .top-head h2 {
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+
+      .booking-summary ul#enquiry-summary-list {
+        gap: 12px;
+      }
+
+      .top-head ul#enquiry-summary-list li {
+        flex: 0 0 calc(50% - 6px);
+        max-width: calc(50% - 6px);
+        padding: 11px 14px;
+        min-height: 70px;
+        height: auto !important;
+      }
+
+      .top-head ul#enquiry-summary-list li.message-card-full {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+      }
+    }
+
+    /* Mobile View (< 768px) */
+    @media (max-width: 767.98px) {
+      .top-head {
+        margin-top: -40px;
+        padding: 16px 14px 20px;
+        border-radius: 14px;
+      }
+
+      .top-head h2 {
+        font-size: 20px;
+        margin-bottom: 14px;
+      }
+
+      .booking-summary ul#enquiry-summary-list {
+        gap: 10px;
+      }
+
+      .top-head ul#enquiry-summary-list li {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        padding: 10px 12px;
+        min-height: auto;
+        height: auto !important;
+      }
+
+      .top-head ul#enquiry-summary-list li.message-card-full {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+      }
     }
   </style>
 
@@ -152,7 +296,7 @@
                 <strong>Preferred Appointment</strong>
                 <p id="appointment-datetime">Loading...</p>
               </li>
-              <li class="appointment-only">
+              <li class="appointment-only message-card-full">
                 <strong>Message / Condition</strong>
                 <p id="appointment-description">Loading...</p>
               </li>
@@ -162,7 +306,7 @@
                 <strong>Preferred Callback Time</strong>
                 <p id="preferred-time">Loading...</p>
               </li>
-              <li class="message-only">
+              <li class="message-only message-card-full">
                 <strong>Your Message</strong>
                 <p id="user-message">Loading...</p>
               </li>
@@ -367,29 +511,27 @@
         }
         //document.getElementById("submitted-date").textContent = submittedDate;
 
-        // ── Appointment type ───────────────────────────────────
+                // ── Appointment type ───────────────────────────────────
         if (enquiryType === "appointment") {
-          document.getElementById("nationality").textContent = data.nationality || "—";
+          document.getElementById("nationality").textContent = data.nationality || data.country || "—";
 
           let apptDisplay = "—";
-          /*if (data.appointmentDate && data.appointmentTime) {
-            const dt = new Date(`${data.appointmentDate}T${data.appointmentTime}`);
-            if (!isNaN(dt)) {
-              apptDisplay = dt.toLocaleString("en-US", {
-                weekday: "long", month: "long", day: "numeric", year: "numeric",
-                hour: "numeric", minute: "2-digit", hour12: true
-              });
-              if (data.appointmentLocalWithTimezone) {
-                apptDisplay = `${data.appointmentLocalWithTimezone}`;
-              }
-            }
-          }*/
           if (data.appointmentLocalWithTimezone) {
-            apptDisplay = `${data.appointmentLocalWithTimezone}`;
+            apptDisplay = String(data.appointmentLocalWithTimezone);
+          } else if (data.appointmentDate) {
+            apptDisplay = data.appointmentTime ? (data.appointmentDate + " at " + data.appointmentTime) : data.appointmentDate;
+          } else if (data.treatment) {
+            apptDisplay = "Coordinated for " + data.treatment;
           }
           document.getElementById("appointment-datetime").textContent = apptDisplay;
 
-          document.getElementById("appointment-description").textContent = data.description || "—";
+          let descText = data.description || "—";
+          if (data.treatment && descText !== "—" && !descText.toLowerCase().includes(data.treatment.toLowerCase())) {
+            descText = "Treatment: " + data.treatment + " | " + descText;
+          } else if (data.treatment && descText === "—") {
+            descText = "Treatment: " + data.treatment;
+          }
+          document.getElementById("appointment-description").textContent = descText;
         }
 
         // ── Message type ───────────────────────────────────────

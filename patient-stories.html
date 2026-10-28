@@ -80,12 +80,10 @@
                     </p>
 
                     <div class="patient-hero-btns">
-                        <a href="appointment.html" class="btn-patient-red">
+                        <a href="contact.html" class="btn-patient-red">
                             Get a Free Medical Opinion <i class="fa fa-arrow-right"></i>
                         </a>
-                        <a href="#shareModal" data-bs-toggle="modal" data-bs-target="#shareStoryModal" class="btn-patient-outline">
-                            Share Your Story <i class="fa fa-arrow-right"></i>
-                        </a>
+                        <!-- <a href="#shareModal" data-bs-toggle="modal" data-bs-target="#shareStoryModal" class="btn-patient-outline">Share Your Story <i class="fa fa-arrow-right"></i></a> -->
                     </div>
                 </div>
             </div>
@@ -137,7 +135,7 @@
                 <!-- 3 Video Testimonial Cards -->
                 <div class="patient-video-grid" id="videoGrid">
                     <!-- Video Card 1 -->
-                    <div class="patient-video-card" onclick="openVideoModal('Knee Replacement - German Patient Story', 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+                    <div class="patient-video-card" style="cursor: default;">
                         <div class="video-thumb-wrap">
                             <img src="patient-stories/6.png" alt="Knee Replacement Patient Video" class="video-thumb-img">
                             <div class="video-play-btn"><i class="fa fa-play"></i></div>
@@ -156,7 +154,7 @@
                     </div>
 
                     <!-- Video Card 2 -->
-                    <div class="patient-video-card" onclick="openVideoModal('Dental Implants - UK Patient Story', 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+                    <div class="patient-video-card" style="cursor: default;">
                         <div class="video-thumb-wrap">
                             <img src="patient-stories/7.png" alt="Dental Implants Patient Video" class="video-thumb-img">
                             <div class="video-play-btn"><i class="fa fa-play"></i></div>
@@ -175,7 +173,7 @@
                     </div>
 
                     <!-- Video Card 3 -->
-                    <div class="patient-video-card" onclick="openVideoModal('Heart Bypass Surgery - Canadian Patient Story', 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+                    <div class="patient-video-card" style="cursor: default;">
                         <div class="video-thumb-wrap">
                             <img src="patient-stories/8.png" alt="Heart Bypass Surgery Patient Video" class="video-thumb-img">
                             <div class="video-play-btn"><i class="fa fa-play"></i></div>
@@ -202,6 +200,19 @@
                     <h2 class="patient-sec-title">Real People. <span class="text-blue">Real Results.</span></h2>
                 </div>
 
+                                <!-- Search Stories Bar -->
+                <div class="row justify-content-center my-4">
+                    <div class="col-lg-8 col-md-10">
+                        <div class="input-group shadow-sm" style="border-radius: 50px; overflow: hidden; border: 1px solid #cbd5e1; background: #fff;">
+                            <span class="input-group-text bg-white border-0 ps-4 text-muted"><i class="fa fa-search"></i></span>
+                            <input type="text" id="storySearchInput" class="form-control border-0 py-3" placeholder="Search by treatment, country, or condition (e.g. Knee, UK, Heart, Cancer)..." aria-label="Search patient stories">
+                            <button type="button" class="btn btn-danger px-4 fw-semibold" id="btnStorySearch" onclick="searchPatientStories(true)" style="background: #e11d48; border-color: #e11d48;">
+                                <i class="fa fa-search me-1"></i> Search Stories
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Filter Pills -->
                 <div class="story-filters-row">
                     <button type="button" class="story-filter-btn active" data-filter="all">All</button>
@@ -218,7 +229,7 @@
                     <!-- Card 1: Knee Replacement (Orthopedics) -->
                     <div class="story-card" data-category="orthopedics">
                         <div class="story-card-thumb">
-                            <img src="patient-stories/9.png" alt="Knee Replacement Success Story" loading="lazy">
+                            <img src="treatment-page/2.png" alt="Knee Replacement Success Story" loading="lazy">
                         </div>
                         <div class="story-card-body">
                             <h4 class="story-card-title">Knee Replacement</h4>
@@ -238,7 +249,7 @@
                     <!-- Card 2: Dental Implants (Dental) -->
                     <div class="story-card" data-category="dental">
                         <div class="story-card-thumb">
-                            <img src="patient-stories/10.png" alt="Dental Implants Success Story" loading="lazy">
+                            <img src="Dental-page/11.png" alt="Dental Implants Success Story" loading="lazy">
                         </div>
                         <div class="story-card-body">
                             <h4 class="story-card-title">Dental Implants</h4>
@@ -258,7 +269,7 @@
                     <!-- Card 3: Heart Bypass Surgery (Cardiac) -->
                     <div class="story-card" data-category="cardiac">
                         <div class="story-card-thumb">
-                            <img src="patient-stories/11.png" alt="Heart Bypass Surgery Success Story" loading="lazy">
+                            <img src="cardiac-surgery-page/1.png" alt="Heart Bypass Surgery Success Story" loading="lazy">
                         </div>
                         <div class="story-card-body">
                             <h4 class="story-card-title">Heart Bypass Surgery</h4>
@@ -278,7 +289,7 @@
                     <!-- Card 4: Cancer Treatment (Oncology) -->
                     <div class="story-card" data-category="oncology">
                         <div class="story-card-thumb">
-                            <img src="patient-stories/12.png" alt="Cancer Treatment Success Story" loading="lazy">
+                            <img src="Cancer-Care-Treatment/5.png" alt="Cancer Treatment Success Story" loading="lazy">
                         </div>
                         <div class="story-card-body">
                             <h4 class="story-card-title">Cancer Treatment</h4>
@@ -298,7 +309,7 @@
                     <!-- Card 5: IVF Treatment (Fertility) -->
                     <div class="story-card" data-category="fertility">
                         <div class="story-card-thumb">
-                            <img src="patient-stories/13.png" alt="IVF Treatment Success Story" loading="lazy">
+                            <img src="Ivf-fertility/11.png" alt="IVF Treatment Success Story" loading="lazy">
                         </div>
                         <div class="story-card-body">
                             <h4 class="story-card-title">IVF Treatment</h4>
@@ -318,7 +329,7 @@
                     <!-- Card 6: Cataract Surgery (Eye Care) -->
                     <div class="story-card" data-category="eyecare">
                         <div class="story-card-thumb">
-                            <img src="patient-stories/14.png" alt="Cataract Surgery Success Story" loading="lazy">
+                            <img src="Eye-Surgery/13.png" alt="Cataract Surgery Success Story" loading="lazy">
                         </div>
                         <div class="story-card-body">
                             <h4 class="story-card-title">Cataract Surgery</h4>
@@ -338,7 +349,7 @@
                     <!-- Card 7: Spine Surgery (Orthopedics) -->
                     <div class="story-card" data-category="orthopedics">
                         <div class="story-card-thumb">
-                            <img src="patient-stories/15.png" alt="Spine Surgery Success Story" loading="lazy">
+                            <img src="Spine-Care/11.png" alt="Spine Surgery Success Story" loading="lazy">
                         </div>
                         <div class="story-card-body">
                             <h4 class="story-card-title">Spine Surgery</h4>
@@ -358,7 +369,7 @@
                     <!-- Card 8: Liver Transplant (Cardiac / General) -->
                     <div class="story-card" data-category="cardiac">
                         <div class="story-card-thumb">
-                            <img src="patient-stories/16.png" alt="Liver Transplant Success Story" loading="lazy">
+                            <img src="Liver-Kidney/1.png" alt="Liver Transplant Success Story" loading="lazy">
                         </div>
                         <div class="story-card-body">
                             <h4 class="story-card-title">Liver Transplant</h4>
@@ -374,6 +385,16 @@
                             </a>
                         </div>
                     </div>
+                </div>
+
+                <!-- No Results Message -->
+                <div id="noStoriesMsg" class="text-center py-5" style="display: none;">
+                    <div class="mb-3 text-muted"><i class="fa fa-search fa-3x" style="opacity: 0.35;"></i></div>
+                    <h4 class="fw-bold text-dark">No Patient Stories Found</h4>
+                    <p class="text-muted mb-4">We couldn't find any patient stories matching your criteria. Try different keywords or reset your filters.</p>
+                    <button type="button" class="btn btn-outline-danger px-4" onclick="resetStoryFilters()">
+                        <i class="fa fa-redo me-1"></i> Reset Filters
+                    </button>
                 </div>
             </section>
 
@@ -475,7 +496,7 @@
                         Get a free medical opinion and let our experts guide you with the best treatment options, top hospitals and complete travel support.
                     </p>
                     <div class="patient-cta-btns">
-                        <a href="appointment.html" class="btn-patient-red">
+                        <a href="contact.html" class="btn-patient-red">
                             Get a Free Medical Opinion <i class="fa fa-arrow-right"></i>
                         </a>
                         <a href="contact.html" class="btn-patient-outline">
@@ -634,27 +655,77 @@
             }
         }
 
-        // 2. Success Stories Category Filter
+        // 2. Success Stories Filter & Search Logic
+        let currentStoryCategory = 'all';
+
+        function searchPatientStories(shouldScroll = false) {
+            const searchInput = document.getElementById('storySearchInput');
+            const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            const cards = document.querySelectorAll('.story-cards-grid .story-card');
+            const noMsg = document.getElementById('noStoriesMsg');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cat = card.getAttribute('data-category') || '';
+                const text = card.textContent.toLowerCase();
+
+                const matchesCat = (currentStoryCategory === 'all' || cat === currentStoryCategory);
+                const matchesQuery = !query || text.includes(query);
+
+                if (matchesCat && matchesQuery) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (noMsg) {
+                noMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+
+            if (shouldScroll) {
+                const sec = document.getElementById('success-stories');
+                if (sec) {
+                    sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }
+
+        function resetStoryFilters() {
+            const searchInput = document.getElementById('storySearchInput');
+            if (searchInput) searchInput.value = '';
+            currentStoryCategory = 'all';
+            document.querySelectorAll('.story-filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-filter') === 'all');
+            });
+            searchPatientStories(false);
+        }
+
         document.addEventListener("DOMContentLoaded", function () {
             const filterBtns = document.querySelectorAll(".story-filter-btn");
-            const storyCards = document.querySelectorAll(".story-card");
+            const searchInput = document.getElementById("storySearchInput");
 
             filterBtns.forEach(btn => {
                 btn.addEventListener("click", function () {
                     filterBtns.forEach(b => b.classList.remove("active"));
                     this.classList.add("active");
-
-                    const category = this.getAttribute("data-filter");
-
-                    storyCards.forEach(card => {
-                        if (category === "all" || card.getAttribute("data-category") === category) {
-                            card.style.display = "flex";
-                        } else {
-                            card.style.display = "none";
-                        }
-                    });
+                    currentStoryCategory = this.getAttribute("data-filter") || 'all';
+                    searchPatientStories(false);
                 });
             });
+
+            if (searchInput) {
+                searchInput.addEventListener("keydown", function (e) {
+                    if (e.key === "Enter") {
+                        e.preventDefault();
+                        searchPatientStories(true);
+                    }
+                });
+                searchInput.addEventListener("input", function () {
+                    searchPatientStories(false);
+                });
+            }
 
             // Video slider arrows scroll
             const grid = document.getElementById("videoGrid");

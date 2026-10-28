@@ -62,11 +62,9 @@
             }
         }
 
-        /* ========================================================
-   FIX: "WHY CHOOSE US" SECTION CUTOFF ON IPAD PRO & TABLETS
-   ======================================================== */
-
-        /* 1. Remove fixed height and let the container grow dynamically */
+                /* ========================================================
+           WHY CHOOSE US SECTION - CENTERED OVER IMAGE ON IPAD & IPHONE
+           ======================================================== */
         .why-chose-head {
             height: auto !important;
             min-height: auto !important;
@@ -78,46 +76,176 @@
         .page-set {
             height: auto !important;
             min-height: auto !important;
-            align-items: stretch !important;
-            /* Both columns always match height */
         }
 
-        /* 2. Optimize padding on iPad Pro and tablets (1024px - 1199px) */
-        @media (min-width: 992px) and (max-width: 1199.98px) {
-            .feature-text {
-                padding: 35px 25px !important;
-                /* Reduces excessive vertical empty space */
+        /* Desktop & iPad Pro (>= 992px): Split 2-column layout */
+        @media (min-width: 992px) {
+            .page-set {
+                align-items: stretch !important;
+            }
+            .why-chose-head .feature-text.bg-primary-1 {
+                padding: 40px 30px !important;
+            }
+            .page-set > .col-lg-6:last-child {
+                min-height: 420px !important;
+                background-size: cover !important;
+                background-position: center center !important;
+            }
+        }
+
+        /* iPad & Tablets (768px - 991.98px): Centered on top of background image */
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .why-chose-head {
+                background: url(img/banner-2-new.png) no-repeat center center !important;
+                background-size: cover !important;
+                padding: 45px 20px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
             }
 
-            .feature-text h1 {
-                font-size: 1.85rem !important;
+            .why-chose-head .feature {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .why-chose-head .page-set {
+                width: 100% !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                margin: 0 !important;
+            }
+
+            /* Hide empty second column */
+            .why-chose-head .page-set > .col-lg-6:last-child {
+                display: none !important;
+                min-height: 0 !important;
+                height: 0 !important;
+            }
+
+            /* White content card centered horizontally and vertically */
+            .why-chose-head .feature-text.bg-primary-1 {
+                width: 100% !important;
+                max-width: 760px !important;
+                margin: 0 auto !important;
+                float: none !important;
+                background: #ffffff !important;
+                border-radius: 18px !important;
+                box-shadow: 0 15px 45px rgba(0, 21, 76, 0.22) !important;
+                padding: 35px 30px !important;
+            }
+
+            .why-chose-head .text-white-1.mb-2 {
+                color: #0b1a30 !important;
+                font-size: 28px !important;
+                font-weight: 800 !important;
                 line-height: 1.25 !important;
             }
 
-            /* Slightly more compact numbered circles */
-            .feature-text .rounded-circle {
-                width: 46px !important;
-                height: 46px !important;
-                min-width: 46px !important;
-                font-size: 1rem !important;
+            .why-chose-head p.text-white-1 {
+                color: #374151 !important;
             }
 
-            .feature-text h5 {
-                font-size: 0.98rem !important;
-                margin-bottom: 4px !important;
+            .why-chose-head h5.text-white-1 {
+                color: #0b1a30 !important;
+                font-size: 16px !important;
+                font-weight: 700 !important;
             }
 
-            .feature-text p.size-14 {
-                font-size: 0.8rem !important;
-                line-height: 1.45 !important;
+            .why-chose-head p.size-14 {
+                color: #4b5563 !important;
+            }
+
+            .why-chose-head .bg-light-1 {
+                background-color: #fa272a !important;
+                color: #ffffff !important;
+                font-weight: 700 !important;
+                box-shadow: 0 4px 10px rgba(250, 39, 42, 0.3) !important;
             }
         }
 
-        /* 3. Ensure the right-side background image expands to 100% full height */
-        .page-set>.col-lg-6:last-child {
-            min-height: 400px !important;
-            background-size: cover !important;
-            background-position: center center !important;
+        /* iPhone & Mobile (< 768px): Centered 1-under-1 stack on top of background image */
+        @media (max-width: 767.98px) {
+            .why-chose-head {
+                background: url(img/banner-2-new.png) no-repeat center center !important;
+                background-size: cover !important;
+                padding: 28px 12px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+            .why-chose-head .feature {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .why-chose-head .page-set {
+                width: 100% !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                margin: 0 !important;
+            }
+
+            /* Hide empty second column */
+            .why-chose-head .page-set > .col-lg-6:last-child {
+                display: none !important;
+                min-height: 0 !important;
+                height: 0 !important;
+            }
+
+            /* White content card centered horizontally and vertically */
+            .why-chose-head .feature-text.bg-primary-1 {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 auto !important;
+                float: none !important;
+                background: #ffffff !important;
+                border-radius: 14px !important;
+                box-shadow: 0 10px 30px rgba(0, 21, 76, 0.18) !important;
+                padding: 22px 16px !important;
+            }
+
+            .why-chose-head .text-white-1.mb-2 {
+                color: #0b1a30 !important;
+                font-size: 22px !important;
+                font-weight: 800 !important;
+                line-height: 1.25 !important;
+            }
+
+            .why-chose-head p.text-white-1 {
+                color: #374151 !important;
+                font-size: 13.5px !important;
+            }
+
+            .why-chose-head h5.text-white-1 {
+                color: #0b1a30 !important;
+                font-size: 15px !important;
+                font-weight: 700 !important;
+            }
+
+            .why-chose-head p.size-14 {
+                color: #4b5563 !important;
+                font-size: 13px !important;
+            }
+
+            .why-chose-head .bg-light-1 {
+                background-color: #fa272a !important;
+                color: #ffffff !important;
+                font-weight: 700 !important;
+                box-shadow: 0 4px 10px rgba(250, 39, 42, 0.3) !important;
+            }
+
+            /* 1-under-1 stack on iPhone */
+            .why-chose-head .col-sm-6 {
+                width: 100% !important;
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+            }
         }
     </style>
 

@@ -109,13 +109,14 @@
                 </div>
 
                 <!-- Right Column: Floating Cost Estimate Form -->
-                <div class="col-lg-6">
+                 
+                <!-- <div class="col-lg-6">
                     <div class="cost-hero-form ms-lg-auto" id="estimate-form" style="max-width: 490px;">
                         <h4 class="cost-form-title">Get Your Treatment Cost Estimate</h4>
                         <p class="cost-form-desc">Fill in your details and our team will share a personalized estimate with treatment options.</p>
 
-                        <form id="costForm" onsubmit="handleCostSubmit(event)">
-                            <!-- 1. Select Treatment -->
+                        <form id="costForm" novalidate onsubmit="handleCostSubmit(event)">
+                           
                             <div class="cost-input-group">
                                 <img src="cost-page/icon-5.png" class="cost-input-icon" alt="Treatment">
                                 <select class="cost-form-control" id="costTreatment" required>
@@ -137,7 +138,7 @@
                                 </select>
                             </div>
 
-                            <!-- 2. Country Travelling From -->
+                           
                             <div class="cost-input-group">
                                 <img src="cost-page/icon-6.png" class="cost-input-icon" alt="Country">
                                 <select class="cost-form-control" id="costCountry" required>
@@ -156,8 +157,7 @@
                                 </select>
                             </div>
 
-                            <!-- 3. Preferred City in India -->
-                            <div class="cost-input-group">
+                             <div class="cost-input-group"> 
                                 <img src="cost-page/icon-7.png" class="cost-input-icon" alt="City">
                                 <select class="cost-form-control" id="costCity">
                                     <option value="" selected disabled>Preferred City in India</option>
@@ -169,10 +169,9 @@
                                     <option value="Kolkata">Kolkata</option>
                                     <option value="Any City">Any City (Best Doctor Recommendation)</option>
                                 </select>
-                            </div>
+                            </div> 
 
-                            <!-- 4. Number of Travelers -->
-                            <div class="cost-input-group">
+                             <div class="cost-input-group">
                                 <img src="cost-page/icon-8.png" class="cost-input-icon" alt="Travelers">
                                 <select class="cost-form-control" id="costTravelers">
                                     <option value="" selected disabled>Number of Travelers</option>
@@ -181,28 +180,29 @@
                                     <option value="3">3 (Patient + 2 Attendants)</option>
                                     <option value="4+">4 or More</option>
                                 </select>
-                            </div>
+                            </div> 
 
-                            <!-- 5. Full Name -->
                             <div class="cost-input-group">
                                 <img src="cost-page/icon-8.png" class="cost-input-icon" alt="Name">
                                 <input type="text" class="cost-form-control" id="costName" placeholder="Your Full Name" required minlength="2">
                             </div>
 
-                            <!-- 6. Email or WhatsApp -->
                             <div class="cost-input-group">
-                                <img src="cost-page/icon-9.png" class="cost-input-icon" alt="Contact">
-                                <input type="text" class="cost-form-control" id="costContact" placeholder="Email or WhatsApp Number" required>
+                                <i class="fa fa-envelope cost-input-icon" style="color: #64748b; font-size: 14px; display: inline-flex; align-items: center; justify-content: center;"></i>
+                                <input type="email" class="cost-form-control" id="costEmail" placeholder="Your Email Address *" required>
                             </div>
 
-                            <!-- 7. Upload Medical Reports -->
+                            <div class="cost-input-group">
+                                <i class="fa fa-phone-alt cost-input-icon" style="color: #64748b; font-size: 14px; display: inline-flex; align-items: center; justify-content: center;"></i>
+                                <input type="tel" class="cost-form-control" id="costPhone" placeholder="WhatsApp / Phone Number *" required>
+                            </div>
+
                             <label class="cost-upload-box" for="costReport">
                                 <span><i class="fa fa-cloud-upload-alt me-1 text-primary"></i> Upload Medical Reports</span>
                                 <small>PDF, JPG, PNG (Max 10 MB)</small>
                                 <input type="file" id="costReport" class="d-none" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFileSelect(this)">
                             </label>
 
-                            <!-- 8. Submit Button -->
                             <button type="submit" class="cost-btn-submit" id="costSubmitBtn">
                                 Get My Treatment Estimate &rarr;
                             </button>
@@ -213,7 +213,7 @@
                             <div id="costFormMsg" class="mt-2 text-center" style="font-size:0.82rem;"></div>
                         </form>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -284,7 +284,7 @@
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <select class="cost-filter-select" id="filterCity">
+                        <select class="cost-filter-select" id="filterCity" onchange="filterTreatmentCards(false)">
                             <option value="all">Select City</option>
                             <option value="delhi">Delhi NCR</option>
                             <option value="mumbai">Mumbai</option>
@@ -294,7 +294,7 @@
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <select class="cost-filter-select" id="filterBudget">
+                        <select class="cost-filter-select" id="filterBudget" onchange="filterTreatmentCards(false)">
                             <option value="all">Select Budget Range</option>
                             <option value="low">Under $4,000</option>
                             <option value="mid">$4,000 - $10,000</option>
@@ -313,7 +313,7 @@
             <!-- 8 Treatment Cards Grid -->
             <div class="row g-4" id="treatmentCardsContainer">
                 <!-- Card 1: Knee Replacement -->
-                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="orthopedic">
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="orthopedic" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="mid">
                     <div class="cost-treatment-card">
                         <img src="cost-page/11.png" alt="Knee Replacement" class="cost-card-img">
                         <div class="cost-card-body">
@@ -327,7 +327,7 @@
                 </div>
 
                 <!-- Card 2: Hip Replacement -->
-                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="orthopedic">
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="orthopedic" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="mid">
                     <div class="cost-treatment-card">
                         <img src="cost-page/12.png" alt="Hip Replacement" class="cost-card-img">
                         <div class="cost-card-body">
@@ -341,7 +341,7 @@
                 </div>
 
                 <!-- Card 3: Heart Bypass Surgery -->
-                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="cardiac">
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="cardiac" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="mid high">
                     <div class="cost-treatment-card">
                         <img src="cost-page/13.png" alt="Heart Bypass Surgery" class="cost-card-img">
                         <div class="cost-card-body">
@@ -355,7 +355,7 @@
                 </div>
 
                 <!-- Card 4: Kidney Transplant -->
-                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="transplant">
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="transplant" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="high premium">
                     <div class="cost-treatment-card">
                         <img src="cost-page/14.png" alt="Kidney Transplant" class="cost-card-img">
                         <div class="cost-card-body">
@@ -369,7 +369,7 @@
                 </div>
 
                 <!-- Card 5: Liver Transplant -->
-                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="transplant">
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="transplant" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="high premium">
                     <div class="cost-treatment-card">
                         <img src="cost-page/15.png" alt="Liver Transplant" class="cost-card-img">
                         <div class="cost-card-body">
@@ -383,7 +383,7 @@
                 </div>
 
                 <!-- Card 6: Cancer Treatment -->
-                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="cancer">
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="cancer oncology" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="mid high">
                     <div class="cost-treatment-card">
                         <img src="cost-page/16.png" alt="Cancer Treatment" class="cost-card-img">
                         <div class="cost-card-body">
@@ -397,7 +397,7 @@
                 </div>
 
                 <!-- Card 7: Dental Implants -->
-                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="dental">
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="dental" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="low">
                     <div class="cost-treatment-card">
                         <img src="cost-page/17.png" alt="Dental Implants" class="cost-card-img">
                         <div class="cost-card-body">
@@ -411,7 +411,7 @@
                 </div>
 
                 <!-- Card 8: Bone Marrow Transplant -->
-                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="transplant">
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="transplant cancer" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="high premium">
                     <div class="cost-treatment-card">
                         <img src="cost-page/18.png" alt="Bone Marrow Transplant" class="cost-card-img">
                         <div class="cost-card-body">
@@ -423,6 +423,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- No Treatments Found Message -->
+            <div id="noCostTreatmentsMsg" class="alert alert-info text-center py-4 mt-4" style="display: none; border-radius: 14px;">
+                <i class="fa fa-info-circle fa-2x mb-2 text-primary"></i>
+                <h5 class="fw-bold">No treatments found matching your selected filters.</h5>
+                <p class="mb-2 text-muted">Try choosing another category, city, or budget range, or reset filters to see all available treatments.</p>
+                <button type="button" class="btn btn-outline-primary rounded-pill px-4 mt-2" onclick="resetCostFilters()">Reset Filters</button>
             </div>
         </div>
     </section>
@@ -628,7 +635,7 @@
             <div class="row g-4 align-items-center">
                 <!-- Left Photo -->
                 <div class="col-lg-4">
-                    <img src="cost-page/29.png" alt="A Patient-First Approach You Can Rely On" class="img-fluid rounded-3 shadow-sm w-100" style="max-height: 380px; object-fit: cover;">
+                    <img src="Doctors-page/17.png" alt="A Patient-First Approach You Can Rely On" class="img-fluid rounded-3 shadow-sm w-100" style="max-height: 380px; object-fit: cover;">
                 </div>
 
                 <!-- Right Content -->
@@ -846,23 +853,68 @@
         function handleFileSelect(input) {
             const label = input.parentElement.querySelector('span');
             if (input.files && input.files[0]) {
-                label.innerHTML = '<i class="fa fa-file-check me-1 text-success"></i> ' + input.files[0].name;
+                label.innerHTML = '<i class="fa fa-check-circle me-1 text-success"></i> ' + input.files[0].name;
             } else {
                 label.innerHTML = '<i class="fa fa-cloud-upload-alt me-1 text-primary"></i> Upload Medical Reports';
             }
         }
 
-        // Treatment Cards Filter
-        function filterTreatmentCards() {
-            const cat = document.getElementById('filterCategory').value;
+        // Treatment Cards Filter (Multi-criteria: Category + City + Budget + Smooth Scroll)
+        function filterTreatmentCards(shouldScroll = true) {
+            const catEl = document.getElementById('filterCategory');
+            const cityEl = document.getElementById('filterCity');
+            const budgetEl = document.getElementById('filterBudget');
+
+            const cat = (catEl ? catEl.value : 'all').toLowerCase();
+            const city = (cityEl ? cityEl.value : 'all').toLowerCase();
+            const budget = (budgetEl ? budgetEl.value : 'all').toLowerCase();
+
             const items = document.querySelectorAll('.treatment-item');
+            let matchCount = 0;
+
             items.forEach(function (el) {
-                if (cat === 'all' || el.getAttribute('data-cat') === cat) {
+                const cardCat = (el.getAttribute('data-cat') || '').toLowerCase();
+                const cardCity = (el.getAttribute('data-city') || 'all').toLowerCase();
+                const cardBudget = (el.getAttribute('data-budget') || 'all').toLowerCase();
+
+                const matchCat = (cat === 'all' || cardCat.includes(cat));
+                const matchCity = (city === 'all' || cardCity.includes(city));
+                const matchBudget = (budget === 'all' || cardBudget.includes(budget));
+
+                if (matchCat && matchCity && matchBudget) {
                     el.style.display = '';
+                    matchCount++;
                 } else {
                     el.style.display = 'none';
                 }
             });
+
+            const noMsg = document.getElementById('noCostTreatmentsMsg');
+            if (noMsg) {
+                noMsg.style.display = (matchCount === 0) ? 'block' : 'none';
+            }
+
+            if (shouldScroll) {
+                const target = document.getElementById('treatmentCardsContainer');
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }
+
+        function resetCostFilters() {
+            ['filterCategory', 'filterCity', 'filterBudget'].forEach(function (id) {
+                const sel = document.getElementById(id);
+                if (sel) {
+                    sel.value = 'all';
+                    const trigger = sel.parentElement.querySelector('.cost-trigger-label');
+                    if (trigger) trigger.textContent = sel.options[0].text;
+                    sel.parentElement.querySelectorAll('.custom-select-item').forEach(function (item, idx) {
+                        item.classList.toggle('active', idx === 0);
+                    });
+                }
+            });
+            filterTreatmentCards(false);
         }
 
         // In-DOM Custom Select Dropdown: Constrained strictly inside form/column with zero screen overflow
@@ -958,20 +1010,133 @@
             }
         });
 
-        // Form Submission Handler
-        function handleCostSubmit(e) {
+        // Form Submission Handler (Integrated with /api/MedicalEnquiry)
+        async function handleCostSubmit(e) {
             e.preventDefault();
             const btn = document.getElementById('costSubmitBtn');
             const msg = document.getElementById('costFormMsg');
-            btn.disabled = true;
-            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Submitting...';
+            const originalBtnText = 'Get My Treatment Estimate &rarr;';
 
-            setTimeout(function () {
-                msg.innerHTML = '<div class="alert alert-success py-2">Thank you! Your estimate request has been received. Redirecting...</div>';
-                setTimeout(function () {
-                    window.location.href = 'thankyou.html';
-                }, 1200);
-            }, 800);
+            const treatmentEl = document.getElementById('costTreatment');
+            const countryEl = document.getElementById('costCountry');
+            const cityEl = document.getElementById('costCity');
+            const travelersEl = document.getElementById('costTravelers');
+            const nameEl = document.getElementById('costName');
+            const emailEl = document.getElementById('costEmail');
+            const phoneEl = document.getElementById('costPhone');
+            const reportEl = document.getElementById('costReport');
+
+            const treatment = (treatmentEl ? treatmentEl.value : '').trim();
+            const country = (countryEl ? countryEl.value : '').trim();
+            const city = (cityEl ? cityEl.value : '').trim();
+            const travelers = (travelersEl ? travelersEl.value : '').trim();
+            const name = (nameEl ? nameEl.value : '').trim();
+            const email = (emailEl ? emailEl.value : '').trim().toLowerCase();
+            const phone = (phoneEl ? phoneEl.value : '').trim();
+
+            // Form Validations
+            if (!treatment) {
+                msg.innerHTML = '<div class="alert alert-warning py-2"><i class="fa fa-exclamation-triangle me-1"></i> Please select your treatment.</div>';
+                if (treatmentEl) treatmentEl.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            if (!country) {
+                msg.innerHTML = '<div class="alert alert-warning py-2"><i class="fa fa-exclamation-triangle me-1"></i> Please select your country of travel.</div>';
+                if (countryEl) countryEl.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            if (!name || name.length < 2) {
+                msg.innerHTML = '<div class="alert alert-warning py-2"><i class="fa fa-exclamation-triangle me-1"></i> Please enter your full name.</div>';
+                if (nameEl) { nameEl.focus(); nameEl.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+                return;
+            }
+            if (!email || !/^[^s@]+@[^s@]+.[^s@]+$/.test(email)) {
+                msg.innerHTML = '<div class="alert alert-warning py-2"><i class="fa fa-exclamation-triangle me-1"></i> Please enter a valid email address.</div>';
+                if (emailEl) { emailEl.focus(); emailEl.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+                return;
+            }
+            if (!phone || phone.length < 5) {
+                msg.innerHTML = '<div class="alert alert-warning py-2"><i class="fa fa-exclamation-triangle me-1"></i> Please enter your WhatsApp or phone number.</div>';
+                if (phoneEl) { phoneEl.focus(); phoneEl.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Submitting Estimate...';
+            msg.innerHTML = '';
+
+            const formData = {
+                fullName: name,
+                nationality: country,
+                treatment: treatment,
+                email: email,
+                phone: phone,
+                appointmentDate: new Date().toISOString().split('T')[0],
+                appointmentTime: "10:00 AM",
+                description: "Estimate Request | Treatment: " + treatment + " | Country: " + country + " | Preferred City: " + (city || "Any City") + " | Travelers: " + (travelers || "1") + " | Email: " + email + " | Phone: " + phone
+            };
+
+            try {
+                // File upload conversion to Base64
+                if (reportEl && reportEl.files && reportEl.files[0]) {
+                    const file = reportEl.files[0];
+                    if (file.size > 10 * 1024 * 1024) {
+                        msg.innerHTML = '<div class="alert alert-danger py-2">Medical report file must be under 10 MB.</div>';
+                        btn.disabled = false;
+                        btn.innerHTML = originalBtnText;
+                        return;
+                    }
+                    formData.reportFileName = file.name;
+                    formData.reportFile = await new Promise(function(resolve, reject) {
+                        const reader = new FileReader();
+                        reader.onload = function() { resolve(reader.result.split(',')[1]); };
+                        reader.onerror = reject;
+                        reader.readAsDataURL(file);
+                    });
+                }
+
+                console.log("Cost form submitting:", formData);
+
+                const response = await fetch("/api/MedicalEnquiry", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formData)
+                });
+
+                const responseText = await response.text();
+                let data;
+                try { data = JSON.parse(responseText); } catch(e) { data = { raw: responseText }; }
+
+                if (response.ok) {
+                    msg.innerHTML = '<div class="alert alert-success py-2"><i class="fa fa-check-circle me-1"></i> Estimate request received successfully! Redirecting...</div>';
+                    document.getElementById('costForm').reset();
+                    const savedData = { ...formData, ...(typeof data === 'object' && data !== null ? data : {}), name: formData.fullName || formData.name, fullName: formData.fullName || formData.name, email: formData.email, phone: formData.phone, nationality: formData.country, description: 'Treatment: ' + (formData.treatment || 'General') + ' | City: ' + (formData.city || 'Top Hospitals') + ' | Travelers: ' + (formData.travelers || '1') };
+                    sessionStorage.setItem("medicalEnquiryResponse", JSON.stringify(savedData));
+                    setTimeout(function() { window.location.href = 'thankyou.html'; }, 1200);
+                } else if (response.status === 405 && (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost")) {
+                    console.warn("Live Server simulation fallback.");
+                    msg.innerHTML = '<div class="alert alert-success py-2"><i class="fa fa-check-circle me-1"></i> Estimate request received successfully! Redirecting...</div>';
+                    document.getElementById('costForm').reset();
+                    sessionStorage.setItem("medicalEnquiryResponse", JSON.stringify({ success: true, localPreview: true, ...formData }));
+                    setTimeout(function() { window.location.href = 'thankyou.html'; }, 1200);
+                } else {
+                    msg.innerHTML = '<div class="alert alert-danger py-2">' + (data.message || 'Submission failed. Please try again or contact us directly.') + '</div>';
+                    btn.disabled = false;
+                    btn.innerHTML = originalBtnText;
+                }
+            } catch (err) {
+                console.error("Cost form submission error:", err);
+                // Fallback for offline/local preview test
+                if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost" || window.location.protocol === "file:") {
+                    msg.innerHTML = '<div class="alert alert-success py-2"><i class="fa fa-check-circle me-1"></i> Estimate request received! Redirecting...</div>';
+                    sessionStorage.setItem("medicalEnquiryResponse", JSON.stringify({ success: true, localPreview: true, ...formData }));
+                    setTimeout(function() { window.location.href = 'thankyou.html'; }, 1200);
+                } else {
+                    msg.innerHTML = '<div class="alert alert-danger py-2">Error connecting to server. Please try again or reach us via WhatsApp.</div>';
+                    btn.disabled = false;
+                    btn.innerHTML = originalBtnText;
+                }
+            }
         }
     </script>
 </body>

@@ -111,7 +111,7 @@
         <div class="container">
             <!-- 2. FLOATING SEARCH & FILTER BAR -->
             <div class="doc-search-card">
-                <form class="doc-search-form" id="doctorSearchForm" onsubmit="event.preventDefault(); filterDoctors();">
+                <form class="doc-search-form" id="doctorSearchForm" onsubmit="event.preventDefault(); filterDoctors(true);">
                     <!-- Select Treatment -->
                     <div class="doc-field-group">
                         <label class="doc-field-label" for="docTreatmentFilter">Select Treatment</label>
@@ -323,6 +323,67 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- DOCTOR 9: Dr. Anurag Ahuja (Dental) -->
+                        <div class="item">
+                            <div class="doctor-card" data-specialty="dental" data-treatment="dental" data-city="delhi" data-type="surgeon"
+                                 data-name="Dr. Anurag Ahuja" data-hosp="Max Smart Super Speciality Hospital, New Delhi" data-exp="22+ Years Experience" data-rating="4.9"
+                                 data-reviews="140+" data-img="Doctors-page/17.png" data-dept="Director &amp; Chief Dental Surgeon - Implantology"
+                                 data-bio="Dr. Anurag Ahuja is a master implantologist and maxillofacial specialist with over 22 years of surgical excellence. He specializes in immediate-load dental implants, all-on-4/all-on-6 full arch rehabilitations, and smile design using cutting-edge 3D CAD/CAM technologies."
+                                 data-procedures="All-on-4 / All-on-6 Dental Implants, Full Mouth Reconstruction, Bone Grafting &amp; Sinus Lift, Computer-Guided Implant Surgery, Cosmetic Veneers">
+                                <div class="doctor-card-img-wrap">
+                                    <img src="Doctors-page/17.png" alt="Dr. Anurag Ahuja" loading="lazy">
+                                    <span class="doc-hosp-pill">
+                                        <span class="badge-dot dot-max"></span> MAX
+                                    </span>
+                                </div>
+                                <div class="doctor-card-body">
+                                    <h4 class="doctor-card-name">Dr. Anurag Ahuja</h4>
+                                    <span class="doctor-card-spec">Chief Dental Surgeon</span>
+                                    <ul class="doctor-card-meta">
+                                        <li><i class="fa fa-briefcase"></i> 22+ Years Experience</li>
+                                        <li><i class="fa fa-map-marker-alt"></i> Max Hospital, New Delhi</li>
+                                    </ul>
+                                    <div class="doctor-card-rating">
+                                        <span class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                                        <span class="score">4.9 (140+ reviews)</span>
+                                    </div>
+                                    <button type="button" class="btn-view-doc-profile" onclick="openDoctorModal(this);">
+                                        View Profile <i class="fa fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DOCTOR 10: Dr. Radhika Tandon (Eye / Ophthalmology) -->
+                        <div class="item">
+                            <div class="doctor-card" data-specialty="ophthalmology" data-treatment="eye" data-city="delhi" data-type="consultant"
+                                 data-name="Dr. Radhika Tandon" data-hosp="Apollo Hospital, New Delhi" data-exp="24+ Years Experience" data-rating="4.8"
+                                 data-reviews="115+" data-img="Doctors-page/18.png" data-dept="Senior Consultant - Cornea &amp; Refractive Eye Surgery"
+                                 data-bio="Dr. Radhika Tandon is an esteemed ophthalmologist and corneal surgeon trained at prestigious international centers. She possesses vast surgical expertise in blade-free LASIK, complex corneal transplants, micro-incision cataract surgeries (MICS), and keratoconus management."
+                                 data-procedures="Blade-Free Contoura LASIK, Micro-Incision Cataract Surgery (Phaco), Lamellar &amp; Full-Thickness Corneal Transplant, Glaucoma Management, Keratoconus Cross-Linking">
+                                <div class="doctor-card-img-wrap">
+                                    <img src="Doctors-page/18.png" alt="Dr. Radhika Tandon" loading="lazy">
+                                    <span class="doc-hosp-pill">
+                                        <span class="badge-dot dot-apollo"></span> Apollo
+                                    </span>
+                                </div>
+                                <div class="doctor-card-body">
+                                    <h4 class="doctor-card-name">Dr. Radhika Tandon</h4>
+                                    <span class="doctor-card-spec">Ophthalmic Surgeon</span>
+                                    <ul class="doctor-card-meta">
+                                        <li><i class="fa fa-briefcase"></i> 24+ Years Experience</li>
+                                        <li><i class="fa fa-map-marker-alt"></i> Apollo Hospital, New Delhi</li>
+                                    </ul>
+                                    <div class="doctor-card-rating">
+                                        <span class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                                        <span class="score">4.8 (115+ reviews)</span>
+                                    </div>
+                                    <button type="button" class="btn-view-doc-profile" onclick="openDoctorModal(this);">
+                                        View Profile <i class="fa fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- DOCTOR 2: Dr. Neha Sharma -->
                         <div class="item">
@@ -419,7 +480,7 @@
 
                         <!-- DOCTOR 5: Dr. Sandeep Vaishya -->
                         <div class="item">
-                            <div class="doctor-card" data-specialty="neurosurgery" data-treatment="neurosurgery" data-city="gurgaon" data-type="director"
+                            <div class="doctor-card" data-specialty="neurosurgery spine" data-treatment="neurosurgery spine" data-city="gurgaon" data-type="director"
                                  data-name="Dr. Sandeep Vaishya" data-hosp="Fortis Memorial, Gurgaon" data-exp="22+ Years Experience" data-rating="4.9"
                                  data-reviews="135+" data-img="Doctors-page/15.png" data-dept="Executive Director - Neurosurgery & Spine"
                                  data-bio="Dr. Sandeep Vaishya is an internationally recognized neurosurgeon with specialized training from premier medical institutes worldwide. Known for exceptional precision in micro-neurosurgery, deep brain stimulation (DBS), and minimally invasive spine instrumentation."
@@ -450,7 +511,7 @@
 
                         <!-- DOCTOR 6: Dr. Subhash Gupta -->
                         <div class="item">
-                            <div class="doctor-card" data-specialty="gastroenterology" data-treatment="gastro" data-city="delhi" data-type="director"
+                            <div class="doctor-card" data-specialty="gastroenterology" data-treatment="gastro liver transplant" data-city="delhi" data-type="director"
                                  data-name="Dr. Subhash Gupta" data-hosp="Max Healthcare, New Delhi" data-exp="28+ Years Experience" data-rating="4.9"
                                  data-reviews="150+" data-img="Doctors-page/16.png" data-dept="Chairman - Centre for Liver & Biliary Sciences"
                                  data-bio="Dr. Subhash Gupta is one of the world's leading liver transplant surgeons, having spearheaded over 3,000 living donor liver transplants. Patients from over 50 countries travel specifically to consult his specialized multidisciplinary transplant team."
@@ -769,7 +830,7 @@
                             <p>Get a free medical opinion and let our experts guide you to the best treatment options in India.</p>
                         </div>
                     </div>
-                    <a href="appointment.html" class="btn-cta-opinion-pill">
+                    <a href="contact.html" class="btn-cta-opinion-pill">
                         Get Free Medical Opinion <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
@@ -820,7 +881,7 @@
                 </div>
                 <div class="modal-footer border-top bg-light px-4 py-3 d-flex justify-content-between">
                     <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Close</button>
-                    <a href="appointment.html" class="btn btn-danger rounded-pill px-4 font-weight-bold" style="background: #e52128; border: none;">
+                    <a href="appointment.html" id="docModalConsultBtn" class="btn btn-danger rounded-pill px-4 font-weight-bold" style="background: #e52128; border: none;">
                         Consult This Doctor <i class="fa fa-arrow-right ms-1"></i>
                     </a>
                 </div>
@@ -849,21 +910,33 @@
         let originalDoctorItems = [];
         let docCarousel = null;
 
-        function initDoctorCarousel() {
+        function initDoctorCarousel(count) {
+            const total = typeof count === 'number' ? count : $('#doctorsCarousel .item').length;
+            const canLoop = total >= 4;
+            
+            // Adjust arrows visibility if 1 or fewer items
+            const arrows = $('#doctorsSliderBox .slider-arrow');
+            if (total <= 1) {
+                arrows.hide();
+            } else {
+                arrows.show();
+            }
+
             return $('.doctors-page-slider').owlCarousel({
-                loop: true,
+                loop: canLoop,
+                rewind: !canLoop && total > 1,
                 nav: false,
                 dots: false,
                 margin: 20,
                 smartSpeed: 600,
-                autoplay: true,
+                autoplay: canLoop,
                 autoplayTimeout: 4000,
                 autoplayHoverPause: true,
                 responsive: {
                     0: { items: 1 },
-                    576: { items: 2 },
-                    992: { items: 3 },
-                    1200: { items: 4 }
+                    576: { items: Math.min(2, total || 1) },
+                    992: { items: Math.min(3, total || 1) },
+                    1200: { items: Math.min(4, total || 1) }
                 }
             });
         }
@@ -901,13 +974,13 @@
             });
         });
 
-        function filterDoctors() {
+        function filterDoctors(shouldScroll = false) {
             const treatment = (document.getElementById('docTreatmentFilter').value || 'all').toLowerCase();
             const specialty = (document.getElementById('docSpecialtyFilter').value || 'all').toLowerCase();
             const city = (document.getElementById('docCityFilter').value || 'all').toLowerCase();
             const type = (document.getElementById('docTypeFilter').value || 'all').toLowerCase();
 
-            // Destroy current carousel
+            // Destroy current carousel safely
             if (docCarousel) {
                 docCarousel.trigger('destroy.owl.carousel');
                 docCarousel.find('.owl-stage-outer').children().unwrap();
@@ -944,7 +1017,14 @@
             } else {
                 if (noMsg) noMsg.style.display = 'none';
                 if (sliderBox) sliderBox.style.display = 'block';
-                docCarousel = initDoctorCarousel();
+                docCarousel = initDoctorCarousel(matchCount);
+            }
+
+            if (shouldScroll) {
+                const targetSec = document.getElementById('doctorsSection');
+                if (targetSec) {
+                    targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
         }
 
@@ -1093,6 +1173,11 @@
             document.getElementById('docModalDept').textContent = dept;
             document.getElementById('doctorModalBio').textContent = bio;
             document.getElementById('doctorModalProcedures').textContent = procedures;
+
+            const consultBtn = document.getElementById('docModalConsultBtn');
+            if (consultBtn) {
+                consultBtn.href = `appointment.html?doctor=${encodeURIComponent(name)}&dept=${encodeURIComponent(dept)}`;
+            }
 
             const modal = new bootstrap.Modal(document.getElementById('doctorModal'));
             modal.show();

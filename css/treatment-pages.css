@@ -9022,6 +9022,10 @@ a.btn-outline-navy:hover,
     border-color: #02295a;
 }
 
+.doc-search-card .custom-select-trigger::after {
+    display: none !important;
+}
+
 .doc-search-card .custom-select-wrap.open .custom-select-trigger {
     border-color: #02295a;
     box-shadow: 0 0 0 3px rgba(2, 41, 90, 0.12);

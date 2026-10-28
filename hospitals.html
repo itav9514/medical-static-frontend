@@ -112,7 +112,7 @@
                 <div class="hosp-search-title">
                     Find the Right Hospital for Your Treatment
                 </div>
-                <form class="hosp-search-form" id="hospitalSearchForm" onsubmit="event.preventDefault(); filterHospitals();">
+                <form class="hosp-search-form" id="hospitalSearchForm" onsubmit="event.preventDefault(); filterHospitals(true);">
                     <!-- Select Treatment -->
                     <div class="hosp-field-group">
                         <label class="hosp-field-label" for="hospTreatmentFilter">Select Treatment</label>
@@ -508,7 +508,7 @@
                         Get a free medical opinion and personalized hospital recommendations based on your treatment needs.
                     </p>
                     <div class="hosp-bottom-cta-btns">
-                        <a href="appointment.html" class="btn-cta-opinion">
+                        <a href="contact.html" class="btn-cta-opinion">
                             <i class="fa fa-calendar-check"></i> Get Free Medical Opinion
                         </a>
                         <a href="contact.html" class="btn-cta-talk">
@@ -556,7 +556,7 @@
                 </div>
                 <div class="modal-footer border-top bg-light px-4 py-3 d-flex justify-content-between">
                     <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Close</button>
-                    <a href="appointment.html" class="btn btn-danger rounded-pill px-4 font-weight-bold" style="background: #e52128; border: none;">
+                    <a href="appointment.html" id="hospitalModalConsultBtn" class="btn btn-danger rounded-pill px-4 font-weight-bold" style="background: #e52128; border: none;">
                         Get Free Quotation <i class="fa fa-arrow-right ms-1"></i>
                     </a>
                 </div>
@@ -582,10 +582,10 @@
     <!-- Hospital Page Interactive Scripts -->
     <script>
         // 1. Hospital Search & Filter Function
-        function filterHospitals() {
-            const treatment = document.getElementById('hospTreatmentFilter').value.toLowerCase();
-            const city = document.getElementById('hospCityFilter').value.toLowerCase();
-            const accred = document.getElementById('hospAccredFilter').value.toLowerCase();
+        function filterHospitals(shouldScroll = false) {
+            const treatment = (document.getElementById('hospTreatmentFilter').value || 'all').toLowerCase();
+            const city = (document.getElementById('hospCityFilter').value || 'all').toLowerCase();
+            const accred = (document.getElementById('hospAccredFilter').value || 'all').toLowerCase();
             
             const cards = document.querySelectorAll('#hospitalsGrid .hosp-card');
             let visibleCount = 0;
@@ -610,6 +610,13 @@
             const noMsg = document.getElementById('noHospitalsMsg');
             if (noMsg) {
                 noMsg.style.display = (visibleCount === 0) ? 'block' : 'none';
+            }
+
+            if (shouldScroll) {
+                const target = document.getElementById('partner-hospitals');
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
         }
 
@@ -709,6 +716,11 @@
             document.getElementById('hospitalModalAccred').textContent = accred;
             document.getElementById('hospitalModalSpecialties').textContent = specialties;
             document.getElementById('hospitalModalOverview').textContent = overview;
+
+            const consultBtn = document.getElementById('hospitalModalConsultBtn');
+            if (consultBtn) {
+                consultBtn.href = 'appointment.html?hospital=' + encodeURIComponent(name);
+            }
 
             const modal = new bootstrap.Modal(document.getElementById('hospitalModal'));
             modal.show();

@@ -90,10 +90,10 @@
                     <div class="hero-text-card">
                         <div class="mh-eyebrow">YOUR HEALTH, OUR SUPPORT IN INDIA</div>
                         <h1>Medical Treatment in India,<br>Made Simple for<br><span>International Patients</span></h1>
-                        <p class="mh-txt">Trusted hospitals. Experienced doctors. Affordable treatment. Complete travel
+                        <p class="mh-txt">Trusted hospitals. Experienced doctors. Affordable treatment. <br>Complete travel
                             support — all in one place.</p>
                         <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-                            <a href="#queryForm" class="mh-btn red">Get a Free Medical Opinion →</a>
+                            <a href="contact.html" class="mh-btn red">Get a Free Medical Opinion →</a>
                             <a href="#treatments" class="mh-btn white">Explore Treatments →</a>
                         </div>
                         <div class="mh-feat" id="heroFeat">
@@ -107,10 +107,14 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" id="soundToggleBtn" class="hero-sound-btn" title="Toggle Sound">
-                    <i class="fa fa-volume-mute" id="soundIcon"></i>
-                    <span id="soundText">Sound On</span>
-                </button>
+                <div class="hero-video-controls" id="heroVideoControls">
+                    <button type="button" id="playPauseToggleBtn" class="hero-control-btn" title="Pause Video" aria-label="Play or Pause Video">
+                        <i class="fa fa-pause" id="playPauseIcon"></i>
+                    </button>
+                    <button type="button" id="soundToggleBtn" class="hero-control-btn" title="Toggle Sound" aria-label="Mute or Unmute Audio">
+                        <i class="fa fa-volume-mute" id="soundIcon"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -272,33 +276,33 @@
                         <h2>Popular Treatments</h2>
                         <p>Find the right treatment with top hospitals and experienced specialists in India.</p>
                     </div>
-                    <a href="#queryForm">View All Treatments →</a>
+                    <a href="medical-treatment.html">View All Treatments →</a>
                 </div>
                 <div class="mh-g" style="--c:8">
-                    <div class="mh-card"><img src="all-img/1.png" alt="Cancer Treatment" loading="lazy">
+                    <a href="cancer-treatment.html" class="mh-card"><img src="all-img/1.png" alt="Cancer Treatment" loading="lazy">
                         <div>Cancer Treatment</div>
-                    </div>
-                    <div class="mh-card"><img src="all-img/2.png" alt="Cardiac Surgery" loading="lazy">
+                    </a>
+                    <a href="cardiac-surgery.html" class="mh-card"><img src="all-img/2.png" alt="Cardiac Surgery" loading="lazy">
                         <div>Cardiac Surgery</div>
-                    </div>
-                    <div class="mh-card"><img src="all-img/3.png" alt="Knee Replacement" loading="lazy">
+                    </a>
+                    <a href="knee-hipreplacement.html" class="mh-card"><img src="all-img/3.png" alt="Knee Replacement" loading="lazy">
                         <div>Knee Replacement</div>
-                    </div>
-                    <div class="mh-card"><img src="all-img/4.png" alt="Hip Replacement" loading="lazy">
+                    </a>
+                    <a href="knee-hipreplacement.html" class="mh-card"><img src="all-img/4.png" alt="Hip Replacement" loading="lazy">
                         <div>Hip Replacement</div>
-                    </div>
-                    <div class="mh-card"><img src="all-img/5.png" alt="Kidney Transplant" loading="lazy">
+                    </a>
+                    <a href="liver-kidney-transplant.html" class="mh-card"><img src="all-img/5.png" alt="Kidney Transplant" loading="lazy">
                         <div>Kidney Transplant</div>
-                    </div>
-                    <div class="mh-card"><img src="all-img/6.png" alt="Liver Transplant" loading="lazy">
+                    </a>
+                    <a href="liver-kidney-transplant.html" class="mh-card"><img src="all-img/6.png" alt="Liver Transplant" loading="lazy">
                         <div>Liver Transplant</div>
-                    </div>
-                    <div class="mh-card"><img src="all-img/7.png" alt="IVF Treatment" loading="lazy">
+                    </a>
+                    <a href="ivf-fertility.html" class="mh-card"><img src="all-img/7.png" alt="IVF Treatment" loading="lazy">
                         <div>IVF Treatment</div>
-                    </div>
-                    <div class="mh-card"><img src="all-img/8.png" alt="Dental Implants" loading="lazy">
+                    </a>
+                    <a href="dental-implants.html" class="mh-card"><img src="all-img/8.png" alt="Dental Implants" loading="lazy">
                         <div>Dental Implants</div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -891,40 +895,77 @@
     <script src="js/main.js"></script>
 
     <script>
-        // Sound Button Toggle Logic (Guaranteed Audio Unlock)
+        // Video Controls: Play/Pause & Sound Toggle
         document.addEventListener("DOMContentLoaded", function () {
             const heroVideo = document.getElementById('heroVideo');
             const soundBtn = document.getElementById('soundToggleBtn');
             const soundIcon = document.getElementById('soundIcon');
-            const soundText = document.getElementById('soundText');
+            const playPauseBtn = document.getElementById('playPauseToggleBtn');
+            const playPauseIcon = document.getElementById('playPauseIcon');
 
+            // 1. Sound Toggle (Icons only)
             if (heroVideo && soundBtn) {
                 soundBtn.addEventListener('click', function (e) {
-                    e.preventDefault();
                     e.stopPropagation();
 
                     if (heroVideo.muted) {
                         heroVideo.muted = false;
                         heroVideo.volume = 1.0;
-                        // Browser audio channel unlock karne ke liye
+
                         const playPromise = heroVideo.play();
                         if (playPromise !== undefined) {
-                            playPromise.catch(function (error) {
-                                console.log("Audio play error:", error);
+                            playPromise.catch(error => {
+                                console.warn("Audio unlock play prevented:", error);
                             });
                         }
+
                         if (soundIcon) soundIcon.className = 'fa fa-volume-up';
-                        if (soundText) soundText.textContent = 'Mute';
                         soundBtn.classList.add('unmuted');
+                        soundBtn.setAttribute('title', 'Mute Sound');
                     } else {
                         heroVideo.muted = true;
                         if (soundIcon) soundIcon.className = 'fa fa-volume-mute';
-                        if (soundText) soundText.textContent = 'Sound On';
                         soundBtn.classList.remove('unmuted');
+                        soundBtn.setAttribute('title', 'Unmute Sound');
                     }
                 });
             }
+
+            // 2. Play / Pause Toggle
+            if (heroVideo && playPauseBtn) {
+                playPauseBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+
+                    if (heroVideo.paused) {
+                        heroVideo.play().then(() => {
+                            if (playPauseIcon) playPauseIcon.className = 'fa fa-pause';
+                            playPauseBtn.classList.remove('is-paused');
+                            playPauseBtn.setAttribute('title', 'Pause Video');
+                        }).catch(err => {
+                            console.warn("Video play error:", err);
+                        });
+                    } else {
+                        heroVideo.pause();
+                        if (playPauseIcon) playPauseIcon.className = 'fa fa-play';
+                        playPauseBtn.classList.add('is-paused');
+                        playPauseBtn.setAttribute('title', 'Play Video');
+                    }
+                });
+
+                heroVideo.addEventListener('pause', function () {
+                    if (playPauseIcon) playPauseIcon.className = 'fa fa-play';
+                    playPauseBtn.classList.add('is-paused');
+                    playPauseBtn.setAttribute('title', 'Play Video');
+                });
+
+                heroVideo.addEventListener('play', function () {
+                    if (playPauseIcon) playPauseIcon.className = 'fa fa-pause';
+                    playPauseBtn.classList.remove('is-paused');
+                    playPauseBtn.setAttribute('title', 'Pause Video');
+                });
+            }
         });
+
         // Initialize Top Hospitals Owl Carousel Slider
         $(function () {
             $('.home-hospital-slider').owlCarousel({
@@ -986,7 +1027,7 @@
                 select.style.border = "none";
 
                 const trigger = document.createElement("div");
-                trigger.className = "form-select custom-select-trigger";
+                trigger.className = "custom-select-trigger";
                 trigger.setAttribute("tabindex", "0");
                 trigger.textContent = select.options[select.selectedIndex]?.text || "Select";
 
@@ -1226,11 +1267,12 @@
                     let data;
                     try { data = JSON.parse(responseText); } catch (e) { data = { raw: responseText }; }
 
-                    if (response.ok) {
+                                        if (response.ok) {
                         messageDiv.innerHTML = '<div class="alert alert-success">Appointment booked successfully! Redirecting...</div>';
                         form.reset();
                         submitBtn.disabled = true;
-                        sessionStorage.setItem("medicalEnquiryResponse", JSON.stringify(data));
+                        const savedData = { ...formData, ...(typeof data === 'object' && data !== null ? data : {}), name: formData.name, fullName: formData.name, email: formData.email, phone: formData.phone, nationality: formData.nationality, treatment: formData.treatment, appointmentDate: formData.appointmentDate, appointmentTime: formData.appointmentTime, description: formData.description };
+                        sessionStorage.setItem("medicalEnquiryResponse", JSON.stringify(savedData));
                         setTimeout(() => (window.location.href = "thankyou.html"), 1500);
                     } else if (response.status === 405 && (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost")) {
                         console.warn("Live Server Notice: Local static server simulation.");
