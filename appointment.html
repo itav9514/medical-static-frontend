@@ -322,7 +322,7 @@
                 nameEl.focus();
                 return;
             }
-            if (!email || !/^[^s@]+@[^s@]+.[^s@]+$/.test(email)) {
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                 msg.innerHTML = '<div class="alert alert-warning py-2">Please enter a valid email address.</div>';
                 emailEl.focus();
                 return;
