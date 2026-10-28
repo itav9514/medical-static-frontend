@@ -537,3 +537,76 @@
         padding: 20px 20px !important;
     }
 }
+
+
+/* ================= Page Header Banner Exact Style ================= */
+.page-header {
+    background: url(../img/header-page.jpg) right center no-repeat !important;
+    background-size: cover !important;
+    min-height: 330px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.appt-header-title {
+    color: #0b224e !important;
+    font-weight: 800 !important;
+    font-size: 2.85rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.5px;
+}
+
+.appt-header-breadcrumb {
+    font-weight: 700;
+    font-size: 13.5px;
+    letter-spacing: 0.5px;
+}
+
+.appt-header-breadcrumb .breadcrumb-item a {
+    color: #ffffff !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    text-decoration: none;
+}
+
+.appt-header-breadcrumb .breadcrumb-item a:hover {
+    color: #0d6efd !important;
+}
+
+.appt-header-breadcrumb .breadcrumb-item.active {
+    color: #0d6efd !important;
+    font-weight: 700;
+}
+
+.appt-header-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, 0.85) !important;
+    padding: 0 8px;
+}
+
+@media (max-width: 991px) {
+    .page-header {
+        min-height: 300px !important;
+        background-position: 75% center !important;
+    }
+
+    .appt-header-title {
+        font-size: 2.4rem !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-header {
+        min-height: 230px !important;
+        background-position: 70% center !important;
+        padding-top: 35px !important;
+        padding-bottom: 35px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .appt-header-title {
+        font-size: 1.95rem !important;
+    }
+
+    .appt-header-breadcrumb {
+        font-size: 12px !important;
+    }
+}

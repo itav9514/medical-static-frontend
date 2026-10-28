@@ -9870,16 +9870,23 @@ a.btn-outline-navy:hover,
 
 .doctors-page-slider .doctor-card {
     height: 100%;
-    margin: 0;
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto !important;
 }
 
 .doctors-page-slider .owl-stage {
     display: flex !important;
+    justify-content: center;
 }
 
 .doctors-page-slider .owl-item {
     display: flex !important;
-    flex: 1 0 auto;
+    justify-content: center;
+}
+
+#doctorsSliderBox.single-item .slider-arrow {
+    display: none !important;
 }
 
 .doctors-page-slider .owl-dots {

@@ -914,11 +914,14 @@
             const total = typeof count === 'number' ? count : $('#doctorsCarousel .item').length;
             const canLoop = total >= 4;
             
-            // Adjust arrows visibility if 1 or fewer items
-            const arrows = $('#doctorsSliderBox .slider-arrow');
+            // Adjust arrows & single item layout if 1 or fewer items
+            const $sliderBox = $('#doctorsSliderBox');
+            const arrows = $sliderBox.find('.slider-arrow');
             if (total <= 1) {
+                $sliderBox.addClass('single-item');
                 arrows.hide();
             } else {
+                $sliderBox.removeClass('single-item');
                 arrows.show();
             }
 
