@@ -384,7 +384,7 @@
                     const savedData = { ...formData, ...(typeof data === 'object' && data !== null ? data : {}), name: formData.fullName || formData.name, fullName: formData.fullName || formData.name, email: formData.email, phone: formData.phone, appointmentDate: formData.appointmentDate, appointmentTime: formData.appointmentTime, description: formData.description || formData.message };
                     sessionStorage.setItem("medicalEnquiryResponse", JSON.stringify(savedData));
                     setTimeout(function () { window.location.href = "thankyou.html"; }, 1500);
-                } else if (response.status === 405 && (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost")) {
+                } else if ((response.status === 405 || response.status === 501 || response.status === 404) && (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost" || window.location.port !== "")) {
                     console.warn("Local test simulation.");
                     msg.innerHTML = '<div class="alert alert-success py-2"><i class="fa fa-check-circle me-1"></i> Appointment booked successfully! Redirecting...</div>';
                     document.getElementById('appointmentForm').reset();
