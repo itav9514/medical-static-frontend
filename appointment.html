@@ -169,17 +169,23 @@
                                     </select>
                                 </div> -->
                                 <div class="col-12 col-sm-6">
-                                    <div class="date" id="datePickerDiv" data-target-input="nearest">
-                                        <input type="text" class="form-control border-0 datetimepicker-input"
-                                            id="apptDate" placeholder="Preferred Date" data-target="#datePickerDiv"
-                                            data-toggle="datetimepicker" style="height: 55px;">
+                                    <div class="position-relative">
+                                        <div class="date position-relative" id="datePicker" data-target-input="nearest">
+                                            <input type="text" class="form-control border-0 datetimepicker-input"
+                                                id="apptDate" name="appointmentDate" placeholder="Callback Date"
+                                                data-target="#datePicker" data-toggle="datetimepicker" autocomplete="off"
+                                                style="height: 55px;">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <div class="time" id="timePickerDiv" data-target-input="nearest">
-                                        <input type="text" class="form-control border-0 datetimepicker-input"
-                                            id="apptTime" placeholder="Preferred Time" data-target="#timePickerDiv"
-                                            data-toggle="datetimepicker" style="height: 55px;">
+                                    <div class="position-relative">
+                                        <div class="time position-relative" id="timePicker" data-target-input="nearest">
+                                            <input type="text" class="form-control border-0 datetimepicker-input"
+                                                id="apptTime" name="appointmentTime" placeholder="Callback Time"
+                                                data-target="#timePicker" data-toggle="datetimepicker" autocomplete="off"
+                                                style="height: 55px;">
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- <div class="col-12">
