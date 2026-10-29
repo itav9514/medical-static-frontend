@@ -907,6 +907,7 @@
 
     <!-- Template Javascript (header/footer fetch, pickers) -->
     <script src="js/main.js"></script>
+    <script src="js/sliders.js"></script>
 
     <script>
         // Video Controls: Play/Pause & Sound Toggle
@@ -980,46 +981,7 @@
             }
         });
 
-        // Initialize Top Hospitals Owl Carousel Slider
-        $(function () {
-            $('.home-doctor-slider').owlCarousel({
-                loop: true,
-                nav: false,
-                dots: true,
-                margin: 16,
-                smartSpeed: 600,
-                autoplay: true,
-                autoplayHoverPause: true,
-                autoplayTimeout: 4000,
-                responsive: {
-                    0: { items: 1 },
-                    576: { items: 2 },
-                    768: { items: 3 },
-                    1200: { items: 4 }
-                }
-            });
-
-            $('.home-hospital-slider').owlCarousel({
-                loop: true,
-                nav: false,
-                dots: true,
-                margin: 16,
-                smartSpeed: 600,
-                autoplay: true,
-                autoplayHoverPause: true,
-                autoplayTimeout: 3500,
-                responsive: {
-                    0: { items: 1 },
-                    576: { items: 2 },
-                    768: { items: 3 },
-                    1200: { items: 4 }
-                }
-            });
-
-            $(document).on('click', '.slider-arrow', function () {
-                $($(this).data('target')).trigger($(this).hasClass('prev') ? 'prev.owl.carousel' : 'next.owl.carousel', [400]);
-            });
-        });
+        // Sliders initialized via js/sliders.js
 
         /* ---------- Form logic ---------- */
         document.addEventListener("DOMContentLoaded", function () {

@@ -2215,46 +2215,13 @@
 
     <!-- Template Javascript (header/footer fetch) -->
     <script src="js/main.js"></script>
+    <script src="js/sliders.js"></script>
 
     <!-- Doctors Page Interactive Scripts -->
     <script>
-        // 1. Owl Carousel Initialization & Dynamic Filtering
+        // 1. Owl Carousel Initialization & Dynamic Filtering (Powered by js/sliders.js)
         let originalDoctorItems = [];
         let docCarousel = null;
-
-        function initDoctorCarousel(count) {
-            const total = typeof count === 'number' ? count : $('#doctorsCarousel .item').length;
-            const canLoop = total >= 4;
-            
-            // Adjust arrows & single item layout if 1 or fewer items
-            const $sliderBox = $('#doctorsSliderBox');
-            const arrows = $sliderBox.find('.slider-arrow');
-            if (total <= 1) {
-                $sliderBox.addClass('single-item');
-                arrows.hide();
-            } else {
-                $sliderBox.removeClass('single-item');
-                arrows.show();
-            }
-
-            return $('.doctors-page-slider').owlCarousel({
-                loop: canLoop,
-                rewind: !canLoop && total > 1,
-                nav: false,
-                dots: false,
-                margin: 20,
-                smartSpeed: 600,
-                autoplay: canLoop,
-                autoplayTimeout: 4000,
-                autoplayHoverPause: true,
-                responsive: {
-                    0: { items: 1 },
-                    576: { items: Math.min(2, total || 1) },
-                    992: { items: Math.min(3, total || 1) },
-                    1200: { items: Math.min(4, total || 1) }
-                }
-            });
-        }
 
         $(document).ready(function () {
             // Save original items for filtering
@@ -2262,31 +2229,8 @@
                 originalDoctorItems.push($(this).clone());
             });
 
-            // Initialize Doctor Carousel
-            docCarousel = initDoctorCarousel();
-
-            // Initialize Patient Stories Carousel
-            $('.patient-stories-carousel').owlCarousel({
-                items: 1,
-                loop: true,
-                margin: 15,
-                smartSpeed: 600,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                autoplayHoverPause: true,
-                nav: false,
-                dots: false
-            });
-
-            // Slider navigation click handler (for side arrows on both sliders)
-            $(document).on('click', '.slider-arrow', function (e) {
-                e.preventDefault();
-                const target = $(this).data('target');
-                if (target) {
-                    const action = $(this).hasClass('prev') ? 'prev.owl.carousel' : 'next.owl.carousel';
-                    $(target).trigger(action, [400]);
-                }
-            });
+            // Initialize Doctor Carousel with unified crash-proof sliders controller
+            docCarousel = window.initDoctorDirectoryCarousel();
         });
 
         function filterDoctors(shouldScroll = false) {
@@ -2332,7 +2276,7 @@
             } else {
                 if (noMsg) noMsg.style.display = 'none';
                 if (sliderBox) sliderBox.style.display = 'block';
-                docCarousel = initDoctorCarousel(matchCount);
+                docCarousel = window.initDoctorDirectoryCarousel(matchCount);
             }
 
             if (shouldScroll) {

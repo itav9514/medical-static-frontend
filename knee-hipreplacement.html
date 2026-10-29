@@ -635,34 +635,9 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/sliders.js"></script>
 
-    <script>
-        $(function () {
-            const base = { loop: true, nav: false, dots: true, margin: 16, smartSpeed: 600, autoplayHoverPause: true, autoplay: true };
-            $('.hospital-slider').owlCarousel({
-                ...base, autoplayTimeout: 3500,
-                responsive: { 0: { items: 1 }, 576: { items: 2 }, 992: { items: 3 }, 1200: { items: 4 } }
-            });
-            $('.doctor-slider').owlCarousel({
-                ...base, autoplayTimeout: 4000,
-                responsive: { 0: { items: 1 }, 576: { items: 2 }, 992: { items: 3 } }
-            });
-
-            $(document).on('click', '.slider-arrow', function () {
-                $($(this).data('target')).trigger($(this).hasClass('prev') ? 'prev.owl.carousel' : 'next.owl.carousel', [400]);
-            });
-
-            // Slider screen par ho tabhi autoplay chale; reduce-motion par band
-            const $sl = $('.medical-slider');
-            if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                $sl.trigger('stop.owl.autoplay');
-            } else if ('IntersectionObserver' in window) {
-                const io = new IntersectionObserver(es => es.forEach(e =>
-                    $(e.target).trigger(e.isIntersecting ? 'play.owl.autoplay' : 'stop.owl.autoplay')), { threshold: .2 });
-                $sl.each(function () { io.observe(this); });
-            }
-        });
-    </script>
+    <!-- Sliders initialized via js/sliders.js -->
 </body>
 
 </html>

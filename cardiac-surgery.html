@@ -837,65 +837,10 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/sliders.js"></script>
 
     <!-- Sliders Initialization Script -->
-    <script>
-        $(document).ready(function () {
-            // 1. Top Hospitals Carousel Slider
-            var hospCarousel = $(".hospital-carousel").owlCarousel({
-                autoplay: true,
-                smartSpeed: 800,
-                autoplayTimeout: 4000,
-                autoplayHoverPause: true,
-                loop: true,
-                dots: false,
-                nav: false,
-                margin: 15,
-                responsive: {
-                    0: { items: 1 },
-                    576: { items: 2 },
-                    768: { items: 3 },
-                    992: { items: 4 },
-                    1200: { items: 5 }
-                }
-            });
-
-            // External Custom Prev/Next Buttons for Hospitals
-            $("#hospPrevBtn").click(function () {
-                hospCarousel.trigger('prev.owl.carousel');
-            });
-            $("#hospNextBtn").click(function () {
-                hospCarousel.trigger('next.owl.carousel');
-            });
-
-            // 2. Recommended Doctors Carousel Slider
-            var docCarousel = $(".doctor-carousel").owlCarousel({
-                autoplay: true,
-                smartSpeed: 800,
-                autoplayTimeout: 4500,
-                autoplayHoverPause: true,
-                loop: true,
-                dots: false,
-                nav: false,
-                margin: 15,
-                responsive: {
-                    0: { items: 1 },
-                    576: { items: 2 },
-                    768: { items: 3 },
-                    992: { items: 4 },
-                    1200: { items: 5 }
-                }
-            });
-
-            // External Custom Prev/Next Buttons for Doctors
-            $("#docPrevBtn").click(function () {
-                docCarousel.trigger('prev.owl.carousel');
-            });
-            $("#docNextBtn").click(function () {
-                docCarousel.trigger('next.owl.carousel');
-            });
-        });
-    </script>
+    <!-- Sliders initialized via js/sliders.js -->
 </body>
 
 </html>

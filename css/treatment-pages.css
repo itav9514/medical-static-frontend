@@ -9864,6 +9864,11 @@ a.btn-outline-navy:hover,
 
 
 /* Doctors Page Slider Enhancements */
+.doctors-page-slider {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: pan-y;
+}
+
 .doctors-page-slider .item {
     padding: 10px 4px 22px;
     height: 100%;
@@ -9876,14 +9881,34 @@ a.btn-outline-navy:hover,
     margin: 0 auto !important;
 }
 
-.doctors-page-slider .owl-stage {
+/* Only center stage via flex when single item is displayed */
+#doctorsSliderBox.single-item .doctors-page-slider .owl-stage {
     display: flex !important;
-    justify-content: center;
+    justify-content: center !important;
+}
+
+#doctorsSliderBox.single-item .doctors-page-slider .owl-item {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+/* Hardware accelerate slider items safely for iOS/WebKit */
+.doctors-page-slider .owl-stage {
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .doctors-page-slider .owl-item {
-    display: flex !important;
-    justify-content: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.slider-arrow {
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
 }
 
 #doctorsSliderBox.single-item .slider-arrow {

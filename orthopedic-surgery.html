@@ -851,49 +851,9 @@
 
     <!-- Template Javascript (Loads partials/header.html and partials/footer.html) -->
     <script src="js/main.js"></script>
+    <script src="js/sliders.js"></script>
 
-    <script>
-        $(function () {
-            const base = {
-                loop: true,
-                nav: false,
-                dots: true,
-                margin: 16,
-                smartSpeed: 600,
-                autoplay: true,
-                autoplayHoverPause: true
-            };
-
-            // Top Hospitals Carousel
-            $('.ortho-surg-hospital-slider').owlCarousel({
-                ...base,
-                autoplayTimeout: 3500,
-                responsive: {
-                    0: { items: 1 },
-                    576: { items: 2 },
-                    768: { items: 3 },
-                    1200: { items: 4 }
-                }
-            });
-
-            // Recommended Specialists Carousel
-            $('.ortho-surg-doctor-slider').owlCarousel({
-                ...base,
-                autoplayTimeout: 4000,
-                responsive: {
-                    0: { items: 1 },
-                    576: { items: 2 },
-                    768: { items: 3 },
-                    1200: { items: 4 }
-                }
-            });
-
-            // Slider floating arrows trigger
-            $(document).on('click', '.slider-arrow', function () {
-                $($(this).data('target')).trigger($(this).hasClass('prev') ? 'prev.owl.carousel' : 'next.owl.carousel', [400]);
-            });
-        });
-    </script>
+    <!-- Sliders initialized via js/sliders.js -->
 </body>
 
 </html>
