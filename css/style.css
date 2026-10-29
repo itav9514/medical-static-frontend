@@ -3346,3 +3346,60 @@ details.mh-faq p {
         font-size: 13px;
     }
 }
+
+
+/* Doctor Cards Styling (Homepage & Treatment Pages) */
+.doctor-card {
+    background: #EFF5FF;
+    border-radius: 14px;
+    border: 1px solid #e2eaf4;
+    padding: 20px 14px 16px;
+    text-align: center;
+    transition: transform 0.25s, box-shadow 0.25s;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.doctor-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.doctor-avatar,
+.doctor-avatar-box img,
+.owl-carousel .owl-item .doctor-avatar,
+.owl-carousel .owl-item .doctor-avatar-box img {
+    width: 82px !important;
+    max-width: 82px !important;
+    height: 82px !important;
+    max-height: 82px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 3px solid #eef4ff !important;
+    margin: 0 auto 10px !important;
+    display: block !important;
+}
+
+.doctor-card h6 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #07234a;
+    margin-bottom: 4px;
+}
+
+.doctor-card .doctor-specialty {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.doctor-card p,
+.doctor-card .doctor-exp {
+    font-size: 0.78rem;
+    color: #E8262D;
+    font-weight: 600;
+    margin-bottom: 4px;
+}

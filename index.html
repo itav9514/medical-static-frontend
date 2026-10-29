@@ -567,48 +567,62 @@
                     </div>
                     <a href="doctors.html">View All Doctors →</a>
                 </div>
-                <div class="mh-g" style="--c:6">
-                    <div class="mh-card">
-                        <img src="all-img/13.png" alt="Dr. Rajesh Sharma" loading="lazy">
-                        <div>Dr. Rajesh Sharma</div>
-                        <small style="color:var(--blue)">Cardiologist</small>
-                        <small>20+ Years Experience</small>
-                        <small>Max Hospital, Delhi</small>
-                    </div>
-                    <div class="mh-card">
-                        <img src="all-img/13.png" alt="Dr. Priya Mehta" loading="lazy">
-                        <div>Dr. Priya Mehta</div>
-                        <small style="color:var(--blue)">Oncologist</small>
-                        <small>16+ Years Experience</small>
-                        <small>Apollo Hospital, Chennai</small>
-                    </div>
-                    <div class="mh-card">
-                        <img src="all-img/13.png" alt="Dr. Amit Verma" loading="lazy">
-                        <div>Dr. Amit Verma</div>
-                        <small style="color:var(--blue)">Orthopaedic Surgeon</small>
-                        <small>15+ Years Experience</small>
-                        <small>Medanta, Gurgaon</small>
-                    </div>
-                    <div class="mh-card">
-                        <img src="all-img/13.png" alt="Dr. Neha Kapoor" loading="lazy">
-                        <div>Dr. Neha Kapoor</div>
-                        <small style="color:var(--blue)">IVF Specialist</small>
-                        <small>16+ Years Experience</small>
-                        <small>Fortis Hospital, Delhi</small>
-                    </div>
-                    <div class="mh-card">
-                        <img src="all-img/13.png" alt="Dr. S. Iyer" loading="lazy">
-                        <div>Dr. S. Iyer</div>
-                        <small style="color:var(--blue)">Neurologist</small>
-                        <small>20+ Years Experience</small>
-                        <small>Manipal Hospital, Bengaluru</small>
-                    </div>
-                    <div class="mh-card">
-                        <img src="all-img/13.png" alt="Dr. Rohan Desai" loading="lazy">
-                        <div>Dr. Rohan Desai</div>
-                        <small style="color:var(--blue)">Dental Specialist</small>
-                        <small>10+ Years Experience</small>
-                        <small>Global Hospital, Hyderabad</small>
+                <div class="slider-box ivf-slider-box">
+                    <button type="button" class="slider-arrow prev" data-target=".home-doctor-slider" aria-label="Previous">
+                        <i class="fa fa-chevron-left"></i>
+                    </button>
+                    <button type="button" class="slider-arrow next" data-target=".home-doctor-slider" aria-label="Next">
+                        <i class="fa fa-chevron-right"></i>
+                    </button>
+                    <div class="owl-carousel ivf-slider home-doctor-slider">
+                        <div class="item">
+                            <div class="doctor-card">
+                                <img src="doctor-image-a/dr-amit-kumar-chaurasia.png" class="doctor-avatar" alt="Dr. Amit Kumar Chaurasia" loading="lazy">
+                                <h6>Dr. Amit Kumar Chaurasia</h6>
+                                <div class="doctor-specialty">Chief - Interventional Cardiology</div>
+                                <p class="doctor-exp">18+ Years Experience · Artemis Hospital, Gurugram</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="doctor-card">
+                                <img src="doctor-image-a/dr-hari-goyal.png" class="doctor-avatar" alt="Dr. Hari Goyal" loading="lazy">
+                                <h6>Dr. Hari Goyal</h6>
+                                <div class="doctor-specialty">Senior Director - Medical Oncology</div>
+                                <p class="doctor-exp">26+ Years Experience · Artemis Hospital, Gurugram</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="doctor-card">
+                                <img src="doctor-image-a/dr-ips-oberoi.png" class="doctor-avatar" alt="Dr. I. P. S. Oberoi" loading="lazy">
+                                <h6>Dr. I. P. S. Oberoi</h6>
+                                <div class="doctor-specialty">Chairman - Orthopedics &amp; Joint Replacement</div>
+                                <p class="doctor-exp">28+ Years Experience · Artemis Hospital, Gurugram</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="doctor-card">
+                                <img src="doctor-image-a/dr-deepika-aggarwal.png" class="doctor-avatar" alt="Dr. Deepika Aggarwal" loading="lazy">
+                                <h6>Dr. Deepika Aggarwal</h6>
+                                <div class="doctor-specialty">Director - Obstetrics, Gynaecology &amp; IVF</div>
+                                <p class="doctor-exp">22+ Years Experience · Artemis Hospital, Gurugram</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="doctor-card">
+                                <img src="doctor-image-a/dr-aditya-gupta.png" class="doctor-avatar" alt="Dr. Aditya Gupta" loading="lazy">
+                                <h6>Dr. Aditya Gupta</h6>
+                                <div class="doctor-specialty">Chief - Neurosurgery &amp; Cyberknife</div>
+                                <p class="doctor-exp">25+ Years Experience · Artemis Hospital, Gurugram</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="doctor-card">
+                                <img src="doctor-image-a/dr-dilpreet-bajwa.png" class="doctor-avatar" alt="Dr. Dilpreet Bajwa" loading="lazy">
+                                <h6>Dr. Dilpreet Bajwa</h6>
+                                <div class="doctor-specialty">Director &amp; Chief Dental Surgeon</div>
+                                <p class="doctor-exp">19+ Years Experience · Artemis Hospital, Gurugram</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -968,6 +982,23 @@
 
         // Initialize Top Hospitals Owl Carousel Slider
         $(function () {
+            $('.home-doctor-slider').owlCarousel({
+                loop: true,
+                nav: false,
+                dots: true,
+                margin: 16,
+                smartSpeed: 600,
+                autoplay: true,
+                autoplayHoverPause: true,
+                autoplayTimeout: 4000,
+                responsive: {
+                    0: { items: 1 },
+                    576: { items: 2 },
+                    768: { items: 3 },
+                    1200: { items: 4 }
+                }
+            });
+
             $('.home-hospital-slider').owlCarousel({
                 loop: true,
                 nav: false,
