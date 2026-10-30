@@ -16,12 +16,12 @@
     new WOW().init();
 
 
-    // Sticky Navbar
+    // Sticky Navbar (Smooth Permanent Fixed at Top: 0 with Soft Shadow)
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 300) {
-            $('.sticky-top').addClass('shadow-sm').css('top', '0px');
+        if ($(this).scrollTop() > 30) {
+            $('.sticky-top').addClass('shadow-sm');
         } else {
-            $('.sticky-top').removeClass('shadow-sm').css('top', '-100px');
+            $('.sticky-top').removeClass('shadow-sm');
         }
     });
 
@@ -175,10 +175,91 @@
  //Component for header and footer 
 
 
-    fetch('/partials/header.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('header').innerHTML = data);
+    
 
     fetch('/partials/footer.html')
       .then(res => res.text())
       .then(data => document.getElementById('footer').innerHTML = data);
+
+
+      // Google Translate Script Dynamic Load
+(function loadGoogleTranslate() {
+    const s = document.createElement('script');
+    s.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    s.async = true;
+    document.head.appendChild(s);
+})();
+
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ar,ru,fr,bn',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+
+// Dropdown Toggle
+// Dropdown Toggle (Closes any other open menu and toggles active one)
+function toggleLangDropdown(e) {
+    e.stopPropagation();
+    const dropdownWrap = e.target.closest('.custom-lang-dropdown');
+    const menu = dropdownWrap ? dropdownWrap.querySelector('.lang-menu-list') : null;
+    const isShown = menu && menu.classList.contains('show');
+    
+    document.querySelectorAll('.lang-menu-list').forEach(el => el.classList.remove('show'));
+    if (menu && !isShown) {
+        menu.classList.add('show');
+    }
+}
+
+document.addEventListener('click', () => {
+    document.querySelectorAll('.lang-menu-list').forEach(el => el.classList.remove('show'));
+});
+
+// Language configuration mapping
+const siteLangMap = {
+    'en': { code: 'US', flag: 'https://flagcdn.com/w40/us.png' },
+    'ar': { code: 'AE', flag: 'https://flagcdn.com/w40/ae.png' },
+    'ru': { code: 'RU', flag: 'https://flagcdn.com/w40/ru.png' },
+    'fr': { code: 'FR', flag: 'https://flagcdn.com/w40/fr.png' },
+    'bn': { code: 'BD', flag: 'https://flagcdn.com/w40/bd.png' }
+};
+
+function syncActiveLangUI() {
+    let current = 'en';
+    const match = document.cookie.match(/googtrans=\/en\/([a-z]{2})/i);
+    if (match && match[1]) {
+        current = match[1].toLowerCase();
+    }
+    const info = siteLangMap[current] || siteLangMap['en'];
+    document.querySelectorAll('.activeLangFlag').forEach(el => el.src = info.flag);
+    document.querySelectorAll('.activeLangCode').forEach(el => el.textContent = info.code);
+
+    // Apply RTL for Arabic
+    if (current === 'ar') {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.classList.add('rtl-mode');
+    } else {
+        document.documentElement.setAttribute('dir', 'ltr');
+        document.documentElement.classList.remove('rtl-mode');
+    }
+}
+
+// Switch Language and Trigger Site-Wide Translation
+function changeSiteLanguage(lang, flagSrc, label) {
+    document.cookie = `googtrans=/en/${lang}; path=/;`;
+    document.cookie = `googtrans=/en/${lang}; domain=${window.location.hostname}; path=/;`;
+    window.location.reload();
+}
+
+// Auto-sync language UI after header fetch completes
+const origHeaderFetch = fetch('/partials/header.html');
+origHeaderFetch
+    .then(res => res.text())
+    .then(data => {
+        const headerEl = document.getElementById('header');
+        if (headerEl) {
+            headerEl.innerHTML = data;
+            syncActiveLangUI();
+        }
+    });

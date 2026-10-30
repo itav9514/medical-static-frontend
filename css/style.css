@@ -125,8 +125,11 @@
 }
 
 .navbar.sticky-top {
-    top: -100px;
-    transition: .5s;
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1025 !important;
+    transition: box-shadow 0.25s ease !important;
 }
 
 @media (min-width: 992px) {
@@ -1239,26 +1242,7 @@ h5.text-white {
     font-size: 17px;
 }
 
-.treattopheder {
-    width: 500px;
-    float: left;
-}
-
-.treattopheder ul {
-    margin: 0;
-    padding: 0;
-}
-
-.treattopheder ul li {
-    width: 50%;
-    float: left;
-    list-style-type: none;
-    padding: 4px 0;
-}
-
-.treattopheder ul li a {
-    font-size: 14px;
-}
+/* Old float treattopheder rules cleared for modern CSS Grid */
 
 .dropdown-item {
     font-size: 14px;
@@ -3402,4 +3386,943 @@ details.mh-faq p {
     color: #E8262D;
     font-weight: 600;
     margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   COMPLETE UNIFIED HEADER & NAVIGATION STYLES (Moved from header.html)
+   ========================================================================== */
+
+/* Prevent nav links from breaking into 2 lines */
+.navbar-nav .nav-link {
+    white-space: nowrap !important;
+}
+
+/* --- 1. Desktop Curved Call Badge Section --- */
+.call-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    height: 100%;
+    min-height: 70px;
+    padding-left: 42px !important;
+    padding-right: 25px;
+    margin-left: auto;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+.call-top-bg {
+    position: absolute;
+    top: 0;
+    left: -30px;
+    width: calc(100% + 30px);
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Red Circular Call Icon (Desktop) */
+.call-btn-circle {
+    width: 50px;
+    height: 50px;
+    background: #e52128 !important;
+    border: 3px solid #ffffff !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    font-size: 21px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    cursor: pointer;
+    outline: none !important;
+    padding: 0 !important;
+    transition: transform 0.2s ease;
+}
+
+.call-btn-circle:hover {
+    transform: scale(1.06);
+    color: #ffffff !important;
+}
+
+.call-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.35);
+    margin: 0 12px;
+    flex-shrink: 0;
+}
+
+.call-numbers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    white-space: nowrap;
+}
+
+.call-numbers a {
+    color: #ffffff !important;
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    text-decoration: none !important;
+    line-height: 1.25;
+    white-space: nowrap !important;
+}
+
+.call-numbers a:hover {
+    opacity: 0.85;
+}
+
+/* --- 2. Treatments Multi-Column Dropdown Box (Modern 2-Column CSS Grid) --- */
+.dropdown-menu {
+    height: auto !important;
+    overflow: visible !important;
+    border-radius: 12px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 14px 40px rgba(2, 41, 90, 0.16) !important;
+    padding: 10px !important;
+    background: #ffffff !important;
+}
+
+@media (min-width: 992px) {
+    .treattopheder {
+        width: auto !important;
+        min-width: 650px !important;
+        max-width: 720px !important;
+        padding: 6px 8px !important;
+        float: none !important;
+        display: block !important;
+    }
+
+    .treattopheder ul {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        column-gap: 20px !important;
+        row-gap: 4px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        list-style: none !important;
+        float: none !important;
+    }
+
+    .treattopheder ul li {
+        width: 100% !important;
+        float: none !important;
+        padding: 0 !important;
+        list-style: none !important;
+    }
+}
+
+.treattopheder .dropdown-item {
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    padding: 7px 10px !important;
+    font-size: 13.5px !important;
+    line-height: 1.35 !important;
+    font-weight: 500 !important;
+    color: #1e293b !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+}
+
+.treattopheder .dropdown-item:hover {
+    background: #f1f5f9 !important;
+    color: #e52128 !important;
+    padding-left: 12px !important;
+}
+
+.treattopheder .dropdown-item i {
+    margin-top: 3px !important;
+    font-size: 11px !important;
+    color: #e52128 !important;
+    flex-shrink: 0 !important;
+}
+
+/* --- 3. Call Popup Modal Styles --- */
+.call-popup-card {
+    border-radius: 20px !important;
+    border: none !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2) !important;
+}
+
+.call-popup-header {
+    background: linear-gradient(135deg, #02295a, #063673) !important;
+    color: #ffffff !important;
+    padding: 18px 22px !important;
+    border-bottom: none !important;
+}
+
+.call-option-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #f8fafc !important;
+    border: 1.5px solid #e2e8f0 !important;
+    border-radius: 14px !important;
+    padding: 14px 16px !important;
+    text-decoration: none !important;
+    margin-bottom: 12px !important;
+    transition: all 0.25s ease !important;
+}
+
+.call-option-btn:hover {
+    background: #ffffff !important;
+    border-color: #0b5ed7 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(11, 94, 215, 0.15) !important;
+}
+
+.call-option-icon {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 18px !important;
+    flex-shrink: 0 !important;
+}
+
+.call-option-icon.us {
+    background: #fee2e2 !important;
+    color: #dc2626 !important;
+}
+
+.call-option-icon.india {
+    background: #dcfce7 !important;
+    color: #16a34a !important;
+}
+
+.call-option-text {
+    flex-grow: 1 !important;
+    margin-left: 14px !important;
+    text-align: left !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.call-option-region {
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    color: #64748b !important;
+    margin-bottom: 2px !important;
+}
+
+.call-option-number {
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    line-height: 1.2 !important;
+}
+
+.call-action-badge {
+    background: #02295a !important;
+    color: #ffffff !important;
+    padding: 6px 14px !important;
+    border-radius: 50px !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+}
+
+.call-option-btn:hover .call-action-badge {
+    background: #e52128 !important;
+}
+
+/* --- 4. Mobile Call Button in Header (< 992px) --- */
+@media (min-width: 992px) {
+    .phone-header-mobile {
+        display: none !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .phone-header-mobile {
+        display: flex !important;
+        align-items: center !important;
+        margin-left: auto !important;
+        margin-right: 12px !important;
+        position: static !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+
+    .phone-header-mobile .mobile-call-btn {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        background: #e52128 !important;
+        border: 2px solid #ffffff !important;
+        border-radius: 50% !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: #ffffff !important;
+        font-size: 16px !important;
+        box-shadow: 0 2px 8px rgba(229, 33, 40, 0.35) !important;
+        cursor: pointer !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        outline: none !important;
+    }
+
+    .navbar-toggler {
+        position: static !important;
+        margin-right: 15px !important;
+        border: none !important;
+        outline: none !important;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+    }
+}
+
+/* --- 5. Responsive Breakpoint Adjustments --- */
+
+/* Desktop Standard (1200px to 1420px) */
+@media (min-width: 1200px) and (max-width: 1420px) {
+    .navbar-nav .nav-link {
+        padding: 35px 5.5px !important;
+        font-size: 12.8px !important;
+        margin-right: 0 !important;
+    }
+    .call-top {
+        padding-left: 40px !important;
+        padding-right: 12px !important;
+    }
+    .call-numbers a {
+        font-size: 13px !important;
+    }
+}
+
+/* iPad Pro & Tablets (992px to 1199.98px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar {
+        flex-wrap: nowrap !important;
+    }
+
+    .navbar-brand {
+        padding: 0 0.4rem !important;
+        margin-right: 0 !important;
+    }
+    .navbar-brand img {
+        width: 95px !important;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 1.15rem 3.5px !important;
+        font-size: 11px !important;
+        white-space: nowrap !important;
+        margin-right: 0 !important;
+    }
+
+    .navbar-nav .dropdown:last-child .dropdown-menu {
+        left: auto !important;
+        right: 0 !important;
+    }
+
+    .call-top {
+        padding-left: 45px !important;
+        padding-right: 8px !important;
+        min-height: 60px !important;
+        margin-left: auto !important;
+        flex-shrink: 0 !important;
+    }
+
+    .call-top-bg {
+        left: -35px !important;
+        width: calc(100% + 35px) !important;
+    }
+
+    .call-btn-circle {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 13px !important;
+        border-width: 2px !important;
+    }
+
+    .call-divider {
+        margin: 0 4px !important;
+        height: 22px !important;
+    }
+
+    .call-numbers a {
+        font-size: 10.5px !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* Mobile & Tablets (<= 991.98px) */
+@media (max-width: 991.98px) {
+    .navbar.sticky-top {
+        top: 0 !important;
+    }
+
+    .treattopheder {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .navbar-nav .dropdown-menu {
+        position: static !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 12px !important;
+        background: #ffffff !important;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08) !important;
+        padding: 12px 14px !important;
+        margin-top: 8px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .treattopheder ul li {
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .treattopheder {
+        max-height: 280px !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding-right: 6px !important;
+        scrollbar-width: thin !important;
+        scrollbar-color: #02295a #f1f5f9 !important;
+    }
+
+    .treattopheder ul li {
+        width: 100% !important;
+    }
+}
+
+/* --- 6. OFFCANVAS SLIDE DRAWER STYLES --- */
+.mobile-menu-drawer {
+    width: 85% !important;
+    max-width: 360px !important;
+    border: none !important;
+    box-shadow: -10px 0 40px rgba(2, 41, 90, 0.25) !important;
+    z-index: 1055 !important;
+    background: #ffffff !important;
+}
+
+.drawer-header {
+    padding: 18px 20px !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.btn-close-drawer {
+    width: 36px !important;
+    height: 36px !important;
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 50% !important;
+    opacity: 0.85 !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-close-drawer:hover {
+    opacity: 1 !important;
+    background-color: #fee2e2 !important;
+    border-color: #fca5a5 !important;
+}
+
+.drawer-body {
+    overflow-y: auto !important;
+    padding: 10px 16px !important;
+}
+
+.drawer-nav-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.drawer-nav-list li {
+    border-bottom: 1px solid #f1f5f9 !important;
+}
+
+.drawer-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 13px 8px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #07244a !important;
+    text-decoration: none !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+}
+
+.drawer-link:hover {
+    color: #e52128 !important;
+    background: #f8fafc !important;
+    padding-left: 12px !important;
+}
+
+.drawer-link.active {
+    color: #e52128 !important;
+    font-weight: 700 !important;
+    background: transparent !important;
+}
+
+.drawer-chevron {
+    color: #94a3b8 !important;
+    font-size: 12px !important;
+    transition: transform 0.25s ease !important;
+}
+
+.drawer-accordion-toggle:not(.collapsed) .drawer-chevron {
+    transform: rotate(180deg) !important;
+    color: #e52128 !important;
+}
+
+.drawer-submenu-collapse {
+    background: #f8fafc !important;
+    border-radius: 8px !important;
+    margin: 4px 0 10px 8px !important;
+    border-left: 3px solid #02295a !important;
+}
+
+.drawer-submenu-list {
+    padding: 6px 8px !important;
+    max-height: 280px !important;
+    overflow-y: auto !important;
+}
+
+.drawer-submenu-list a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 8px 10px !important;
+    font-size: 13.5px !important;
+    font-weight: 500 !important;
+    color: #334155 !important;
+    text-decoration: none !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+}
+
+.drawer-submenu-list a:hover {
+    color: #e52128 !important;
+    background: #ffffff !important;
+    padding-left: 14px !important;
+}
+
+.drawer-footer {
+    padding: 16px 20px !important;
+    background: #ffffff !important;
+    border-top: 1px solid #f1f5f9 !important;
+}
+
+.drawer-phone-stack {
+    border-color: #eef2f6 !important;
+}
+
+/* Language Dropdown Button */
+.lang-trigger-btn {
+    background: transparent;
+    border: none;
+    font-weight: 700;
+    font-size: 14px;
+    color: #07244a;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 6px 10px;
+}
+
+/* Floating White Menu Card (Exact Screenshot Style) */
+.lang-menu-list {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    min-width: 180px;
+    padding: 8px 0;
+    margin: 0;
+    list-style: none;
+    z-index: 99999;
+}
+.lang-menu-list.show {
+    display: block;
+}
+.lang-menu-list::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: 20px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    transform: rotate(45deg);
+    box-shadow: -2px -2px 5px rgba(0,0,0,0.04);
+}
+.lang-menu-list li {
+    padding: 9px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #07244a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.lang-menu-list li:hover {
+    background: #f1f5f9;
+    color: #e52128;
+}
+
+/* Circular Flag Image Styling */
+.lang-flag-img {
+    width: 22px !important;
+    height: 22px !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+
+/* =======================================================
+   COMPLETE GOOGLE TRANSLATE BANNER HIDE & CLEAN BODY RESET
+   ======================================================= */
+body {
+    top: 0px !important;
+    position: static !important;
+}
+
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame,
+iframe.skiptranslate,
+body > .skiptranslate,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.VIpgJd-ZVi9od-ORHb-OEVmcb,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf-ti6hGc {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.goog-text-highlight {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* ==========================================================================
+   ULTRA-RESPONSIVE HEADER & MULTI-LANGUAGE OVERFLOW PREVENTIONS
+   ========================================================================== */
+
+/* Navbar base constraint */
+.navbar {
+    flex-wrap: nowrap !important;
+}
+
+/* Mobile & Tablet Right Action Group: Strict Single Line ONLY below 992px */
+@media (max-width: 991.98px) {
+    .mobile-header-actions {
+        display: flex !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        margin-left: auto !important;
+        flex-shrink: 0 !important;
+    }
+    .mobile-header-actions .phone-header-mobile {
+        margin-left: 0 !important;
+        margin-right: 8px !important;
+    }
+    .mobile-header-actions .navbar-toggler {
+        padding: 4px 6px !important;
+        font-size: 1.15rem !important;
+        border: none !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* Ensure mobile header controls are completely hidden on desktop */
+@media (min-width: 992px) {
+    .mobile-header-actions {
+        display: none !important;
+    }
+}
+
+/* Ensure call-top NEVER gets squished or pushed off screen */
+.call-top {
+    flex-shrink: 0 !important;
+}
+
+/* Fluid adaptive scaling for Nav links on Desktop (Even for Russian & French) */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+    }
+    .navbar-nav {
+        display: flex !important;
+        align-items: center !important;
+        flex-shrink: 1 !important;
+    }
+    .navbar-nav .nav-link {
+        padding-top: 25px !important;
+        padding-bottom: 25px !important;
+        padding-left: clamp(3px, 0.45vw, 9px) !important;
+        padding-right: clamp(3px, 0.45vw, 9px) !important;
+        font-size: clamp(11.5px, 0.85vw, 13.5px) !important;
+        letter-spacing: -0.2px !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* Specific styling for screens 1200px to 1420px */
+@media (min-width: 1200px) and (max-width: 1420px) {
+    .navbar-brand img {
+        width: 120px !important;
+    }
+    .call-top {
+        padding-left: 40px !important;
+        padding-right: 10px !important;
+    }
+    .call-btn-circle {
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 17px !important;
+    }
+    .call-numbers a {
+        font-size: 12px !important;
+    }
+}
+
+/* Extra small mobile screens (iPhone, etc. <= 480px) */
+@media (max-width: 480px) {
+    .header-logo-img {
+        width: 115px !important;
+    }
+    .lang-trigger-btn {
+        padding: 4px 6px !important;
+        font-size: 12.5px !important;
+    }
+    .lang-flag-img {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    .mobile-call-btn {
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+        font-size: 14px !important;
+    }
+}
+
+
+/* ==========================================================================
+   SMOOTH STICKY NAVBAR FIX (NO JITTER / NO HIDING)
+   ========================================================================== */
+.sticky-top {
+    top: 0 !important;
+    transition: box-shadow 0.25s ease !important;
+}
+
+/* ==========================================================================
+   FLOATING WHATSAPP BUTTON (CONVERSION OPTIMIZED)
+   ========================================================================== */
+.floating-whatsapp-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1040;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25d366;
+    color: #ffffff !important;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-size: 14.5px;
+    font-weight: 700;
+    text-decoration: none !important;
+    box-shadow: 0 6px 22px rgba(37, 211, 102, 0.45);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-whatsapp-btn i {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.floating-whatsapp-btn:hover {
+    background: #20ba5a;
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.55);
+    color: #ffffff !important;
+}
+
+/* Pulsating wave animation */
+.whatsapp-pulse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    border: 2px solid #25d366;
+    animation: whatsappPulse 2s infinite ease-out;
+    pointer-events: none;
+}
+
+@keyframes whatsappPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.3, 1.45); opacity: 0; }
+}
+
+/* On mobile, make button circular icon to save screen space */
+@media (max-width: 576px) {
+    .floating-whatsapp-btn {
+        bottom: 20px;
+        right: 18px;
+        padding: 0;
+        width: 52px;
+        height: 52px;
+        justify-content: center;
+        border-radius: 50%;
+    }
+    .floating-whatsapp-btn i {
+        font-size: 28px;
+    }
+    .whatsapp-pulse {
+        border-radius: 50%;
+    }
+}
+
+/* Adjust Back to Top Button so it never overlaps WhatsApp */
+.back-to-top {
+    bottom: 90px !important;
+    right: 25px !important;
+    z-index: 1030 !important;
+}
+@media (max-width: 576px) {
+    .back-to-top {
+        bottom: 82px !important;
+        right: 18px !important;
+    }
+}
+
+/* ==========================================================================
+   ARABIC (RTL) SUPPORT
+   ========================================================================== */
+html[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] body {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .navbar-brand {
+    margin-right: 0 !important;
+    margin-left: 1rem !important;
+}
+
+html[dir="rtl"] .mobile-header-actions {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+html[dir="rtl"] .call-top {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+html[dir="rtl"] .lang-menu-list {
+    right: auto !important;
+    left: 0 !important;
+    text-align: right;
+}
+html[dir="rtl"] .lang-menu-list::before {
+    right: auto !important;
+    left: 20px !important;
+}
+
+html[dir="rtl"] .fa-chevron-down,
+html[dir="rtl"] .fa-angle-right,
+html[dir="rtl"] .fa-arrow-right {
+    transform: scaleX(-1);
+}
+
+
+/* ==========================================================================
+   PERMANENT STICKY HEADER & NAVBAR FIX ACROSS ALL PAGES
+   ========================================================================== */
+html, body {
+    overflow-x: clip !important;
+}
+
+#header {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1025 !important;
+    width: 100% !important;
+    background: #ffffff !important;
+}
+
+.sticky-top,
+.navbar.sticky-top {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1025 !important;
+}
+
+
+/* Tighten .call-top left padding so red phone icon sits snugly against the curve (Image 2 style) */
+.call-top {
+    padding-left: 42px !important;
+    padding-right: 18px !important;
+}
+@media (min-width: 1200px) {
+    .call-top {
+        padding-left: 42px !important;
+        padding-right: 18px !important;
+    }
 }
