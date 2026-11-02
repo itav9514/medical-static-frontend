@@ -263,16 +263,55 @@ const siteLangMap = {
     bn: { code: 'BD', flag: 'https://flagcdn.com/w40/bd.png' }
 };
 
+// ---------------------------------------------------------------------------
+// Language persistence (site-wide, cookie based)
+// The googtrans cookie (path=/) is the single source of truth, so the chosen
+// language applies to the whole website, and Google Translate reads the same
+// cookie on every page load.
+// ---------------------------------------------------------------------------
+function isValidLang(lang) {
+    return Object.prototype.hasOwnProperty.call(siteLangMap, lang);
+}
+
+function getSavedLang() {
+    const cookieMatch = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
+    if (cookieMatch) {
+        const fromCookie = decodeURIComponent(cookieMatch[1]).split('/').pop();
+        if (isValidLang(fromCookie)) return fromCookie;
+    }
+    return 'en';
+}
+
+// Writes (or clears) the googtrans cookie on every scope Google may have used,
+// so a stale host/domain copy can never override the one we set.
+function setGoogtransCookie(lang) {
+    const host = window.location.hostname;
+    const canUseDomain = !/^(localhost|\d{1,3}(\.\d{1,3}){3})$/.test(host);
+    const clear = lang === 'en';
+
+    const expiry = new Date();
+    if (clear) {
+        expiry.setTime(0);
+    } else {
+        expiry.setFullYear(expiry.getFullYear() + 1);
+    }
+
+    // Google expects the raw "/en/xx" value (do not URL-encode the slashes)
+    const base = `googtrans=${clear ? '' : `/en/${lang}`}; expires=${expiry.toUTCString()}; path=/; SameSite=Lax`;
+
+    document.cookie = base;
+    if (canUseDomain) {
+        document.cookie = `${base}; domain=${host}`;
+        document.cookie = `${base}; domain=.${host}`;
+    }
+}
+
+function saveLang(lang) {
+    setGoogtransCookie(lang);
+}
+
 function syncActiveLangUI(language) {
-    const cookieMatch = document.cookie.match(
-        /(?:^|;\s*)googtrans=([^;]+)/
-    );
-
-    const savedLanguage = cookieMatch
-        ? decodeURIComponent(cookieMatch[1]).split('/').pop()
-        : 'en';
-
-    const current = language || savedLanguage;
+    const current = language || getSavedLang();
     const info = siteLangMap[current] || siteLangMap.en;
 
     document.querySelectorAll('.activeLangFlag').forEach(el => {
@@ -289,52 +328,72 @@ function syncActiveLangUI(language) {
     document.documentElement.classList.toggle('rtl-mode', isArabic);
 }
 
-// Switch Language and Trigger Site-Wide Translation
-async function changeSiteLanguage(lang) {
-    if (!Object.prototype.hasOwnProperty.call(siteLangMap, lang)) {
-        return;
-    }
-
-    const expiry = new Date();
-    expiry.setFullYear(expiry.getFullYear() + 1);
-
-    // Google expects the raw "/en/xx" value (do not URL-encode the slashes)
-    document.cookie = [
-        `googtrans=/en/${lang}`,
-        `expires=${expiry.toUTCString()}`,
-        'path=/',
-        'SameSite=Lax'
-    ].join('; ');
-
-    syncActiveLangUI(lang);
-
-    // Make sure the widget exists, then wait for its dropdown to be populated
+// Drives Google's hidden dropdown to the target language.
+// Google may ignore the first change event while its engine is still loading,
+// so apply, verify and retry. Resolves true when the page is translated.
+async function applyTranslation(lang) {
     initTranslateWidget();
     const translateSelect = await waitForTranslateCombo();
 
     const hasOption = translateSelect &&
         Array.from(translateSelect.options).some(opt => opt.value === lang);
 
-    if (!hasOption) {
-        // Widget unavailable or target is the source language (en):
-        // the cookie is already set, so a reload applies it reliably.
-        window.location.reload();
-        return;
-    }
+    if (!hasOption) return false;
 
-    // Google may ignore the first change event while its engine is still loading,
-    // so apply, verify, and retry before falling back to a reload.
     const MAX_ATTEMPTS = 3;
     for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
         translateSelect.value = lang;
         translateSelect.dispatchEvent(new Event('change', { bubbles: true }));
 
         if (await waitFor(isPageTranslated, 1500)) {
-            return; // translation applied
+            return true;
         }
     }
+    return false;
+}
 
-    window.location.reload();
+// Switch Language and Trigger Site-Wide Translation
+async function changeSiteLanguage(lang) {
+    if (!isValidLang(lang)) {
+        return;
+    }
+
+    const previousLang = getSavedLang();
+
+    saveLang(lang);
+    syncActiveLangUI(lang);
+
+    if (lang === 'en') {
+        // Back to the source language: cookie is cleared, a reload restores the original page.
+        if (previousLang !== 'en' || isPageTranslated()) {
+            window.location.reload();
+        }
+        return;
+    }
+
+    const translated = await applyTranslation(lang);
+
+    if (!translated) {
+        // Widget unavailable (blocked / slow network): the cookie is already set,
+        // so a reload applies the language reliably.
+        window.location.reload();
+    }
+}
+
+// Re-applies the user's saved language on every page load.
+async function restoreSavedLanguage() {
+    const lang = getSavedLang();
+    syncActiveLangUI(lang);
+
+    if (lang === 'en') return;
+
+    setGoogtransCookie(lang); // make sure Google sees the cookie on this page
+
+    // Google normally picks the cookie up by itself once the widget starts.
+    if (await waitFor(isPageTranslated, 2500)) return;
+
+    // If it did not, drive the dropdown ourselves.
+    await applyTranslation(lang);
 }
 
 // Auto-sync language UI after header fetch completes
@@ -350,5 +409,6 @@ fetch('/partials/header.html')
                 document.body.appendChild(callModal);
             }
             syncActiveLangUI();
+            restoreSavedLanguage();
         }
     });
