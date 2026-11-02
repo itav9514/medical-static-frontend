@@ -180,13 +180,7 @@
 fetch('/partials/footer.html')
     .then(res => res.text())
     .then(data => document.getElementById('footer').innerHTML = data);
-// Google Translate Script Dynamic Load
-(function loadGoogleTranslate() {
-    const s = document.createElement('script');
-    s.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    s.async = true;
-    document.head.appendChild(s);
-})();
+
 
 // Idempotent widget initialiser.
 // Safe to call from both the Google callback and after the header is injected;
@@ -216,7 +210,8 @@ function waitFor(fn, timeoutMs = 5000, intervalMs = 100) {
     return new Promise(resolve => {
         const start = Date.now();
         (function check() {
-            const result = fn();
+            let result = null;
+            try { result = fn(); } catch (e) { result = null; }
             if (result) return resolve(result);
             if (Date.now() - start >= timeoutMs) return resolve(null);
             setTimeout(check, intervalMs);
@@ -264,54 +259,153 @@ const siteLangMap = {
 };
 
 // ---------------------------------------------------------------------------
-// Language persistence (site-wide, cookie based)
-// The googtrans cookie (path=/) is the single source of truth, so the chosen
-// language applies to the whole website, and Google Translate reads the same
-// cookie on every page load.
+// Language persistence (site-wide)
+//
+//  * `site_lang` cookie (+ localStorage fallback) = our own source of truth.
+//    It survives closing the browser and applies to every page of the site.
+//  * `googtrans` cookie = derived value that Google Translate reads to decide
+//    what to translate. It is always rebuilt from `site_lang`.
+//
+// Google writes its own googtrans copies on the host AND on parent domains.
+// To switch back to English reliably, every scope must be cleared, otherwise
+// a stale copy re-translates the page on the next load.
 // ---------------------------------------------------------------------------
+const LANG_COOKIE = 'site_lang';
+const GOOGTRANS_COOKIE = 'googtrans';
+const LANG_COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
+const LANG_RESET_GUARD_KEY = 'site_lang_reset_once';
+
 function isValidLang(lang) {
-    return Object.prototype.hasOwnProperty.call(siteLangMap, lang);
+    return typeof lang === 'string' && Object.prototype.hasOwnProperty.call(siteLangMap, lang);
 }
 
+function readCookie(name) {
+    try {
+        const match = document.cookie.match(new RegExp('(?:^|;\\s*)' + name + '=([^;]*)'));
+        if (!match) return null;
+        try {
+            return decodeURIComponent(match[1]);
+        } catch (e) {
+            return match[1];
+        }
+    } catch (e) {
+        return null;
+    }
+}
+
+function cookieSecureFlag() {
+    return window.location.protocol === 'https:' ? '; Secure' : '';
+}
+
+// Every domain/path combination a googtrans cookie could have been written to.
+function getCookieScopes() {
+    const host = window.location.hostname;
+    const isIpOrLocal = /^(localhost|\d{1,3}(\.\d{1,3}){3}|\[.*\])$/.test(host);
+
+    const domains = [null]; // null = host-only cookie
+    if (!isIpOrLocal) {
+        const parts = host.split('.');
+        for (let i = 0; i <= parts.length - 2; i++) {
+            const d = parts.slice(i).join('.');
+            domains.push(d, '.' + d);
+        }
+    }
+
+    const paths = ['/'];
+    let acc = '';
+    window.location.pathname.split('/').filter(Boolean).forEach(seg => {
+        acc += '/' + seg;
+        paths.push(acc);
+    });
+
+    return { domains, paths };
+}
+
+function expireCookieEverywhere(name) {
+    const { domains, paths } = getCookieScopes();
+    domains.forEach(domain => {
+        paths.forEach(path => {
+            try {
+                document.cookie =
+                    `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; max-age=0; path=${path}` +
+                    (domain ? `; domain=${domain}` : '');
+            } catch (e) { /* ignore */ }
+        });
+    });
+}
+
+function storageGet(key) {
+    try { return window.localStorage.getItem(key); } catch (e) { return null; }
+}
+
+function storageSet(key, value) {
+    try { window.localStorage.setItem(key, value); } catch (e) { /* ignore */ }
+}
+
+// Returns the saved language: site_lang cookie -> localStorage -> legacy googtrans -> 'en'.
 function getSavedLang() {
-    const cookieMatch = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
-    if (cookieMatch) {
-        const fromCookie = decodeURIComponent(cookieMatch[1]).split('/').pop();
-        if (isValidLang(fromCookie)) return fromCookie;
+    const own = readCookie(LANG_COOKIE);
+    if (isValidLang(own)) return own;
+
+    const stored = storageGet(LANG_COOKIE);
+    if (isValidLang(stored)) return stored;
+
+    // Migration for visitors who only have Google's cookie from before this fix.
+    const goog = readCookie(GOOGTRANS_COOKIE);
+    if (goog) {
+        const fromGoog = goog.split('/').pop();
+        if (isValidLang(fromGoog)) return fromGoog;
     }
     return 'en';
 }
 
-// Writes (or clears) the googtrans cookie on every scope Google may have used,
-// so a stale host/domain copy can never override the one we set.
+// Rebuilds the googtrans cookie from scratch: clear every scope, then set one clean copy.
 function setGoogtransCookie(lang) {
-    const host = window.location.hostname;
-    const canUseDomain = !/^(localhost|\d{1,3}(\.\d{1,3}){3})$/.test(host);
-    const clear = lang === 'en';
-
-    const expiry = new Date();
-    if (clear) {
-        expiry.setTime(0);
-    } else {
-        expiry.setFullYear(expiry.getFullYear() + 1);
-    }
-
-    // Google expects the raw "/en/xx" value (do not URL-encode the slashes)
-    const base = `googtrans=${clear ? '' : `/en/${lang}`}; expires=${expiry.toUTCString()}; path=/; SameSite=Lax`;
-
-    document.cookie = base;
-    if (canUseDomain) {
-        document.cookie = `${base}; domain=${host}`;
-        document.cookie = `${base}; domain=.${host}`;
+    expireCookieEverywhere(GOOGTRANS_COOKIE);
+    if (lang !== 'en' && isValidLang(lang)) {
+        document.cookie =
+            `${GOOGTRANS_COOKIE}=/en/${lang}; max-age=${LANG_COOKIE_MAX_AGE}; path=/; SameSite=Lax${cookieSecureFlag()}`;
     }
 }
 
 function saveLang(lang) {
+    if (!isValidLang(lang)) return;
+    try {
+        document.cookie =
+            `${LANG_COOKIE}=${lang}; max-age=${LANG_COOKIE_MAX_AGE}; path=/; SameSite=Lax${cookieSecureFlag()}`;
+    } catch (e) { /* ignore */ }
+    storageSet(LANG_COOKIE, lang);
     setGoogtransCookie(lang);
 }
 
+// Runs before the Google script loads so a stale cookie can never translate the page
+// into the wrong language. Also upgrades existing visitors to the new cookie.
+function normalizeLangCookies() {
+    const lang = getSavedLang();
+    if (!isValidLang(readCookie(LANG_COOKIE))) {
+        saveLang(lang);          // first visit / migration: persist site_lang
+    } else {
+        setGoogtransCookie(lang); // keep googtrans in sync with site_lang
+    }
+}
+
+// One-time reload guard (prevents any possibility of a reload loop).
+function canResetReloadOnce() {
+    try {
+        if (window.sessionStorage.getItem(LANG_RESET_GUARD_KEY)) return false;
+        window.sessionStorage.setItem(LANG_RESET_GUARD_KEY, '1');
+        return true;
+    } catch (e) {
+        return false; // can't guard safely -> don't reload
+    }
+}
+
+function clearResetReloadGuard() {
+    try { window.sessionStorage.removeItem(LANG_RESET_GUARD_KEY); } catch (e) { /* ignore */ }
+}
+
 function syncActiveLangUI(language) {
-    const current = language || getSavedLang();
+    const current = isValidLang(language) ? language : getSavedLang();
     const info = siteLangMap[current] || siteLangMap.en;
 
     document.querySelectorAll('.activeLangFlag').forEach(el => {
@@ -353,30 +447,41 @@ async function applyTranslation(lang) {
 }
 
 // Switch Language and Trigger Site-Wide Translation
+let langChangeInProgress = false;
+
 async function changeSiteLanguage(lang) {
     if (!isValidLang(lang)) {
         return;
     }
+    if (langChangeInProgress) {
+        return; // ignore rapid double-clicks while a change is being applied
+    }
+    langChangeInProgress = true;
 
-    const previousLang = getSavedLang();
+    try {
+        const previousLang = getSavedLang();
 
-    saveLang(lang);
-    syncActiveLangUI(lang);
+        saveLang(lang);          // updates site_lang + rebuilds googtrans (cleared for English)
+        syncActiveLangUI(lang);
+        clearResetReloadGuard();
 
-    if (lang === 'en') {
-        // Back to the source language: cookie is cleared, a reload restores the original page.
-        if (previousLang !== 'en' || isPageTranslated()) {
+        if (lang === 'en') {
+            // Back to the source language: all cookie scopes are cleared, a reload restores the original page.
+            if (previousLang !== 'en' || isPageTranslated()) {
+                window.location.reload();
+            }
+            return;
+        }
+
+        const translated = await applyTranslation(lang);
+
+        if (!translated) {
+            // Widget unavailable (blocked / slow network): the cookie is already set,
+            // so a reload applies the language reliably.
             window.location.reload();
         }
-        return;
-    }
-
-    const translated = await applyTranslation(lang);
-
-    if (!translated) {
-        // Widget unavailable (blocked / slow network): the cookie is already set,
-        // so a reload applies the language reliably.
-        window.location.reload();
+    } finally {
+        langChangeInProgress = false;
     }
 }
 
@@ -385,9 +490,19 @@ async function restoreSavedLanguage() {
     const lang = getSavedLang();
     syncActiveLangUI(lang);
 
-    if (lang === 'en') return;
+    if (lang === 'en') {
+        // Saved language is English: make sure nothing translated the page.
+        setGoogtransCookie('en');
+        if (isPageTranslated()) {
+            if (canResetReloadOnce()) window.location.reload();
+        } else {
+            clearResetReloadGuard();
+        }
+        return;
+    }
 
-    setGoogtransCookie(lang); // make sure Google sees the cookie on this page
+    clearResetReloadGuard();
+    setGoogtransCookie(lang); // make sure Google sees one clean cookie on this page
 
     // Google normally picks the cookie up by itself once the widget starts.
     if (await waitFor(isPageTranslated, 2500)) return;
@@ -395,6 +510,18 @@ async function restoreSavedLanguage() {
     // If it did not, drive the dropdown ourselves.
     await applyTranslation(lang);
 }
+
+// Normalise cookies FIRST, then load Google Translate, so Google can only ever
+// read the cookie that matches the user's saved language.
+normalizeLangCookies();
+
+// Google Translate Script Dynamic Load
+(function loadGoogleTranslate() {
+    const s = document.createElement('script');
+    s.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    s.async = true;
+    document.head.appendChild(s);
+})();
 
 // Auto-sync language UI after header fetch completes
 fetch('/partials/header.html')
