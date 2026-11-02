@@ -182,7 +182,7 @@
       .then(data => document.getElementById('footer').innerHTML = data);
 
 
-      // Google Translate Script Dynamic Load
+// Google Translate Script Dynamic Load
 (function loadGoogleTranslate() {
     const s = document.createElement('script');
     s.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
@@ -190,15 +190,55 @@
     document.head.appendChild(s);
 })();
 
-function googleTranslateElementInit() {
+// Idempotent widget initialiser.
+// Safe to call from both the Google callback and after the header is injected;
+// whichever happens last will succeed.
+let translateWidgetReady = false;
+
+function initTranslateWidget() {
+    if (translateWidgetReady) return;
+    if (!(window.google && google.translate && google.translate.TranslateElement)) return;
+    if (!document.getElementById('google_translate_element')) return;
+
     new google.translate.TranslateElement({
         pageLanguage: 'en',
         includedLanguages: 'en,ar,ru,fr,bn',
         autoDisplay: false
     }, 'google_translate_element');
+
+    translateWidgetReady = true;
 }
 
-// Dropdown Toggle
+function googleTranslateElementInit() {
+    initTranslateWidget();
+}
+
+// Generic poller: resolves with the first truthy value returned by fn, or null on timeout.
+function waitFor(fn, timeoutMs = 5000, intervalMs = 100) {
+    return new Promise(resolve => {
+        const start = Date.now();
+        (function check() {
+            const result = fn();
+            if (result) return resolve(result);
+            if (Date.now() - start >= timeoutMs) return resolve(null);
+            setTimeout(check, intervalMs);
+        })();
+    });
+}
+
+// Resolves with the Google combo <select> once it exists AND its options are populated.
+function waitForTranslateCombo(timeoutMs = 5000) {
+    return waitFor(() => {
+        const combo = document.querySelector('.goog-te-combo');
+        return combo && combo.options.length > 1 ? combo : null;
+    }, timeoutMs);
+}
+
+// Google adds translated-ltr / translated-rtl to <html> once a translation is applied.
+function isPageTranslated() {
+    return /\btranslated-(ltr|rtl)\b/.test(document.documentElement.className);
+}
+
 // Dropdown Toggle (Closes any other open menu and toggles active one)
 function toggleLangDropdown(e) {
     e.stopPropagation();
@@ -224,28 +264,6 @@ const siteLangMap = {
     fr: { code: 'FR', flag: 'https://flagcdn.com/w40/fr.png' },
     bn: { code: 'BD', flag: 'https://flagcdn.com/w40/bd.png' }
 };
-
-// function syncActiveLangUI() {
-//     let current = 'en';
-//     const match = document.cookie.match(/googtrans=\/en\/([a-z]{2})/i);
-//     if (match && match[1]) {
-//         current = match[1].toLowerCase();
-//     }
-//     const info = siteLangMap[current] || siteLangMap['en'];
-//     document.querySelectorAll('.activeLangFlag').forEach(el => el.src = info.flag);
-//     document.querySelectorAll('.activeLangCode').forEach(el => el.textContent = info.code);
-
-//     // Apply RTL for Arabic
-//     if (current === 'ar') {
-//         document.documentElement.setAttribute('dir', 'rtl');
-//         document.documentElement.classList.add('rtl-mode');
-//     } else {
-//         document.documentElement.setAttribute('dir', 'ltr');
-//         document.documentElement.classList.remove('rtl-mode');
-//     }
-// }
-
-// Switch Language and Trigger Site-Wide Translation
 
 function syncActiveLangUI(language) {
     const cookieMatch = document.cookie.match(
@@ -273,8 +291,8 @@ function syncActiveLangUI(language) {
     document.documentElement.classList.toggle('rtl-mode', isArabic);
 }
 
-
-function changeSiteLanguage(lang) {
+// Switch Language and Trigger Site-Wide Translation
+async function changeSiteLanguage(lang) {
     if (!Object.prototype.hasOwnProperty.call(siteLangMap, lang)) {
         return;
     }
@@ -282,8 +300,9 @@ function changeSiteLanguage(lang) {
     const expiry = new Date();
     expiry.setFullYear(expiry.getFullYear() + 1);
 
+    // Google expects the raw "/en/xx" value (do not URL-encode the slashes)
     document.cookie = [
-        `googtrans=${encodeURIComponent(`/en/${lang}`)}`,
+        `googtrans=/en/${lang}`,
         `expires=${expiry.toUTCString()}`,
         'path=/',
         'SameSite=Lax'
@@ -291,30 +310,43 @@ function changeSiteLanguage(lang) {
 
     syncActiveLangUI(lang);
 
-    const translateSelect = document.querySelector('.goog-te-combo');
+    // Make sure the widget exists, then wait for its dropdown to be populated
+    initTranslateWidget();
+    const translateSelect = await waitForTranslateCombo();
 
-    if (translateSelect && translateSelect.value !== lang) {
-        translateSelect.value = lang;
-        translateSelect.dispatchEvent(new Event('change', {
-            bubbles: true
-        }));
+    const hasOption = translateSelect &&
+        Array.from(translateSelect.options).some(opt => opt.value === lang);
+
+    if (!hasOption) {
+        // Widget unavailable or target is the source language (en):
+        // the cookie is already set, so a reload applies it reliably.
+        window.location.reload();
+        return;
     }
-}
-// function changeSiteLanguage(lang, flagSrc, label) {
-//     document.cookie = `googtrans=/en/${lang}; path=/;`;
-//     document.cookie = `googtrans=/en/${lang}; domain=${window.location.hostname}; path=/;`;
-//     window.location.reload();
-// }
 
+    // Google may ignore the first change event while its engine is still loading,
+    // so apply, verify, and retry before falling back to a reload.
+    const MAX_ATTEMPTS = 3;
+    for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
+        translateSelect.value = lang;
+        translateSelect.dispatchEvent(new Event('change', { bubbles: true }));
+
+        if (await waitFor(isPageTranslated, 1500)) {
+            return; // translation applied
+        }
+    }
+
+    window.location.reload();
+}
 
 // Auto-sync language UI after header fetch completes
-const origHeaderFetch = fetch('/partials/header.html');
-origHeaderFetch
+fetch('/partials/header.html')
     .then(res => res.text())
     .then(data => {
         const headerEl = document.getElementById('header');
         if (headerEl) {
             headerEl.innerHTML = data;
+            initTranslateWidget();   // header now has #google_translate_element
             syncActiveLangUI();
         }
     });
