@@ -112,7 +112,7 @@
                 <div class="hosp-search-title">
                     Find the Right Hospital for Your Treatment
                 </div>
-                <form class="hosp-search-form" id="hospitalSearchForm" onsubmit="event.preventDefault(); filterHospitals(true);">
+                <form class="hosp-search-form" id="hospitalSearchForm" onsubmit="event.preventDefault(); handleHospitalSearchSubmit();">
                     <!-- Select Treatment -->
                     <div class="hosp-field-group">
                         <label class="hosp-field-label" for="hospTreatmentFilter">Select Treatment</label>
@@ -159,8 +159,8 @@
                     </div>
 
                     <!-- Search Button -->
-                    <button type="submit" class="btn-search-hospitals">
-                        <i class="fa fa-search"></i> Search Hospitals
+                    <div class="hosp-search-actions d-flex gap-2"><button type="submit" class="btn-search-hospitals">
+                        <i class="fa fa-search"></i> Search Hospitals</button><button type="button" class="btn-clear-hosp-filters" onclick="resetHospitalFilters();" title="Clear all filters"><i class="fa fa-undo-alt me-1"></i> Clear</button></div><button type="button" class="d-none">
                     </button>
                 </form>
             </div>
@@ -582,6 +582,25 @@
     <!-- Hospital Page Interactive Scripts -->
     <script>
         // 1. Hospital Search & Filter Function
+        function clearHospitalFieldsUI() {
+            ['hospTreatmentFilter', 'hospCityFilter', 'hospAccredFilter'].forEach(id => {
+                const sel = document.getElementById(id);
+                if (sel) {
+                    sel.value = 'all';
+                    const triggerSpan = sel.parentElement.querySelector('.trigger-label');
+                    if (triggerSpan) triggerSpan.textContent = sel.options[0].text;
+                    sel.parentElement.querySelectorAll('.custom-select-item').forEach((item, idx) => {
+                        item.classList.toggle('active', idx === 0);
+                    });
+                }
+            });
+        }
+
+        function handleHospitalSearchSubmit() {
+            filterHospitals(true);
+            setTimeout(clearHospitalFieldsUI, 350);
+        }
+
         function filterHospitals(shouldScroll = false) {
             const treatment = (document.getElementById('hospTreatmentFilter').value || 'all').toLowerCase();
             const city = (document.getElementById('hospCityFilter').value || 'all').toLowerCase();

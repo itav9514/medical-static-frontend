@@ -122,7 +122,7 @@
             }
         }
     });
-     $('.media-carousel').owlCarousel({
+    $('.media-carousel').owlCarousel({
         loop: false,
         margin: 10,
         nav: false,
@@ -145,7 +145,7 @@
             }
         }
     });
-    
+
     // $(".media-carousel").owlCarousel({
     //     autoplay: false,
     //     smartSpeed: 1000,
@@ -172,16 +172,14 @@
 })(jQuery);
 
 
- //Component for header and footer 
+//Component for header and footer 
 
 
-    
-
-    fetch('/partials/footer.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('footer').innerHTML = data);
 
 
+fetch('/partials/footer.html')
+    .then(res => res.text())
+    .then(data => document.getElementById('footer').innerHTML = data);
 // Google Translate Script Dynamic Load
 (function loadGoogleTranslate() {
     const s = document.createElement('script');
@@ -245,7 +243,7 @@ function toggleLangDropdown(e) {
     const dropdownWrap = e.target.closest('.custom-lang-dropdown');
     const menu = dropdownWrap ? dropdownWrap.querySelector('.lang-menu-list') : null;
     const isShown = menu && menu.classList.contains('show');
-    
+
     document.querySelectorAll('.lang-menu-list').forEach(el => el.classList.remove('show'));
     if (menu && !isShown) {
         menu.classList.add('show');
@@ -347,6 +345,10 @@ fetch('/partials/header.html')
         if (headerEl) {
             headerEl.innerHTML = data;
             initTranslateWidget();   // header now has #google_translate_element
+            const callModal = document.getElementById('callModal');
+            if (callModal && callModal.parentElement !== document.body) {
+                document.body.appendChild(callModal);
+            }
             syncActiveLangUI();
         }
     });

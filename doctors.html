@@ -111,12 +111,12 @@
         <div class="container">
             <!-- 2. FLOATING SEARCH & FILTER BAR -->
             <div class="doc-search-card">
-                <form class="doc-search-form" id="doctorSearchForm" onsubmit="event.preventDefault(); filterDoctors(true);">
+                <form class="doc-search-form" id="doctorSearchForm" onsubmit="event.preventDefault(); handleSearchSubmit();">
                     <!-- Select Treatment -->
                     <div class="doc-field-group">
                         <label class="doc-field-label" for="docTreatmentFilter">Select Treatment</label>
                         <div class="custom-select-wrap" id="wrap-docTreatmentFilter">
-                            <select id="docTreatmentFilter" class="d-none" onchange="filterDoctors();">
+                            <select id="docTreatmentFilter" class="d-none" onchange="onTreatmentChange();">
                                 <option value="all">Choose Treatment</option>
                                 <option value="cardiac">Cardiac Surgery</option>
                                 <option value="oncology">Cancer Treatment</option>
@@ -183,8 +183,9 @@
                     </div>
 
                     <!-- Search Button -->
-                    <button type="submit" class="btn-search-doctors">
-                        Search Doctors <i class="fa fa-arrow-right ms-1"></i>
+                    <div class="doc-search-actions d-flex gap-2">
+                        <button type="submit" class="btn-search-doctors">
+                        Search Doctors <i class="fa fa-arrow-right ms-1"></i></button><button type="button" class="btn-clear-doc-filters" onclick="resetDoctorFilters();" title="Clear all filters"><i class="fa fa-undo-alt me-1"></i> Clear Filters</button></div><button type="button" class="d-none">
                     </button>
                 </form>
             </div>
@@ -2233,6 +2234,85 @@
             docCarousel = window.initDoctorDirectoryCarousel();
         });
 
+        // Cascading Specialty Options Mapping for Treatments
+        const allSpecialtiesList = [
+            { value: 'all', text: 'Choose Specialty' },
+            { value: 'cardiology', text: 'Cardiology' },
+            { value: 'oncology', text: 'Oncology' },
+            { value: 'orthopedics', text: 'Orthopedics' },
+            { value: 'urology', text: 'Urology' },
+            { value: 'neurosurgery', text: 'Neurosurgery' },
+            { value: 'gastroenterology', text: 'Gastroenterology' },
+            { value: 'ivf', text: 'IVF & Fertility' },
+            { value: 'dental', text: 'Dental' },
+            { value: 'cosmetic', text: 'Cosmetic Surgery' },
+            { value: 'ophthalmology', text: 'Ophthalmology' }
+        ];
+
+        const treatmentSpecialtyMap = {
+            'cardiac': ['cardiology'],
+            'oncology': ['oncology', 'gastroenterology', 'urology'],
+            'orthopedics': ['orthopedics'],
+            'ivf': ['ivf'],
+            'neurosurgery': ['neurosurgery', 'cosmetic'],
+            'spine': ['neurosurgery', 'orthopedics'],
+            'urology': ['urology'],
+            'gastro': ['gastroenterology', 'urology'],
+            'dental': ['dental'],
+            'cosmetic': ['cosmetic'],
+            'eye': ['ophthalmology']
+        };
+
+        function populateSpecialtiesForTreatment(treatment) {
+            const specSelect = document.getElementById('docSpecialtyFilter');
+            if (!specSelect) return;
+
+            let allowed = [];
+            if (!treatment || treatment === 'all') {
+                allowed = allSpecialtiesList;
+            } else {
+                const validValues = treatmentSpecialtyMap[treatment] || [];
+                allowed = allSpecialtiesList.filter(s => s.value === 'all' || validValues.includes(s.value));
+            }
+
+            specSelect.innerHTML = '';
+            allowed.forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = s.value;
+                opt.textContent = s.text;
+                specSelect.appendChild(opt);
+            });
+
+            specSelect.value = 'all';
+            makeCustomSelect('docSpecialtyFilter');
+        }
+
+        function onTreatmentChange() {
+            const treatment = (document.getElementById('docTreatmentFilter').value || 'all').toLowerCase();
+            populateSpecialtiesForTreatment(treatment);
+            filterDoctors(false);
+        }
+
+        // Clear all search form input fields back to placeholders without losing filtered doctors
+        function clearFilterFieldsUI() {
+            ['docTreatmentFilter', 'docSpecialtyFilter', 'docCityFilter', 'docTypeFilter'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.value = 'all';
+                    updateCustomSelectDisplay(id, 'all');
+                }
+            });
+            populateSpecialtiesForTreatment('all');
+        }
+
+        function handleSearchSubmit() {
+            // 1. Filter doctors and scroll smoothly to results
+            filterDoctors(true);
+
+            // 2. Clear all input fields so the search bar is clean for next search
+            setTimeout(clearFilterFieldsUI, 350);
+        }
+
         function filterDoctors(shouldScroll = false) {
             const treatment = (document.getElementById('docTreatmentFilter').value || 'all').toLowerCase();
             const specialty = (document.getElementById('docSpecialtyFilter').value || 'all').toLowerCase();
@@ -2289,11 +2369,18 @@
 
         // Quick filter by clicking specialty cards
         function quickFilterSpecialty(spec) {
+            populateSpecialtiesForTreatment('all');
+            const treatSelect = document.getElementById('docTreatmentFilter');
+            if (treatSelect) {
+                treatSelect.value = 'all';
+                updateCustomSelectDisplay('docTreatmentFilter', 'all');
+            }
             const specSelect = document.getElementById('docSpecialtyFilter');
             if (specSelect) {
                 specSelect.value = spec;
                 updateCustomSelectDisplay('docSpecialtyFilter', spec);
             }
+            populateSpecialtiesForTreatment('all');
             filterDoctors();
 
             // Highlight active specialty card
@@ -2320,6 +2407,7 @@
                     updateCustomSelectDisplay(id, 'all');
                 }
             });
+            populateSpecialtiesForTreatment('all');
             filterDoctors();
         }
 

@@ -110,7 +110,8 @@
                         </div>
                         <div class="ms-3 ms-sm-4 appt-info-text">
                             <p class="mb-1 text-muted">Call Us Now</p>
-                            <h5 class="mb-0"><a href="tel:+18558880114" class="text-dark text-decoration-none fw-bold">+1 855 888 0114</a></h5>
+                            <h5 class="mb-0"><a href="tel:+18558880114"
+                                    class="text-dark text-decoration-none fw-bold">+1 855 888 0114</a></h5>
                         </div>
                     </div>
                     <div class="bg-light rounded d-flex align-items-center p-4 p-md-5 mb-4 appt-info-card">
@@ -120,7 +121,9 @@
                         </div>
                         <div class="ms-3 ms-sm-4 appt-info-text overflow-hidden">
                             <p class="mb-1 text-muted">Mail Us Now</p>
-                            <h5 class="mb-0 text-break"><a href="mailto:medical@adamvacations.com" class="text-dark text-decoration-none fw-bold appt-email-link">medical@adamvacations.com</a></h5>
+                            <h5 class="mb-0 text-break"><a href="mailto:medical@adamvacations.com"
+                                    class="text-dark text-decoration-none fw-bold appt-email-link">medical@adamvacations.com</a>
+                            </h5>
                         </div>
                     </div>
                 </div>
@@ -140,6 +143,21 @@
                                     <input type="tel" class="form-control border-0" id="apptMobile"
                                         placeholder="WhatsApp / Phone *" required style="height: 55px;">
                                 </div>
+                                <div class="col-12 col-sm-6">
+                                    <select class="form-select border-0" id="apptNationality" style="height: 55px;"
+                                        required>
+                                        <option value="">Select Country / Nationality *</option>
+                                        <option value="USA">USA</option>
+                                        <option value="UK">UK</option>
+                                        <option value="UAE">UAE</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Australia">Australia</option>
+                                        <option value="India">India</option>
+                                        <option value="Nigeria">Nigeria</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
                                 <!-- <div class="col-12 col-sm-6">
                                     <select class="form-select border-0" id="apptDoctor" style="height: 55px;">
                                         <option value="">Choose Doctor / Department</option>
@@ -173,8 +191,8 @@
                                         <div class="date position-relative" id="datePicker" data-target-input="nearest">
                                             <input type="text" class="form-control border-0 datetimepicker-input"
                                                 id="apptDate" name="appointmentDate" placeholder="Callback Date"
-                                                data-target="#datePicker" data-toggle="datetimepicker" autocomplete="off"
-                                                style="height: 55px;">
+                                                data-target="#datePicker" data-toggle="datetimepicker"
+                                                autocomplete="off" style="height: 55px;">
                                         </div>
                                     </div>
                                 </div>
@@ -183,8 +201,8 @@
                                         <div class="time position-relative" id="timePicker" data-target-input="nearest">
                                             <input type="text" class="form-control border-0 datetimepicker-input"
                                                 id="apptTime" name="appointmentTime" placeholder="Callback Time"
-                                                data-target="#timePicker" data-toggle="datetimepicker" autocomplete="off"
-                                                style="height: 55px;">
+                                                data-target="#timePicker" data-toggle="datetimepicker"
+                                                autocomplete="off" style="height: 55px;">
                                         </div>
                                     </div>
                                 </div>
@@ -303,6 +321,7 @@
             const nameEl = document.getElementById('apptName');
             const emailEl = document.getElementById('apptEmail');
             const mobileEl = document.getElementById('apptMobile');
+            const nationalityEl = document.getElementById('apptNationality');
             const doctorEl = document.getElementById('apptDoctor');
             const dateEl = document.getElementById('apptDate');
             const timeEl = document.getElementById('apptTime');
@@ -312,6 +331,7 @@
             const fullName = (nameEl ? nameEl.value : '').trim();
             const email = (emailEl ? emailEl.value : '').trim().toLowerCase();
             const phone = (mobileEl ? mobileEl.value : '').trim();
+            const nationality = (nationalityEl ? nationalityEl.value : '').trim();
             const doctor = (doctorEl ? doctorEl.value : '').trim();
             const date = (dateEl ? dateEl.value : '').trim();
             const time = (timeEl ? timeEl.value : '').trim();
@@ -332,6 +352,21 @@
                 mobileEl.focus();
                 return;
             }
+            if (!nationality) {
+                msg.innerHTML = '<div class="alert alert-warning py-2">Please select your country/nationality.</div>';
+                nationalityEl.focus();
+                return;
+            }
+            if (!date) {
+                msg.innerHTML = '<div class="alert alert-warning py-2">Please select a callback date.</div>';
+                dateEl.focus();
+                return;
+            }
+            if (!time) {
+                msg.innerHTML = '<div class="alert alert-warning py-2">Please select a callback time.</div>';
+                timeEl.focus();
+                return;
+            }
 
             btn.disabled = true;
             btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Booking Appointment...';
@@ -339,15 +374,14 @@
 
             const formData = {
                 fullName: fullName,
-                nationality: "International Patient",
+                nationality: nationality,
                 treatment: doctor || "General Medical Consultation",
                 email: email,
                 phone: phone,
-                appointmentDate: date || new Date().toISOString().split('T')[0],
-                appointmentTime: time || "10:00 AM",
+                appointmentDate: date,
+                appointmentTime: time,
                 description: (doctor ? "Requested Doctor: " + doctor + " | " : "") + (problem || "Consultation Request")
             };
-
             try {
                 if (reportEl && reportEl.files && reportEl.files[0]) {
                     const f = reportEl.files[0];
@@ -381,7 +415,7 @@
                 if (response.ok) {
                     msg.innerHTML = '<div class="alert alert-success py-2"><i class="fa fa-check-circle me-1"></i> Appointment booked successfully! Redirecting...</div>';
                     document.getElementById('appointmentForm').reset();
-                    const savedData = { ...formData, ...(typeof data === 'object' && data !== null ? data : {}), name: formData.fullName || formData.name, fullName: formData.fullName || formData.name, email: formData.email, phone: formData.phone, appointmentDate: formData.appointmentDate, appointmentTime: formData.appointmentTime, description: formData.description || formData.message };
+                    const savedData = { ...formData, ...(typeof data === 'object' && data !== null ? data : {}), name: formData.fullName || formData.name, fullName: formData.fullName || formData.name, email: formData.email, phone: formData.phone, nationality: formData.nationality, appointmentDate: formData.appointmentDate, appointmentTime: formData.appointmentTime, description: formData.description || formData.message };
                     sessionStorage.setItem("medicalEnquiryResponse", JSON.stringify(savedData));
                     setTimeout(function () { window.location.href = "thankyou.html"; }, 1500);
                 } else if ((response.status === 405 || response.status === 501 || response.status === 404) && (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost" || window.location.port !== "")) {

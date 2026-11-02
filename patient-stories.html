@@ -203,9 +203,12 @@
                                 <!-- Search Stories Bar -->
                 <div class="row justify-content-center my-4">
                     <div class="col-lg-8 col-md-10">
-                        <div class="input-group shadow-sm" style="border-radius: 50px; overflow: hidden; border: 1px solid #cbd5e1; background: #fff;">
+                        <div class="input-group shadow-sm position-relative" style="border-radius: 50px; overflow: hidden; border: 1px solid #cbd5e1; background: #fff;">
                             <span class="input-group-text bg-white border-0 ps-4 text-muted"><i class="fa fa-search"></i></span>
-                            <input type="text" id="storySearchInput" class="form-control border-0 py-3" placeholder="Search by treatment, country, or condition (e.g. Knee, UK, Heart, Cancer)..." aria-label="Search patient stories">
+                            <input type="text" id="storySearchInput" class="form-control border-0 py-3 pe-5" placeholder="Search by treatment, country, or condition (e.g. Knee, UK, Heart, Cancer)..." aria-label="Search patient stories">
+                            <button type="button" class="btn border-0 text-muted p-0" id="storyClearBtn" onclick="resetStoryFilters();" title="Clear search" style="background: transparent; position: absolute; right: 185px; top: 50%; transform: translateY(-50%); z-index: 10; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                                <i class="fa fa-times-circle" style="font-size: 18px; color: #94a3b8;"></i>
+                            </button>
                             <button type="button" class="btn btn-danger px-4 fw-semibold" id="btnStorySearch" onclick="searchPatientStories(true)" style="background: #e11d48; border-color: #e11d48;">
                                 <i class="fa fa-search me-1"></i> Search Stories
                             </button>
@@ -222,6 +225,7 @@
                     <button type="button" class="story-filter-btn" data-filter="oncology">Oncology</button>
                     <button type="button" class="story-filter-btn" data-filter="fertility">Fertility</button>
                     <button type="button" class="story-filter-btn" data-filter="eyecare">Eye Care</button>
+                    <button type="button" class="story-filter-btn text-danger fw-semibold" onclick="resetStoryFilters();" title="Reset all filters"><i class="fa fa-undo-alt me-1"></i> Reset</button>
                 </div>
 
                 <!-- 8 Story Cards Grid -->

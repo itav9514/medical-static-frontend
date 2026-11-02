@@ -259,10 +259,10 @@
                         <!-- Search Box Widget -->
                         <div class="blog-sidebar-widget">
                             <h4 class="blog-widget-title">Search Blogs</h4>
-                            <form class="blog-search-form" action="cost.html" method="GET">
-                                <div class="input-group">
-                                    <input type="text" name="q" class="form-control" placeholder="Search articles, treatments, or topics...">
-                                    <button class="btn btn-search" type="submit" aria-label="Search">
+                            <form class="blog-search-form" onsubmit="searchBlogArticles(event);">
+                                <div class="input-group position-relative" style="border-radius: 8px; overflow: hidden; border: 1px solid #cbd5e1; background: #fff;">
+                                    <input type="text" id="blogSearchInput" name="q" class="form-control border-0 py-2 ps-3 pe-5" placeholder="Search articles, treatments, or topics..." oninput="searchBlogArticles();"><button type="button" class="btn border-0 p-0 text-muted" onclick="clearBlogSearch();" title="Clear search" style="background: transparent; position: absolute; right: 54px; top: 50%; transform: translateY(-50%); z-index: 10; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; cursor: pointer;"><i class="fa fa-times-circle" style="font-size: 16px; color: #94a3b8;"></i></button>
+                                    <button class="btn btn-search px-3 border-0" type="submit" aria-label="Search" style="border-radius: 0; z-index: 5;">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </div>
@@ -389,6 +389,28 @@
     <!-- Template Javascript (Loads partials/header.html and partials/footer.html) -->
     <script src="js/main.js"></script>
     <script src="js/sliders.js"></script>
+
+    <script>
+        function searchBlogArticles(e) {
+            if (e) e.preventDefault();
+            const q = (document.getElementById('blogSearchInput')?.value || '').toLowerCase().trim();
+            const cards = document.querySelectorAll('.blog-grid-card, .blog-featured-card');
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                const container = card.closest('.col-md-6') || card;
+                if (!q || text.includes(q)) {
+                    container.style.display = '';
+                } else {
+                    container.style.display = 'none';
+                }
+            });
+        }
+        function clearBlogSearch() {
+            const input = document.getElementById('blogSearchInput');
+            if (input) input.value = '';
+            searchBlogArticles();
+        }
+    </script>
 
     <!-- Highlight Active Link in Header -->
     <script>

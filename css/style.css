@@ -348,7 +348,8 @@
 
 /*** Appointment ***/
 .bootstrap-datetimepicker-widget.bottom {
-    top: auto !important;
+    top: 100% !important;
+    bottom: auto !important;
 }
 
 .bootstrap-datetimepicker-widget .table * {
@@ -2330,14 +2331,22 @@ button:disabled {
 }
 
 .bootstrap-datetimepicker-widget.dropdown-menu {
-    position: static !important;
+    position: absolute !important;
+    top: 100% !important;
+    bottom: auto !important;
+    left: 0 !important;
+    right: auto !important;
+    z-index: 1060 !important;
     float: none !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-top: 8px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+    width: auto !important;
+    min-width: 290px !important;
+    max-width: 320px !important;
+    margin-top: 6px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid #e2e8f0 !important;
     border-radius: 8px !important;
     box-sizing: border-box !important;
+    background: #ffffff !important;
 }
 
 .bootstrap-datetimepicker-widget.dropdown-menu:before,
@@ -3552,6 +3561,22 @@ details.mh-faq p {
 }
 
 /* --- 3. Call Popup Modal Styles --- */
+/* Call Modal ko Backdrop se upar laane ke liye aur iOS touch enable karne ke liye */
+#callModal {
+    z-index: 1060 !important;
+}
+
+#callModal .btn-close,
+#callModal button[data-bs-dismiss="modal"] {
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+    position: relative;
+    z-index: 1065 !important;
+}
+
+.modal-backdrop {
+    z-index: 1050 !important;
+}
 .call-popup-card {
     border-radius: 20px !important;
     border: none !important;

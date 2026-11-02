@@ -7003,6 +7003,32 @@ a.btn-outline-navy:hover,
     margin-bottom: 28px;
 }
 
+.cost-search-form-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) auto !important;
+    gap: 14px !important;
+    align-items: end !important;
+}
+
+@media (max-width: 991.98px) {
+    .cost-search-form-grid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+    .cost-search-form-grid .doc-search-actions {
+        grid-column: span 2 !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .cost-search-form-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .cost-search-form-grid .doc-search-actions {
+        grid-column: span 1 !important;
+        flex-direction: column !important;
+    }
+}
+
 .cost-filter-select {
     padding: 9px 12px;
     border: 1.5px solid #cbd5e1;
@@ -9107,6 +9133,33 @@ a.btn-outline-navy:hover,
     box-shadow: 0 6px 18px rgba(229, 33, 40, 0.35);
 }
 
+.btn-clear-doc-filters,
+.btn-clear-hosp-filters {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13.5px;
+    padding: 12px 16px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+.btn-clear-doc-filters:hover,
+.btn-clear-hosp-filters:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+    border-color: #94a3b8;
+    transform: translateY(-2px);
+}
+
 /* 3. "Find Doctors by Specialty" Section */
 .doc-section-header {
     display: flex;
@@ -9758,6 +9811,33 @@ a.btn-outline-navy:hover,
     color: #ffffff;
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(229, 33, 40, 0.35);
+}
+
+.btn-clear-doc-filters,
+.btn-clear-hosp-filters {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13.5px;
+    padding: 12px 16px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+.btn-clear-doc-filters:hover,
+.btn-clear-hosp-filters:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+    border-color: #94a3b8;
+    transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -10616,6 +10696,33 @@ a.btn-outline-navy:hover,
     border-radius: 50px;
     border: none;
     box-shadow: 0 6px 18px rgba(229, 33, 40, 0.35);
+}
+
+.btn-clear-doc-filters,
+.btn-clear-hosp-filters {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13.5px;
+    padding: 12px 16px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+.btn-clear-doc-filters:hover,
+.btn-clear-hosp-filters:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+    border-color: #94a3b8;
+    transform: translateY(-2px);
     transition: all 0.25s ease;
     display: inline-flex;
     align-items: center;

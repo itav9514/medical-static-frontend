@@ -460,331 +460,232 @@
 
     <!-- 3. EXPLORE TREATMENT COSTS SECTION (Filter + 8 Cards) -->
     <section class="py-5" id="explore-costs">
-      <div class="container">
-        <div class="sec-header mb-4 text-start">
-          <h2 class="sec-title mb-1" style="color: #0b224e; font-weight: 800">
-            Explore Treatment Costs
-          </h2>
-          <p class="sec-desc text-muted mb-0" style="font-size: 0.88rem">
-            View indicative costs for popular treatments in India. Get a
-            personalised estimate based on your medical reports and
-            requirements.
-          </p>
-        </div>
-
-        <!-- Filter Bar -->
-        <div class="cost-filter-bar">
-          <div class="row g-2 align-items-center">
-            <div class="col-md-3">
-              <select
-                class="cost-filter-select"
-                id="filterCategory"
-                onchange="filterTreatmentCards()"
-              >
-                <option value="all">Select Treatment Category</option>
-                <option value="orthopedic">Orthopedics &amp; Joints</option>
-                <option value="cardiac">Cardiac &amp; Heart</option>
-                <option value="transplant">Organ Transplants</option>
-                <option value="cancer">Cancer Care</option>
-                <option value="dental">Dental &amp; Others</option>
-              </select>
-            </div>
-            <div class="col-md-3">
-              <select
-                class="cost-filter-select"
-                id="filterCity"
-                onchange="filterTreatmentCards(false)"
-              >
-                <option value="all">Select City</option>
-                <option value="delhi">Delhi NCR</option>
-                <option value="mumbai">Mumbai</option>
-                <option value="chennai">Chennai</option>
-                <option value="bangalore">Bangalore</option>
-                <option value="hyderabad">Hyderabad</option>
-              </select>
-            </div>
-            <div class="col-md-3">
-              <select
-                class="cost-filter-select"
-                id="filterBudget"
-                onchange="filterTreatmentCards(false)"
-              >
-                <option value="all">Select Budget Range</option>
-                <option value="low">Under $4,000</option>
-                <option value="mid">$4,000 - $10,000</option>
-                <option value="high">$10,000 - $25,000</option>
-                <option value="premium">$25,000+</option>
-              </select>
-            </div>
-            <div class="col-md-3">
-              <button
-                type="button"
-                class="cost-filter-btn"
-                onclick="filterTreatmentCards()"
-              >
-                <i class="fa fa-search"></i> Search Treatments
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 8 Treatment Cards Grid -->
-        <div class="row g-4" id="treatmentCardsContainer">
-          <!-- Card 1: Knee Replacement -->
-          <div
-            class="col-sm-6 col-lg-3 treatment-item"
-            data-cat="orthopedic"
-            data-city="delhi mumbai chennai bangalore hyderabad"
-            data-budget="mid"
-          >
-            <div class="cost-treatment-card">
-              <img
-                src="cost-page/11.png"
-                alt="Knee Replacement"
-                class="cost-card-img"
-              />
-              <div class="cost-card-body">
-                <h5 class="cost-card-title">Knee Replacement</h5>
-                <p class="cost-card-desc">
-                  Regain mobility and live pain-free with expert care.
+<div class="container">
+            <div class="sec-header mb-4 text-start">
+                <h2 class="sec-title mb-1" style="color:#0b224e;font-weight:800;">Explore Treatment Costs</h2>
+                <p class="sec-desc text-muted mb-0" style="font-size:0.88rem;">
+                    View indicative costs for popular treatments in India. Get a personalised estimate based on your medical reports and requirements.
                 </p>
-                <span class="cost-card-tag">Indicative estimate</span>
-                <div class="cost-card-status">
-                  Cost confirmed after medical review
-                </div>
-                <a href="knee-hipreplacement.html" class="cost-card-link"
-                  >View cost details &rarr;</a
-                >
-              </div>
             </div>
-          </div>
 
-          <!-- Card 2: Hip Replacement -->
-          <div
-            class="col-sm-6 col-lg-3 treatment-item"
-            data-cat="orthopedic"
-            data-city="delhi mumbai chennai bangalore hyderabad"
-            data-budget="mid"
-          >
-            <div class="cost-treatment-card">
-              <img
-                src="cost-page/12.png"
-                alt="Hip Replacement"
-                class="cost-card-img"
-              />
-              <div class="cost-card-body">
-                <h5 class="cost-card-title">Hip Replacement</h5>
-                <p class="cost-card-desc">
-                  Advanced treatment for better movement and quality of life.
-                </p>
-                <span class="cost-card-tag">Indicative estimate</span>
-                <div class="cost-card-status">
-                  Cost confirmed after medical review
-                </div>
-                <a href="knee-hipreplacement.html" class="cost-card-link"
-                  >View cost details &rarr;</a
-                >
-              </div>
-            </div>
-          </div>
+            <!-- Filter Bar (Matching Doctors Page Horizontal Card Style) -->
+            <div class="doc-search-card mb-4" style="margin-top: 0;">
+                <form class="doc-search-form cost-search-form-grid" id="costSearchForm" onsubmit="event.preventDefault(); handleCostSearchSubmit();">
+                    <!-- 1. Treatment Category -->
+                    <div class="doc-field-group">
+                        <label class="doc-field-label" for="filterCategory">Select Treatment Category</label>
+                        <div class="custom-select-wrap">
+                            <select class="cost-filter-select" id="filterCategory" onchange="filterTreatmentCards(false)">
+                                <option value="all">Choose Category</option>
+                                <option value="orthopedic">Orthopedics &amp; Joints</option>
+                                <option value="cardiac">Cardiac &amp; Heart</option>
+                                <option value="transplant">Organ Transplants</option>
+                                <option value="cancer">Cancer Care</option>
+                                <option value="dental">Dental &amp; Others</option>
+                            </select>
+                        </div>
+                    </div>
 
-          <!-- Card 3: Heart Bypass Surgery -->
-          <div
-            class="col-sm-6 col-lg-3 treatment-item"
-            data-cat="cardiac"
-            data-city="delhi mumbai chennai bangalore hyderabad"
-            data-budget="mid high"
-          >
-            <div class="cost-treatment-card">
-              <img
-                src="cost-page/13.png"
-                alt="Heart Bypass Surgery"
-                class="cost-card-img"
-              />
-              <div class="cost-card-body">
-                <h5 class="cost-card-title">Heart Bypass Surgery</h5>
-                <p class="cost-card-desc">
-                  Expert cardiac care with world-class facilities.
-                </p>
-                <span class="cost-card-tag">Indicative estimate</span>
-                <div class="cost-card-status">
-                  Cost confirmed after medical review
-                </div>
-                <a href="cardiac-surgery.html" class="cost-card-link"
-                  >View cost details &rarr;</a
-                >
-              </div>
-            </div>
-          </div>
+                    <!-- 2. City -->
+                    <div class="doc-field-group">
+                        <label class="doc-field-label" for="filterCity">Select City</label>
+                        <div class="custom-select-wrap">
+                            <select class="cost-filter-select" id="filterCity" onchange="filterTreatmentCards(false)">
+                                <option value="all">Choose City</option>
+                                <option value="delhi">Delhi NCR</option>
+                                <option value="mumbai">Mumbai</option>
+                                <option value="chennai">Chennai</option>
+                                <option value="bangalore">Bangalore</option>
+                                <option value="hyderabad">Hyderabad</option>
+                            </select>
+                        </div>
+                    </div>
 
-          <!-- Card 4: Kidney Transplant -->
-          <div
-            class="col-sm-6 col-lg-3 treatment-item"
-            data-cat="transplant"
-            data-city="delhi mumbai chennai bangalore hyderabad"
-            data-budget="high premium"
-          >
-            <div class="cost-treatment-card">
-              <img
-                src="cost-page/14.png"
-                alt="Kidney Transplant"
-                class="cost-card-img"
-              />
-              <div class="cost-card-body">
-                <h5 class="cost-card-title">Kidney Transplant</h5>
-                <p class="cost-card-desc">
-                  Comprehensive care for a healthier tomorrow.
-                </p>
-                <span class="cost-card-tag">Indicative estimate</span>
-                <div class="cost-card-status">
-                  Cost confirmed after medical review
-                </div>
-                <a href="liver-kidney-transplant.html" class="cost-card-link"
-                  >View cost details &rarr;</a
-                >
-              </div>
-            </div>
-          </div>
+                    <!-- 3. Budget Range -->
+                    <div class="doc-field-group">
+                        <label class="doc-field-label" for="filterBudget">Select Budget Range</label>
+                        <div class="custom-select-wrap">
+                            <select class="cost-filter-select" id="filterBudget" onchange="filterTreatmentCards(false)">
+                                <option value="all">Choose Budget</option>
+                                <option value="low">Under $4,000</option>
+                                <option value="mid">$4,000 - $10,000</option>
+                                <option value="high">$10,000 - $25,000</option>
+                                <option value="premium">$25,000+</option>
+                            </select>
+                        </div>
+                    </div>
 
-          <!-- Card 5: Liver Transplant -->
-          <div
-            class="col-sm-6 col-lg-3 treatment-item"
-            data-cat="transplant"
-            data-city="delhi mumbai chennai bangalore hyderabad"
-            data-budget="high premium"
-          >
-            <div class="cost-treatment-card">
-              <img
-                src="cost-page/15.png"
-                alt="Liver Transplant"
-                class="cost-card-img"
-              />
-              <div class="cost-card-body">
-                <h5 class="cost-card-title">Liver Transplant</h5>
-                <p class="cost-card-desc">
-                  Advanced treatment with multidisciplinary support.
-                </p>
-                <span class="cost-card-tag">Indicative estimate</span>
-                <div class="cost-card-status">
-                  Cost confirmed after medical review
+                    <!-- 4. Action Buttons (Search & Clear Side-by-Side) -->
+                    <div class="doc-search-actions d-flex gap-2">
+                        <button type="submit" class="btn-search-doctors">
+                            <i class="fa fa-search me-1"></i> Search Treatments
+                        </button>
+                        <button type="button" class="btn-clear-doc-filters" onclick="resetCostFilters();" title="Clear all filters">
+                            <i class="fa fa-undo-alt me-1"></i> Clear Filters
+                        </button>
+                    </div>
+                </form>
+            </div><!-- old filter bar: --><!--
+                <div class="row g-2 align-items-center">
+                    <div class="col-md-3">
+                        <select class="cost-filter-select" id="filterCategory" onchange="filterTreatmentCards()">
+                            <option value="all">Select Treatment Category</option>
+                            <option value="orthopedic">Orthopedics &amp; Joints</option>
+                            <option value="cardiac">Cardiac &amp; Heart</option>
+                            <option value="transplant">Organ Transplants</option>
+                            <option value="cancer">Cancer Care</option>
+                            <option value="dental">Dental &amp; Others</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="cost-filter-select" id="filterCity" onchange="filterTreatmentCards(false)">
+                            <option value="all">Select City</option>
+                            <option value="delhi">Delhi NCR</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="chennai">Chennai</option>
+                            <option value="bangalore">Bangalore</option>
+                            <option value="hyderabad">Hyderabad</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="cost-filter-select" id="filterBudget" onchange="filterTreatmentCards(false)">
+                            <option value="all">Select Budget Range</option>
+                            <option value="low">Under $4,000</option>
+                            <option value="mid">$4,000 - $10,000</option>
+                            <option value="high">$10,000 - $25,000</option>
+                            <option value="premium">$25,000+</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="d-none">
+                            <i class="fa fa-search"></i> Search Treatments
+                        </button>
+                    </div>
                 </div>
-                <a href="liver-kidney-transplant.html" class="cost-card-link"
-                  >View cost details &rarr;</a
-                >
-              </div>
             </div>
-          </div>
 
-          <!-- Card 6: Cancer Treatment -->
-          <div
-            class="col-sm-6 col-lg-3 treatment-item"
-            data-cat="cancer oncology"
-            data-city="delhi mumbai chennai bangalore hyderabad"
-            data-budget="mid high"
-          >
-            <div class="cost-treatment-card">
-              <img
-                src="cost-page/16.png"
-                alt="Cancer Treatment"
-                class="cost-card-img"
-              />
-              <div class="cost-card-body">
-                <h5 class="cost-card-title">Cancer Treatment</h5>
-                <p class="cost-card-desc">
-                  Personalised cancer care with modern treatment options.
-                </p>
-                <span class="cost-card-tag">Indicative estimate</span>
-                <div class="cost-card-status">
-                  Cost confirmed after medical review
+            -->
+            <!-- 8 Treatment Cards Grid -->
+            <div class="row g-4" id="treatmentCardsContainer">
+                <!-- Card 1: Knee Replacement -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="orthopedic" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="mid">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/11.png" alt="Knee Replacement" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Knee Replacement</h5>
+                            <p class="cost-card-desc">Regain mobility and live pain-free with expert care.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="knee-hipreplacement.html" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
                 </div>
-                <a href="cancer-treatment.html" class="cost-card-link"
-                  >View cost details &rarr;</a
-                >
-              </div>
-            </div>
-          </div>
 
-          <!-- Card 7: Dental Implants -->
-          <div
-            class="col-sm-6 col-lg-3 treatment-item"
-            data-cat="dental"
-            data-city="delhi mumbai chennai bangalore hyderabad"
-            data-budget="low"
-          >
-            <div class="cost-treatment-card">
-              <img
-                src="cost-page/17.png"
-                alt="Dental Implants"
-                class="cost-card-img"
-              />
-              <div class="cost-card-body">
-                <h5 class="cost-card-title">Dental Implants</h5>
-                <p class="cost-card-desc">
-                  Restore your smile with advanced dental solutions.
-                </p>
-                <span class="cost-card-tag">Indicative estimate</span>
-                <div class="cost-card-status">
-                  Cost confirmed after medical review
+                <!-- Card 2: Hip Replacement -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="orthopedic" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="mid">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/12.png" alt="Hip Replacement" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Hip Replacement</h5>
+                            <p class="cost-card-desc">Advanced treatment for better movement and quality of life.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="knee-hipreplacement.html" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
                 </div>
-                <a href="dental-implants.html" class="cost-card-link"
-                  >View cost details &rarr;</a
-                >
-              </div>
-            </div>
-          </div>
 
-          <!-- Card 8: Bone Marrow Transplant -->
-          <div
-            class="col-sm-6 col-lg-3 treatment-item"
-            data-cat="transplant cancer"
-            data-city="delhi mumbai chennai bangalore hyderabad"
-            data-budget="high premium"
-          >
-            <div class="cost-treatment-card">
-              <img
-                src="cost-page/18.png"
-                alt="Bone Marrow Transplant"
-                class="cost-card-img"
-              />
-              <div class="cost-card-body">
-                <h5 class="cost-card-title">Bone Marrow Transplant</h5>
-                <p class="cost-card-desc">
-                  Specialised care for complex blood disorders.
-                </p>
-                <span class="cost-card-tag">Indicative estimate</span>
-                <div class="cost-card-status">
-                  Cost confirmed after medical review
+                <!-- Card 3: Heart Bypass Surgery -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="cardiac" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="mid high">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/13.png" alt="Heart Bypass Surgery" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Heart Bypass Surgery</h5>
+                            <p class="cost-card-desc">Expert cardiac care with world-class facilities.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="cardiac-surgery.html" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
                 </div>
-                <a href="#estimate-form" class="cost-card-link"
-                  >View cost details &rarr;</a
-                >
-              </div>
+
+                <!-- Card 4: Kidney Transplant -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="transplant" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="high premium">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/14.png" alt="Kidney Transplant" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Kidney Transplant</h5>
+                            <p class="cost-card-desc">Comprehensive care for a healthier tomorrow.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="liver-kidney-transplant.html" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Liver Transplant -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="transplant" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="high premium">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/15.png" alt="Liver Transplant" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Liver Transplant</h5>
+                            <p class="cost-card-desc">Advanced treatment with multidisciplinary support.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="liver-kidney-transplant.html" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Cancer Treatment -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="cancer oncology" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="mid high">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/16.png" alt="Cancer Treatment" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Cancer Treatment</h5>
+                            <p class="cost-card-desc">Personalised cancer care with modern treatment options.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="cancer-treatment.html" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7: Dental Implants -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="dental" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="low">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/17.png" alt="Dental Implants" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Dental Implants</h5>
+                            <p class="cost-card-desc">Restore your smile with advanced dental solutions.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="dental-implants.html" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8: Bone Marrow Transplant -->
+                <div class="col-sm-6 col-lg-3 treatment-item" data-cat="transplant cancer" data-city="delhi mumbai chennai bangalore hyderabad" data-budget="high premium">
+                    <div class="cost-treatment-card">
+                        <img src="cost-page/18.png" alt="Bone Marrow Transplant" class="cost-card-img">
+                        <div class="cost-card-body">
+                            <h5 class="cost-card-title">Bone Marrow Transplant</h5>
+                            <p class="cost-card-desc">Specialised care for complex blood disorders.</p>
+                            <span class="cost-card-tag">Indicative estimate</span>
+                            <div class="cost-card-status">Cost confirmed after medical review</div>
+                            <a href="#estimate-form" class="cost-card-link">View cost details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <!-- No Treatments Found Message -->
-        <div
-          id="noCostTreatmentsMsg"
-          class="alert alert-info text-center py-4 mt-4"
-          style="display: none; border-radius: 14px"
-        >
-          <i class="fa fa-info-circle fa-2x mb-2 text-primary"></i>
-          <h5 class="fw-bold">
-            No treatments found matching your selected filters.
-          </h5>
-          <p class="mb-2 text-muted">
-            Try choosing another category, city, or budget range, or reset
-            filters to see all available treatments.
-          </p>
-          <button
-            type="button"
-            class="btn btn-outline-primary rounded-pill px-4 mt-2"
-            onclick="resetCostFilters()"
-          >
-            Reset Filters
-          </button>
-        </div>
-      </div>
+            <!-- No Treatments Found Message -->
+            <div id="noCostTreatmentsMsg" class="alert alert-info text-center py-4 mt-4" style="display: none; border-radius: 14px;">
+                <i class="fa fa-info-circle fa-2x mb-2 text-primary"></i>
+                <h5 class="fw-bold">No treatments found matching your selected filters.</h5>
+                <p class="mb-2 text-muted">Try choosing another category, city, or budget range, or reset filters to see all available treatments.</p>
+                <button type="button" class="btn btn-outline-primary rounded-pill px-4 mt-2" onclick="resetCostFilters()">Reset Filters</button>
+            </div>
     </section>
 
     <!-- 4. WHAT CAN AFFECT YOUR TREATMENT COST -->
@@ -1526,20 +1427,41 @@
         }
       }
 
+      function clearCostFieldsUI() {
+        ["filterCategory", "filterCity", "filterBudget"].forEach(function (id) {
+          const sel = document.getElementById(id);
+          if (sel) {
+            sel.value = "all";
+            const trigger = sel.parentElement.querySelector(".custom-select-trigger, .cost-trigger-label");
+            if (trigger) {
+              trigger.textContent = sel.options[0].text;
+              trigger.classList.add("is-placeholder");
+            }
+            const menu = sel.parentElement.querySelector(".custom-select-menu");
+            if (menu) {
+              menu.querySelectorAll(".custom-select-item").forEach(function (item, idx) {
+                item.classList.toggle("active", idx === 0);
+              });
+            }
+          }
+        });
+      }
+
+      function handleCostSearchSubmit() {
+        filterTreatmentCards(true);
+        setTimeout(clearCostFieldsUI, 350);
+      }
+
       function resetCostFilters() {
         ["filterCategory", "filterCity", "filterBudget"].forEach(function (id) {
           const sel = document.getElementById(id);
           if (sel) {
             sel.value = "all";
-            const trigger = sel.parentElement.querySelector(
-              ".cost-trigger-label",
-            );
+            const trigger = sel.parentElement.querySelector(".custom-select-trigger, .cost-trigger-label");
             if (trigger) trigger.textContent = sel.options[0].text;
-            sel.parentElement
-              .querySelectorAll(".custom-select-item")
-              .forEach(function (item, idx) {
-                item.classList.toggle("active", idx === 0);
-              });
+            sel.parentElement.querySelectorAll(".custom-select-item").forEach(function (item, idx) {
+              item.classList.toggle("active", idx === 0);
+            });
           }
         });
         filterTreatmentCards(false);
@@ -1562,11 +1484,9 @@
         select.style.border = "none";
 
         const trigger = document.createElement("div");
-        trigger.className =
-          "custom-select-trigger" + (hasIcon ? " has-icon" : "");
+        trigger.className = "custom-select-trigger" + (hasIcon ? " has-icon" : "");
         trigger.setAttribute("tabindex", "0");
-        trigger.textContent =
-          select.options[select.selectedIndex]?.text || "Select";
+        trigger.textContent = select.options[select.selectedIndex]?.text || "Select";
         if (!select.value) trigger.classList.add("is-placeholder");
 
         const menu = document.createElement("div");
@@ -1576,9 +1496,7 @@
           menu.innerHTML = "";
           Array.from(select.options).forEach(function (opt) {
             const item = document.createElement("div");
-            item.className =
-              "custom-select-item" +
-              (opt.selected && opt.value ? " active" : "");
+            item.className = "custom-select-item" + (opt.selected && opt.value ? " active" : "");
             item.textContent = opt.text;
             item.dataset.value = opt.value;
             item.addEventListener("click", function (e) {
@@ -1590,11 +1508,9 @@
               } else {
                 trigger.classList.remove("is-placeholder");
               }
-              menu
-                .querySelectorAll(".custom-select-item")
-                .forEach(function (i) {
-                  i.classList.remove("active");
-                });
+              menu.querySelectorAll(".custom-select-item").forEach(function (i) {
+                i.classList.remove("active");
+              });
               if (opt.value) item.classList.add("active");
               parent.classList.remove("open");
               select.dispatchEvent(new Event("change", { bubbles: true }));
@@ -1607,11 +1523,9 @@
 
         trigger.addEventListener("click", function (e) {
           e.stopPropagation();
-          document
-            .querySelectorAll(".cost-page-select.open")
-            .forEach(function (w) {
-              if (w !== parent) w.classList.remove("open");
-            });
+          document.querySelectorAll(".cost-page-select.open").forEach(function (w) {
+            if (w !== parent) w.classList.remove("open");
+          });
           parent.classList.toggle("open");
         });
 
@@ -1642,11 +1556,9 @@
       // Click outside closes open menus
       document.addEventListener("click", function (e) {
         if (!e.target.closest(".cost-page-select")) {
-          document
-            .querySelectorAll(".cost-page-select.open")
-            .forEach(function (w) {
-              w.classList.remove("open");
-            });
+          document.querySelectorAll(".cost-page-select.open").forEach(function (w) {
+            w.classList.remove("open");
+          });
         }
       });
 
