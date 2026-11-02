@@ -218,39 +218,94 @@ document.addEventListener('click', () => {
 
 // Language configuration mapping
 const siteLangMap = {
-    'en': { code: 'US', flag: 'https://flagcdn.com/w40/us.png' },
-    'ar': { code: 'AE', flag: 'https://flagcdn.com/w40/ae.png' },
-    'ru': { code: 'RU', flag: 'https://flagcdn.com/w40/ru.png' },
-    'fr': { code: 'FR', flag: 'https://flagcdn.com/w40/fr.png' },
-    'bn': { code: 'BD', flag: 'https://flagcdn.com/w40/bd.png' }
+    en: { code: 'US', flag: 'https://flagcdn.com/w40/us.png' },
+    ar: { code: 'AE', flag: 'https://flagcdn.com/w40/ae.png' },
+    ru: { code: 'RU', flag: 'https://flagcdn.com/w40/ru.png' },
+    fr: { code: 'FR', flag: 'https://flagcdn.com/w40/fr.png' },
+    bn: { code: 'BD', flag: 'https://flagcdn.com/w40/bd.png' }
 };
 
-function syncActiveLangUI() {
-    let current = 'en';
-    const match = document.cookie.match(/googtrans=\/en\/([a-z]{2})/i);
-    if (match && match[1]) {
-        current = match[1].toLowerCase();
-    }
-    const info = siteLangMap[current] || siteLangMap['en'];
-    document.querySelectorAll('.activeLangFlag').forEach(el => el.src = info.flag);
-    document.querySelectorAll('.activeLangCode').forEach(el => el.textContent = info.code);
+// function syncActiveLangUI() {
+//     let current = 'en';
+//     const match = document.cookie.match(/googtrans=\/en\/([a-z]{2})/i);
+//     if (match && match[1]) {
+//         current = match[1].toLowerCase();
+//     }
+//     const info = siteLangMap[current] || siteLangMap['en'];
+//     document.querySelectorAll('.activeLangFlag').forEach(el => el.src = info.flag);
+//     document.querySelectorAll('.activeLangCode').forEach(el => el.textContent = info.code);
 
-    // Apply RTL for Arabic
-    if (current === 'ar') {
-        document.documentElement.setAttribute('dir', 'rtl');
-        document.documentElement.classList.add('rtl-mode');
-    } else {
-        document.documentElement.setAttribute('dir', 'ltr');
-        document.documentElement.classList.remove('rtl-mode');
-    }
-}
+//     // Apply RTL for Arabic
+//     if (current === 'ar') {
+//         document.documentElement.setAttribute('dir', 'rtl');
+//         document.documentElement.classList.add('rtl-mode');
+//     } else {
+//         document.documentElement.setAttribute('dir', 'ltr');
+//         document.documentElement.classList.remove('rtl-mode');
+//     }
+// }
 
 // Switch Language and Trigger Site-Wide Translation
-function changeSiteLanguage(lang, flagSrc, label) {
-    document.cookie = `googtrans=/en/${lang}; path=/;`;
-    document.cookie = `googtrans=/en/${lang}; domain=${window.location.hostname}; path=/;`;
-    window.location.reload();
+
+function syncActiveLangUI(language) {
+    const cookieMatch = document.cookie.match(
+        /(?:^|;\s*)googtrans=([^;]+)/
+    );
+
+    const savedLanguage = cookieMatch
+        ? decodeURIComponent(cookieMatch[1]).split('/').pop()
+        : 'en';
+
+    const current = language || savedLanguage;
+    const info = siteLangMap[current] || siteLangMap.en;
+
+    document.querySelectorAll('.activeLangFlag').forEach(el => {
+        el.src = info.flag;
+    });
+
+    document.querySelectorAll('.activeLangCode').forEach(el => {
+        el.textContent = info.code;
+    });
+
+    const isArabic = current === 'ar';
+
+    document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+    document.documentElement.classList.toggle('rtl-mode', isArabic);
 }
+
+
+function changeSiteLanguage(lang) {
+    if (!Object.prototype.hasOwnProperty.call(siteLangMap, lang)) {
+        return;
+    }
+
+    const expiry = new Date();
+    expiry.setFullYear(expiry.getFullYear() + 1);
+
+    document.cookie = [
+        `googtrans=${encodeURIComponent(`/en/${lang}`)}`,
+        `expires=${expiry.toUTCString()}`,
+        'path=/',
+        'SameSite=Lax'
+    ].join('; ');
+
+    syncActiveLangUI(lang);
+
+    const translateSelect = document.querySelector('.goog-te-combo');
+
+    if (translateSelect && translateSelect.value !== lang) {
+        translateSelect.value = lang;
+        translateSelect.dispatchEvent(new Event('change', {
+            bubbles: true
+        }));
+    }
+}
+// function changeSiteLanguage(lang, flagSrc, label) {
+//     document.cookie = `googtrans=/en/${lang}; path=/;`;
+//     document.cookie = `googtrans=/en/${lang}; domain=${window.location.hostname}; path=/;`;
+//     window.location.reload();
+// }
+
 
 // Auto-sync language UI after header fetch completes
 const origHeaderFetch = fetch('/partials/header.html');
