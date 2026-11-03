@@ -4500,3 +4500,50 @@ body:has(.modal.show) .back-to-top,
 .navbar .navbar-nav .dropdown-toggle.active {
     color: #0463FA !important;
 }
+
+/* View All Treatments in Header Dropdown */
+.dropdown-view-all-wrap {
+    padding: 10px 10px 4px !important;
+    border-top: 1px solid #f1f5f9 !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    width: 100% !important;
+    background: transparent !important;
+}
+
+.btn-dropdown-view-all {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background: #eff6ff !important;
+    color: #0463fa !important;
+    border: 1px solid #bfdbfe !important;
+    border-radius: 6px !important;
+    padding: 5px 14px !important;
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    line-height: 1.35 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    width: auto !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.btn-dropdown-view-all:hover {
+    background: #0463fa !important;
+    color: #ffffff !important;
+    border-color: #0463fa !important;
+    box-shadow: 0 2px 8px rgba(4, 99, 250, 0.25) !important;
+    transform: translateY(-1px) !important;
+}
+
+.btn-dropdown-view-all i {
+    font-size: 11px !important;
+    transition: transform 0.2s ease !important;
+}
+
+.btn-dropdown-view-all:hover i {
+    transform: translateX(3px) !important;
+}
