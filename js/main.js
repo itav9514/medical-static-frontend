@@ -237,16 +237,25 @@ function toggleLangDropdown(e) {
     e.stopPropagation();
     const dropdownWrap = e.target.closest('.custom-lang-dropdown');
     const menu = dropdownWrap ? dropdownWrap.querySelector('.lang-menu-list') : null;
-    const isShown = menu && menu.classList.contains('show');
+    if (!menu) return;
+    const isShown = menu.classList.contains('show') || menu.style.display === 'block';
 
-    document.querySelectorAll('.lang-menu-list').forEach(el => el.classList.remove('show'));
-    if (menu && !isShown) {
+    document.querySelectorAll('.lang-menu-list').forEach(el => {
+        el.classList.remove('show');
+        el.style.setProperty('display', 'none', 'important');
+    });
+
+    if (!isShown) {
         menu.classList.add('show');
+        menu.style.setProperty('display', 'block', 'important');
     }
 }
 
 document.addEventListener('click', () => {
-    document.querySelectorAll('.lang-menu-list').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.lang-menu-list').forEach(el => {
+        el.classList.remove('show');
+        el.style.setProperty('display', 'none', 'important');
+    });
 });
 
 // Language configuration mapping
@@ -524,12 +533,94 @@ normalizeLangCookies();
 })();
 
 // Auto-sync language UI after header fetch completes
+
+// ---------------------------------------------------------------------------
+// Dynamic Active Nav Link Synchronization
+// Highlights the current page in Desktop Navbar & Mobile Drawer
+// ---------------------------------------------------------------------------
+function syncActiveNavLink() {
+    try {
+        const pathName = window.location.pathname.toLowerCase();
+        let currentPage = pathName.substring(pathName.lastIndexOf('/') + 1) || 'index.html';
+        if (currentPage === '' || currentPage === '/') currentPage = 'index.html';
+
+        // Clear all existing active classes in navigation
+        document.querySelectorAll('.navbar-nav .nav-link, .mobile-menu-drawer .drawer-link, .treattopheder a, .drawer-submenu-list a').forEach(el => {
+            el.classList.remove('active');
+        });
+
+        let matched = false;
+
+        // 1. Direct match for standalone pages (Home, Hospitals, Doctors, Cost, Blog, Patient Stories, etc.)
+        document.querySelectorAll('.navbar-nav .nav-link, .mobile-menu-drawer .drawer-link').forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href || href === '#' || href.startsWith('javascript:')) return;
+            const target = href.substring(href.lastIndexOf('/') + 1).toLowerCase();
+            if (target === currentPage) {
+                link.classList.add('active');
+                matched = true;
+            }
+        });
+
+        // 2. Treatment subpages -> Highlight "Treatments" dropdown & specific dropdown item
+        const treatmentPages = [
+            'cardiac-surgery.html', 'orthopedic-surgery.html', 'ivf-fertility.html',
+            'cosmetic-surgery.html', 'knee-hipreplacement.html', 'spine-surgery.html',
+            'cancer-treatment.html', 'dental-implants.html', 'bariatric-surgery.html',
+            'liver-kidney-transplant.html', 'neuro-surgeries.html', 'eye-surgery.html',
+            'orthopedic-trauma-surgery.html', 'hair-transplant.html', 'stem-cell-therapy.html'
+        ];
+        if (treatmentPages.includes(currentPage)) {
+            document.querySelectorAll('.navbar-nav .dropdown-toggle, .mobile-menu-drawer .drawer-accordion-toggle').forEach(btn => {
+                if (/treatment/i.test(btn.textContent)) {
+                    btn.classList.add('active');
+                }
+            });
+            document.querySelectorAll('.treattopheder a, .drawer-submenu-list a').forEach(a => {
+                const href = a.getAttribute('href');
+                if (href && href.substring(href.lastIndexOf('/') + 1).toLowerCase() === currentPage) {
+                    a.classList.add('active');
+                }
+            });
+            matched = true;
+        }
+
+        // 3. Service subpages -> Highlight "Services" dropdown
+        const servicePages = [
+            'air-ambulance-service.html', 'online-doctor-consultation.html',
+            'accommodation-service.html', 'pre-post-arrival-services.html',
+            'flight-booking.html', 'hotel-booking.html', 'visa-assistance.html'
+        ];
+        if (servicePages.includes(currentPage)) {
+            document.querySelectorAll('.navbar-nav .dropdown-toggle, .mobile-menu-drawer .drawer-accordion-toggle').forEach(btn => {
+                if (/service/i.test(btn.textContent)) {
+                    btn.classList.add('active');
+                }
+            });
+            matched = true;
+        }
+
+        // 4. Fallback for Root URL -> Highlight Home
+        if (!matched && (currentPage === 'index.html' || currentPage === '')) {
+            document.querySelectorAll('.navbar-nav .nav-link, .mobile-menu-drawer .drawer-link').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.includes('index.html')) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    } catch (err) {
+        console.error('Error syncing active nav link:', err);
+    }
+}
+
 fetch('/partials/header.html')
     .then(res => res.text())
     .then(data => {
         const headerEl = document.getElementById('header');
         if (headerEl) {
             headerEl.innerHTML = data;
+            syncActiveNavLink();
             initTranslateWidget();   // header now has #google_translate_element
             const callModal = document.getElementById('callModal');
             if (callModal && callModal.parentElement !== document.body) {
