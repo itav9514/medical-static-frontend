@@ -540,9 +540,17 @@ normalizeLangCookies();
 // ---------------------------------------------------------------------------
 function syncActiveNavLink() {
     try {
-        const pathName = window.location.pathname.toLowerCase();
-        let currentPage = pathName.substring(pathName.lastIndexOf('/') + 1) || 'index.html';
-        if (currentPage === '' || currentPage === '/') currentPage = 'index.html';
+        // Strip origin, hashes and query parameters
+        let path = (window.location.pathname || '').toLowerCase().split('#')[0].split('?')[0];
+        // Strip trailing slashes
+        path = path.replace(/\/+$/, '');
+        // Get the current file or slug
+        let rawSegment = path.substring(path.lastIndexOf('/') + 1) || 'index';
+        if (rawSegment === '' || rawSegment === '/') rawSegment = 'index';
+        
+        // Both with extension and without extension for clean URL support
+        const currentWithExt = rawSegment.endsWith('.html') ? rawSegment : rawSegment + '.html';
+        const currentBase = rawSegment.replace(/\.html$/, '');
 
         // Clear all existing active classes in navigation
         document.querySelectorAll('.navbar-nav .nav-link, .mobile-menu-drawer .drawer-link, .treattopheder a, .drawer-submenu-list a').forEach(el => {
@@ -555,22 +563,32 @@ function syncActiveNavLink() {
         document.querySelectorAll('.navbar-nav .nav-link, .mobile-menu-drawer .drawer-link').forEach(link => {
             const href = link.getAttribute('href');
             if (!href || href === '#' || href.startsWith('javascript:')) return;
-            const target = href.substring(href.lastIndexOf('/') + 1).toLowerCase();
-            if (target === currentPage) {
-                link.classList.add('active');
-                matched = true;
+            const target = href.split('#')[0].split('?')[0].substring(href.lastIndexOf('/') + 1).toLowerCase();
+            const targetBase = target.replace(/\.html$/, '');
+
+            if (target === currentWithExt || targetBase === currentBase) {
+                // If it matches 'index', make sure current really is index/root
+                if (targetBase === 'index') {
+                    if (currentBase === 'index' || currentBase === '') {
+                        link.classList.add('active');
+                        matched = true;
+                    }
+                } else {
+                    link.classList.add('active');
+                    matched = true;
+                }
             }
         });
 
         // 2. Treatment subpages -> Highlight "Treatments" dropdown & specific dropdown item
-        const treatmentPages = [
-            'cardiac-surgery.html', 'orthopedic-surgery.html', 'ivf-fertility.html',
-            'cosmetic-surgery.html', 'knee-hipreplacement.html', 'spine-surgery.html',
-            'cancer-treatment.html', 'dental-implants.html', 'bariatric-surgery.html',
-            'liver-kidney-transplant.html', 'neuro-surgeries.html', 'eye-surgery.html',
-            'orthopedic-trauma-surgery.html', 'hair-transplant.html', 'stem-cell-therapy.html'
+        const treatmentBases = [
+            'cardiac-surgery', 'orthopedic-surgery', 'ivf-fertility',
+            'cosmetic-surgery', 'knee-hipreplacement', 'spine-surgery',
+            'cancer-treatment', 'dental-implants', 'bariatric-surgery',
+            'liver-kidney-transplant', 'neuro-surgeries', 'eye-surgery',
+            'orthopedic-trauma-surgery', 'hair-transplant', 'stem-cell-therapy'
         ];
-        if (treatmentPages.includes(currentPage)) {
+        if (treatmentBases.includes(currentBase)) {
             document.querySelectorAll('.navbar-nav .dropdown-toggle, .mobile-menu-drawer .drawer-accordion-toggle').forEach(btn => {
                 if (/treatment/i.test(btn.textContent)) {
                     btn.classList.add('active');
@@ -578,7 +596,10 @@ function syncActiveNavLink() {
             });
             document.querySelectorAll('.treattopheder a, .drawer-submenu-list a').forEach(a => {
                 const href = a.getAttribute('href');
-                if (href && href.substring(href.lastIndexOf('/') + 1).toLowerCase() === currentPage) {
+                if (!href) return;
+                const aTarget = href.split('#')[0].split('?')[0].substring(href.lastIndexOf('/') + 1).toLowerCase();
+                const aBase = aTarget.replace(/\.html$/, '');
+                if (aBase === currentBase) {
                     a.classList.add('active');
                 }
             });
@@ -586,12 +607,12 @@ function syncActiveNavLink() {
         }
 
         // 3. Service subpages -> Highlight "Services" dropdown
-        const servicePages = [
-            'air-ambulance-service.html', 'online-doctor-consultation.html',
-            'accommodation-service.html', 'pre-post-arrival-services.html',
-            'flight-booking.html', 'hotel-booking.html', 'visa-assistance.html'
+        const serviceBases = [
+            'air-ambulance-service', 'online-doctor-consultation',
+            'accommodation-service', 'pre-post-arrival-services',
+            'flight-booking', 'hotel-booking', 'visa-assistance'
         ];
-        if (servicePages.includes(currentPage)) {
+        if (serviceBases.includes(currentBase)) {
             document.querySelectorAll('.navbar-nav .dropdown-toggle, .mobile-menu-drawer .drawer-accordion-toggle').forEach(btn => {
                 if (/service/i.test(btn.textContent)) {
                     btn.classList.add('active');
@@ -601,7 +622,7 @@ function syncActiveNavLink() {
         }
 
         // 4. Fallback for Root URL -> Highlight Home
-        if (!matched && (currentPage === 'index.html' || currentPage === '')) {
+        if (!matched && (currentBase === 'index' || currentBase === '')) {
             document.querySelectorAll('.navbar-nav .nav-link, .mobile-menu-drawer .drawer-link').forEach(link => {
                 const href = link.getAttribute('href');
                 if (href && href.includes('index.html')) {
