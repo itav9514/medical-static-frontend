@@ -582,6 +582,7 @@ function syncActiveNavLink() {
 
         // 2. Treatment subpages -> Highlight "Treatments" dropdown & specific dropdown item
         const treatmentBases = [
+            'treatment', 'treatmemt',
             'cardiac-surgery', 'orthopedic-surgery', 'ivf-fertility',
             'cosmetic-surgery', 'knee-hipreplacement', 'spine-surgery',
             'cancer-treatment', 'dental-implants', 'bariatric-surgery',

@@ -10736,3 +10736,996 @@ a.btn-outline-navy:hover,
     box-shadow: 0 10px 24px rgba(229, 33, 40, 0.45);
     color: #ffffff;
 }
+
+
+/* ==========================================================================
+   ALL TREATMENTS DIRECTORY PAGE STYLES (treatment.html / treatmemt.html)
+   Exact Match to Design Mockup (Image 1)
+   ========================================================================== */
+
+/* 1. Hero Section (100% Full Width Edge-to-Edge) */
+.all-treat-hero {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    background: #eef6ff url('../all-treatment/banner.png') center right / cover no-repeat !important;
+    padding: 60px 0 65px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.all-treat-breadcrumb {
+    font-size: 0.86rem;
+    color: #475569;
+    margin-bottom: 14px;
+}
+
+.all-treat-breadcrumb a {
+    color: #0b224e;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.all-treat-breadcrumb a:hover {
+    color: #0463fa;
+}
+
+.all-treat-breadcrumb span {
+    color: #64748b;
+}
+
+.all-treat-hero-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #0b224e;
+    line-height: 1.18;
+    margin-bottom: 10px;
+}
+
+.all-treat-hero-title span.text-red {
+    color: #e52128 !important;
+}
+
+.all-treat-hero-subtitle {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 22px;
+    line-height: 1.5;
+}
+
+/* 4 Feature Pills in Hero */
+.all-treat-badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 26px;
+}
+
+.all-treat-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #bfdbfe;
+    border-radius: 50px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0b224e;
+    box-shadow: 0 2px 6px rgba(11, 34, 78, 0.04);
+    backdrop-filter: blur(4px);
+}
+
+.all-treat-badge-pill img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.all-treat-hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+}
+
+.all-treat-hero-ctas .btn-hero-red {
+    background: #e52128 !important;
+    color: #ffffff !important;
+    border: 2px solid #e52128 !important;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 14px rgba(229, 33, 40, 0.35);
+    text-decoration: none !important;
+    transition: all 0.25s ease;
+}
+
+.all-treat-hero-ctas .btn-hero-red:hover {
+    background: #c81e24 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(229, 33, 40, 0.45);
+}
+
+.all-treat-hero-ctas .btn-hero-outline {
+    background: #ffffff !important;
+    color: #0463fa !important;
+    border: 1.5px solid #0463fa !important;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(4, 99, 250, 0.1);
+    text-decoration: none !important;
+    transition: all 0.25s ease;
+}
+
+.all-treat-hero-ctas .btn-hero-outline:hover {
+    background: #eff6ff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(4, 99, 250, 0.2);
+}
+
+/* 2. 4 Feature Cards Row (Below Hero) */
+.all-treat-features-sec {
+    padding: 35px 0 20px;
+    background: #ffffff;
+}
+
+.all-treat-features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.all-treat-feature-card {
+    background: #ffffff;
+    border: 1px solid #e2eaf4;
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 4px 14px rgba(11, 34, 78, 0.04);
+    transition: all 0.25s ease;
+}
+
+.all-treat-feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(11, 34, 78, 0.08);
+    border-color: #bfdbfe;
+}
+
+.all-treat-feature-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 12px;
+    background: #eff6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.all-treat-feature-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.all-treat-feature-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #0b224e;
+    margin: 0;
+    line-height: 1.35;
+}
+
+/* 3. Search & Filter Bar Section */
+.all-treat-search-sec {
+    padding: 40px 0 25px;
+    background: #ffffff;
+}
+
+.all-treat-search-title {
+    font-size: 1.95rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 6px;
+}
+
+.all-treat-search-desc {
+    font-size: 0.92rem;
+    color: #64748b;
+    margin-bottom: 22px;
+}
+
+.all-treat-filter-bar {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 8px 10px;
+    box-shadow: 0 4px 18px rgba(11, 34, 78, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.all-treat-search-input-wrap {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.all-treat-search-input-wrap .search-icon {
+    position: absolute;
+    left: 15px;
+    color: #94a3b8;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.all-treat-search-input {
+    width: 100%;
+    padding: 11px 38px 11px 40px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: #1e293b;
+    background: #f8fafc;
+    outline: none;
+    transition: all 0.2s ease;
+    -webkit-appearance: none;
+}
+
+.all-treat-search-input:focus {
+    border-color: #0463fa;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(4, 99, 250, 0.12);
+}
+
+/* Cross / Clear Button inside Search Input */
+.all-treat-search-clear {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    border: none;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 11px;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s ease;
+    z-index: 3;
+}
+
+.all-treat-search-clear:hover {
+    background: #cbd5e1;
+    color: #0f172a;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Mobile Filter Trigger Button (iPad & iPhone) */
+.btn-mobile-filter-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: #eff6ff;
+    border: 1.5px solid #0463fa;
+    color: #0463fa;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(4, 99, 250, 0.1);
+}
+
+.btn-mobile-filter-trigger:hover,
+.btn-mobile-filter-trigger:active {
+    background: #0463fa;
+    color: #ffffff;
+    border-color: #0463fa;
+}
+
+.mobile-filter-count-badge {
+    background: #0463fa;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 1px 7px;
+    line-height: 1.3;
+    margin-left: 2px;
+    transition: all 0.2s ease;
+}
+
+.btn-mobile-filter-trigger:hover .mobile-filter-count-badge {
+    background: #ffffff;
+    color: #0463fa;
+}
+
+/* Offcanvas Drawer for iPad & iPhone */
+.treatment-mobile-offcanvas {
+    width: 340px !important;
+    max-width: 85vw !important;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    box-shadow: 6px 0 28px rgba(11, 34, 78, 0.18);
+    z-index: 1060;
+}
+
+.treatment-offcanvas-header {
+    padding: 16px 20px;
+    background: #f8fafc;
+}
+
+.treatment-offcanvas-icon-wrap {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #eff6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.treatment-offcanvas-body {
+    padding: 20px 18px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.treatment-offcanvas-footer {
+    background: #f8fafc;
+    padding: 14px 18px;
+}
+
+.treatment-mobile-offcanvas .all-treat-filter-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 9px !important;
+}
+
+/* 4. All Treatments Main Content (Sidebar + 16 Cards) */
+.all-treat-content-sec {
+    padding: 25px 0 60px;
+    background: #ffffff;
+}
+
+.all-treat-content-title {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 22px;
+}
+
+.all-treat-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+/* Left Sidebar */
+.all-treat-sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: #ffffff;
+    border: 1px solid #e2eaf4;
+    border-radius: 14px;
+    padding: 20px 18px;
+    box-shadow: 0 4px 16px rgba(11, 34, 78, 0.04);
+}
+
+.all-treat-sidebar-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0b224e;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 16px;
+}
+
+.all-treat-sidebar-head i {
+    color: #0463fa;
+}
+
+.all-treat-sidebar-group {
+    margin-bottom: 20px;
+}
+
+.all-treat-group-title {
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.all-treat-filter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.all-treat-filter-item label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: #334155;
+    cursor: pointer;
+    margin: 0;
+    user-select: none;
+    transition: color 0.15s ease;
+}
+
+.all-treat-filter-item label:hover {
+    color: #0463fa;
+}
+
+.all-treat-filter-item input[type="radio"],
+.all-treat-filter-item input[type="checkbox"] {
+    accent-color: #0463fa;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.btn-clear-all-filters {
+    width: 100%;
+    background: #ffffff;
+    border: 1.5px solid #0463fa;
+    color: #0463fa;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+.btn-clear-all-filters:hover {
+    background: #eff6ff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(4, 99, 250, 0.18);
+}
+
+/* Right Cards Grid (4 columns) */
+.all-treat-grid-wrap {
+    flex: 1;
+    min-width: 0;
+}
+
+.all-treat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.all-treat-card {
+    background: #ffffff;
+    border: 1px solid #e2eaf4;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(11, 34, 78, 0.04);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s ease;
+    text-decoration: none !important;
+}
+
+.all-treat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(11, 34, 78, 0.1);
+    border-color: #bfdbfe;
+}
+
+.all-treat-card-img-wrap {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    background: #f1f5f9;
+}
+
+.all-treat-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.all-treat-card:hover .all-treat-card-img-wrap img {
+    transform: scale(1.05);
+}
+
+.all-treat-card-body {
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.all-treat-card-title {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #0b224e;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.all-treat-card-desc {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.all-treat-card-link {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #0463fa;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: auto;
+    text-decoration: none !important;
+    transition: gap 0.2s ease;
+}
+
+.all-treat-card:hover .all-treat-card-link {
+    gap: 8px;
+    color: #0348b8;
+}
+
+/* 5. Popular Treatments Section */
+.popular-treat-sec {
+    padding: 50px 0 55px;
+    background: #f8fafc;
+    border-top: 1px solid #eef2f6;
+    border-bottom: 1px solid #eef2f6;
+}
+
+.popular-treat-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 26px;
+}
+
+.popular-treat-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.popular-treat-card {
+    background: #ffffff;
+    border: 1px solid #e2eaf4;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(11, 34, 78, 0.04);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.25s ease;
+    text-decoration: none !important;
+}
+
+.popular-treat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(11, 34, 78, 0.1);
+    border-color: #bfdbfe;
+}
+
+.popular-treat-img-wrap {
+    width: 100%;
+    height: 145px;
+    overflow: hidden;
+    background: #f1f5f9;
+    position: relative;
+}
+
+.popular-treat-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.popular-treat-card:hover .popular-treat-img-wrap img {
+    transform: scale(1.05);
+}
+
+.popular-treat-icon-bubble {
+    position: absolute;
+    bottom: -16px;
+    left: 14px;
+    width: 34px;
+    height: 34px;
+    background: #ffffff;
+    border: 1.5px solid #bfdbfe;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(11, 34, 78, 0.08);
+    z-index: 2;
+}
+
+.popular-treat-icon-bubble i {
+    font-size: 13px;
+    color: #0463fa;
+}
+
+.popular-treat-body {
+    padding: 22px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.popular-treat-card-title {
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: #0b224e;
+    margin-bottom: 6px;
+}
+
+.popular-treat-card-desc {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin-bottom: 12px;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.popular-treat-link {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0463fa;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: auto;
+    text-decoration: none !important;
+}
+
+/* 6. Understand Your Treatment Costs Banner (Full Width Card) */
+.all-treat-cost-sec {
+    padding: 50px 0 40px;
+    background: #ffffff;
+}
+
+.all-treat-cost-banner {
+    position: relative;
+    width: 100%;
+    background: #eaf3fe url('../all-treatment/banner-3.png') center right / contain no-repeat;
+    border-radius: 20px;
+    padding: 44px 50px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(4, 99, 250, 0.06);
+    border: 1px solid #dbeafe;
+}
+
+.all-treat-cost-content {
+    max-width: 620px;
+    position: relative;
+    z-index: 2;
+}
+
+.all-treat-cost-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 10px;
+    line-height: 1.25;
+}
+
+.all-treat-cost-desc {
+    font-size: 0.92rem;
+    color: #475569;
+    margin-bottom: 22px;
+    line-height: 1.6;
+}
+
+.btn-cost-guidance {
+    background: #ffffff !important;
+    color: #0463fa !important;
+    border: 1.5px solid #0463fa !important;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none !important;
+    box-shadow: 0 2px 8px rgba(4, 99, 250, 0.12);
+    transition: all 0.25s ease;
+}
+
+.btn-cost-guidance:hover {
+    background: #eff6ff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(4, 99, 250, 0.22);
+}
+
+/* 7. Frequently Asked Questions Section */
+.all-treat-faq-sec {
+    padding: 45px 0 60px;
+    background: #ffffff;
+}
+
+.all-treat-faq-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #0b224e;
+    margin-bottom: 26px;
+}
+
+.all-treat-faq-accordion .accordion-item {
+    border: 1px solid #e2eaf4 !important;
+    border-radius: 12px !important;
+    margin-bottom: 12px !important;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(11, 34, 78, 0.03);
+}
+
+.all-treat-faq-accordion .accordion-button {
+    font-size: 0.96rem !important;
+    font-weight: 700 !important;
+    color: #0b224e !important;
+    background: #f8fafc !important;
+    padding: 18px 22px !important;
+    box-shadow: none !important;
+}
+
+.all-treat-faq-accordion .accordion-button:not(.collapsed) {
+    background: #eff6ff !important;
+    color: #0463fa !important;
+}
+
+.all-treat-faq-accordion .accordion-body {
+    padding: 18px 22px !important;
+    font-size: 0.9rem !important;
+    color: #475569 !important;
+    line-height: 1.65 !important;
+    background: #ffffff !important;
+}
+
+/* 8. Bottom Full Width CTA Banner */
+.all-treat-bottom-banner {
+    position: relative;
+    width: 100%;
+    background: #02295a url('../all-treatment/banner-2.png') center right / cover no-repeat !important;
+    padding: 38px 0;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.all-treat-bottom-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.all-treat-bottom-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    max-width: 720px;
+}
+
+.all-treat-bottom-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+
+.all-treat-bottom-icon img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.all-treat-bottom-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 4px 0;
+}
+
+.all-treat-bottom-desc {
+    font-size: 0.88rem;
+    color: #dbeafe;
+    margin: 0;
+    line-height: 1.45;
+}
+
+.btn-bottom-cta-red {
+    background: #e52128 !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 16px rgba(229, 33, 40, 0.4);
+    text-decoration: none !important;
+    transition: all 0.25s ease;
+}
+
+.btn-bottom-cta-red:hover {
+    background: #c81e24 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(229, 33, 40, 0.55);
+}
+
+/* ==========================================================================
+   Responsive Adaptations for Treatment Directory Page
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .all-treat-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .popular-treat-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .all-treat-hero {
+        background-position: center !important;
+        padding: 50px 0;
+    }
+    .all-treat-hero-title {
+        font-size: 2.2rem;
+    }
+    .all-treat-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .all-treat-layout {
+        flex-direction: column;
+    }
+    .all-treat-sidebar {
+        width: 100%;
+        min-width: 100%;
+    }
+    .all-treat-filter-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px 14px;
+    }
+    .all-treat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .popular-treat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .all-treat-cost-banner {
+        padding: 34px 28px;
+        background-size: 260px auto !important;
+    }
+    .all-treat-bottom-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .all-treat-hero {
+        padding: 40px 0;
+    }
+    .all-treat-hero-title {
+        font-size: 1.85rem;
+    }
+    .all-treat-hero-subtitle {
+        font-size: 0.95rem;
+    }
+    .all-treat-features-grid {
+        grid-template-columns: 1fr;
+    }
+    .all-treat-filter-list {
+        grid-template-columns: 1fr;
+    }
+    .all-treat-grid {
+        grid-template-columns: 1fr;
+    }
+    .popular-treat-grid {
+        grid-template-columns: 1fr;
+    }
+    .all-treat-filter-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 8px;
+    }
+    .all-treat-search-input {
+        padding: 9px 34px 9px 34px;
+        font-size: 0.84rem;
+    }
+    .all-treat-search-input-wrap .search-icon {
+        left: 12px;
+        font-size: 13px;
+    }
+    .btn-mobile-filter-trigger {
+        padding: 9px 12px;
+        font-size: 0.82rem;
+        gap: 5px;
+    }
+    .all-treat-cost-banner {
+        padding: 26px 20px;
+        background-image: none !important;
+    }
+    .all-treat-bottom-left {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
