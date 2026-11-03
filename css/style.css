@@ -3886,7 +3886,7 @@ details.mh-faq p {
     max-width: 360px !important;
     border: none !important;
     box-shadow: -10px 0 40px rgba(2, 41, 90, 0.25) !important;
-    z-index: 1055 !important;
+    z-index: 1060 !important;
     background: #ffffff !important;
 }
 
@@ -4226,7 +4226,7 @@ details.mh-faq p {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    z-index: 1040;
+    z-index: 1020 !important;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -4303,7 +4303,7 @@ details.mh-faq p {
 .back-to-top {
     bottom: 90px !important;
     right: 25px !important;
-    z-index: 1030 !important;
+    z-index: 1019 !important;
 }
 
 @media (max-width: 576px) {
@@ -4452,4 +4452,31 @@ body {
 
 #google_translate_element {
     display: none !important;
+}
+
+
+/* ==========================================================================
+   OFFCANVAS BACKDROP & HIDE FLOATING BUTTONS (WhatsApp, Go to Top)
+   ========================================================================== */
+.offcanvas-backdrop {
+    z-index: 1050 !important;
+}
+
+body.drawer-open .floating-whatsapp-btn,
+body.drawer-open .back-to-top,
+body.modal-open .floating-whatsapp-btn,
+body.modal-open .back-to-top,
+body.offcanvas-open .floating-whatsapp-btn,
+body.offcanvas-open .back-to-top,
+body:has(.offcanvas.show) .floating-whatsapp-btn,
+body:has(.offcanvas.show) .back-to-top,
+body:has(.modal.show) .floating-whatsapp-btn,
+body:has(.modal.show) .back-to-top,
+.offcanvas.show ~ .floating-whatsapp-btn,
+.offcanvas.show ~ .back-to-top {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: scale(0.6) !important;
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease !important;
 }
