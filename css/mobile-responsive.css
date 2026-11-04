@@ -610,3 +610,115 @@
         font-size: 12px !important;
     }
 }
+
+
+/* ===== EMI & Insurance Section — Responsive ===== */
+
+/* Tablet (iPad: <= 768px) */
+@media (max-width: 768px) {
+    #emi-section {
+        padding: 32px 0 !important;
+    }
+
+    /* Banner text: full width, reduced padding */
+    .emi-banner-text {
+        padding: 24px 22px !important;
+        max-width: 100% !important;
+    }
+
+    .emi-banner-text h2 {
+        font-size: 1.25rem !important;
+    }
+
+    /* Insurance cards: stack vertically */
+    .emi-cards-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+    }
+
+    /* Treatments: 3 per row */
+    .emi-treatments-row {
+        gap: 14px !important;
+        justify-content: center !important;
+    }
+
+    .emi-treat-item {
+        flex: 0 0 calc(33% - 14px) !important;
+        min-width: 80px !important;
+    }
+}
+
+/* Mobile (iPhone: <= 480px) */
+@media (max-width: 480px) {
+    #emi-section {
+        padding: 24px 0 !important;
+    }
+
+    /* Banner */
+    #emi-section > .mh-wrap > div:first-child {
+        border-radius: 12px !important;
+        min-height: 160px !important;
+        background-position: center top !important;
+    }
+
+    .emi-banner-text {
+        padding: 20px 18px !important;
+    }
+
+    .emi-banner-text h2 {
+        font-size: 1.05rem !important;
+        line-height: 1.4 !important;
+    }
+
+    .emi-banner-text h2 span {
+        font-size: 0.95rem !important;
+        padding: 2px 8px !important;
+    }
+
+    .emi-banner-text p {
+        font-size: 12.5px !important;
+        margin: 8px 0 14px !important;
+    }
+
+    /* Insurance cards: stack */
+    .emi-cards-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    .emi-card {
+        padding: 16px !important;
+    }
+
+    .emi-card img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    /* Inner content boxes */
+    #emi-section .mh-wrap > div > div[style*="padding:28px"] {
+        padding: 18px 16px !important;
+    }
+
+    /* Treatments: 2 per row */
+    .emi-treatments-row {
+        gap: 10px !important;
+    }
+
+    .emi-treat-item {
+        flex: 0 0 calc(50% - 10px) !important;
+        min-width: 70px !important;
+    }
+
+    .emi-treat-item img {
+        width: 46px !important;
+        height: 46px !important;
+    }
+
+    /* EMI table */
+    #emi-section table th,
+    #emi-section table td {
+        padding: 10px 10px !important;
+        font-size: 12px !important;
+    }
+}

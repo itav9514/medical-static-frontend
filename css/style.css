@@ -90,19 +90,39 @@
 }
 
 .navbar .navbar-nav .nav-link {
-    margin-right: 30px;
+    margin-right: 0;
     padding: 25px 0;
     color: #FFFFFF;
     font-size: 15px;
     font-weight: 500;
     text-transform: uppercase;
     outline: none;
+    transition: color 0.2s ease;
 }
 
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active,
 .navbar .navbar-nav .dropdown-toggle.active {
     color: var(--primary) !important;
+}
+
+/* Smooth underline on hover */
+.navbar .navbar-nav > .nav-link::after,
+.navbar .navbar-nav > .nav-item > .nav-link::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+    border-radius: 2px;
+    margin-top: 2px;
+}
+.navbar .navbar-nav > .nav-link:hover::after,
+.navbar .navbar-nav > .nav-link.active::after,
+.navbar .navbar-nav > .nav-item > .nav-link:hover::after,
+.navbar .navbar-nav > .nav-item > .nav-link.active::after {
+    transform: scaleX(1);
 }
 
 @media (max-width: 991.98px) {
@@ -139,17 +159,20 @@
         display: block;
         border: none;
         margin-top: 0;
-        top: 150%;
+        top: 100%;
         opacity: 0;
         visibility: hidden;
-        transition: .5s;
+        transform: translateY(10px);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        border-radius: 10px;
     }
 
     .navbar .nav-item:hover .dropdown-menu {
-        top: 100%;
-        visibility: visible;
-        transition: .5s;
         opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
     }
 }
 
@@ -3512,7 +3535,7 @@ details.mh-faq p {
     color: #ffffff !important;
     font-family: 'Open Sans', 'Roboto', sans-serif;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 14.5px;
     letter-spacing: 0.3px;
     text-decoration: none !important;
     line-height: 1.25;
@@ -3759,7 +3782,7 @@ details.mh-faq p {
 /* --- 5. Responsive Breakpoint Adjustments --- */
 
 /* Desktop Standard (1200px to 1420px) */
-@media (min-width: 1200px) and (max-width: 1420px) {
+@media (min-width: 1200px) {
     .navbar-nav .nav-link {
         padding: 22px 5px !important;
         font-size: 13.5px !important;
@@ -3774,7 +3797,8 @@ details.mh-faq p {
     }
 
     .call-numbers a {
-        font-size: 13px !important;
+        font-size: 14.5px !important;
+        font-weight: 700 !important;
     }
 }
 
@@ -4154,9 +4178,10 @@ details.mh-faq p {
 }
 
 /* Specific styling for screens 1200px to 1420px (MacBook Air / Laptops) */
-@media (min-width: 1200px) and (max-width: 1420px) {
-    .navbar-brand img {
-        width: 120px !important;
+@media (min-width: 1200px) {
+    .navbar-brand img,
+    .header-logo-img {
+        width: 155px !important;
     }
 
     .navbar-nav .nav-link {
@@ -4176,13 +4201,14 @@ details.mh-faq p {
     }
 
     .call-btn-circle {
-        width: 40px !important;
-        height: 40px !important;
-        font-size: 16px !important;
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 20px !important;
     }
 
     .call-numbers a {
-        font-size: 12px !important;
+        font-size: 14.5px !important;
+        font-weight: 700 !important;
     }
 }
 
@@ -4487,7 +4513,8 @@ body:has(.modal.show) .back-to-top,
 .navbar .navbar-nav .nav-link,
 .navbar-nav .nav-link {
     font-family: 'Open Sans', 'Roboto', sans-serif !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
+    font-size: 14.5px !important;
     transition: color 0.15s ease-in-out !important;
 }
 
@@ -4546,4 +4573,60 @@ body:has(.modal.show) .back-to-top,
 
 .btn-dropdown-view-all:hover i {
     transform: translateX(3px) !important;
+}
+
+
+/* ===== Desktop nav: even spacing + "More" dropdown (sirf >= 992px) ===== */
+@media (min-width: 992px) {
+    .navbar .navbar-collapse { flex-wrap: nowrap; }
+
+    .navbar .navbar-nav {
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: 960px;
+        flex-wrap: nowrap;
+        margin-left: auto !important;
+        margin-right: auto !important;      /* nav ke dono side barabar gap */
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        justify-content: space-around;      /* fallback */
+        justify-content: space-evenly;      /* links ke beech barabar gap */
+    }
+
+    .navbar .navbar-nav .nav-link,
+    .navbar .navbar-nav > .nav-link,
+    .navbar .navbar-nav > .nav-item {
+        margin: 0 !important;
+        flex: 0 0 auto;
+    }
+
+    /* call badge ka alag auto-margin hata do, warna gap uneven ho jaata hai */
+    html:not([dir="rtl"]) .call-top { margin-left: 0 !important; }
+
+    /* "More" dropdown */
+    .navbar .nav-more .dropdown-menu {
+        min-width: 210px;
+        left: auto;
+        right: 0;
+        padding: 6px 0;
+    }
+    .navbar .nav-more .dropdown-item {
+        padding: 9px 18px;
+        font-size: 14.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #07244a;
+        white-space: nowrap;
+    }
+    .navbar .nav-more .dropdown-item:hover {
+        background: #f1f7fe;
+        color: #0463FA;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .navbar .navbar-nav {
+        max-width: 100% !important;
+    }
 }

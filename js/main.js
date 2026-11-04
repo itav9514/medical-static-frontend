@@ -652,3 +652,110 @@ fetch('/partials/header.html')
             restoreSavedLanguage();
         }
     });
+
+
+/* ==========================================================================
+   Desktop nav "More" overflow (sirf >= 992px)
+   Jab links ke liye jagah kam padti hai, to aakhri simple links "More" dropdown
+   mein chale jaate hain. Treatments / Services kabhi move nahi hote.
+   iPad / iPhone (< 992px) par kuch nahi karta.
+   ========================================================================== */
+(function () {
+    'use strict';
+    var MIN_GAP = 10, DESKTOP = '(min-width: 992px)';
+    var nav, more, moreMenu, moreToggle, moved = [], ticking = false;
+
+    function isDesktop() { return window.matchMedia(DESKTOP).matches; }
+
+    function build() {
+        more = document.createElement('div');
+        more.className = 'nav-item dropdown nav-more';
+        more.innerHTML =
+            '<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">More</a>' +
+            '<div class="dropdown-menu dropdown-menu-end rounded-0 rounded-bottom m-0"></div>';
+        moreToggle = more.firstChild;
+        moreMenu = more.lastChild;
+    }
+
+    function restore() {
+        while (moved.length) {
+            var el = moved.pop();
+            el.className = el.getAttribute('data-nm-class') || '';
+            el.removeAttribute('data-nm-class');
+            if (el._nmPh && el._nmPh.parentNode) el._nmPh.parentNode.replaceChild(el, el._nmPh);
+            el._nmPh = null;
+        }
+        moreToggle.classList.remove('active');
+        if (more.parentNode) more.parentNode.removeChild(more);
+    }
+
+    function fits() {
+        if (window.innerWidth >= 1200) return true;
+        var cs = window.getComputedStyle(nav), sum = 0, n = nav.children.length;
+        var inner = nav.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+        for (var i = 0; i < n; i++) sum += nav.children[i].offsetWidth;
+        return sum + (n + 1) * MIN_GAP <= inner;
+    }
+
+    function update() {
+        ticking = false;
+        if (!nav) return;
+        restore();
+        if (!isDesktop() || fits()) return;
+
+        // sirf simple links move honge (Home, Treatments, Services kabhi nahi)
+        var movable = [].filter.call(nav.children, function (el) {
+            return el !== nav.firstElementChild && el.tagName === 'A' &&
+                el.classList.contains('nav-link') && !el.classList.contains('dropdown-toggle');
+        });
+        if (!movable.length) return;
+
+        nav.appendChild(more);   // Services ke baad
+
+        while (!fits() && movable.length) {
+            var el = movable.pop();
+            el._nmPh = document.createComment('nm');
+            el.parentNode.insertBefore(el._nmPh, el);
+            el.setAttribute('data-nm-class', el.className);
+            if (el.classList.contains('active')) moreToggle.classList.add('active');
+            el.className = 'dropdown-item';
+            moreMenu.insertBefore(el, moreMenu.firstChild);   // original order maintain
+            moved.push(el);
+        }
+    }
+
+    function schedule() {
+        if (ticking) return;
+        ticking = true;
+        if (window.requestAnimationFrame) window.requestAnimationFrame(update);
+        else setTimeout(update, 50);
+    }
+    function init() {
+        var n = document.querySelector('.navbar .navbar-nav');
+        if (!n || !n.querySelector('.nav-link')) return false;
+        nav = n;
+        build();
+        update();
+        window.addEventListener('resize', schedule);
+
+        // Language badalne par (translated-ltr/rtl, dir) nav dobara measure karo
+        if (window.MutationObserver) {
+            new MutationObserver(function () {
+                schedule();
+                setTimeout(schedule, 600);   // Google ka text badalna poora hone ke baad
+            }).observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'dir'] });
+        }
+
+        window.addEventListener('orientationchange', schedule);
+        window.addEventListener('load', schedule);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
+        setTimeout(schedule, 400);
+        return true;
+    }
+
+    // header fetch hone ke baad hi chalega
+    if (!init() && window.MutationObserver) {
+        var mo = new MutationObserver(function () { if (init()) mo.disconnect(); });
+        mo.observe(document.documentElement, { childList: true, subtree: true });
+    }
+})();
