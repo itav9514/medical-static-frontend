@@ -4509,13 +4509,43 @@ body:has(.modal.show) .back-to-top,
 }
 
 
-/* Universal Nav Link Typography & Blue Hover/Active Enforcement */
+/* ==========================================================================
+   1. STICKY NAVBAR & LOGO
+   ========================================================================== */
+.navbar.sticky-top {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1025 !important;
+    transition: box-shadow 0.25s ease !important;
+    background: #ffffff !important;
+}
+
+.navbar .navbar-brand,
+.navbar a.btn {
+    height: 75px;
+}
+
+.navbar-brand img,
+.header-logo-img {
+    width: 155px !important;
+    height: auto;
+    transition: width 0.2s ease;
+}
+
+/* ==========================================================================
+   2. NAVLINKS TYPOGRAPHY (14.5px BOLD) & HOVER UNDERLINE
+   ========================================================================== */
 .navbar .navbar-nav .nav-link,
 .navbar-nav .nav-link {
     font-family: 'Open Sans', 'Roboto', sans-serif !important;
     font-weight: 700 !important;
     font-size: 14.5px !important;
-    transition: color 0.15s ease-in-out !important;
+    color: #1e293b;
+    text-transform: uppercase;
+    outline: none;
+    margin-right: 0 !important;
+    transition: color 0.2s ease !important;
 }
 
 .navbar .navbar-nav .nav-link:hover,
@@ -4526,6 +4556,79 @@ body:has(.modal.show) .back-to-top,
 .navbar-nav .nav-link.active,
 .navbar .navbar-nav .dropdown-toggle.active {
     color: #0463FA !important;
+}
+
+/* Smooth Slide-in Underline on Hover (only for plain links) */
+.navbar .navbar-nav > .nav-link:not(.dropdown-toggle)::after,
+.navbar .navbar-nav > .nav-item > .nav-link:not(.dropdown-toggle)::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: #0463FA;
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+    border-radius: 2px;
+    margin-top: 2px;
+}
+
+.navbar .navbar-nav > .nav-link:not(.dropdown-toggle):hover::after,
+.navbar .navbar-nav > .nav-link:not(.dropdown-toggle).active::after,
+.navbar .navbar-nav > .nav-item > .nav-link:not(.dropdown-toggle):hover::after,
+.navbar .navbar-nav > .nav-item > .nav-link:not(.dropdown-toggle).active::after {
+    transform: scaleX(1);
+}
+
+/* Dropdown Arrow Caret for Treatments, Services & More */
+.navbar .dropdown-toggle::after,
+.navbar .navbar-nav .dropdown-toggle::after,
+.navbar .navbar-nav > .nav-item > .dropdown-toggle::after {
+    display: inline-block !important;
+    content: "\f107" !important;
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+    margin-left: 6px !important;
+    border: none !important;
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    margin-top: 0 !important;
+    transform: none !important;
+    transition: transform 0.25s ease, color 0.2s ease !important;
+}
+
+.navbar .nav-item:hover > .dropdown-toggle::after,
+.navbar .dropdown:hover > .dropdown-toggle::after,
+.navbar .dropdown.show > .dropdown-toggle::after {
+    transform: rotate(180deg) !important;
+}
+
+/* ==========================================================================
+   3. DROPDOWNS: SMOOTH SLIDE & FADE TRANSITION (>= 992px)
+   ========================================================================== */
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        border: none;
+        margin-top: 0;
+        top: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        border-radius: 10px;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    }
 }
 
 /* View All Treatments in Header Dropdown */
@@ -4550,12 +4653,8 @@ body:has(.modal.show) .back-to-top,
     padding: 5px 14px !important;
     font-size: 12.5px !important;
     font-weight: 600 !important;
-    line-height: 1.35 !important;
     text-decoration: none !important;
     transition: all 0.2s ease !important;
-    width: auto !important;
-    height: auto !important;
-    box-shadow: none !important;
 }
 
 .btn-dropdown-view-all:hover {
@@ -4566,42 +4665,218 @@ body:has(.modal.show) .back-to-top,
     transform: translateY(-1px) !important;
 }
 
-.btn-dropdown-view-all i {
-    font-size: 11px !important;
-    transition: transform 0.2s ease !important;
+/* ==========================================================================
+   4. DESKTOP PHONE CTA SECTION
+   ========================================================================== */
+.call-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    height: 100%;
+    min-height: 70px;
+    padding-left: 40px !important;
+    padding-right: 15px !important;
+    margin-left: auto;
+    background: transparent !important;
+    flex-shrink: 0 !important;
+    z-index: 1;
 }
 
-.btn-dropdown-view-all:hover i {
-    transform: translateX(3px) !important;
+.call-top-bg {
+    position: absolute;
+    top: 0;
+    left: -30px;
+    width: calc(100% + 30px);
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
 }
 
+/* Red Circular Call Icon */
+.call-btn-circle {
+    width: 48px !important;
+    height: 48px !important;
+    background: #e52128 !important;
+    border: 3px solid #ffffff !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    font-size: 20px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
 
-/* ===== Desktop nav: even spacing + "More" dropdown (sirf >= 992px) ===== */
+.call-btn-circle:hover {
+    transform: scale(1.06);
+    color: #ffffff !important;
+}
+
+.call-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.35);
+    margin: 0 12px;
+    flex-shrink: 0;
+}
+
+.call-numbers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    white-space: nowrap;
+}
+
+.call-numbers a {
+    color: #ffffff !important;
+    font-family: 'Open Sans', 'Roboto', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 14.5px !important;
+    letter-spacing: 0.3px;
+    text-decoration: none !important;
+    line-height: 1.25;
+    white-space: nowrap !important;
+}
+
+.call-numbers a:hover {
+    opacity: 0.85;
+}
+
+/* ==========================================================================
+   5. DESKTOP NAV: EVEN SPACING + "MORE" DROPDOWN (>= 992px)
+   ========================================================================== */
 @media (min-width: 992px) {
-    .navbar .navbar-collapse { flex-wrap: nowrap; }
+    /* ROOT-CAUSE FIX: collapse ki width ab content se nahi, sirf bachi hui jagah se tay hoti hai.
+       Pehle flex-basis:auto + min-width:auto ki wajah se links zyada hone par collapse
+       chaudi ho jaati thi aur logo/badge ko dabaati thi -> JS ko galat "fits" dikhta tha. */
+    .navbar .navbar-collapse {
+        flex: 1 1 0 !important;
+        min-width: 0 !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .navbar .navbar-brand,
+    .navbar .navbar-collapse > .custom-lang-dropdown,
+    .navbar .call-top {
+        flex-shrink: 0 !important;
+    }
 
     .navbar .navbar-nav {
-        flex: 1 1 auto;
+        flex: 1 1 0;
         min-width: 0;
-        max-width: 960px;
         flex-wrap: nowrap;
-        margin-left: auto !important;
-        margin-right: auto !important;      /* nav ke dono side barabar gap */
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         padding-left: 12px !important;
         padding-right: 12px !important;
-        justify-content: space-around;      /* fallback */
-        justify-content: space-evenly;      /* links ke beech barabar gap */
+        justify-content: flex-start;        /* Booking.com jaisa: links logo ke paas apni jagah par rehte hain */
+        column-gap: 30px;                   /* FIXED gap - kabhi kam nahi hota */
     }
 
-    .navbar .navbar-nav .nav-link,
-    .navbar .navbar-nav > .nav-link,
-    .navbar .navbar-nav > .nav-item {
+    /* ROOT-CAUSE FIX (header height): pehle yahan `padding: 22px 5px` .nav-item (dropdown wrapper)
+       aur uske andar ke .nav-link, DONO par lag raha tha -> Treatments/Services par vertical
+       padding double ho jaati thi, header lamba ho jaata tha aur logo/links neeche khisak jaate the.
+       Ab vertical padding ko chheda hi nahi (original rehti hai); sirf horizontal padding
+       .nav-link par, aur wrapper par koi padding nahi. */
+    .navbar .navbar-nav > .nav-item,
+    .navbar .navbar-nav > .nav-link {
         margin: 0 !important;
         flex: 0 0 auto;
+        flex-shrink: 0 !important;
+        white-space: nowrap;
     }
 
-    /* call badge ka alag auto-margin hata do, warna gap uneven ho jaata hai */
-    html:not([dir="rtl"]) .call-top { margin-left: 0 !important; }
+    .navbar .navbar-nav > .nav-item {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        margin: 0 !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        white-space: nowrap;
+    }
+
+
+    /* ROOT-CAUSE FIX (vertical alignment): plain links ke andar underline (::after, 2px + 2px margin)
+       4px jagah leta hai, dropdown links (Treatments/Services/More) me yeh nahi hota (wahan ::after chevron hai).
+       Isse dono ke box alag height ke the aur text ek hi axis par nahi baithta tha.
+       Ab: (1) dropdown link ko bhi wahi 4px dete hain, (2) dropdown link ko flex-center kiya taaki
+       text aur chevron ek hi axis par rahe, (3) nav items top se stretch hote hain. */
+    .navbar .navbar-nav {
+        align-items: stretch;
+    }
+
+    .navbar .navbar-nav > .nav-item.dropdown > .nav-link {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4px !important;
+    }
+
+    .navbar .navbar-nav > .nav-item.dropdown > .nav-link::after {
+        line-height: 1;
+        margin-top: 0;
+        vertical-align: middle;
+    }
+
+    /* HEADER GEOMETRY PIN: har page par logo/nav ki shuruaat ki jagah ek hi rahe.
+       (Kisi page ki alag CSS brand ki padding badal de to nav ko alag jagah milti hai aur
+       Doctors jaise link wapas dikhne lagte hain.) header.html ka px-lg-4 = 24px hi yahan fix hai. */
+    .navbar .navbar-brand {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+        margin-right: 0 !important;
+    }
+
+
+    /* TABLET-BAND FIX: header.html / page ki embedded CSS me (992px-1199px) logo, padding, font aur phone badge
+       chhote kar diye jaate hain -> nav ko 1200px ke neeche achanak zyada jagah milti hai, aur wide screen par
+       (1200px+) kam. Yahan woh sab values 992px+ par ek jaisi (desktop wali) force ki hain. */
+    .navbar .navbar-brand img {
+        width: 155px !important;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        font-size: 14.5px !important;
+    }
+
+    .navbar .call-top {
+        padding-left: 40px !important;
+        padding-right: 15px !important;
+        min-height: 70px !important;
+    }
+
+    .navbar .call-btn-circle {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 20px !important;
+        border-width: 3px !important;
+    }
+
+    .navbar .call-divider {
+        margin: 0 12px !important;
+        height: 32px !important;
+    }
+
+    .navbar .call-numbers a {
+        font-size: 14.5px !important;
+    }
+
+    /* Language dropdown ka right margin Bootstrap ke me-xl-* se 1200px par 8px -> 16px ho jaata hai */
+    .navbar .navbar-collapse > .custom-lang-dropdown {
+        margin-right: 16px !important;
+    }
+
+    /* Call badge ka alag auto-margin hata do, warna gap uneven ho jaata hai */
+    html:not([dir="rtl"]) .call-top {
+        margin-left: 0 !important;
+    }
 
     /* "More" dropdown */
     .navbar .nav-more .dropdown-menu {
@@ -4609,7 +4884,11 @@ body:has(.modal.show) .back-to-top,
         left: auto;
         right: 0;
         padding: 6px 0;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
+
     .navbar .nav-more .dropdown-item {
         padding: 9px 18px;
         font-size: 14.5px;
@@ -4617,16 +4896,25 @@ body:has(.modal.show) .back-to-top,
         text-transform: uppercase;
         color: #07244a;
         white-space: nowrap;
+        transition: background 0.15s ease, color 0.15s ease;
     }
+
     .navbar .nav-more .dropdown-item:hover {
         background: #f1f7fe;
         color: #0463FA;
     }
 }
 
+/* ==========================================================================
+   6. MOBILE NAV (< 992px)
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    .navbar .navbar-nav .nav-link {
+        margin-right: 0;
+        padding: 10px 0;
+    }
 
-@media (min-width: 1200px) {
     .navbar .navbar-nav {
-        max-width: 100% !important;
+        border-top: 1px solid #EEEEEE;
     }
 }

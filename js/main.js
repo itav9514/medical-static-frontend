@@ -656,14 +656,25 @@ fetch('/partials/header.html')
 
 /* ==========================================================================
    Desktop nav "More" overflow (sirf >= 992px)
-   Jab links ke liye jagah kam padti hai, to aakhri simple links "More" dropdown
-   mein chale jaate hain. Treatments / Services kabhi move nahi hote.
-   iPad / iPhone (< 992px) par kuch nahi karta.
+
+   Algorithm (deterministic):
+   1. Saare links wapas apni jagah rakho (restore) -> natural widths naapo.
+   2. "More" button ki width alag se naapo.
+   3. Available width = nav ki inner width (yeh visible links ki ginti par
+      depend nahi karti).
+   4. Aakhri link se shuru karke ek-ek hide karo jab tak:
+         sum(visible widths) + More width + (n-1) * gap <= available
+   5. Measurement state-independent hai, isliye same width hamesha same layout
+      deti hai (flicker nahi).
+   Links ka size aur gap (CSS column-gap) kabhi nahi badalte; jagah kam padne par
+   sirf aakhri link ek-ek karke More me jata hai.
+   Treatments / Services / Home kabhi move nahi hote. < 992px par kuch nahi.
    ========================================================================== */
 (function () {
     'use strict';
-    var MIN_GAP = 10, DESKTOP = '(min-width: 992px)';
-    var nav, more, moreMenu, moreToggle, moved = [], ticking = false;
+    var DESKTOP = '(min-width: 992px)';
+    var nav, more, moreMenu, moreToggle, moved = [], ticking = false, lastCount = 0;
+    var lastW = 0, resetGuard = true, lastChrome = null, lastLogged = -1;   // monotonic guard: pichhli viewport width aur pichhla hidden count
 
     function isDesktop() { return window.matchMedia(DESKTOP).matches; }
 
@@ -689,67 +700,139 @@ fetch('/partials/header.html')
         if (more.parentNode) more.parentNode.removeChild(more);
     }
 
-    function fits() {
-        if (window.innerWidth >= 1200) return true;
-        var cs = window.getComputedStyle(nav), sum = 0, n = nav.children.length;
-        var inner = nav.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
-        for (var i = 0; i < n; i++) sum += nav.children[i].offsetWidth;
-        return sum + (n + 1) * MIN_GAP <= inner;
+    // Available width = nav ki apni asli rendered inner width.
+    // CSS me nav `flex: 1 1 0` + `min-width: 0` hai, isliye uski width sirf logo aur phone
+    // section ke baad bachi hui jagah hai - visible links ki ginti par depend nahi karti.
+    function innerWidth_() {
+        var cs = window.getComputedStyle(nav);
+        return nav.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    }
+
+    // kitne links hide karne padenge (0 = sab fit), diye gaye gap par
+    function countFor(widths, movableIdx, moreW, inner, gap) {   // gap = CSS ka fixed column-gap (kabhi nahi badalta)
+        var total = 0, i;
+        for (i = 0; i < widths.length; i++) total += widths[i];
+        for (var h = 0; h <= movableIdx.length; h++) {
+            var sum = total, n = widths.length;
+            for (i = 0; i < h; i++) { sum -= widths[movableIdx[movableIdx.length - 1 - i]]; n--; }
+            if (h > 0) { sum += moreW; n++; }
+            if (sum + (n - 1) * gap <= inner) return h;
+        }
+        return movableIdx.length;
     }
 
     function update() {
         ticking = false;
         if (!nav) return;
-        restore();
-        if (!isDesktop() || fits()) return;
+        restore();                       // hamesha full layout se measure karo
+        if (!isDesktop()) { lastCount = 0; lastW = 0; resetGuard = true; return; }
 
-        // sirf simple links move honge (Home, Treatments, Services kabhi nahi)
-        var movable = [].filter.call(nav.children, function (el) {
-            return el !== nav.firstElementChild && el.tagName === 'A' &&
-                el.classList.contains('nav-link') && !el.classList.contains('dropdown-toggle');
+        var kids = [].slice.call(nav.children);
+        var widths = kids.map(function (el) { return el.offsetWidth; });
+        var movableIdx = [];
+        kids.forEach(function (el, i) {
+            if (i > 0 && el.tagName === 'A' && el.classList.contains('nav-link') &&
+                !el.classList.contains('dropdown-toggle')) movableIdx.push(i);
         });
-        if (!movable.length) return;
+        if (!movableIdx.length) { lastCount = 0;  return; }
 
-        nav.appendChild(more);   // Services ke baad
+        // More ki width alag se naapo
+        nav.appendChild(more);
+        var moreW = more.offsetWidth;
+        nav.removeChild(more);
 
-        while (!fits() && movable.length) {
-            var el = movable.pop();
+        var inner = innerWidth_();
+        var gap = parseFloat(window.getComputedStyle(nav).columnGap) || 0;
+        var cnt = countFor(widths, movableIdx, moreW, inner, gap);
+
+        // MONOTONIC GUARD: viewport chhota (ya same) hone par visible links kabhi nahi badhenge.
+        // Agar header ki koi aur CSS kisi width par logo/phone ki jagah ghata de (jisse nav ko
+        // achanak zyada jagah mile), tab bhi hidden count pichhle se kam nahi hoga.
+        // Sirf "content badla" events (font, language, image load) par guard reset hota hai.
+        var W = window.innerWidth;
+        // DIAGNOSTIC: logo/language/phone ki total jagah (chrome = viewport - nav) agar width badalne
+        // par badalti hai, to nav ko achanak zyada jagah milti hai. Yahi non-monotonic behaviour ki jad hai.
+        var chrome = W - Math.round(inner);
+        if (lastChrome !== null && Math.abs(chrome - lastChrome) > 2 && Math.abs(W - lastW) <= 40) {
+            console.warn('[nav-more] header ki baaki jagah (logo+lang+phone) ' + lastChrome + 'px se ' + chrome +
+                'px ho gayi (viewport ' + lastW + ' -> ' + W + '). Koi CSS is width par logo/phone ki size ya padding badal rahi hai.');
+        }
+        lastChrome = chrome;
+        var truthCnt = cnt, guardHeld = false;
+        if (!resetGuard && lastW && W <= lastW && cnt < lastCount) { cnt = Math.min(lastCount, movableIdx.length); guardHeld = true; }
+        // DEBUG LOG: sirf tab chhapta hai jab hidden count badalta hai (resize karte waqt kuch hi lines)
+        if (cnt !== lastLogged) {
+            var sumAll = widths.reduce(function (x, y) { return x + y; }, 0);
+            console.log('[nav-more] viewport=' + W + ' navInner=' + Math.round(inner) + ' chrome=' + chrome +
+                ' linksSum=' + sumAll + ' moreW=' + moreW + ' gap=' + gap + ' hidden=' + lastLogged + '->' + cnt +
+                ' truth=' + truthCnt + (guardHeld ? ' (GUARD held)' : '') + (resetGuard ? ' (guard was reset)' : ''));
+            lastLogged = cnt;
+        }
+        resetGuard = false;
+        lastW = W;
+        // Measurement visible links par depend nahi karti, isliye same width = same layout (hysteresis ki zaroorat nahi)
+        lastCount = cnt;
+        if (!cnt) return;
+
+        nav.appendChild(more);           // Services ke baad
+        for (var k = 0; k < cnt; k++) {
+            var el = kids[movableIdx[movableIdx.length - 1 - k]];
             el._nmPh = document.createComment('nm');
             el.parentNode.insertBefore(el._nmPh, el);
             el.setAttribute('data-nm-class', el.className);
             if (el.classList.contains('active')) moreToggle.classList.add('active');
             el.className = 'dropdown-item';
-            moreMenu.insertBefore(el, moreMenu.firstChild);   // original order maintain
+            moreMenu.insertBefore(el, moreMenu.firstChild);   // original order
             moved.push(el);
         }
     }
 
-    function schedule() {
+    function schedule(isContentChange) {
+        if (isContentChange === true) resetGuard = true;
         if (ticking) return;
         ticking = true;
         if (window.requestAnimationFrame) window.requestAnimationFrame(update);
         else setTimeout(update, 50);
     }
+
     function init() {
         var n = document.querySelector('.navbar .navbar-nav');
         if (!n || !n.querySelector('.nav-link')) return false;
         nav = n;
+        console.log('[nav-more v3] ready');
         build();
         update();
         window.addEventListener('resize', schedule);
 
+        // Navbar ki asli width badalne par (zoom, font load) bhi dobara measure
+        if (window.ResizeObserver) {
+            var ro = new ResizeObserver(function () { schedule(); });
+            // nav ki width hi "available space" hai; logo/phone badge badle to bhi dobara measure
+            [nav, nav.closest('.navbar'), nav.parentNode].concat(
+                [].slice.call((nav.closest('.navbar') || document).querySelectorAll('.navbar-brand, .call-top, .custom-lang-dropdown'))
+            ).forEach(function (el) { if (el) ro.observe(el); });
+        }
+
         // Language badalne par (translated-ltr/rtl, dir) nav dobara measure karo
         if (window.MutationObserver) {
+            var lastLangKey = document.documentElement.getAttribute('dir') + '|' + /\btranslated-(ltr|rtl)\b/.test(document.documentElement.className);
             new MutationObserver(function () {
-                schedule();
-                setTimeout(schedule, 600);   // Google ka text badalna poora hone ke baad
+                var key = document.documentElement.getAttribute('dir') + '|' + /\btranslated-(ltr|rtl)\b/.test(document.documentElement.className);
+                if (key === lastLangKey) return;       // koi aur class badli = resize se related nahi, guard na tode
+                lastLangKey = key;
+                schedule(true);
+                setTimeout(function () { schedule(true); }, 600);   // Google ka text badalna poora hone ke baad
             }).observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'dir'] });
         }
 
-        window.addEventListener('orientationchange', schedule);
-        window.addEventListener('load', schedule);
-        if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
-        setTimeout(schedule, 400);
+        window.addEventListener('orientationchange', function () { schedule(true); });
+        // Logo jaise images der se load hon to width badalti hai -> dobara measure
+        [].forEach.call((nav.closest('.navbar') || document).querySelectorAll('img'), function (im) {
+            if (!im.complete) im.addEventListener('load', function () { schedule(true); });
+        });
+        window.addEventListener('load', function () { schedule(true); });
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { schedule(true); });
+        setTimeout(function () { schedule(true); }, 400);
         return true;
     }
 
