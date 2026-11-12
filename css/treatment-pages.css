@@ -11729,3 +11729,891 @@ a.btn-outline-navy:hover,
         align-items: flex-start;
     }
 }
+
+
+/* ==========================================================================
+   INTERNATIONAL PATIENTS PAGE STYLES (Full Width Hero & Pre-Footer Banner)
+   ========================================================================== */
+
+/* 1. Global / Typography Utilities for International Patients */
+.ip-text-blue {
+    color: #0463fa !important;
+}
+
+.ip-text-red {
+    color: #e52128 !important;
+}
+
+.ip-text-cyan {
+    color: #38bdf8 !important;
+}
+
+.ip-section-eyebrow {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0463fa;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.ip-section-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0a2540;
+    line-height: 1.25;
+    margin-bottom: 12px;
+}
+
+.ip-section-subtitle {
+    font-size: 14.5px;
+    color: #64748b;
+    line-height: 1.6;
+    max-width: 820px;
+    margin: 0 auto 45px auto;
+}
+
+/* 2. Hero Section (100% Full Width Edge-to-Edge) */
+.ip-hero {
+    width: 100% !important;
+    position: relative;
+    background: #eef6fc url('../international-patients/banner.png') no-repeat right center;
+    background-size: cover;
+    padding: 70px 0 50px 0;
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.ip-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+}
+
+.ip-hero-eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0463fa;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    margin-bottom: 8px;
+}
+
+.ip-hero-title {
+    font-size: 46px;
+    font-weight: 800;
+    color: #0a2540;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+}
+
+.ip-hero-subtitle {
+    font-size: 16.5px;
+    font-weight: 700;
+    color: #0a2540;
+    line-height: 1.45;
+    margin-bottom: 12px;
+}
+
+.ip-hero-desc {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.65;
+    margin-bottom: 24px;
+    max-width: 530px;
+}
+
+.ip-hero-btn-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 30px;
+}
+
+.ip-btn-opinion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #e52128;
+    color: #ffffff !important;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 26px;
+    border-radius: 50px;
+    text-decoration: none !important;
+    box-shadow: 0 4px 14px rgba(229, 33, 40, 0.35);
+    transition: all 0.25s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.ip-btn-opinion:hover {
+    background: #c8181f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(229, 33, 40, 0.45);
+    color: #ffffff !important;
+}
+
+.ip-btn-journey {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #ffffff;
+    color: #1e293b !important;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 24px;
+    border-radius: 50px;
+    border: 1.5px solid #cbd5e1;
+    text-decoration: none !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.ip-btn-journey:hover {
+    background: #f8fafc;
+    border-color: #0463fa;
+    color: #0463fa !important;
+    transform: translateY(-2px);
+}
+
+.ip-hero-trust-grid {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.ip-hero-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ip-hero-trust-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.ip-hero-trust-text {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #0a2540;
+    line-height: 1.25;
+    margin: 0;
+}
+
+/* 3. Why International Patients Choose India Section */
+.ip-why-section {
+    padding: 70px 0;
+    background: #ffffff;
+}
+
+.ip-why-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.ip-why-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(4, 99, 250, 0.12);
+    border-color: #bfdbfe;
+}
+
+.ip-why-card-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 145px;
+    background: #f1f5f9;
+}
+
+.ip-why-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ip-why-icon-bubble {
+    position: absolute;
+    bottom: -18px;
+    left: 18px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0284c7, #0463fa);
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(4, 99, 250, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: transform 0.25s ease;
+}
+
+.ip-why-card:hover .ip-why-icon-bubble {
+    transform: scale(1.1);
+}
+
+.ip-why-icon-bubble img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.ip-why-card-body {
+    padding: 28px 20px 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.ip-why-card-title {
+    font-size: 16.5px;
+    font-weight: 700;
+    color: #0a2540;
+    margin-bottom: 8px;
+    line-height: 1.35;
+}
+
+.ip-why-card-desc {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.55;
+    margin-bottom: 0;
+}
+
+/* 4. How It Works Section (6-Step Timeline) */
+.ip-process-section {
+    padding: 70px 0;
+    background: #f8fafc;
+}
+
+.ip-process-step {
+    text-align: center;
+    position: relative;
+    padding: 0 6px;
+}
+
+.ip-step-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.ip-step-num {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0284c7;
+    letter-spacing: 0.5px;
+}
+
+.ip-step-arrow {
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #cbd5e1;
+    font-size: 12px;
+}
+
+.ip-step-icon-wrap {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0284c7, #0463fa);
+    margin: 0 auto 16px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(4, 99, 250, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ip-process-step:hover .ip-step-icon-wrap {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 10px 22px rgba(4, 99, 250, 0.35);
+}
+
+.ip-step-icon-wrap img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.ip-step-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0a2540;
+    margin-bottom: 6px;
+    line-height: 1.35;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ip-step-desc {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* 5. End-to-End Support Services Section (7 Cards) */
+.ip-services-section {
+    padding: 70px 0;
+    background: #ffffff;
+}
+
+.ip-services-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 16px;
+}
+
+.ip-service-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+}
+
+.ip-service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(4, 99, 250, 0.12);
+    border-color: #0463fa;
+}
+
+.ip-service-card-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 95px;
+    background: #f1f5f9;
+}
+
+.ip-service-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ip-service-badge {
+    position: absolute;
+    bottom: -13px;
+    left: 12px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0284c7, #0463fa);
+    border: 2px solid #ffffff;
+    box-shadow: 0 3px 8px rgba(4, 99, 250, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 11px;
+    z-index: 2;
+}
+
+.ip-service-card-title {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #1e293b;
+    padding: 20px 8px 12px;
+    line-height: 1.35;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 6. Pre-Footer Full-Width CTA Banner (Flush Left Globe + Directly Adjacent Text Matching SS 2) */
+.ip-cta-banner {
+    width: 100% !important;
+    position: relative;
+    background: #022044 linear-gradient(135deg, #02172e 0%, #022044 50%, #052c54 100%);
+    padding: 0;
+    min-height: 275px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.ip-cta-flex-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 45px 0 0;
+    margin: 0;
+}
+
+/* Left Group: Globe + Text right beside each other */
+.ip-cta-left-group {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex: 1;
+    min-width: 0;
+}
+
+.ip-cta-globe-box {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    overflow: hidden;
+}
+
+.ip-cta-globe-img {
+    height: 275px;
+    width: auto;
+    max-width: 340px;
+    object-fit: contain;
+    object-position: left bottom;
+    display: block;
+    -webkit-mask-image: linear-gradient(to right, #000 85%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 85%, transparent 100%);
+}
+
+.ip-cta-content {
+    max-width: 500px;
+    flex-shrink: 1;
+}
+
+.ip-cta-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+}
+
+.ip-cta-desc {
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 22px;
+    max-width: 470px;
+}
+
+.ip-cta-card-box {
+    flex-shrink: 0;
+    margin-left: 20px;
+}
+
+.ip-contact-card {
+    background: #ffffff url('../international-patients/26.png') no-repeat right bottom;
+    background-size: cover;
+    border-radius: 14px;
+    padding: 22px 24px;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25);
+    color: #0a2540;
+    position: relative;
+    width: 390px;
+    max-width: 100%;
+}
+
+.ip-contact-card-title {
+    font-size: 17.5px;
+    font-weight: 800;
+    color: #0a2540;
+    margin-bottom: 12px;
+}
+
+.ip-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.ip-contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.ip-contact-icon {
+    width: 20px;
+    height: 20px;
+    color: #0463fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.ip-contact-text {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.45;
+}
+
+.ip-contact-text a {
+    color: #0a2540;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.ip-contact-text a:hover {
+    color: #0463fa;
+}
+
+/* 7. Responsive Media Queries (iPad Horizontal + iPhone Smart Grid) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .ip-hero {
+        background-position: 85% center;
+    }
+
+    .ip-hero-title {
+        font-size: 38px;
+    }
+
+    .ip-services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .ip-cta-flex-wrap {
+        padding-right: 20px;
+    }
+
+    .ip-cta-left-group {
+        gap: 18px;
+    }
+
+    .ip-cta-globe-img {
+        height: 240px;
+        max-width: 280px;
+    }
+
+    .ip-cta-title {
+        font-size: 26px;
+    }
+
+    .ip-contact-card {
+        width: 340px;
+        padding: 18px 20px;
+    }
+}
+
+/* iPad / Tablet (768px - 991.98px): HORIZONTAL 1-ROW LAYOUT (NOT VERTICAL) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .ip-hero {
+        padding: 45px 0;
+        background: linear-gradient(to right, rgba(238, 246, 252, 0.45) 0%, rgba(238, 246, 252, 0.15) 60%, rgba(238, 246, 252, 0.05) 100%), url('../international-patients/banner.png') no-repeat 80% center;
+        background-size: cover;
+    }
+
+    .ip-hero-content {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        padding: 22px;
+        border-radius: 14px;
+        max-width: 520px;
+    }
+
+    .ip-hero-title {
+        font-size: 32px;
+    }
+
+    .ip-step-arrow {
+        display: none;
+    }
+
+    .ip-services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* iPad Pre-Footer: Horizontal Arrangement */
+    .ip-cta-banner {
+        padding: 0;
+        min-height: 240px;
+    }
+
+    .ip-cta-flex-wrap {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 0 16px 0 0 !important;
+        gap: 12px;
+    }
+
+    .ip-cta-left-group {
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 14px !important;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .ip-cta-globe-box {
+        display: flex;
+        align-items: flex-end;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .ip-cta-globe-img {
+        height: 230px !important;
+        max-width: 200px !important;
+        object-fit: contain;
+        object-position: left center;
+        display: block;
+        -webkit-mask-image: linear-gradient(to right, #000 85%, transparent 100%);
+        mask-image: linear-gradient(to right, #000 85%, transparent 100%);
+    }
+
+    .ip-cta-content {
+        flex: 1;
+        min-width: 0;
+        padding-right: 10px;
+        text-align: left !important;
+    }
+
+    .ip-cta-title {
+        font-size: 21px !important;
+        line-height: 1.25 !important;
+        margin-bottom: 6px !important;
+    }
+
+    .ip-cta-desc {
+        font-size: 12px !important;
+        line-height: 1.45 !important;
+        margin-bottom: 12px !important;
+        max-width: 100% !important;
+    }
+
+    .ip-btn-opinion {
+        padding: 8px 18px !important;
+        font-size: 12px !important;
+    }
+
+    .ip-cta-card-box {
+        margin-left: 0 !important;
+        flex-shrink: 0;
+    }
+
+    .ip-contact-card {
+        width: 285px !important;
+        padding: 16px 14px !important;
+        border-radius: 12px;
+        background-size: auto 65%;
+    }
+
+    .ip-contact-card-title {
+        font-size: 15px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .ip-contact-item {
+        gap: 8px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .ip-contact-icon {
+        font-size: 11px !important;
+        width: 16px !important;
+        height: 16px !important;
+    }
+
+    .ip-contact-text {
+        font-size: 10.5px !important;
+        line-height: 1.35 !important;
+    }
+}
+
+/* iPhone / Mobile (<= 767.98px): COMPACT SMART GRID (NO TALL VERTICAL STACK) */
+@media (max-width: 767.98px) {
+    .ip-hero {
+        padding: 40px 0 30px;
+        background: linear-gradient(to right, rgba(238, 246, 252, 0.55) 0%, rgba(238, 246, 252, 0.2) 100%), url('../international-patients/banner.png') no-repeat 75% center;
+        background-size: cover;
+    }
+
+    .ip-hero-content {
+        padding: 20px 16px;
+        background: rgba(255, 255, 255, 0.65);
+    }
+
+    .ip-hero-title {
+        font-size: 28px;
+    }
+
+    .ip-hero-subtitle {
+        font-size: 15px;
+    }
+
+    .ip-hero-trust-grid {
+        gap: 14px;
+    }
+
+    .ip-hero-trust-item {
+        width: calc(50% - 7px);
+    }
+
+    .ip-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* iPhone Pre-Footer: Compact 2-Tier Layout */
+    .ip-cta-banner {
+        padding: 24px 14px 28px;
+        min-height: auto;
+    }
+
+    .ip-cta-flex-wrap {
+        flex-direction: column !important;
+        gap: 16px;
+        padding: 0 !important;
+    }
+
+    /* Top Tier: Globe & Title Side-by-Side in Grid */
+    .ip-cta-left-group {
+        display: grid !important;
+        grid-template-columns: 88px 1fr;
+        grid-template-areas:
+            "globe title"
+            "desc desc"
+            "btn btn";
+        gap: 8px 12px;
+        align-items: center;
+        width: 100%;
+        text-align: left;
+    }
+
+    .ip-cta-globe-box {
+        grid-area: globe;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ip-cta-globe-img {
+        width: 88px !important;
+        height: 88px !important;
+        object-fit: contain;
+        display: block;
+        margin: 0;
+        -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 98%);
+        mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 98%);
+    }
+
+    .ip-cta-content {
+        display: contents; /* Allows title, desc, btn to take their grid-areas */
+    }
+
+    .ip-cta-title {
+        grid-area: title;
+        font-size: 19px !important;
+        line-height: 1.25 !important;
+        margin: 0 !important;
+        text-align: left !important;
+    }
+
+    .ip-cta-desc {
+        grid-area: desc;
+        font-size: 12px !important;
+        line-height: 1.45 !important;
+        margin: 4px 0 6px 0 !important;
+        text-align: left !important;
+        color: #cbd5e1;
+    }
+
+    .ip-cta-content .ip-btn-opinion {
+        grid-area: btn;
+        width: 100%;
+        text-align: center;
+        padding: 10px 18px;
+        font-size: 13px;
+        margin-top: 4px;
+        border-radius: 50px;
+    }
+
+    /* Bottom Tier: Clean Card */
+    .ip-cta-card-box {
+        width: 100%;
+        margin-left: 0 !important;
+    }
+
+    .ip-contact-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 18px 16px;
+        border-radius: 12px;
+        background-size: auto 65%;
+        text-align: left;
+    }
+
+    .ip-contact-card-title {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .ip-contact-item {
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+
+    .ip-contact-icon {
+        font-size: 12px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .ip-contact-text {
+        font-size: 11.5px;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .ip-hero-trust-item {
+        width: 100%;
+    }
+
+    .ip-hero-btn-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ip-btn-opinion, .ip-btn-journey {
+        width: 100%;
+        text-align: center;
+    }
+
+    .ip-services-grid {
+        grid-template-columns: 1fr;
+    }
+}

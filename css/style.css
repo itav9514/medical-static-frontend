@@ -2409,7 +2409,7 @@ button:disabled {
     justify-content: space-between;
     padding: 0 16px;
     background: #fff;
-    /* border: 1px solid #ced4da; */
+    border: 1px solid #ced4da;
     border-radius: 6px;
     font-size: 14px;
     color: #495057;
@@ -4917,4 +4917,127 @@ body:has(.modal.show) .back-to-top,
     .navbar .navbar-nav {
         border-top: 1px solid #EEEEEE;
     }
+}
+
+
+/* ==========================================================================
+   7. FOOTER STYLING & RTL (UAE / ARABIC) ENHANCEMENTS
+   ========================================================================== */
+.footer-contact-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer-contact-icon {
+    flex-shrink: 0;
+    margin-top: 3px;
+    font-size: 15px;
+    width: 18px;
+    text-align: center;
+    color: #91abff;
+}
+
+.footer-phone-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+}
+
+.footer-phone-num,
+.footer-email-link {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+    display: inline-block;
+    transition: color 0.2s ease;
+}
+
+.footer-phone-num:hover,
+.footer-email-link:hover {
+    color: #0463fa !important;
+}
+
+.footer .text-light hr {
+    width: 80px;
+    border-top: 2px solid #91abff;
+    margin-top: 8px;
+    opacity: 1;
+}
+
+/* RTL / UAE Language Specific Rules */
+[dir="rtl"] .footer,
+html.rtl-mode .footer,
+html.translated-rtl .footer {
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+[dir="rtl"] .footer .text-light hr,
+html.rtl-mode .footer .text-light hr,
+html.translated-rtl .footer .text-light hr {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+}
+
+[dir="rtl"] .footer .btn.btn-link,
+html.rtl-mode .footer .btn.btn-link,
+html.translated-rtl .footer .btn.btn-link {
+    text-align: right !important;
+}
+
+[dir="rtl"] .footer .btn.btn-link::before,
+html.rtl-mode .footer .btn.btn-link::before,
+html.translated-rtl .footer .btn.btn-link::before {
+    content: "\f104" !important; /* Font Awesome fa-angle-left (<) points in RTL reading direction */
+    margin-right: 0 !important;
+    margin-left: 10px !important;
+    display: inline-block !important;
+}
+
+[dir="rtl"] .footer .btn.btn-link:hover,
+html.rtl-mode .footer .btn.btn-link:hover,
+html.translated-rtl .footer .btn.btn-link:hover {
+    letter-spacing: 0 !important; /* Preserves cursive Arabic script integrity */
+    padding-right: 8px !important;
+    padding-left: 0 !important;
+    color: var(--primary) !important;
+}
+
+[dir="rtl"] .footer .footer-contact-icon,
+html.rtl-mode .footer .footer-contact-icon,
+html.translated-rtl .footer .footer-contact-icon {
+    margin-right: 0 !important;
+    margin-left: 14px !important;
+}
+
+[dir="rtl"] .footer .footer-phone-list,
+html.rtl-mode .footer .footer-phone-list,
+html.translated-rtl .footer .footer-phone-list {
+    align-items: flex-end;
+}
+
+[dir="rtl"] .footer .follow-icons,
+html.rtl-mode .footer .follow-icons,
+html.translated-rtl .footer .follow-icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+[dir="rtl"] .footer .btn.btn-social,
+html.rtl-mode .footer .btn.btn-social,
+html.translated-rtl .footer .btn.btn-social {
+    margin-right: 0 !important;
+    margin-left: 6px !important;
+}
+
+[dir="rtl"] .footer .copyright,
+html.rtl-mode .footer .copyright,
+html.translated-rtl .footer .copyright {
+    text-align: center !important;
 }
