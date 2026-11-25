@@ -103,15 +103,16 @@
             if ($this.hasClass('owl-loaded')) return;
 
             const itemsCount = $this.children('.item').length || $this.children().length;
+            const isHomePage = $this.hasClass('home-hospital-slider');
             $this.owlCarousel({
-                loop: false,
-                rewind: itemsCount > 1,
+                loop: isHomePage ? true : false,
+                rewind: !isHomePage && itemsCount > 1,
                 nav: false,
                 dots: false,
                 margin: 16,
-                smartSpeed: 350,
-                autoplay: false,
-                autoplayTimeout: 4000,
+                smartSpeed: 450,
+                autoplay: isHomePage ? true : false,
+                autoplayTimeout: 3500,
                 autoplayHoverPause: true,
                 touchDrag: true,
                 mouseDrag: true,
@@ -131,14 +132,17 @@
             if ($this.hasClass('owl-loaded')) return;
 
             const itemsCount = $this.children('.item').length || $this.children().length;
+            const isHomePage = $this.hasClass('home-doctor-slider');
             $this.owlCarousel({
-                loop: false,
-                rewind: itemsCount > 1,
+                loop: isHomePage ? true : false,
+                rewind: !isHomePage && itemsCount > 1,
                 nav: false,
                 dots: false,
                 margin: 20,
-                smartSpeed: 350,
-                autoplay: false,
+                smartSpeed: 450,
+                autoplay: isHomePage ? true : false,
+                autoplayTimeout: 4000,
+                autoplayHoverPause: true,
                 touchDrag: true,
                 mouseDrag: true,
                 pullDrag: false,
